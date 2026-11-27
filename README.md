@@ -202,7 +202,7 @@ To deploy a fork to your own Cloudflare account, change the names and routes tha
 
 - `wrangler.jsonc`: the top-level `name` (a workers.dev preview) and `env.production.name` and `routes` (your domain and zone, or no routes to stay on workers.dev).
 - `scripts/deploy/targets.ts`: `PRODUCTION_WORKER`, `PRODUCTION_CONFIRMATION` and the worker names and route patterns in `TARGETS`, so the deploy guard accepts your config.
-- `.github/workflows/deploy.yml`: the `CONFIRM_PRODUCTION_DEPLOY` value, to match your `PRODUCTION_CONFIRMATION`.
+- `.github/workflows/deploy.yml`: the repository name in the deploy job's `if: github.repository == 'kitlangton/effect-institute'` (otherwise the job is skipped on your fork), and the `CONFIRM_PRODUCTION_DEPLOY` value, to match your `PRODUCTION_CONFIRMATION`.
 
 Check the build and config without uploading anything:
 
@@ -210,7 +210,7 @@ Check the build and config without uploading anything:
 bun scripts/deploy/cf-deploy.ts production --dry-run
 ```
 
-To deploy from GitHub Actions, add two repository secrets: `CLOUDFLARE_API_TOKEN` (an API token with permission to edit Workers) and `CLOUDFLARE_ACCOUNT_ID`. The Deploy workflow then runs on every push to `main`. To deploy from your machine, log in with Wrangler and run the same script without `--dry-run`, with `CONFIRM_PRODUCTION_DEPLOY` set to your confirmation string. The site needs no runtime secrets: ElevenLabs settings are only read by the local tools and are never deployed.
+To deploy from GitHub Actions, add two secrets to the repository's `production` environment, which the deploy job uses: `CLOUDFLARE_API_TOKEN` (an API token with permission to edit Workers) and `CLOUDFLARE_ACCOUNT_ID`. The Deploy workflow runs on every push to `main` and on manual runs; it typechecks, tests, builds and deploys. Until the token is set, a push only does the dry run and a manual run fails. To deploy from your machine, run `bunx wrangler login`, then `bun run cf:deploy` with `CONFIRM_PRODUCTION_DEPLOY` set to your confirmation string. The site needs no runtime secrets: ElevenLabs settings are only read by the local tools and are never deployed.
 
 ## 4. Guide for coding agents
 
@@ -231,7 +231,7 @@ Hard invariants:
    {import.meta.env.DEV && AuthoringBar ? <Suspense fallback={null}><AuthoringBar ... /></Suspense> : null}
    ```
 
-   An `if (import.meta.env.PROD) return` without an `else` is not removed by the bundler. `bun run build` fails if `dist/` contains `__authoring`, `api.elevenlabs.io` or `ELEVENLABS`.
+   An `if (import.meta.env.PROD) return` without an `else` is not removed by the bundler. `bun run build` fails if `dist/` contains `__authoring`, `api.elevenlabs.io` or `ELEVENLABS`. The dev endpoints refuse cross-site requests: keep sending the `X-Authoring: 1` header from `src/authoring/client/api.ts` for every POST.
 7. Nothing may need a key at startup, in tests, or in the build. Settings are read only when an ElevenLabs call runs. Tests use a mocked HTTP client and never call ElevenLabs.
 
 Fast verification loop after editing a lesson:
@@ -272,7 +272,7 @@ Other scripts:
 | --- | --- |
 | `bun dev` | Dev server on port 3210 with live lesson rebuilds and the recording tools |
 | `bun run build` | Published content, Worker bundle, and the dist check |
-| `bun run test` / `typecheck` / `lint` / `fix` | Vitest, TypeScript, Biome check, Biome format and fix |
+| `bun run test` / `typecheck` / `lint` / `fix` | Vitest; TypeScript 7 through `effect-tsgo`, which adds Effect diagnostics; Biome check; Biome format and fix |
 | `bun scripts/deploy/cf-deploy.ts production --dry-run` | Build and check the production deploy without uploading |
 
 ## License
