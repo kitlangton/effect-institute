@@ -1,29 +1,23 @@
 import { describe, expect, it } from "@effect/vitest"
 import { ConfigProvider, Effect, Layer } from "effect"
-import { HttpClient, type HttpClientRequest, HttpClientResponse } from "effect/http"
-import { DEFAULT_TTS_MODEL, ElevenLabs } from "./ElevenLabs"
+import { DEFAULT_TTS_MODEL, ElevenLabs, Fetch } from "./ElevenLabs"
 
 interface Captured {
 	url: string
-	headers: Record<string, string>
-	request: HttpClientRequest.HttpClientRequest
+	headers: Headers
+	body: RequestInit["body"]
 }
 
-/** An ElevenLabs layer whose HTTP client returns canned responses and records each request. */
+/** An ElevenLabs layer whose fetch returns canned responses and records each request. */
 const mocked = (env: Record<string, string>, respond: (url: string) => { status: number; body: unknown }) => {
 	const captured: Captured[] = []
-	const client = HttpClient.make((request, url) => {
-		captured.push({ url: url.toString(), headers: { ...request.headers }, request })
-		const { status, body } = respond(url.toString())
-		return Effect.succeed(
-			HttpClientResponse.fromWeb(
-				request,
-				new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } }),
-			),
-		)
-	})
+	const fakeFetch = async (url: string, init: RequestInit) => {
+		captured.push({ url, headers: new Headers(init.headers), body: init.body })
+		const { status, body } = respond(url)
+		return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json" } })
+	}
 	const layer = ElevenLabs.layer.pipe(
-		Layer.provide(Layer.succeed(HttpClient.HttpClient, client)),
+		Layer.provide(Layer.succeed(Fetch, fakeFetch)),
 		Layer.provide(ConfigProvider.layer(ConfigProvider.fromUnknown(env))),
 	)
 	return { layer, captured }
@@ -69,13 +63,11 @@ describe("ElevenLabs", () => {
 
 			const [call] = captured
 			expect(call.url).toBe("https://api.elevenlabs.io/v1/forced-alignment")
-			expect(call.headers["xi-api-key"]).toBe("test-key")
-			const body = call.request.body
-			expect(body._tag).toBe("FormData")
-			if (body._tag === "FormData") {
-				expect(body.formData.get("text")).toBe("Hi there.")
-				expect(body.formData.get("file")).toBeInstanceOf(Blob)
-			}
+			expect(call.headers.get("xi-api-key")).toBe("test-key")
+			const body = call.body
+			if (!(body instanceof FormData)) throw new Error("expected a FormData body")
+			expect(body.get("text")).toBe("Hi there.")
+			expect(body.get("file")).toBeInstanceOf(Blob)
 		}).pipe(Effect.provide(layer))
 	})
 
@@ -90,9 +82,8 @@ describe("ElevenLabs", () => {
 			expect(new TextDecoder().decode(speech.audio)).toBe("fake-mp3")
 			expect(speech.words.map((w) => w.word)).toEqual(["Hi", "there"])
 			expect(captured[0].url).toBe("https://api.elevenlabs.io/v1/text-to-speech/voice123/with-timestamps")
-			const body = captured[0].request.body
-			if (body._tag !== "Uint8Array") throw new Error(`unexpected body ${body._tag}`)
-			expect(JSON.parse(new TextDecoder().decode(body.body))).toEqual({ text: "Hi there", model_id: DEFAULT_TTS_MODEL })
+			expect(captured[0].headers.get("content-type")).toBe("application/json")
+			expect(JSON.parse(String(captured[0].body))).toEqual({ text: "Hi there", model_id: DEFAULT_TTS_MODEL })
 		}).pipe(Effect.provide(layer))
 	})
 
@@ -105,9 +96,7 @@ describe("ElevenLabs", () => {
 			const elevenLabs = yield* ElevenLabs
 			yield* elevenLabs.textToSpeech("Hi there", { voiceId: "cli-voice", modelId: "cli-model" })
 			expect(captured[0].url).toContain("/text-to-speech/cli-voice/")
-			const body = captured[0].request.body
-			if (body._tag !== "Uint8Array") throw new Error("unexpected body")
-			expect(JSON.parse(new TextDecoder().decode(body.body)).model_id).toBe("cli-model")
+			expect(JSON.parse(String(captured[0].body)).model_id).toBe("cli-model")
 		}).pipe(Effect.provide(layer))
 	})
 

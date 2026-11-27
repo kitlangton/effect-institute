@@ -5,10 +5,15 @@
  *
  * @module
  */
-import { Console, Effect, FileSystem, Option } from "effect"
+import { Console, Effect, FileSystem, Option, Schema } from "effect"
 import type { Narration, NarrationError, NarrationResult } from "@/authoring/server/Narration"
 import type { CourseService } from "@/backend/services"
 import { Args, Options } from "./shared"
+
+/** A command-line mistake or a failed check; the CLI prints its message as one `error:` line. */
+export class CommandError extends Schema.TaggedError<CommandError>()("CommandError", {
+	message: Schema.String,
+}) {}
 
 export const jsonOpt = Options.boolean("json").pipe(
 	Options.withDescription("Print the result as one JSON line (used by the dev server)"),
@@ -58,7 +63,7 @@ export const selectSections = (
 ) =>
 	Effect.gen(function* () {
 		if (Option.isSome(section)) return [section.value]
-		if (!all) return yield* Effect.fail(new Error("Pass a section ID, or --all for the whole chapter"))
+		if (!all) return yield* new CommandError({ message: "Pass a section ID, or --all for the whole chapter" })
 		const fs = yield* FileSystem.FileSystem
 		const ids = yield* course.listSections(chapter)
 		const selected: string[] = []

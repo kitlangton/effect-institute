@@ -8,8 +8,8 @@
  *
  * @module
  */
-import { ConfigProvider, Context, Effect, FileSystem, Layer, Option, Path, Schema, Stream } from "effect"
-import { ChildProcess, ChildProcessSpawner } from "effect/process"
+import { spawn } from "node:child_process"
+import { ConfigProvider, Context, Effect, FileSystem, Layer, Option, Path, Schema } from "effect"
 import { setting } from "./env"
 
 export class AudioError extends Schema.TaggedError<AudioError>()("AudioError", {
@@ -66,6 +66,59 @@ export const parseLoudnorm = (stderr: string): LoudnessMeasurement | null => {
 	}
 }
 
+interface Invocation {
+	readonly command: string
+	readonly args?: ReadonlyArray<string>
+	/** Run command as a /bin/sh script instead of an executable. */
+	readonly shell?: boolean
+	/** Extra environment variables on top of the current environment. */
+	readonly env?: Readonly<Record<string, string>>
+}
+
+/** Run a process to completion, collecting its output. Interrupting the effect kills the process. */
+const run = (invocation: Invocation, label: string) =>
+	Effect.callback<{ readonly stdout: string; readonly stderr: string }, AudioError>((resume, signal) => {
+		let settled = false
+		const settle = (effect: Effect.Effect<{ readonly stdout: string; readonly stderr: string }, AudioError>) => {
+			if (settled || signal.aborted) return
+			settled = true
+			resume(effect)
+		}
+		const child = spawn(invocation.command, [...(invocation.args ?? [])], {
+			shell: invocation.shell ? "/bin/sh" : false,
+			env: invocation.env ? { ...globalThis.process.env, ...invocation.env } : globalThis.process.env,
+			stdio: ["ignore", "pipe", "pipe"],
+			signal,
+		})
+		let stdout = ""
+		let stderr = ""
+		child.stdout.setEncoding("utf8").on("data", (chunk: string) => {
+			stdout += chunk
+		})
+		child.stderr.setEncoding("utf8").on("data", (chunk: string) => {
+			stderr += chunk
+		})
+		child.on("error", (error: NodeJS.ErrnoException) =>
+			settle(
+				Effect.fail(
+					new AudioError({
+						message:
+							error.code === "ENOENT"
+								? `${label} not found. Install ffmpeg (macOS: brew install ffmpeg, Debian/Ubuntu: apt install ffmpeg).`
+								: `${label} failed: ${error.message}`,
+					}),
+				),
+			),
+		)
+		child.on("close", (code) =>
+			settle(
+				code === 0
+					? Effect.succeed({ stdout, stderr })
+					: Effect.fail(new AudioError({ message: `${label} exited with ${code}:\n${stderr.slice(-1500)}` })),
+			),
+		)
+	})
+
 export class Audio extends Context.Service<
 	Audio,
 	{
@@ -78,50 +131,22 @@ export class Audio extends Context.Service<
 		/** Duration of an audio file in seconds. */
 		readonly duration: (file: string) => Effect.Effect<number, AudioError>
 		/** The installed ffmpeg version line, or None when ffmpeg is not on PATH. */
-		readonly ffmpegVersion: () => Effect.Effect<Option.Option<string>>
+		readonly ffmpegVersion: Effect.Effect<Option.Option<string>>
 	}
 >()("@effect-institute/authoring/Audio") {
 	static readonly layer = Layer.effect(
 		Audio,
 		Effect.gen(function* () {
-			const spawner = yield* ChildProcessSpawner.ChildProcessSpawner
 			const fs = yield* FileSystem.FileSystem
 			const path = yield* Path.Path
 			const provider = yield* ConfigProvider.ConfigProvider
 
-			const collect = <E>(stream: Stream.Stream<Uint8Array, E>) => Stream.mkString(Stream.decodeText(stream))
-
-			const run = (command: ChildProcess.Command, label: string) =>
-				Effect.scoped(
-					Effect.gen(function* () {
-						const handle = yield* spawner.spawn(command)
-						const [stdout, stderr, exitCode] = yield* Effect.all(
-							[collect(handle.stdout), collect(handle.stderr), handle.exitCode],
-							{ concurrency: "unbounded" },
-						)
-						if (exitCode !== 0) {
-							return yield* new AudioError({ message: `${label} exited with ${exitCode}:\n${stderr.slice(-1500)}` })
-						}
-						return { stdout, stderr }
-					}),
-				).pipe(
-					Effect.catchTag("PlatformError", (e) =>
-						Effect.fail(
-							new AudioError({
-								message: e.message.includes("ENOENT")
-									? `${label} not found. Install ffmpeg (macOS: brew install ffmpeg, Debian/Ubuntu: apt install ffmpeg).`
-									: `${label} failed: ${e.message}`,
-							}),
-						),
-					),
-				)
-
 			const ffmpeg = (args: ReadonlyArray<string>) =>
-				run(ChildProcess.make("ffmpeg", ["-hide_banner", "-nostdin", "-y", ...args]), "ffmpeg")
+				run({ command: "ffmpeg", args: ["-hide_banner", "-nostdin", "-y", ...args] }, "ffmpeg")
 
 			const duration = Effect.fn("Audio.duration")(function* (file: string) {
 				const { stdout } = yield* run(
-					ChildProcess.make("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", file]),
+					{ command: "ffprobe", args: ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", file] },
 					"ffprobe",
 				)
 				const seconds = Number.parseFloat(stdout.trim())
@@ -156,11 +181,11 @@ export class Audio extends Context.Service<
 					if (options.voice && Option.isSome(chainCommand)) {
 						yield* Effect.logInfo(`Running AUTHORING_AUDIO_CHAIN_CMD on ${decoded}`)
 						yield* run(
-							ChildProcess.make(chainCommand.value, {
-								shell: "/bin/sh",
-								extendEnv: true,
+							{
+								command: chainCommand.value,
+								shell: true,
 								env: { AUTHORING_AUDIO_IN: decoded, AUTHORING_AUDIO_OUT: chained },
-							}),
+							},
 							"AUTHORING_AUDIO_CHAIN_CMD",
 						)
 						if (!(yield* fs.exists(chained))) {
@@ -229,11 +254,10 @@ export class Audio extends Context.Service<
 					),
 			)
 
-			const ffmpegVersion = () =>
-				run(ChildProcess.make("ffmpeg", ["-version"]), "ffmpeg").pipe(
-					Effect.map(({ stdout }) => Option.some(stdout.split("\n")[0] ?? "ffmpeg")),
-					Effect.orElseSucceed(() => Option.none<string>()),
-				)
+			const ffmpegVersion = run({ command: "ffmpeg", args: ["-version"] }, "ffmpeg").pipe(
+				Effect.map(({ stdout }) => Option.some(stdout.split("\n")[0] ?? "ffmpeg")),
+				Effect.orElseSucceed(() => Option.none<string>()),
+			)
 
 			return Audio.of({ process, duration, ffmpegVersion })
 		}),

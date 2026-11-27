@@ -8,7 +8,6 @@
  * @module
  */
 import { ConfigProvider, Context, Effect, Layer, Option, Schema } from "effect"
-import { FetchHttpClient, HttpClient, HttpClientRequest, type HttpClientResponse } from "effect/http"
 import { charactersToWords, type TimedWord } from "../core/timings"
 import { type MissingSettingError, requireSetting, setting } from "./env"
 
@@ -19,25 +18,25 @@ export const DEFAULT_TTS_MODEL = "eleven_v4"
 
 export class ElevenLabsError extends Schema.TaggedError<ElevenLabsError>()("ElevenLabsError", {
 	message: Schema.String,
-	status: Schema.optional(Schema.Number),
+	status: Schema.optional(Schema.Finite),
 }) {}
 
 const AlignedWordSchema = Schema.Struct({
 	text: Schema.String,
-	start: Schema.Number,
-	end: Schema.Number,
-	loss: Schema.optional(Schema.Number),
+	start: Schema.Finite,
+	end: Schema.Finite,
+	loss: Schema.optional(Schema.Finite),
 })
 
 const ForcedAlignmentResponse = Schema.Struct({
 	words: Schema.Array(AlignedWordSchema),
-	loss: Schema.Number,
+	loss: Schema.Finite,
 })
 
 const CharacterAlignment = Schema.Struct({
 	characters: Schema.Array(Schema.String),
-	character_start_times_seconds: Schema.Array(Schema.Number),
-	character_end_times_seconds: Schema.Array(Schema.Number),
+	character_start_times_seconds: Schema.Array(Schema.Finite),
+	character_end_times_seconds: Schema.Array(Schema.Finite),
 })
 
 const SpeechWithTimestampsResponse = Schema.Struct({
@@ -64,6 +63,13 @@ export interface SpeechOptions {
 
 export type ElevenLabsFailure = ElevenLabsError | MissingSettingError
 
+/** The HTTP function the client calls; tests provide a fake. */
+export class Fetch extends Context.Service<Fetch, (url: string, init: RequestInit) => Promise<Response>>()(
+	"@effect-institute/authoring/Fetch",
+) {
+	static readonly layer = Layer.succeed(Fetch, (url: string, init: RequestInit) => globalThis.fetch(url, init))
+}
+
 export class ElevenLabs extends Context.Service<
 	ElevenLabs,
 	{
@@ -80,7 +86,7 @@ export class ElevenLabs extends Context.Service<
 	static readonly layer = Layer.effect(
 		ElevenLabs,
 		Effect.gen(function* () {
-			const http = yield* HttpClient.HttpClient
+			const fetch = yield* Fetch
 			// Capture where settings come from now; the values themselves are only read when a call runs.
 			const provider = yield* ConfigProvider.ConfigProvider
 			const withSettings = <A, E>(effect: Effect.Effect<A, E>) =>
@@ -88,29 +94,36 @@ export class ElevenLabs extends Context.Service<
 			const apiKey = withSettings(requireSetting("ELEVENLABS_API_KEY", "ElevenLabs alignment and generation"))
 
 			const execute = <S extends Schema.Codec<unknown, unknown>>(
-				request: HttpClientRequest.HttpClientRequest,
+				url: string,
+				init: RequestInit,
 				schema: S,
 				operation: string,
 			) =>
 				Effect.gen(function* () {
-					const response: HttpClientResponse.HttpClientResponse = yield* http.execute(request)
+					const response = yield* Effect.tryPromise({
+						try: (signal) => fetch(url, { ...init, signal }),
+						catch: (e) =>
+							new ElevenLabsError({
+								message: `${operation} request failed: ${e instanceof Error ? e.message : String(e)}`,
+							}),
+					})
 					if (response.status < 200 || response.status >= 300) {
-						const body = yield* response.text.pipe(Effect.orElseSucceed(() => ""))
+						const body = yield* Effect.promise(() => response.text().catch(() => ""))
 						return yield* new ElevenLabsError({
 							message: `${operation} failed (${response.status}): ${body.slice(0, 500)}`,
 							status: response.status,
 						})
 					}
-					const json = yield* response.json
-					return yield* Schema.decodeUnknownEffect(schema)(json)
-				}).pipe(
-					Effect.catchTag("SchemaError", (e) =>
-						Effect.fail(new ElevenLabsError({ message: `${operation} returned an unexpected response: ${e.message}` })),
-					),
-					Effect.catchTag("HttpClientError", (e) =>
-						Effect.fail(new ElevenLabsError({ message: `${operation} request failed: ${e.message}` })),
-					),
-				)
+					const json = yield* Effect.tryPromise({
+						try: () => response.json() as Promise<unknown>,
+						catch: () => new ElevenLabsError({ message: `${operation} returned a response that is not JSON` }),
+					})
+					return yield* Schema.decodeUnknownEffect(schema)(json).pipe(
+						Effect.mapError(
+							(e) => new ElevenLabsError({ message: `${operation} returned an unexpected response: ${e.message}` }),
+						),
+					)
+				})
 
 			const forcedAlignment = Effect.fn("ElevenLabs.forcedAlignment")(function* (
 				audio: Uint8Array,
@@ -122,11 +135,12 @@ export class ElevenLabs extends Context.Service<
 				form.append("file", new Blob([new Uint8Array(audio)]), fileName)
 				// Bracketed phrases otherwise come back as one timing entry.
 				form.append("text", transcript.replace(/[()[\]{}]/g, ""))
-				const request = HttpClientRequest.post(`${API_BASE}/forced-alignment`).pipe(
-					HttpClientRequest.setHeader("xi-api-key", key),
-					HttpClientRequest.bodyFormData(form),
+				const response = yield* execute(
+					`${API_BASE}/forced-alignment`,
+					{ method: "POST", headers: { "xi-api-key": key }, body: form },
+					ForcedAlignmentResponse,
+					"Forced alignment",
 				)
-				const response = yield* execute(request, ForcedAlignmentResponse, "Forced alignment")
 				return {
 					words: response.words
 						.map((w) => ({ word: w.text.trim(), start: w.start, end: w.end }))
@@ -143,13 +157,16 @@ export class ElevenLabs extends Context.Service<
 				const modelId =
 					options?.modelId ??
 					Option.getOrElse(yield* withSettings(setting("ELEVENLABS_MODEL_ID")), () => DEFAULT_TTS_MODEL)
-				const request = HttpClientRequest.post(
+				const response = yield* execute(
 					`${API_BASE}/text-to-speech/${encodeURIComponent(voiceId)}/with-timestamps`,
-				).pipe(
-					HttpClientRequest.setHeader("xi-api-key", key),
-					HttpClientRequest.bodyJsonUnsafe({ text, model_id: modelId }),
+					{
+						method: "POST",
+						headers: { "xi-api-key": key, "Content-Type": "application/json" },
+						body: JSON.stringify({ text, model_id: modelId }),
+					},
+					SpeechWithTimestampsResponse,
+					"Text to speech",
 				)
-				const response = yield* execute(request, SpeechWithTimestampsResponse, "Text to speech")
 				// "alignment" follows the submitted text; "normalized_alignment" may spell out numbers and break word matching.
 				const alignment = response.alignment ?? response.normalized_alignment
 				return {
@@ -162,5 +179,5 @@ export class ElevenLabs extends Context.Service<
 		}),
 	)
 
-	static readonly defaultLayer = ElevenLabs.layer.pipe(Layer.provide(FetchHttpClient.layer))
+	static readonly defaultLayer = ElevenLabs.layer.pipe(Layer.provide(Fetch.layer))
 }

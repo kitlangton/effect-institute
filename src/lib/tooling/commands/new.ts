@@ -7,6 +7,7 @@ import { Console, Effect, FileSystem, Option, Path } from "effect"
 import { Command } from "effect/cli"
 import { CourseService } from "@/backend/services"
 import { AppConfig } from "@/backend/services/AppConfig"
+import { CommandError } from "./narration-shared"
 import { Args, Options } from "./shared"
 
 const SAFE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -81,21 +82,22 @@ export const newCmd = Command.make("new", { path: pathArg, title: titleOpt, grou
 
 		const [chapterId, sectionId, ...rest] = args.path.split("/")
 		if (!chapterId || !sectionId || rest.length > 0 || !SAFE_ID.test(chapterId) || !SAFE_ID.test(sectionId)) {
-			return yield* Effect.fail(new Error("Expected <chapter>/<section> with lowercase, dash-separated IDs"))
+			return yield* new CommandError({ message: "Expected <chapter>/<section> with lowercase, dash-separated IDs" })
 		}
-		if (!SAFE_ID.test(args.group)) return yield* Effect.fail(new Error("--group must be lowercase and dash-separated"))
+		if (!SAFE_ID.test(args.group))
+			return yield* new CommandError({ message: "--group must be lowercase and dash-separated" })
 
 		const chapterDir = path.join(config.coursesDir, chapterId)
 		const sectionFile = path.join(chapterDir, `${sectionId}.ts`)
 		const indexFile = path.join(chapterDir, "index.ts")
 		const rel = (file: string) => path.relative(config.projectRoot, file)
 
-		if (yield* fs.exists(sectionFile)) return yield* Effect.fail(new Error(`${rel(sectionFile)} already exists`))
+		if (yield* fs.exists(sectionFile)) return yield* new CommandError({ message: `${rel(sectionFile)} already exists` })
 		const chapterExists = yield* fs.exists(indexFile)
 		if (chapterExists) {
 			const ids = yield* course.listSections(chapterId).pipe(Effect.orElseSucceed(() => [] as string[]))
 			if (ids.includes(sectionId)) {
-				return yield* Effect.fail(new Error(`Section ${sectionId} already exists in chapter ${chapterId}`))
+				return yield* new CommandError({ message: `Section ${sectionId} already exists in chapter ${chapterId}` })
 			}
 		}
 

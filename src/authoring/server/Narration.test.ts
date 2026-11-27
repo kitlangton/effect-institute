@@ -1,6 +1,6 @@
 import { NodeServices } from "@effect/platform-node"
 import { describe, expect, it } from "@effect/vitest"
-import { Effect, FileSystem, Layer, Option } from "effect"
+import { Effect, FileSystem, Layer } from "effect"
 import { AppConfig } from "@/backend/services/AppConfig"
 import { CourseService } from "@/backend/services/CourseService"
 import { Audio } from "./Audio"
@@ -41,7 +41,7 @@ const fakeAudio = Layer.effect(
 			process: (input, output) =>
 				fs.copyFile(input, output).pipe(Effect.as({ durationSeconds: 3, customChain: false }), Effect.orDie),
 			duration: () => Effect.succeed(3),
-			ffmpegVersion: () => Effect.succeed(Option.some("ffmpeg fake")),
+			ffmpegVersion: Effect.succeedSome("ffmpeg fake"),
 		})
 	}),
 )
@@ -58,7 +58,7 @@ const fakeElevenLabs = (withKey: boolean) =>
 							loss: 0.1,
 						})
 					: Effect.fail(
-							new MissingSettingError({ name: "ELEVENLABS_API_KEY", message: "ELEVENLABS_API_KEY is not set" }),
+							new MissingSettingError({ setting: "ELEVENLABS_API_KEY", message: "ELEVENLABS_API_KEY is not set" }),
 						),
 			textToSpeech: (text) =>
 				Effect.succeed({

@@ -12,6 +12,7 @@ import { CourseService } from "@/backend/services"
 import { parseTranscript } from "@/lib/content/compile"
 import { flattenPublishedSections, flattenSections } from "@/lib/content/dsl"
 import { mergeTimings } from "@/lib/content/timing-merge"
+import { CommandError } from "./narration-shared"
 
 export type SectionState = "ok" | "no-audio" | "no-timings" | "stale" | "estimated"
 
@@ -58,7 +59,7 @@ export const doctorCmd = Command.make("doctor", {}, () =>
 		const course = yield* CourseService
 		const fs = yield* FileSystem.FileSystem
 
-		const status = yield* narration.status()
+		const status = yield* narration.status
 		const line = (ok: boolean, text: string) => Console.log(`  ${ok ? "✓" : "-"} ${text}`)
 		yield* Console.log("\nTools and settings")
 		yield* line(
@@ -122,7 +123,7 @@ export const doctorCmd = Command.make("doctor", {}, () =>
 
 		yield* Console.log(`\n${errors} error(s), ${warnings} warning(s)`)
 		if (errors > 0) {
-			return yield* Effect.fail(new Error("Published sections need attention (see ✗ above)"))
+			return yield* new CommandError({ message: "Published sections need attention (see ✗ above)" })
 		}
 	}),
 ).pipe(Command.withDescription("Check ffmpeg, ElevenLabs settings, and every section's audio and timings"))

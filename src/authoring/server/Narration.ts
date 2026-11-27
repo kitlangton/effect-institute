@@ -74,7 +74,7 @@ export class Narration extends Context.Service<
 	{
 		readonly paths: (chapter: string, section: string) => SectionPaths
 		/** Which tools and settings are available. Reports presence only, never values. */
-		readonly status: () => Effect.Effect<AuthoringStatus>
+		readonly status: Effect.Effect<AuthoringStatus>
 		/** Process an audio file as the section's narration. Aligns when a key is set, otherwise estimates timings. */
 		readonly record: (chapter: string, section: string, file: string) => Effect.Effect<NarrationResult, NarrationError>
 		/** Re-align the section's existing audio against its current transcript. Requires ELEVENLABS_API_KEY. */
@@ -302,18 +302,17 @@ export class Narration extends Context.Service<
 				} satisfies NarrationResult
 			}, Effect.scoped)
 
-			const status = () =>
-				Effect.gen(function* () {
-					const isSet = (name: string) => Env.setting(name).pipe(Effect.map(Option.isSome))
-					return {
-						ffmpeg: yield* audio.ffmpegVersion(),
-						dotEnv: yield* fs.exists(path.join(config.projectRoot, ".env")).pipe(Effect.orElseSucceed(() => false)),
-						elevenLabsKey: yield* isSet("ELEVENLABS_API_KEY"),
-						voiceId: yield* isSet("ELEVENLABS_VOICE_ID"),
-						modelId: Option.getOrElse(yield* Env.setting("ELEVENLABS_MODEL_ID"), () => DEFAULT_TTS_MODEL),
-						audioChain: yield* isSet("AUTHORING_AUDIO_CHAIN_CMD"),
-					}
-				}).pipe(Effect.provideService(ConfigProvider.ConfigProvider, provider))
+			const status = Effect.gen(function* () {
+				const isSet = (name: string) => Env.setting(name).pipe(Effect.map(Option.isSome))
+				return {
+					ffmpeg: yield* audio.ffmpegVersion,
+					dotEnv: yield* fs.exists(path.join(config.projectRoot, ".env")).pipe(Effect.orElseSucceed(() => false)),
+					elevenLabsKey: yield* isSet("ELEVENLABS_API_KEY"),
+					voiceId: yield* isSet("ELEVENLABS_VOICE_ID"),
+					modelId: Option.getOrElse(yield* Env.setting("ELEVENLABS_MODEL_ID"), () => DEFAULT_TTS_MODEL),
+					audioChain: yield* isSet("AUTHORING_AUDIO_CHAIN_CMD"),
+				}
+			}).pipe(Effect.provideService(ConfigProvider.ConfigProvider, provider))
 
 			const toNarrationError = <A, E extends { readonly message: string }, R>(effect: Effect.Effect<A, E, R>) =>
 				Effect.mapError(effect, (e) => (e instanceof NarrationError ? e : new NarrationError({ message: e.message })))
@@ -335,7 +334,7 @@ export class Narration extends Context.Service<
 			const path = yield* Path.Path
 			return Narration.layer.pipe(
 				Layer.provide([ElevenLabs.defaultLayer, Audio.layer]),
-				// Also reaches Narration itself, which reads settings for status().
+				// Also reaches Narration itself, which reads settings for status.
 				Layer.provide(Env.layer(path.join(config.projectRoot, ".env"))),
 				Layer.provide(CourseService.defaultLayer),
 				Layer.provide(AppConfig.defaultLayer),

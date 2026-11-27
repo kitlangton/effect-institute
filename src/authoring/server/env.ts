@@ -7,7 +7,7 @@
 import { Config, ConfigProvider, Effect, FileSystem, Layer, Option, Schema } from "effect"
 
 export class MissingSettingError extends Schema.TaggedError<MissingSettingError>()("MissingSettingError", {
-	name: Schema.String,
+	setting: Schema.String,
 	message: Schema.String,
 }) {}
 
@@ -28,7 +28,7 @@ export const requireSetting = (name: string, neededFor: string): Effect.Effect<s
 				onNone: () =>
 					Effect.fail(
 						new MissingSettingError({
-							name,
+							setting: name,
 							message: `${name} is not set; it is needed for ${neededFor}. Copy .env.example to .env and fill it in (or export ${name} in your shell).`,
 						}),
 					),
