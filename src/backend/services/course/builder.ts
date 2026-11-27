@@ -111,7 +111,7 @@ const flowWarningError = (sectionId: string, w: FlowWarning): BuildError | null 
 }
 
 /** Static code becomes a one-snapshot animation so every section renders through the same player. */
-const slideshowFor = (compiled: CompiledSectionInput) => {
+export const slideshowFor = (compiled: CompiledSectionInput) => {
 	if (compiled.animation) {
 		const animDef: AnimationDef = {
 			animation: compiled.animation.animation as AnimationDef["animation"],
