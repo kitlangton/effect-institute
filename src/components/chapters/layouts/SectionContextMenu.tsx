@@ -1,4 +1,5 @@
 import { useAtomValue } from "@effect/atom-react"
+import { lazy, Suspense } from "react"
 import { contextMenuTargetAtom } from "@/atoms/cursor"
 import {
 	ContextMenu,
@@ -8,6 +9,11 @@ import {
 	ContextMenuSeparator,
 	ContextMenuTrigger,
 } from "@/components/ui/context-menu"
+
+// Dev-only narration actions; the DEV ternary lets the bundler drop them from production builds.
+const AuthoringMenuItems = import.meta.env.DEV
+	? lazy(() => import("@/authoring/client").then((m) => ({ default: m.AuthoringMenuItems })))
+	: null
 
 interface SectionContextMenuProps {
 	chapter: string
@@ -46,6 +52,11 @@ export function SectionContextMenu({
 								<ContextMenuLabel>Dev actions</ContextMenuLabel>
 								<ContextMenuItem onSelect={() => onOpenInEditor(dslPath)}>Open in editor</ContextMenuItem>
 								<ContextMenuItem onSelect={() => onCopyPath(dslPath)}>Copy file path</ContextMenuItem>
+								{import.meta.env.DEV && AuthoringMenuItems ? (
+									<Suspense fallback={null}>
+										<AuthoringMenuItems chapter={chapter} sectionId={target.sectionId} />
+									</Suspense>
+								) : null}
 							</>
 						)}
 					</>
