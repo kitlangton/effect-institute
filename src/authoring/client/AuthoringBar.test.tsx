@@ -40,7 +40,7 @@ class FakeAudioContext {
 	}
 }
 
-const requests: Array<{ url: string; method: string; body: unknown }> = []
+const requests: Array<{ url: string; method: string; body: unknown; headers: Headers }> = []
 const getUserMedia = vi.fn(async () => ({ getTracks: () => [{ stop: () => {} }] }) as unknown as MediaStream)
 
 const respond = (url: string) => {
@@ -73,7 +73,7 @@ beforeEach(() => {
 	vi.stubGlobal(
 		"fetch",
 		vi.fn(async (url: string, init?: RequestInit) => {
-			requests.push({ url, method: init?.method ?? "GET", body: init?.body })
+			requests.push({ url, method: init?.method ?? "GET", body: init?.body, headers: new Headers(init?.headers) })
 			return new Response(JSON.stringify(respond(url)))
 		}),
 	)
@@ -119,6 +119,7 @@ describe("AuthoringBar", () => {
 		expect(upload?.url).toContain("chapter=intro")
 		expect(upload?.url).toContain("section=welcome")
 		expect(upload?.body).toBeInstanceOf(Blob)
+		expect(upload?.headers.get("x-authoring")).toBe("1")
 		expect(container.textContent).toContain("Saved, timings estimated")
 		expect(container.textContent).toContain("No ELEVENLABS_API_KEY is set")
 

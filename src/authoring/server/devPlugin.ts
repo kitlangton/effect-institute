@@ -17,6 +17,7 @@ import { mkdir, readdir, stat, writeFile } from "node:fs/promises"
 import type { IncomingMessage, ServerResponse } from "node:http"
 import path from "node:path"
 import type { Plugin, ViteDevServer } from "vite"
+import { rejectCrossSite } from "./requestGuard"
 
 const SAFE_ID = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 const SAFE_TAKE = /^[A-Za-z0-9_-][A-Za-z0-9._-]*$/
@@ -168,6 +169,8 @@ export function authoringPlugin(): Plugin {
 
 			server.middlewares.use("/__authoring", async (req, res) => {
 				try {
+					const refusal = rejectCrossSite({ method: req.method, headers: req.headers })
+					if (refusal) throw new HttpError(403, refusal)
 					const url = new URL(req.url ?? "/", "http://localhost")
 					const route = `${req.method} ${url.pathname}`
 					if (route === "GET /status") return sendJson(res, 200, status())

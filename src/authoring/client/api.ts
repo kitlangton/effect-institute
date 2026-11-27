@@ -16,9 +16,16 @@ export type Outcome =
 const query = (chapter: string, section: string, extra: Record<string, string> = {}) =>
 	new URLSearchParams({ chapter, section, ...extra }).toString()
 
+// The dev server refuses POSTs without this header (see src/authoring/server/requestGuard.ts).
+const AUTHORING_HEADERS = { "X-Authoring": "1" }
+
 const post = async (route: string, chapter: string, section: string, init: RequestInit = {}, extra = {}) => {
 	try {
-		const response = await fetch(`/__authoring/${route}?${query(chapter, section, extra)}`, { method: "POST", ...init })
+		const response = await fetch(`/__authoring/${route}?${query(chapter, section, extra)}`, {
+			method: "POST",
+			...init,
+			headers: { ...AUTHORING_HEADERS, ...init.headers },
+		})
 		return (await response.json()) as Outcome
 	} catch (error) {
 		return { ok: false, error: error instanceof Error ? error.message : String(error) } satisfies Outcome
