@@ -8,6 +8,7 @@
  * @module
  */
 
+import type { LineBackground } from "@/lib/animated-code/annotations"
 import type {
 	CharRange,
 	CodeSlideshow,
@@ -19,7 +20,7 @@ import type {
 	TemplatePart,
 	Token,
 } from "@/lib/animated-code/slideshow"
-import type { AnimationDef, LineBgStyle, Snapshot } from "../animation"
+import type { AnimationDef, Snapshot } from "../animation"
 import { evaluateLinesForSnapshot } from "./evaluate"
 import { type Highlight, plainText, typescriptHighlighter } from "./highlight"
 import { buildManifest, type ManifestLine } from "./manifest"
@@ -143,7 +144,7 @@ interface LineRendering {
 	readonly parts: readonly PartRendering[]
 	readonly entering: boolean
 	readonly dimmed: boolean
-	readonly background?: LineBgStyle
+	readonly background?: LineBackground
 }
 
 interface FrameRendering extends Omit<FrameState, "lineOrder" | "state"> {

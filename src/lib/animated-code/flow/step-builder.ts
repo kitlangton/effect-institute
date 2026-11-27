@@ -6,7 +6,7 @@
  * @module
  */
 
-import type { AnimationSoundName } from "@/lib/animated-code/annotations"
+import type { AnimationSoundName, CursorType, StatusKind } from "@/lib/animated-code/annotations"
 import {
 	type AnnotationBuilder,
 	type BrightSpec,
@@ -49,7 +49,7 @@ class AnnotationBuilderImpl implements AnnotationBuilder {
 		this.opts = opts ?? {}
 	}
 
-	cursor(opts?: { type?: "pointer" | "hand" | "thumbsDown"; persist?: boolean }): AnnotationBuilder {
+	cursor(opts?: { type?: CursorType; persist?: boolean }): AnnotationBuilder {
 		this.annotations.push({
 			type: "cursor",
 			config: { text: this.text, ...this.opts, ...opts },
@@ -89,10 +89,7 @@ class AnnotationBuilderImpl implements AnnotationBuilder {
 		return this
 	}
 
-	status(
-		status: "running" | "success" | "error" | "interrupted" | "die",
-		opts?: { persist?: boolean },
-	): AnnotationBuilder {
+	status(status: StatusKind, opts?: { persist?: boolean }): AnnotationBuilder {
 		this.annotations.push({
 			type: "status",
 			config: { text: this.text, status, ...this.opts, ...opts },
@@ -226,39 +223,6 @@ class StepBuilderImpl implements StepBuilder {
 			},
 			clear: (): StepBuilder => {
 				this.step.annotations.focusClear = true
-				// Also clear legacy spotlight for backward compat
-				this.step.annotations.spotlightClear = true
-				return this
-			},
-		},
-	)
-
-	/**
-	 * @deprecated Use `.focus({ text: "pattern" })` instead
-	 */
-	spotlight = Object.assign(
-		(
-			pattern: string | { line: string; text?: string },
-			opts?: { dim?: number; glow?: boolean; persist?: boolean },
-		): StepBuilder => {
-			// Convert to unified focus token spec
-			const spec = this.ensureFocus()
-			if (!spec.tokens) {
-				spec.tokens = []
-			}
-
-			const tokenSpec: TokenFocusSpec = {
-				text: typeof pattern === "string" ? pattern : (pattern.text ?? ""),
-				...(typeof pattern === "object" && pattern.line && { line: pattern.line }),
-				...opts,
-			}
-			spec.tokens.push(tokenSpec)
-			return this
-		},
-		{
-			clear: (): StepBuilder => {
-				this.step.annotations.focusClear = true
-				this.step.annotations.spotlightClear = true
 				return this
 			},
 		},
@@ -269,7 +233,7 @@ class StepBuilderImpl implements StepBuilder {
 			text: string,
 			opts?: {
 				nth?: number
-				type?: "pointer" | "hand" | "thumbsDown"
+				type?: CursorType
 				after?: string
 				substring?: boolean
 				persist?: boolean
@@ -467,7 +431,7 @@ class StepBuilderImpl implements StepBuilder {
 	status = Object.assign(
 		(
 			text: string,
-			status: "running" | "success" | "error" | "interrupted" | "die",
+			status: StatusKind,
 			opts?: {
 				nth?: number
 				after?: string
@@ -532,9 +496,4 @@ export function on(word: string, opts?: OnOptions): StepBuilder {
 	if (opts?.nth) builder.nth(opts.nth)
 	if (opts?.offset) builder.offset(opts.offset)
 	return builder
-}
-
-/** Start a manually-driven animation step without tying it to narration. */
-export function step(name: string): StepBuilder {
-	return new StepBuilderImpl(name).as(name)
 }

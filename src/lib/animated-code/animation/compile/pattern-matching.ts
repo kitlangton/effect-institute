@@ -157,44 +157,6 @@ export function findPatternGlobally(
 }
 
 /**
- * Find ALL occurrences of a pattern globally across all lines.
- * @param lines - Pre-indexed lines with content
- * @param pattern - Text to find
- * @param opts - Matching options (substring, after)
- * @returns Array of matches with line context
- */
-export function findAllPatternsGlobally(
-	lines: LineWithContent[],
-	pattern: string,
-	opts: Omit<PatternMatchOptions, "nth"> = {},
-): GlobalMatch[] {
-	const { substring = false, after } = opts
-	const matches: GlobalMatch[] = []
-
-	// Find starting position (after anchor if specified)
-	let startLineIndex = 0
-	let startCharOffset = 0
-	if (after) {
-		const anchor = findAfterAnchor(lines, after)
-		if (!anchor) return matches
-		startLineIndex = anchor.lineIndex
-		startCharOffset = anchor.charOffset
-	}
-
-	for (let i = startLineIndex; i < lines.length; i++) {
-		const { lineId, content } = lines[i]
-		const searchStart = i === startLineIndex ? startCharOffset : 0
-
-		let idx = findPattern(content, pattern, searchStart, substring)
-		while (idx !== -1) {
-			matches.push({ lineId, start: idx, end: idx + pattern.length })
-			idx = findPattern(content, pattern, idx + 1, substring)
-		}
-	}
-	return matches
-}
-
-/**
  * Find pattern positions in content (per-line).
  * @param content - Text to search in
  * @param pattern - Text to find
@@ -232,13 +194,6 @@ function findPatternPositions(content: string, pattern: string, nth: number): Ar
 // ============================================================================
 // Range Collection Helpers
 // ============================================================================
-
-/** Helper to conditionally add ranges to config */
-export function addIfNonEmpty<C, T>(config: C, key: keyof C, ranges: Record<string, T[]>): void {
-	if (Object.keys(ranges).length > 0) {
-		;(config as Record<string, unknown>)[key as string] = ranges
-	}
-}
 
 /** Spotlight pattern type: string or { line, text? } */
 type SpotlightPattern = string | { readonly line: string; readonly text?: string | undefined }

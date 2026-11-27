@@ -7,7 +7,7 @@
  */
 
 import { Schema } from "effect"
-import type { AnimationSoundName } from "@/lib/animated-code/annotations"
+import type { AnimationSoundName, CursorType, StatusKind } from "@/lib/animated-code/annotations"
 
 // ============================================================================
 // Focus Spec (TaggedClass discriminated union)
@@ -56,7 +56,7 @@ export interface PatternMatchOptions {
 /** Cursor specification */
 export interface CursorSpec extends PatternMatchOptions {
 	text: string
-	type?: "pointer" | "hand" | "thumbsDown"
+	type?: CursorType
 	persist?: boolean
 }
 
@@ -88,20 +88,11 @@ export interface BurstSpec extends PatternMatchOptions {
 	persist?: boolean
 }
 
-/** Spotlight specification (legacy - use TokenFocusSpec via unified focus API) */
-export interface SpotlightSpec {
-	/** Pattern: string for text anywhere, or { line, text? } for line-constrained */
-	pattern: string | { line: string; text?: string }
-	dim?: number
-	glow?: boolean
-	persist?: boolean
-}
-
 // ============================================================================
 // Unified Focus Spec (combines line-level and token-level focus)
 // ============================================================================
 
-/** Token-level focus specification (replaces spotlight in unified API) */
+/** Token-level focus: dims everything but the matching text */
 export interface TokenFocusSpec extends PatternMatchOptions {
 	/** Text pattern to highlight */
 	text: string
@@ -133,7 +124,7 @@ export interface BrightSpec extends PatternMatchOptions {
 /** Status indicator specification */
 export interface StatusSpec extends PatternMatchOptions {
 	text: string
-	status: "running" | "success" | "error" | "interrupted" | "die"
+	status: StatusKind
 	persist?: boolean
 }
 
@@ -152,8 +143,6 @@ export interface FlowStep {
 	stateDelta?: Record<string, unknown>
 	annotations: {
 		focus?: UnifiedFocusSpec
-		/** @deprecated Use focus with TokenFocusSpec instead */
-		spotlight?: SpotlightSpec[]
 		cursor?: CursorSpec
 		glow?: GlowSpec[]
 		squiggle?: SquiggleSpec[]
@@ -165,11 +154,8 @@ export interface FlowStep {
 		say?: string
 		sound?: AnimationSoundName
 		focusClear?: boolean
-		/** @deprecated Unified into focusClear */
-		spotlightClear?: boolean
 		cursorClear?: boolean
 		brightClear?: boolean
-		glowClear?: boolean
 		squiggleClear?: boolean
 		markClear?: boolean
 		burstClear?: boolean
@@ -221,22 +207,12 @@ export interface StepBuilder {
 		all(): StepBuilder
 		clear(): StepBuilder
 	}
-	/**
-	 * @deprecated Use `.focus({ text: "pattern" })` instead
-	 */
-	spotlight: {
-		(
-			pattern: string | { line: string; text?: string },
-			opts?: { dim?: number; glow?: boolean; persist?: boolean },
-		): StepBuilder
-		clear(): StepBuilder
-	}
 	cursor: {
 		(
 			text: string,
 			opts?: {
 				nth?: number
-				type?: "pointer" | "hand" | "thumbsDown"
+				type?: CursorType
 				after?: string
 				substring?: boolean
 				persist?: boolean
@@ -327,7 +303,7 @@ export interface StepBuilder {
 	status: {
 		(
 			text: string,
-			status: "running" | "success" | "error" | "interrupted" | "die",
+			status: StatusKind,
 			opts?: {
 				nth?: number
 				after?: string
@@ -359,15 +335,12 @@ export interface StepBuilder {
  * Builder for grouping multiple annotations on the same text target.
  */
 export interface AnnotationBuilder {
-	cursor(opts?: { type?: "pointer" | "hand" | "thumbsDown"; persist?: boolean }): AnnotationBuilder
+	cursor(opts?: { type?: CursorType; persist?: boolean }): AnnotationBuilder
 	bright(opts?: { color?: string; persist?: boolean }): AnnotationBuilder
 	glow(opts?: { color?: string }): AnnotationBuilder
 	squiggle(opts?: { color?: string; persist?: boolean }): AnnotationBuilder
 	burst(emoji: string | string[], opts?: { count?: number; persist?: boolean }): AnnotationBuilder
-	status(
-		status: "running" | "success" | "error" | "interrupted" | "die",
-		opts?: { persist?: boolean },
-	): AnnotationBuilder
+	status(status: StatusKind, opts?: { persist?: boolean }): AnnotationBuilder
 }
 
 // ============================================================================

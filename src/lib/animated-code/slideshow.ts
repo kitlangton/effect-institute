@@ -12,7 +12,7 @@
  */
 
 import { Schema } from "effect"
-import { AnimationSoundName } from "@/lib/animated-code/annotations"
+import { AnimationSoundName, CursorType, LineBackground, StatusKind } from "@/lib/animated-code/annotations"
 
 // ============================================================================
 // Wire Format
@@ -63,9 +63,6 @@ export const Template = Schema.Struct({
 })
 export type Template = typeof Template.Type
 
-export const LineBackground = Schema.Literals(["success", "error", "warning", "info"])
-export type LineBackground = typeof LineBackground.Type
-
 export const LineState = Schema.Struct({
 	/** Per part: hidden (false), visible with its only rendering (true), or visible with this version key */
 	parts: Schema.Record(Schema.String, Schema.Union([Schema.Boolean, Schema.String])),
@@ -79,9 +76,6 @@ export type LineState = typeof LineState.Type
 export const CharRange = Schema.Struct({ start: Schema.Number, end: Schema.Number })
 export type CharRange = typeof CharRange.Type
 
-export const StatusKind = Schema.Literals(["running", "success", "error", "interrupted", "die"])
-export type StatusKind = typeof StatusKind.Type
-
 export const StatusRange = Schema.Struct({ start: Schema.Number, end: Schema.Number, status: StatusKind })
 export type StatusRange = typeof StatusRange.Type
 
@@ -93,9 +87,6 @@ export const Overlay = Schema.Struct({
 	color: Schema.optionalKey(Schema.String),
 })
 export type Overlay = typeof Overlay.Type
-
-export const CursorType = Schema.Literals(["pointer", "hand", "thumbsDown"])
-export type CursorType = typeof CursorType.Type
 
 export const CursorTarget = Schema.Struct({
 	lineIndex: Schema.Number,

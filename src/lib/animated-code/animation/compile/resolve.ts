@@ -13,13 +13,15 @@ import type {
 	AnimationSoundName,
 	Annotation,
 	Bright,
+	CursorType,
 	Glow,
+	LineBackground,
 	Mark,
 	SpotlightPattern,
 	Squiggle,
+	StatusKind,
 } from "@/lib/animated-code/annotations"
-import type { CharRange, CursorType, StatusKind } from "@/lib/animated-code/slideshow"
-import type { LineBgStyle } from "../animation"
+import type { CharRange } from "@/lib/animated-code/slideshow"
 import type { EvaluatedLine } from "./evaluate"
 import { collectSimpleRanges, findPatternGlobally, indexLines, resolveFocusedLines } from "./pattern-matching"
 
@@ -59,7 +61,7 @@ export interface AnnotationMiss {
 export interface ResolvedSnapshot {
 	/** Lines kept bright by line focus; undefined when nothing is focused */
 	readonly focusedLineIds: ReadonlySet<string> | undefined
-	readonly backgrounds: ReadonlyMap<string, LineBgStyle>
+	readonly backgrounds: ReadonlyMap<string, LineBackground>
 	readonly marks: readonly ResolvedRange[]
 	readonly glows: readonly ResolvedRange[]
 	readonly squiggles: readonly ResolvedRange[]
@@ -108,7 +110,7 @@ export function resolveAnnotations(
 	const brights: ResolvedRange[] = []
 	const status: Array<ResolvedRange & { status: StatusKind }> = []
 	const bursts: Array<ResolvedPoint & { emoji: readonly string[]; count: number }> = []
-	const backgrounds = new Map<string, LineBgStyle>()
+	const backgrounds = new Map<string, LineBackground>()
 	let focusedLineIds: ReadonlySet<string> | undefined
 	let spotlight: ResolvedSnapshot["spotlight"]
 	let cursor: ResolvedSnapshot["cursor"]

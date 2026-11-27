@@ -30,7 +30,7 @@ export const catchTag = section("catch-tag", {
 			]),
 
 			// Body - starts with slowDie, .pipe( appears with catchTag
-			line("slowDieRef", ["  slowDie", slot.hidden("pipeShow", ".pipe(")]),
+			line("slowDieRef", ["  slowDie", slot.optional("pipeShow", ".pipe(")]),
 
 			slot.optional(
 				"catchVeryBad",
@@ -61,7 +61,7 @@ export const catchTag = section("catch-tag", {
 			),
 
 			// closing paren - only when piped
-			slot.hidden("pipeShow", line("pipeClose", "  )")),
+			slot.optional("pipeShow", line("pipeClose", "  )")),
 		),
 
 		flow: [

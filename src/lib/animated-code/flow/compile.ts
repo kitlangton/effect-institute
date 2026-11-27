@@ -28,7 +28,6 @@ import type {
 	CursorSpec,
 	FocusSpec,
 	MarkSpec,
-	SpotlightSpec,
 	SquiggleSpec,
 	StatusSpec,
 	StepBuilder,
@@ -163,7 +162,6 @@ export function compileFlow(
 	// Unified focus has separate persistence for lines and tokens
 	const focusLines = new Persistent<FocusSpec>((f) => "persist" in f && !!f.persist)
 	const focusTokens = new PersistentArray<TokenFocusSpec>()
-	const spotlight = new PersistentArray<SpotlightSpec>() // Legacy, kept for backward compat
 	const cursor = new Persistent<CursorSpec>()
 	const burst = new Persistent<BurstSpec>()
 	const bright = new PersistentArray<BrightSpec>()
@@ -207,8 +205,6 @@ export function compileFlow(
 		// Unified focus - separate trackers for lines and tokens
 		const effectiveFocusLines = focusLines.update(ann.focus?.lines, ann.focusClear)
 		const effectiveFocusTokens = focusTokens.update(ann.focus?.tokens, ann.focusClear)
-		// Legacy spotlight support (deprecated, but still works)
-		const effectiveLegacySpotlight = spotlight.update(ann.spotlight, ann.spotlightClear)
 		const effectiveCursor = cursor.update(ann.cursor, ann.cursorClear)
 		const effectiveBurst = burst.update(ann.burst, ann.burstClear)
 		const effectiveBright = bright.update(ann.bright, ann.brightClear)
@@ -225,29 +221,13 @@ export function compileFlow(
 			annotations.push(new Focus({ lines: resolvedFocus }))
 		}
 
-		// Merge unified token focus and legacy spotlight into one annotation
-		const allTokenSpecs: TokenFocusSpec[] = [
-			...(effectiveFocusTokens ?? []),
-			// Convert legacy SpotlightSpec to TokenFocusSpec
-			...(effectiveLegacySpotlight ?? []).map((s): TokenFocusSpec => {
-				const spec: TokenFocusSpec = {
-					text: typeof s.pattern === "string" ? s.pattern : (s.pattern.text ?? ""),
-				}
-				if (typeof s.pattern === "object" && s.pattern.line) {
-					spec.line = s.pattern.line
-				}
-				if (s.dim !== undefined) spec.dim = s.dim
-				if (s.glow !== undefined) spec.glow = s.glow
-				if (s.persist !== undefined) spec.persist = s.persist
-				return spec
-			}),
-		]
-
-		if (allTokenSpecs.length > 0) {
-			const patterns = allTokenSpecs.map((t): string | { line: string; text?: string } =>
+		// Token focus lowers to one spotlight; the first spec sets dim and glow
+		const tokenSpecs = effectiveFocusTokens ?? []
+		if (tokenSpecs.length > 0) {
+			const patterns = tokenSpecs.map((t): string | { line: string; text?: string } =>
 				t.line ? { line: t.line, text: t.text } : t.text,
 			)
-			const first = allTokenSpecs[0]
+			const first = tokenSpecs[0]
 			annotations.push(
 				new Spotlight({
 					patterns,
