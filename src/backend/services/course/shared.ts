@@ -39,7 +39,7 @@ export const FS_CONCURRENCY = 8
 export const HASHED_ARTIFACT = /^[a-z0-9]+(?:-[a-z0-9]+)*\.[a-f0-9]{8}\.(?:json|webm)$/
 
 /** Compute MD5 hash of content, returning first 8 hex characters */
-export const computeContentHash = (content: crypto.BinaryLike) =>
+export const computeContentHash = (content: string | Uint8Array) =>
 	crypto.createHash("md5").update(content).digest("hex").slice(0, 8)
 
 /** Escape a string for use as a literal inside a RegExp. */
