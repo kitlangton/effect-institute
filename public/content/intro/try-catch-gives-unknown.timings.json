@@ -1,0 +1,414 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "So",
+			"start": 0.10000000000000003,
+			"end": 0.30000000000000004
+		},
+		{
+			"index": 1,
+			"word": "how",
+			"start": 0.38,
+			"end": 0.6
+		},
+		{
+			"index": 2,
+			"word": "do",
+			"start": 0.7610000000000001,
+			"end": 0.9199999999999999
+		},
+		{
+			"index": 3,
+			"word": "you",
+			"start": 1,
+			"end": 1.04
+		},
+		{
+			"index": 4,
+			"word": "deal",
+			"start": 1.141,
+			"end": 1.2810000000000001
+		},
+		{
+			"index": 5,
+			"word": "with",
+			"start": 1.36,
+			"end": 1.46
+		},
+		{
+			"index": 6,
+			"word": "exploding",
+			"start": 1.54,
+			"end": 1.94
+		},
+		{
+			"index": 7,
+			"word": "Promises?",
+			"start": 2.04,
+			"end": 2.6
+		},
+		{
+			"index": 8,
+			"word": "You",
+			"start": 3.661,
+			"end": 3.72
+		},
+		{
+			"index": 9,
+			"word": "wrap",
+			"start": 3.7600000000000002,
+			"end": 3.9600000000000004
+		},
+		{
+			"index": 10,
+			"word": "your",
+			"start": 4,
+			"end": 4.121
+		},
+		{
+			"index": 11,
+			"word": "code",
+			"start": 4.161,
+			"end": 4.380000000000001
+		},
+		{
+			"index": 12,
+			"word": "in",
+			"start": 4.42,
+			"end": 4.5
+		},
+		{
+			"index": 13,
+			"word": "a",
+			"start": 4.5809999999999995,
+			"end": 4.601000000000001
+		},
+		{
+			"index": 14,
+			"word": "try/catch",
+			"start": 4.720000000000001,
+			"end": 5.42
+		},
+		{
+			"index": 15,
+			"word": "block.",
+			"start": 5.52,
+			"end": 5.82
+		},
+		{
+			"index": 16,
+			"word": "Tragically,",
+			"start": 6.880000000000001,
+			"end": 7.460000000000001
+		},
+		{
+			"index": 17,
+			"word": "the",
+			"start": 7.58,
+			"end": 7.661
+		},
+		{
+			"index": 18,
+			"word": "error",
+			"start": 7.799999999999999,
+			"end": 8.001
+		},
+		{
+			"index": 19,
+			"word": "you",
+			"start": 8.081,
+			"end": 8.161
+		},
+		{
+			"index": 20,
+			"word": "catch",
+			"start": 8.219999999999999,
+			"end": 8.559999999999999
+		},
+		{
+			"index": 21,
+			"word": "is",
+			"start": 8.621,
+			"end": 8.78
+		},
+		{
+			"index": 22,
+			"word": "always",
+			"start": 8.881,
+			"end": 9.121
+		},
+		{
+			"index": 23,
+			"word": "of",
+			"start": 9.139999999999999,
+			"end": 9.221
+		},
+		{
+			"index": 24,
+			"word": "type",
+			"start": 9.32,
+			"end": 9.581
+		},
+		{
+			"index": 25,
+			"word": "unknown,",
+			"start": 9.86,
+			"end": 10.4
+		},
+		{
+			"index": 26,
+			"word": "which",
+			"start": 11.081,
+			"end": 11.24
+		},
+		{
+			"index": 27,
+			"word": "is",
+			"start": 11.28,
+			"end": 11.4
+		},
+		{
+			"index": 28,
+			"word": "of",
+			"start": 11.44,
+			"end": 11.561
+		},
+		{
+			"index": 29,
+			"word": "little",
+			"start": 11.639999999999999,
+			"end": 11.82
+		},
+		{
+			"index": 30,
+			"word": "help.",
+			"start": 11.92,
+			"end": 12.219999999999999
+		},
+		{
+			"index": 31,
+			"word": "To",
+			"start": 13.28,
+			"end": 13.559999999999999
+		},
+		{
+			"index": 32,
+			"word": "handle",
+			"start": 13.6,
+			"end": 13.9
+		},
+		{
+			"index": 33,
+			"word": "it,",
+			"start": 13.94,
+			"end": 14.059999999999999
+		},
+		{
+			"index": 34,
+			"word": "you",
+			"start": 14.139999999999999,
+			"end": 14.24
+		},
+		{
+			"index": 35,
+			"word": "must",
+			"start": 14.28,
+			"end": 14.541
+		},
+		{
+			"index": 36,
+			"word": "pattern",
+			"start": 14.719999999999999,
+			"end": 15.001
+		},
+		{
+			"index": 37,
+			"word": "match,",
+			"start": 15.059999999999999,
+			"end": 15.379999999999999
+		},
+		{
+			"index": 38,
+			"word": "guided",
+			"start": 16.32,
+			"end": 16.701
+		},
+		{
+			"index": 39,
+			"word": "by",
+			"start": 16.720000000000002,
+			"end": 16.861
+		},
+		{
+			"index": 40,
+			"word": "what",
+			"start": 16.880000000000003,
+			"end": 17.021
+		},
+		{
+			"index": 41,
+			"word": "you've",
+			"start": 17.040000000000003,
+			"end": 17.240000000000002
+		},
+		{
+			"index": 42,
+			"word": "learned",
+			"start": 17.261000000000003,
+			"end": 17.681
+		},
+		{
+			"index": 43,
+			"word": "through",
+			"start": 17.740000000000002,
+			"end": 17.921000000000003
+		},
+		{
+			"index": 44,
+			"word": "your",
+			"start": 17.98,
+			"end": 18.200000000000003
+		},
+		{
+			"index": 45,
+			"word": "prior",
+			"start": 18.28,
+			"end": 18.681
+		},
+		{
+			"index": 46,
+			"word": "code",
+			"start": 18.761000000000003,
+			"end": 18.96
+		},
+		{
+			"index": 47,
+			"word": "spelunking.",
+			"start": 19.001,
+			"end": 19.64
+		},
+		{
+			"index": 48,
+			"word": "Alas,",
+			"start": 20.82,
+			"end": 21.32
+		},
+		{
+			"index": 49,
+			"word": "the",
+			"start": 21.82,
+			"end": 21.921000000000003
+		},
+		{
+			"index": 50,
+			"word": "type",
+			"start": 21.98,
+			"end": 22.14
+		},
+		{
+			"index": 51,
+			"word": "checker",
+			"start": 22.240000000000002,
+			"end": 22.540000000000003
+		},
+		{
+			"index": 52,
+			"word": "will",
+			"start": 22.581000000000003,
+			"end": 22.720000000000002
+		},
+		{
+			"index": 53,
+			"word": "not",
+			"start": 22.740000000000002,
+			"end": 22.900000000000002
+		},
+		{
+			"index": 54,
+			"word": "warn",
+			"start": 22.98,
+			"end": 23.18
+		},
+		{
+			"index": 55,
+			"word": "you",
+			"start": 23.240000000000002,
+			"end": 23.32
+		},
+		{
+			"index": 56,
+			"word": "if",
+			"start": 23.360000000000003,
+			"end": 23.48
+		},
+		{
+			"index": 57,
+			"word": "your",
+			"start": 23.520000000000003,
+			"end": 23.62
+		},
+		{
+			"index": 58,
+			"word": "assumptions",
+			"start": 23.64,
+			"end": 24.181
+		},
+		{
+			"index": 59,
+			"word": "were",
+			"start": 24.200000000000003,
+			"end": 24.341
+		},
+		{
+			"index": 60,
+			"word": "wrong,",
+			"start": 24.380000000000003,
+			"end": 24.720000000000002
+		},
+		{
+			"index": 61,
+			"word": "or",
+			"start": 25.581000000000003,
+			"end": 25.740000000000002
+		},
+		{
+			"index": 62,
+			"word": "if",
+			"start": 25.78,
+			"end": 25.921000000000003
+		},
+		{
+			"index": 63,
+			"word": "they",
+			"start": 25.94,
+			"end": 26.14
+		},
+		{
+			"index": 64,
+			"word": "change",
+			"start": 26.200000000000003,
+			"end": 26.581000000000003
+		},
+		{
+			"index": 65,
+			"word": "in",
+			"start": 26.64,
+			"end": 26.720000000000002
+		},
+		{
+			"index": 66,
+			"word": "the",
+			"start": 26.740000000000002,
+			"end": 26.781000000000002
+		},
+		{
+			"index": 67,
+			"word": "future.",
+			"start": 26.880000000000003,
+			"end": 27.28
+		}
+	],
+	"textHash": "1if6nb",
+	"wordCount": 68
+}

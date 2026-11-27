@@ -1,0 +1,486 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "What",
+			"start": 0.09999999999999998,
+			"end": 0.32099999999999995
+		},
+		{
+			"index": 1,
+			"word": "good",
+			"start": 0.36,
+			"end": 0.5999999999999999
+		},
+		{
+			"index": 2,
+			"word": "is",
+			"start": 0.76,
+			"end": 0.8799999999999999
+		},
+		{
+			"index": 3,
+			"word": "success",
+			"start": 0.96,
+			"end": 1.7000000000000002
+		},
+		{
+			"index": 4,
+			"word": "without",
+			"start": 1.88,
+			"end": 2.14
+		},
+		{
+			"index": 5,
+			"word": "the",
+			"start": 2.2,
+			"end": 2.26
+		},
+		{
+			"index": 6,
+			"word": "failure",
+			"start": 2.38,
+			"end": 2.88
+		},
+		{
+			"index": 7,
+			"word": "of",
+			"start": 2.94,
+			"end": 3.041
+		},
+		{
+			"index": 8,
+			"word": "others?",
+			"start": 3.14,
+			"end": 3.561
+		},
+		{
+			"index": 9,
+			"word": "Effect.fail",
+			"start": 4.880000000000001,
+			"end": 5.880000000000001
+		},
+		{
+			"index": 10,
+			"word": "creates",
+			"start": 6.041,
+			"end": 6.300000000000001
+		},
+		{
+			"index": 11,
+			"word": "an",
+			"start": 6.34,
+			"end": 6.4
+		},
+		{
+			"index": 12,
+			"word": "effect",
+			"start": 6.459999999999999,
+			"end": 6.82
+		},
+		{
+			"index": 13,
+			"word": "that",
+			"start": 6.92,
+			"end": 7.061
+		},
+		{
+			"index": 14,
+			"word": "will",
+			"start": 7.1,
+			"end": 7.32
+		},
+		{
+			"index": 15,
+			"word": "always",
+			"start": 7.5809999999999995,
+			"end": 8.1
+		},
+		{
+			"index": 16,
+			"word": "fail",
+			"start": 8.381,
+			"end": 8.66
+		},
+		{
+			"index": 17,
+			"word": "with",
+			"start": 8.841,
+			"end": 9.001
+		},
+		{
+			"index": 18,
+			"word": "the",
+			"start": 9.041,
+			"end": 9.1
+		},
+		{
+			"index": 19,
+			"word": "given",
+			"start": 9.16,
+			"end": 9.36
+		},
+		{
+			"index": 20,
+			"word": "value.",
+			"start": 9.461,
+			"end": 9.799999999999999
+		},
+		{
+			"index": 21,
+			"word": "Here,",
+			"start": 11.1,
+			"end": 11.299999999999999
+		},
+		{
+			"index": 22,
+			"word": "we'll",
+			"start": 11.36,
+			"end": 11.479999999999999
+		},
+		{
+			"index": 23,
+			"word": "give",
+			"start": 11.541,
+			"end": 11.62
+		},
+		{
+			"index": 24,
+			"word": "it",
+			"start": 11.639999999999999,
+			"end": 11.719999999999999
+		},
+		{
+			"index": 25,
+			"word": "the",
+			"start": 11.76,
+			"end": 11.841
+		},
+		{
+			"index": 26,
+			"word": "string",
+			"start": 11.921,
+			"end": 12.299999999999999
+		},
+		{
+			"index": 27,
+			"word": "\"too",
+			"start": 12.799999999999999,
+			"end": 13.26
+		},
+		{
+			"index": 28,
+			"word": "chonky,\"",
+			"start": 13.4,
+			"end": 13.799999999999999
+		},
+		{
+			"index": 29,
+			"word": "an",
+			"start": 14.7,
+			"end": 14.799999999999999
+		},
+		{
+			"index": 30,
+			"word": "adjective",
+			"start": 14.9,
+			"end": 15.52
+		},
+		{
+			"index": 31,
+			"word": "which",
+			"start": 15.8,
+			"end": 16.001
+		},
+		{
+			"index": 32,
+			"word": "entirely",
+			"start": 16.06,
+			"end": 16.56
+		},
+		{
+			"index": 33,
+			"word": "bypassed",
+			"start": 16.66,
+			"end": 17.261
+		},
+		{
+			"index": 34,
+			"word": "my",
+			"start": 17.32,
+			"end": 17.52
+		},
+		{
+			"index": 35,
+			"word": "grandmother's",
+			"start": 17.581,
+			"end": 18.181
+		},
+		{
+			"index": 36,
+			"word": "lexicon.",
+			"start": 18.261,
+			"end": 18.78
+		},
+		{
+			"index": 37,
+			"word": "Now,",
+			"start": 20.28,
+			"end": 20.599999999999998
+		},
+		{
+			"index": 38,
+			"word": "boom",
+			"start": 21.32,
+			"end": 21.8
+		},
+		{
+			"index": 39,
+			"word": "is",
+			"start": 21.86,
+			"end": 22.04
+		},
+		{
+			"index": 40,
+			"word": "an",
+			"start": 22.081,
+			"end": 22.12
+		},
+		{
+			"index": 41,
+			"word": "Effect",
+			"start": 22.28,
+			"end": 22.601
+		},
+		{
+			"index": 42,
+			"word": "that",
+			"start": 22.72,
+			"end": 22.9
+		},
+		{
+			"index": 43,
+			"word": "can",
+			"start": 22.98,
+			"end": 23.18
+		},
+		{
+			"index": 44,
+			"word": "never",
+			"start": 23.22,
+			"end": 23.48
+		},
+		{
+			"index": 45,
+			"word": "succeed,",
+			"start": 23.54,
+			"end": 24.099999999999998
+		},
+		{
+			"index": 46,
+			"word": "and",
+			"start": 24.88,
+			"end": 25.06
+		},
+		{
+			"index": 47,
+			"word": "always",
+			"start": 25.261,
+			"end": 25.82
+		},
+		{
+			"index": 48,
+			"word": "fails",
+			"start": 25.94,
+			"end": 26.261
+		},
+		{
+			"index": 49,
+			"word": "with",
+			"start": 26.32,
+			"end": 26.421
+		},
+		{
+			"index": 50,
+			"word": "our",
+			"start": 26.48,
+			"end": 26.64
+		},
+		{
+			"index": 51,
+			"word": "awful",
+			"start": 26.7,
+			"end": 27.02
+		},
+		{
+			"index": 52,
+			"word": "string.",
+			"start": 27.081,
+			"end": 27.46
+		},
+		{
+			"index": 53,
+			"word": "If",
+			"start": 28.64,
+			"end": 28.78
+		},
+		{
+			"index": 54,
+			"word": "we",
+			"start": 28.82,
+			"end": 28.88
+		},
+		{
+			"index": 55,
+			"word": "run",
+			"start": 29.001,
+			"end": 29.12
+		},
+		{
+			"index": 56,
+			"word": "it",
+			"start": 29.16,
+			"end": 29.419999999999998
+		},
+		{
+			"index": 57,
+			"word": "with",
+			"start": 29.48,
+			"end": 29.599999999999998
+		},
+		{
+			"index": 58,
+			"word": "Effect.runSync,",
+			"start": 29.68,
+			"end": 31.18
+		},
+		{
+			"index": 59,
+			"word": "it",
+			"start": 31.761,
+			"end": 31.900000000000002
+		},
+		{
+			"index": 60,
+			"word": "throws.",
+			"start": 31.961000000000002,
+			"end": 32.480000000000004
+		},
+		{
+			"index": 61,
+			"word": "If",
+			"start": 33.601000000000006,
+			"end": 33.781000000000006
+		},
+		{
+			"index": 62,
+			"word": "we",
+			"start": 33.84,
+			"end": 34.040000000000006
+		},
+		{
+			"index": 63,
+			"word": "add",
+			"start": 34.101000000000006,
+			"end": 34.261
+		},
+		{
+			"index": 64,
+			"word": "a",
+			"start": 34.34,
+			"end": 34.36000000000001
+		},
+		{
+			"index": 65,
+			"word": "delay",
+			"start": 34.480000000000004,
+			"end": 34.900000000000006
+		},
+		{
+			"index": 66,
+			"word": "and",
+			"start": 34.980000000000004,
+			"end": 35.101000000000006
+		},
+		{
+			"index": 67,
+			"word": "run",
+			"start": 35.14,
+			"end": 35.24
+		},
+		{
+			"index": 68,
+			"word": "it",
+			"start": 35.281000000000006,
+			"end": 35.36000000000001
+		},
+		{
+			"index": 69,
+			"word": "with",
+			"start": 35.400000000000006,
+			"end": 35.52
+		},
+		{
+			"index": 70,
+			"word": "Effect.runPromise,",
+			"start": 35.581,
+			"end": 37
+		},
+		{
+			"index": 71,
+			"word": "we,",
+			"start": 37.601000000000006,
+			"end": 37.96
+		},
+		{
+			"index": 72,
+			"word": "after",
+			"start": 38.06,
+			"end": 38.52
+		},
+		{
+			"index": 73,
+			"word": "two",
+			"start": 38.581,
+			"end": 38.88
+		},
+		{
+			"index": 74,
+			"word": "glorious",
+			"start": 38.941,
+			"end": 39.400000000000006
+		},
+		{
+			"index": 75,
+			"word": "seconds,",
+			"start": 39.46,
+			"end": 39.96
+		},
+		{
+			"index": 76,
+			"word": "see",
+			"start": 40.900000000000006,
+			"end": 41.081
+		},
+		{
+			"index": 77,
+			"word": "our",
+			"start": 41.14,
+			"end": 41.300000000000004
+		},
+		{
+			"index": 78,
+			"word": "promise",
+			"start": 41.38,
+			"end": 41.88
+		},
+		{
+			"index": 79,
+			"word": "rejected.",
+			"start": 42.101000000000006,
+			"end": 42.78
+		}
+	],
+	"textHash": "-zag2kl",
+	"wordCount": 80
+}

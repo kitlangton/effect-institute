@@ -1,0 +1,134 @@
+@import "tailwindcss";
+@import "./lib/neo-code-block/styles.css";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: 'Commit Mono';
+  src: url('/fonts/CommitMono-Variable.woff2') format('woff2-variations');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-mono: 'Commit Mono', ui-monospace, monospace;
+  --color-accent: rgba(255, 255, 255, 0.1);
+  --color-accent-foreground: #f1efe8;
+  --color-muted-foreground: rgba(255, 255, 255, 0.45);
+  --color-destructive: oklch(0.704 0.191 22.216);
+}
+
+:root {
+  /* Border colors */
+  --border-active: #333333;
+  --border-inactive: #222222;
+  --border-subtle: #222222;
+
+  /* Background colors */
+  --bg-hover: #080808;
+  --bg-active: #141414;
+
+  /* Semantic colors - emerald for completion/success */
+  --color-success: rgb(34, 140, 100);
+  --color-success-mid: rgb(42, 175, 126);
+  --color-success-bright: rgb(52, 211, 153);
+
+  /* Text color - warm off-white */
+  --color-text: #f1efe8;
+}
+
+html {
+  @apply bg-black;
+  font-size: 18px;
+  overflow-x: clip;
+}
+
+body {
+  @apply m-0 bg-black;
+  color: var(--color-text);
+  font-family: 'Commit Mono', ui-monospace, monospace;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+/* Keyboard focus rings only; hide mouse focus outlines */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}
+
+code {
+  font-family: 'Commit Mono', ui-monospace, monospace;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 240s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar on code blocks */
+.code-block-container pre {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.code-block-container pre::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+    cursor: default;
+  }
+  body {
+    background-color: #000000;
+    color: var(--color-text);
+  }
+  /* Override pointer cursor on all interactive elements */
+  a, button, [role="button"], input, select, textarea, label[for], summary {
+    cursor: default;
+  }
+}
+
+/* Status indicator animations */
+@keyframes spin-fast {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-fast {
+  animation: spin-fast 0.5s linear infinite;
+}

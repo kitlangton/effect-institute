@@ -1,0 +1,499 @@
+{
+	"id": "welcome-feedback",
+	"text": "Finally, there's a settings button at the top of the screen. In there, you can control playback speed, as well as file feedback. All feedback is appreciated. This is very much alpha software at the moment, so please bear with me. I'll continue to add lessons and superfluous animations until I die. Let us now become effect-pilled.",
+	"code": "",
+	"contentHash": "bcce3e73ee8ed925",
+	"wordTimings": [
+		{
+			"word": "Finally,",
+			"start": 0.10000000000000003,
+			"end": 0.6
+		},
+		{
+			"word": "there's",
+			"start": 0.98,
+			"end": 1.22
+		},
+		{
+			"word": "a",
+			"start": 1.2810000000000001,
+			"end": 1.32
+		},
+		{
+			"word": "settings",
+			"start": 1.46,
+			"end": 1.7999999999999998
+		},
+		{
+			"word": "button",
+			"start": 1.9010000000000002,
+			"end": 2.34
+		},
+		{
+			"word": "at",
+			"start": 2.4010000000000002,
+			"end": 2.48
+		},
+		{
+			"word": "the",
+			"start": 2.52,
+			"end": 2.6
+		},
+		{
+			"word": "top",
+			"start": 2.641,
+			"end": 2.8
+		},
+		{
+			"word": "of",
+			"start": 2.86,
+			"end": 2.92
+		},
+		{
+			"word": "the",
+			"start": 2.96,
+			"end": 3
+		},
+		{
+			"word": "screen.",
+			"start": 3.121,
+			"end": 3.52
+		},
+		{
+			"word": "In",
+			"start": 4.460000000000001,
+			"end": 4.5809999999999995
+		},
+		{
+			"word": "there,",
+			"start": 4.699999999999999,
+			"end": 5.061
+		},
+		{
+			"word": "you",
+			"start": 5.641,
+			"end": 5.779999999999999
+		},
+		{
+			"word": "can",
+			"start": 5.84,
+			"end": 6.0809999999999995
+		},
+		{
+			"word": "control",
+			"start": 6.141,
+			"end": 6.661
+		},
+		{
+			"word": "playback",
+			"start": 6.859999999999999,
+			"end": 7.32
+		},
+		{
+			"word": "speed,",
+			"start": 7.4399999999999995,
+			"end": 7.82
+		},
+		{
+			"word": "as",
+			"start": 8.581,
+			"end": 8.84
+		},
+		{
+			"word": "well",
+			"start": 8.881,
+			"end": 9.041
+		},
+		{
+			"word": "as",
+			"start": 9.139999999999999,
+			"end": 9.32
+		},
+		{
+			"word": "file",
+			"start": 9.461,
+			"end": 9.7
+		},
+		{
+			"word": "feedback.",
+			"start": 9.82,
+			"end": 10.32
+		},
+		{
+			"word": "All",
+			"start": 11.6,
+			"end": 11.78
+		},
+		{
+			"word": "feedback",
+			"start": 11.94,
+			"end": 12.44
+		},
+		{
+			"word": "is",
+			"start": 12.86,
+			"end": 13.001
+		},
+		{
+			"word": "appreciated.",
+			"start": 13.139999999999999,
+			"end": 13.86
+		},
+		{
+			"word": "This",
+			"start": 15.059999999999999,
+			"end": 15.18,
+			"paragraphBreak": true
+		},
+		{
+			"word": "is",
+			"start": 15.24,
+			"end": 15.421
+		},
+		{
+			"word": "very",
+			"start": 15.5,
+			"end": 15.761000000000001
+		},
+		{
+			"word": "much",
+			"start": 15.819999999999999,
+			"end": 16.181
+		},
+		{
+			"word": "alpha",
+			"start": 16.261000000000003,
+			"end": 16.520000000000003
+		},
+		{
+			"word": "software",
+			"start": 16.64,
+			"end": 17.020000000000003
+		},
+		{
+			"word": "at",
+			"start": 17.040000000000003,
+			"end": 17.121000000000002
+		},
+		{
+			"word": "the",
+			"start": 17.14,
+			"end": 17.220000000000002
+		},
+		{
+			"word": "moment,",
+			"start": 17.261000000000003,
+			"end": 17.601000000000003
+		},
+		{
+			"word": "so",
+			"start": 18.48,
+			"end": 18.62
+		},
+		{
+			"word": "please",
+			"start": 18.700000000000003,
+			"end": 19.020000000000003
+		},
+		{
+			"word": "bear",
+			"start": 19.12,
+			"end": 19.28
+		},
+		{
+			"word": "with",
+			"start": 19.32,
+			"end": 19.501
+		},
+		{
+			"word": "me.",
+			"start": 19.560000000000002,
+			"end": 19.720000000000002
+		},
+		{
+			"word": "I'll",
+			"start": 20.64,
+			"end": 20.740000000000002
+		},
+		{
+			"word": "continue",
+			"start": 20.78,
+			"end": 21.12
+		},
+		{
+			"word": "to",
+			"start": 21.161,
+			"end": 21.240000000000002
+		},
+		{
+			"word": "add",
+			"start": 21.341,
+			"end": 21.48
+		},
+		{
+			"word": "lessons",
+			"start": 21.581000000000003,
+			"end": 22.18
+		},
+		{
+			"word": "and",
+			"start": 22.68,
+			"end": 22.78
+		},
+		{
+			"word": "superfluous",
+			"start": 22.900000000000002,
+			"end": 23.761000000000003,
+			"definition": "Exceeding what is necessary or sufficient; extra, unnecessary."
+		},
+		{
+			"word": "animations",
+			"start": 23.82,
+			"end": 24.62
+		},
+		{
+			"word": "until",
+			"start": 25.18,
+			"end": 25.44
+		},
+		{
+			"word": "I",
+			"start": 25.560000000000002,
+			"end": 25.62
+		},
+		{
+			"word": "die.",
+			"start": 25.700000000000003,
+			"end": 25.98
+		},
+		{
+			"word": "Let",
+			"start": 26.94,
+			"end": 27.020000000000003,
+			"paragraphBreak": true
+		},
+		{
+			"word": "us",
+			"start": 27.081000000000003,
+			"end": 27.220000000000002
+		},
+		{
+			"word": "now",
+			"start": 27.32,
+			"end": 27.520000000000003
+		},
+		{
+			"word": "become",
+			"start": 27.560000000000002,
+			"end": 28.040000000000003
+		},
+		{
+			"word": "effect-pilled.",
+			"start": 29.001,
+			"end": 30,
+			"style": {
+				"bold": true
+			}
+		}
+	],
+	"componentFlow": {
+		"name": "WelcomeFeedback",
+		"steps": [
+			{
+				"name": "start",
+				"at": "start"
+			},
+			{
+				"name": "Finally",
+				"at": "Finally"
+			},
+			{
+				"name": "settings",
+				"at": "settings"
+			},
+			{
+				"name": "screen",
+				"at": "screen"
+			},
+			{
+				"name": "In",
+				"at": "In"
+			},
+			{
+				"name": "you",
+				"at": "you"
+			},
+			{
+				"name": "control",
+				"at": "control"
+			},
+			{
+				"name": "speed",
+				"at": "speed"
+			},
+			{
+				"name": "as",
+				"at": "as"
+			},
+			{
+				"name": "as",
+				"at": "as",
+				"nth": 2
+			},
+			{
+				"name": "feedback",
+				"at": "feedback"
+			},
+			{
+				"name": "is",
+				"at": "is"
+			},
+			{
+				"name": "appreciated",
+				"at": "appreciated"
+			},
+			{
+				"name": "become",
+				"at": "become"
+			}
+		],
+		"snapshots": [
+			{
+				"stage": "settings",
+				"cursorState": "hidden",
+				"selectedSpeed": "none",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": null
+			},
+			{
+				"stage": "settings",
+				"cursorState": "approaching",
+				"selectedSpeed": "none",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": null
+			},
+			{
+				"stage": "settings",
+				"cursorState": "hovering",
+				"selectedSpeed": "none",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": null
+			},
+			{
+				"stage": "settings",
+				"cursorState": "clicking",
+				"selectedSpeed": "none",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": null
+			},
+			{
+				"stage": "playback",
+				"cursorState": "hidden",
+				"selectedSpeed": "1×",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": null
+			},
+			{
+				"stage": "playback",
+				"cursorState": "hidden",
+				"selectedSpeed": "0.75×",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": 0.75
+			},
+			{
+				"stage": "playback",
+				"cursorState": "hidden",
+				"selectedSpeed": "0.5×",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": 0.5
+			},
+			{
+				"stage": "playback",
+				"cursorState": "hidden",
+				"selectedSpeed": "1.5×",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": 1.5
+			},
+			{
+				"stage": "playback",
+				"cursorState": "hidden",
+				"selectedSpeed": "2×",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": 2
+			},
+			{
+				"stage": "playback",
+				"cursorState": "hidden",
+				"selectedSpeed": "1×",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": 1
+			},
+			{
+				"stage": "feedback",
+				"cursorState": "hidden",
+				"selectedSpeed": "1×",
+				"sendButtonPressed": false,
+				"feedbackSent": false,
+				"actualSpeed": 1
+			},
+			{
+				"stage": "feedback",
+				"cursorState": "hidden",
+				"selectedSpeed": "1×",
+				"sendButtonPressed": true,
+				"feedbackSent": false,
+				"actualSpeed": 1
+			},
+			{
+				"stage": "feedback",
+				"cursorState": "hidden",
+				"selectedSpeed": "1×",
+				"sendButtonPressed": false,
+				"feedbackSent": true,
+				"actualSpeed": 1
+			},
+			{
+				"stage": "badge",
+				"cursorState": "hidden",
+				"selectedSpeed": "1×",
+				"sendButtonPressed": false,
+				"feedbackSent": true,
+				"actualSpeed": 1
+			}
+		]
+	},
+	"componentStepTimes": [
+		0,
+		0,
+		1.31,
+		2.971,
+		4.3100000000000005,
+		5.491,
+		5.991,
+		7.289999999999999,
+		8.431,
+		8.989999999999998,
+		9.67,
+		12.709999999999999,
+		12.989999999999998,
+		27.410000000000004
+	],
+	"_debug": {
+		"timingsStatus": "matched",
+		"dslWordCount": 57
+	},
+	"groupId": "welcome",
+	"groupTitle": "Welcome",
+	"isFirstInGroup": false,
+	"audioFile": "welcome-feedback.bf3d1c8d.webm"
+}

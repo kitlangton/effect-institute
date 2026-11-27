@@ -1,0 +1,360 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Let's",
+			"start": 0.09999999999999998,
+			"end": 0.30100000000000005
+		},
+		{
+			"index": 1,
+			"word": "see",
+			"start": 0.361,
+			"end": 0.45999999999999996
+		},
+		{
+			"index": 2,
+			"word": "what",
+			"start": 0.5,
+			"end": 0.6
+		},
+		{
+			"index": 3,
+			"word": "happens",
+			"start": 0.66,
+			"end": 1.02
+		},
+		{
+			"index": 4,
+			"word": "when",
+			"start": 1.08,
+			"end": 1.1800000000000002
+		},
+		{
+			"index": 5,
+			"word": "we",
+			"start": 1.2000000000000002,
+			"end": 1.2999999999999998
+		},
+		{
+			"index": 6,
+			"word": "add",
+			"start": 1.3610000000000002,
+			"end": 1.4809999999999999
+		},
+		{
+			"index": 7,
+			"word": "a",
+			"start": 1.56,
+			"end": 1.58
+		},
+		{
+			"index": 8,
+			"word": "second",
+			"start": 1.7200000000000002,
+			"end": 2.06
+		},
+		{
+			"index": 9,
+			"word": "failure",
+			"start": 2.181,
+			"end": 2.4610000000000003
+		},
+		{
+			"index": 10,
+			"word": "case.",
+			"start": 2.58,
+			"end": 2.88
+		},
+		{
+			"index": 11,
+			"word": "I've",
+			"start": 4.04,
+			"end": 4.141
+		},
+		{
+			"index": 12,
+			"word": "always",
+			"start": 4.181,
+			"end": 4.46
+		},
+		{
+			"index": 13,
+			"word": "found",
+			"start": 4.52,
+			"end": 4.721
+		},
+		{
+			"index": 14,
+			"word": "6",
+			"start": 5.02,
+			"end": 5.1209999999999996
+		},
+		{
+			"index": 15,
+			"word": "to",
+			"start": 5.181,
+			"end": 5.279999999999999
+		},
+		{
+			"index": 16,
+			"word": "be",
+			"start": 5.319999999999999,
+			"end": 5.42
+		},
+		{
+			"index": 17,
+			"word": "rather",
+			"start": 5.4799999999999995,
+			"end": 5.681
+		},
+		{
+			"index": 18,
+			"word": "bumptious.",
+			"start": 5.88,
+			"end": 6.46
+		},
+		{
+			"index": 19,
+			"word": "So",
+			"start": 7.26,
+			"end": 7.34
+		},
+		{
+			"index": 20,
+			"word": "whenever",
+			"start": 7.38,
+			"end": 7.619999999999999
+		},
+		{
+			"index": 21,
+			"word": "it",
+			"start": 7.681,
+			"end": 7.741
+		},
+		{
+			"index": 22,
+			"word": "is",
+			"start": 7.779999999999999,
+			"end": 7.881
+		},
+		{
+			"index": 23,
+			"word": "rolled,",
+			"start": 7.98,
+			"end": 8.299999999999999
+		},
+		{
+			"index": 24,
+			"word": "the",
+			"start": 8.461,
+			"end": 8.52
+		},
+		{
+			"index": 25,
+			"word": "effect",
+			"start": 8.639999999999999,
+			"end": 8.879999999999999
+		},
+		{
+			"index": 26,
+			"word": "will",
+			"start": 8.94,
+			"end": 9.121
+		},
+		{
+			"index": 27,
+			"word": "fail",
+			"start": 9.161,
+			"end": 9.42
+		},
+		{
+			"index": 28,
+			"word": "with",
+			"start": 9.459999999999999,
+			"end": 9.581
+		},
+		{
+			"index": 29,
+			"word": "TooHigh.",
+			"start": 9.741,
+			"end": 10.4
+		},
+		{
+			"index": 30,
+			"word": "The",
+			"start": 11.799999999999999,
+			"end": 11.879999999999999
+		},
+		{
+			"index": 31,
+			"word": "very",
+			"start": 11.92,
+			"end": 12.100999999999999
+		},
+		{
+			"index": 32,
+			"word": "moment",
+			"start": 12.219999999999999,
+			"end": 12.56
+		},
+		{
+			"index": 33,
+			"word": "we",
+			"start": 12.701,
+			"end": 12.799999999999999
+		},
+		{
+			"index": 34,
+			"word": "update",
+			"start": 12.879999999999999,
+			"end": 13.139999999999999
+		},
+		{
+			"index": 35,
+			"word": "our",
+			"start": 13.219999999999999,
+			"end": 13.379999999999999
+		},
+		{
+			"index": 36,
+			"word": "code,",
+			"start": 13.459999999999999,
+			"end": 13.76
+		},
+		{
+			"index": 37,
+			"word": "the",
+			"start": 14.42,
+			"end": 14.459999999999999
+		},
+		{
+			"index": 38,
+			"word": "type",
+			"start": 14.56,
+			"end": 14.78
+		},
+		{
+			"index": 39,
+			"word": "changes.",
+			"start": 14.84,
+			"end": 15.34
+		},
+		{
+			"index": 40,
+			"word": "The",
+			"start": 16.44,
+			"end": 16.48
+		},
+		{
+			"index": 41,
+			"word": "error",
+			"start": 16.6,
+			"end": 16.78
+		},
+		{
+			"index": 42,
+			"word": "type",
+			"start": 16.9,
+			"end": 17.14
+		},
+		{
+			"index": 43,
+			"word": "becomes",
+			"start": 17.181,
+			"end": 17.581
+		},
+		{
+			"index": 44,
+			"word": "the",
+			"start": 17.62,
+			"end": 17.661
+		},
+		{
+			"index": 45,
+			"word": "union",
+			"start": 17.82,
+			"end": 18.2
+		},
+		{
+			"index": 46,
+			"word": "of",
+			"start": 18.261,
+			"end": 18.421
+		},
+		{
+			"index": 47,
+			"word": "all",
+			"start": 18.501,
+			"end": 18.761
+		},
+		{
+			"index": 48,
+			"word": "possible",
+			"start": 18.841,
+			"end": 19.261
+		},
+		{
+			"index": 49,
+			"word": "failures,",
+			"start": 19.38,
+			"end": 19.9
+		},
+		{
+			"index": 50,
+			"word": "perfectly",
+			"start": 20.7,
+			"end": 21.2
+		},
+		{
+			"index": 51,
+			"word": "modeling",
+			"start": 21.241,
+			"end": 22.241
+		},
+		{
+			"index": 52,
+			"word": "the",
+			"start": 22.3,
+			"end": 22.421
+		},
+		{
+			"index": 53,
+			"word": "actual",
+			"start": 22.52,
+			"end": 22.919999999999998
+		},
+		{
+			"index": 54,
+			"word": "runtime",
+			"start": 22.98,
+			"end": 23.38
+		},
+		{
+			"index": 55,
+			"word": "behavior",
+			"start": 23.421,
+			"end": 23.9
+		},
+		{
+			"index": 56,
+			"word": "of",
+			"start": 23.94,
+			"end": 24.06
+		},
+		{
+			"index": 57,
+			"word": "our",
+			"start": 24.1,
+			"end": 24.28
+		},
+		{
+			"index": 58,
+			"word": "program.",
+			"start": 24.341,
+			"end": 24.78
+		}
+	],
+	"textHash": "a8jpc7",
+	"wordCount": 59
+}

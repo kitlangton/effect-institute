@@ -1,0 +1,624 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "I",
+			"start": 0.10000000000000003,
+			"end": 0.24
+		},
+		{
+			"index": 1,
+			"word": "must",
+			"start": 0.281,
+			"end": 0.48
+		},
+		{
+			"index": 2,
+			"word": "admit",
+			"start": 0.54,
+			"end": 0.8400000000000001
+		},
+		{
+			"index": 3,
+			"word": "I",
+			"start": 0.9199999999999999,
+			"end": 0.96
+		},
+		{
+			"index": 4,
+			"word": "lied",
+			"start": 1.1,
+			"end": 1.32
+		},
+		{
+			"index": 5,
+			"word": "a",
+			"start": 1.3800000000000001,
+			"end": 1.401
+		},
+		{
+			"index": 6,
+			"word": "little",
+			"start": 1.5,
+			"end": 1.6800000000000002
+		},
+		{
+			"index": 7,
+			"word": "when",
+			"start": 1.7400000000000002,
+			"end": 1.9010000000000002
+		},
+		{
+			"index": 8,
+			"word": "suggesting",
+			"start": 2,
+			"end": 2.48
+		},
+		{
+			"index": 9,
+			"word": "Effect.gen",
+			"start": 2.54,
+			"end": 3.44
+		},
+		{
+			"index": 10,
+			"word": "was",
+			"start": 3.52,
+			"end": 3.68
+		},
+		{
+			"index": 11,
+			"word": "morally",
+			"start": 3.78,
+			"end": 4.0809999999999995
+		},
+		{
+			"index": 12,
+			"word": "equivalent",
+			"start": 4.199999999999999,
+			"end": 4.68
+		},
+		{
+			"index": 13,
+			"word": "to",
+			"start": 4.84,
+			"end": 5
+		},
+		{
+			"index": 14,
+			"word": "async/await.",
+			"start": 5.101000000000001,
+			"end": 5.880000000000001
+		},
+		{
+			"index": 15,
+			"word": "It's",
+			"start": 6.661,
+			"end": 6.84
+		},
+		{
+			"index": 16,
+			"word": "actually",
+			"start": 6.960000000000001,
+			"end": 7.380000000000001
+		},
+		{
+			"index": 17,
+			"word": "much",
+			"start": 7.4399999999999995,
+			"end": 7.68
+		},
+		{
+			"index": 18,
+			"word": "better.",
+			"start": 7.9,
+			"end": 8.161
+		},
+		{
+			"index": 19,
+			"word": "Consider",
+			"start": 9.18,
+			"end": 9.541
+		},
+		{
+			"index": 20,
+			"word": "the",
+			"start": 9.6,
+			"end": 9.7
+		},
+		{
+			"index": 21,
+			"word": "sleep-deprived",
+			"start": 9.76,
+			"end": 10.541
+		},
+		{
+			"index": 22,
+			"word": "user",
+			"start": 10.661,
+			"end": 11.001
+		},
+		{
+			"index": 23,
+			"word": "who",
+			"start": 11.059999999999999,
+			"end": 11.161
+		},
+		{
+			"index": 24,
+			"word": "enters",
+			"start": 11.24,
+			"end": 11.68
+		},
+		{
+			"index": 25,
+			"word": "\"banana\"",
+			"start": 11.92,
+			"end": 12.48
+		},
+		{
+			"index": 26,
+			"word": "instead",
+			"start": 12.639999999999999,
+			"end": 13
+		},
+		{
+			"index": 27,
+			"word": "of",
+			"start": 13.041,
+			"end": 13.121
+		},
+		{
+			"index": 28,
+			"word": "her",
+			"start": 13.18,
+			"end": 13.34
+		},
+		{
+			"index": 29,
+			"word": "age.",
+			"start": 13.52,
+			"end": 13.86
+		},
+		{
+			"index": 30,
+			"word": "Perhaps",
+			"start": 14.661,
+			"end": 15.041
+		},
+		{
+			"index": 31,
+			"word": "we",
+			"start": 15.121,
+			"end": 15.18
+		},
+		{
+			"index": 32,
+			"word": "should",
+			"start": 15.24,
+			"end": 15.379999999999999
+		},
+		{
+			"index": 33,
+			"word": "fail",
+			"start": 15.541,
+			"end": 15.799999999999999
+		},
+		{
+			"index": 34,
+			"word": "with",
+			"start": 15.9,
+			"end": 16.040000000000003
+		},
+		{
+			"index": 35,
+			"word": "a",
+			"start": 16.181,
+			"end": 16.220000000000002
+		},
+		{
+			"index": 36,
+			"word": "BadNumber",
+			"start": 16.581000000000003,
+			"end": 17.32
+		},
+		{
+			"index": 37,
+			"word": "error.",
+			"start": 17.46,
+			"end": 17.681
+		},
+		{
+			"index": 38,
+			"word": "The",
+			"start": 18.740000000000002,
+			"end": 18.841
+		},
+		{
+			"index": 39,
+			"word": "moment",
+			"start": 18.921000000000003,
+			"end": 19.341
+		},
+		{
+			"index": 40,
+			"word": "this",
+			"start": 19.380000000000003,
+			"end": 19.520000000000003
+		},
+		{
+			"index": 41,
+			"word": "is",
+			"start": 19.581000000000003,
+			"end": 19.700000000000003
+		},
+		{
+			"index": 42,
+			"word": "added",
+			"start": 19.8,
+			"end": 20.040000000000003
+		},
+		{
+			"index": 43,
+			"word": "to",
+			"start": 20.081000000000003,
+			"end": 20.220000000000002
+		},
+		{
+			"index": 44,
+			"word": "askAge",
+			"start": 20.28,
+			"end": 20.78
+		},
+		{
+			"index": 45,
+			"word": "'s",
+			"start": 20.8,
+			"end": 20.941000000000003
+		},
+		{
+			"index": 46,
+			"word": "type,",
+			"start": 21.040000000000003,
+			"end": 21.281000000000002
+		},
+		{
+			"index": 47,
+			"word": "it",
+			"start": 21.841,
+			"end": 21.94
+		},
+		{
+			"index": 48,
+			"word": "changes",
+			"start": 22.020000000000003,
+			"end": 22.360000000000003
+		},
+		{
+			"index": 49,
+			"word": "the",
+			"start": 22.421000000000003,
+			"end": 22.5
+		},
+		{
+			"index": 50,
+			"word": "type",
+			"start": 22.560000000000002,
+			"end": 22.82
+		},
+		{
+			"index": 51,
+			"word": "of",
+			"start": 22.880000000000003,
+			"end": 22.96
+		},
+		{
+			"index": 52,
+			"word": "getUser.",
+			"start": 23.060000000000002,
+			"end": 23.78
+		},
+		{
+			"index": 53,
+			"word": "Likewise,",
+			"start": 24.880000000000003,
+			"end": 25.380000000000003
+		},
+		{
+			"index": 54,
+			"word": "if",
+			"start": 25.44,
+			"end": 25.520000000000003
+		},
+		{
+			"index": 55,
+			"word": "askName",
+			"start": 25.661,
+			"end": 26.400000000000002
+		},
+		{
+			"index": 56,
+			"word": "starts",
+			"start": 26.48,
+			"end": 26.82
+		},
+		{
+			"index": 57,
+			"word": "getting",
+			"start": 26.880000000000003,
+			"end": 27.12
+		},
+		{
+			"index": 58,
+			"word": "picky,",
+			"start": 27.28,
+			"end": 27.581000000000003
+		},
+		{
+			"index": 59,
+			"word": "its",
+			"start": 28.32,
+			"end": 28.6
+		},
+		{
+			"index": 60,
+			"word": "error",
+			"start": 28.700000000000003,
+			"end": 29.040000000000003
+		},
+		{
+			"index": 61,
+			"word": "automatically",
+			"start": 29.14,
+			"end": 29.84
+		},
+		{
+			"index": 62,
+			"word": "propagates",
+			"start": 29.900000000000002,
+			"end": 30.46
+		},
+		{
+			"index": 63,
+			"word": "to",
+			"start": 30.501,
+			"end": 30.581000000000003
+		},
+		{
+			"index": 64,
+			"word": "the",
+			"start": 30.6,
+			"end": 30.68
+		},
+		{
+			"index": 65,
+			"word": "outer",
+			"start": 30.76,
+			"end": 30.96
+		},
+		{
+			"index": 66,
+			"word": "type,",
+			"start": 31.040000000000003,
+			"end": 31.32
+		},
+		{
+			"index": 67,
+			"word": "forming",
+			"start": 32.14,
+			"end": 32.46
+		},
+		{
+			"index": 68,
+			"word": "a",
+			"start": 32.6,
+			"end": 32.620000000000005
+		},
+		{
+			"index": 69,
+			"word": "union",
+			"start": 32.82,
+			"end": 33.2
+		},
+		{
+			"index": 70,
+			"word": "of",
+			"start": 33.24,
+			"end": 33.42
+		},
+		{
+			"index": 71,
+			"word": "all",
+			"start": 33.541000000000004,
+			"end": 33.72
+		},
+		{
+			"index": 72,
+			"word": "possible",
+			"start": 33.88,
+			"end": 34.361000000000004
+		},
+		{
+			"index": 73,
+			"word": "errors.",
+			"start": 34.46,
+			"end": 34.88
+		},
+		{
+			"index": 74,
+			"word": "We",
+			"start": 36.14,
+			"end": 36.22
+		},
+		{
+			"index": 75,
+			"word": "now",
+			"start": 36.28,
+			"end": 36.440000000000005
+		},
+		{
+			"index": 76,
+			"word": "have",
+			"start": 36.501000000000005,
+			"end": 36.701
+		},
+		{
+			"index": 77,
+			"word": "three",
+			"start": 36.76,
+			"end": 37.041000000000004
+		},
+		{
+			"index": 78,
+			"word": "execution",
+			"start": 37.120000000000005,
+			"end": 37.74
+		},
+		{
+			"index": 79,
+			"word": "paths.",
+			"start": 37.800000000000004,
+			"end": 38.26
+		},
+		{
+			"index": 80,
+			"word": "askName",
+			"start": 39.24,
+			"end": 39.76
+		},
+		{
+			"index": 81,
+			"word": "could",
+			"start": 39.841,
+			"end": 39.96
+		},
+		{
+			"index": 82,
+			"word": "fail,",
+			"start": 40.08,
+			"end": 40.361000000000004
+		},
+		{
+			"index": 83,
+			"word": "causing",
+			"start": 41.161,
+			"end": 41.480000000000004
+		},
+		{
+			"index": 84,
+			"word": "getUser",
+			"start": 41.620000000000005,
+			"end": 42.021
+		},
+		{
+			"index": 85,
+			"word": "to",
+			"start": 42.06,
+			"end": 42.181000000000004
+		},
+		{
+			"index": 86,
+			"word": "fail.",
+			"start": 42.26,
+			"end": 42.54
+		},
+		{
+			"index": 87,
+			"word": "Or",
+			"start": 43.440000000000005,
+			"end": 43.72
+		},
+		{
+			"index": 88,
+			"word": "it",
+			"start": 43.78,
+			"end": 43.92
+		},
+		{
+			"index": 89,
+			"word": "could",
+			"start": 43.980000000000004,
+			"end": 44.22
+		},
+		{
+			"index": 90,
+			"word": "succeed,",
+			"start": 44.28,
+			"end": 44.82
+		},
+		{
+			"index": 91,
+			"word": "only",
+			"start": 45.56,
+			"end": 45.76
+		},
+		{
+			"index": 92,
+			"word": "for",
+			"start": 45.861000000000004,
+			"end": 45.96
+		},
+		{
+			"index": 93,
+			"word": "askAge",
+			"start": 46.1,
+			"end": 46.661
+		},
+		{
+			"index": 94,
+			"word": "to",
+			"start": 46.7,
+			"end": 46.82
+		},
+		{
+			"index": 95,
+			"word": "fail,",
+			"start": 46.9,
+			"end": 47.14
+		},
+		{
+			"index": 96,
+			"word": "short-circuiting",
+			"start": 47.82,
+			"end": 48.64
+		},
+		{
+			"index": 97,
+			"word": "once",
+			"start": 48.74,
+			"end": 48.96
+		},
+		{
+			"index": 98,
+			"word": "more.",
+			"start": 49.06,
+			"end": 49.32
+		},
+		{
+			"index": 99,
+			"word": "Or",
+			"start": 50.300000000000004,
+			"end": 50.56
+		},
+		{
+			"index": 100,
+			"word": "everything",
+			"start": 51.1,
+			"end": 51.521
+		},
+		{
+			"index": 101,
+			"word": "succeeds,",
+			"start": 51.64,
+			"end": 52.26
+		},
+		{
+			"index": 102,
+			"word": "hooray.",
+			"start": 53.28,
+			"end": 53.76
+		}
+	],
+	"textHash": "-1s8sk9",
+	"wordCount": 103
+}

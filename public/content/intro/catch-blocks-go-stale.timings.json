@@ -1,0 +1,390 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "If",
+			"start": 0.1,
+			"end": 0.279
+		},
+		{
+			"index": 1,
+			"word": "a",
+			"start": 0.38,
+			"end": 0.539
+		},
+		{
+			"index": 2,
+			"word": "future",
+			"start": 0.579,
+			"end": 0.98
+		},
+		{
+			"index": 3,
+			"word": "commit",
+			"start": 1.079,
+			"end": 1.439
+		},
+		{
+			"index": 4,
+			"word": "returns",
+			"start": 1.519,
+			"end": 2.0589999999999997
+		},
+		{
+			"index": 5,
+			"word": "an",
+			"start": 2.0989999999999998,
+			"end": 2.1999999999999997
+		},
+		{
+			"index": 6,
+			"word": "empty",
+			"start": 2.279,
+			"end": 2.5789999999999997
+		},
+		{
+			"index": 7,
+			"word": "cart",
+			"start": 2.659,
+			"end": 2.9589999999999996
+		},
+		{
+			"index": 8,
+			"word": "instead",
+			"start": 3.159,
+			"end": 3.4589999999999996
+		},
+		{
+			"index": 9,
+			"word": "of",
+			"start": 3.5,
+			"end": 3.6189999999999998
+		},
+		{
+			"index": 10,
+			"word": "throwing",
+			"start": 3.659,
+			"end": 4.099
+		},
+		{
+			"index": 11,
+			"word": "an",
+			"start": 4.18,
+			"end": 4.2989999999999995
+		},
+		{
+			"index": 12,
+			"word": "InvalidCartError,",
+			"start": 4.399,
+			"end": 5.519
+		},
+		{
+			"index": 13,
+			"word": "that",
+			"start": 6.279,
+			"end": 6.419
+		},
+		{
+			"index": 14,
+			"word": "branch",
+			"start": 6.499,
+			"end": 6.779
+		},
+		{
+			"index": 15,
+			"word": "becomes",
+			"start": 6.859,
+			"end": 7.399
+		},
+		{
+			"index": 16,
+			"word": "dead",
+			"start": 7.638999999999999,
+			"end": 7.959
+		},
+		{
+			"index": 17,
+			"word": "code.",
+			"start": 8.06,
+			"end": 8.399
+		},
+		{
+			"index": 18,
+			"word": "If",
+			"start": 9.359,
+			"end": 9.48
+		},
+		{
+			"index": 19,
+			"word": "a",
+			"start": 9.52,
+			"end": 9.579
+		},
+		{
+			"index": 20,
+			"word": "new",
+			"start": 9.699,
+			"end": 9.818999999999999
+		},
+		{
+			"index": 21,
+			"word": "error",
+			"start": 9.939,
+			"end": 10.158999999999999
+		},
+		{
+			"index": 22,
+			"word": "case",
+			"start": 10.238999999999999,
+			"end": 10.499
+		},
+		{
+			"index": 23,
+			"word": "is",
+			"start": 10.56,
+			"end": 10.68
+		},
+		{
+			"index": 24,
+			"word": "added",
+			"start": 10.779,
+			"end": 11.06
+		},
+		{
+			"index": 25,
+			"word": "and",
+			"start": 11.619,
+			"end": 11.74
+		},
+		{
+			"index": 26,
+			"word": "your",
+			"start": 11.799,
+			"end": 11.919
+		},
+		{
+			"index": 27,
+			"word": "catch",
+			"start": 12.039,
+			"end": 12.26
+		},
+		{
+			"index": 28,
+			"word": "block",
+			"start": 12.359,
+			"end": 12.658999999999999
+		},
+		{
+			"index": 29,
+			"word": "isn't",
+			"start": 12.72,
+			"end": 12.919
+		},
+		{
+			"index": 30,
+			"word": "updated,",
+			"start": 12.999,
+			"end": 13.44
+		},
+		{
+			"index": 31,
+			"word": "congratulations,",
+			"start": 14.14,
+			"end": 15.279
+		},
+		{
+			"index": 32,
+			"word": "you",
+			"start": 15.918999999999999,
+			"end": 15.959999999999999
+		},
+		{
+			"index": 33,
+			"word": "will",
+			"start": 15.999,
+			"end": 16.12
+		},
+		{
+			"index": 34,
+			"word": "now",
+			"start": 16.139000000000003,
+			"end": 16.28
+		},
+		{
+			"index": 35,
+			"word": "be",
+			"start": 16.299000000000003,
+			"end": 16.44
+		},
+		{
+			"index": 36,
+			"word": "paged",
+			"start": 16.479000000000003,
+			"end": 17.119000000000003
+		},
+		{
+			"index": 37,
+			"word": "at",
+			"start": 17.200000000000003,
+			"end": 17.239
+		},
+		{
+			"index": 38,
+			"word": "2",
+			"start": 17.579,
+			"end": 17.6
+		},
+		{
+			"index": 39,
+			"word": "a.m.",
+			"start": 17.659000000000002,
+			"end": 17.999000000000002
+		},
+		{
+			"index": 40,
+			"word": "The",
+			"start": 19.360000000000003,
+			"end": 19.459000000000003
+		},
+		{
+			"index": 41,
+			"word": "Promise",
+			"start": 19.520000000000003,
+			"end": 20.020000000000003
+		},
+		{
+			"index": 42,
+			"word": "is",
+			"start": 20.159000000000002,
+			"end": 20.419
+		},
+		{
+			"index": 43,
+			"word": "broken,",
+			"start": 20.699,
+			"end": 21.119000000000003
+		},
+		{
+			"index": 44,
+			"word": "because",
+			"start": 21.819000000000003,
+			"end": 22.1
+		},
+		{
+			"index": 45,
+			"word": "it",
+			"start": 22.139000000000003,
+			"end": 22.200000000000003
+		},
+		{
+			"index": 46,
+			"word": "entirely",
+			"start": 22.239,
+			"end": 22.78
+		},
+		{
+			"index": 47,
+			"word": "disregards",
+			"start": 22.860000000000003,
+			"end": 23.579
+		},
+		{
+			"index": 48,
+			"word": "a",
+			"start": 23.659000000000002,
+			"end": 23.680000000000003
+		},
+		{
+			"index": 49,
+			"word": "fundamental",
+			"start": 23.819000000000003,
+			"end": 24.419
+		},
+		{
+			"index": 50,
+			"word": "aspect",
+			"start": 24.539,
+			"end": 25.039
+		},
+		{
+			"index": 51,
+			"word": "of",
+			"start": 25.079,
+			"end": 25.239
+		},
+		{
+			"index": 52,
+			"word": "all",
+			"start": 25.359,
+			"end": 25.639000000000003
+		},
+		{
+			"index": 53,
+			"word": "earthly",
+			"start": 25.719,
+			"end": 26.239
+		},
+		{
+			"index": 54,
+			"word": "programs:",
+			"start": 26.299000000000003,
+			"end": 26.979000000000003
+		},
+		{
+			"index": 55,
+			"word": "the",
+			"start": 27.839000000000002,
+			"end": 27.879
+		},
+		{
+			"index": 56,
+			"word": "manifold",
+			"start": 27.959000000000003,
+			"end": 28.479000000000003
+		},
+		{
+			"index": 57,
+			"word": "ways",
+			"start": 28.579,
+			"end": 28.939
+		},
+		{
+			"index": 58,
+			"word": "in",
+			"start": 28.979000000000003,
+			"end": 29.079
+		},
+		{
+			"index": 59,
+			"word": "which",
+			"start": 29.119000000000003,
+			"end": 29.319000000000003
+		},
+		{
+			"index": 60,
+			"word": "they",
+			"start": 29.379,
+			"end": 29.559
+		},
+		{
+			"index": 61,
+			"word": "might",
+			"start": 29.579,
+			"end": 29.879
+		},
+		{
+			"index": 62,
+			"word": "go",
+			"start": 29.939,
+			"end": 30.219
+		},
+		{
+			"index": 63,
+			"word": "south.",
+			"start": 30.299000000000003,
+			"end": 30.659000000000002
+		}
+	],
+	"textHash": "z4ub52",
+	"wordCount": 64
+}

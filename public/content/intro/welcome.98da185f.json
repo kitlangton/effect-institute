@@ -1,0 +1,696 @@
+{
+	"id": "welcome",
+	"text": "Welcome to the Effect Institute. I'm Kit and I want to teach you Effect. But first, the briefest of tutorials. Pressing SPACE, as you may have discovered, will play or pause the current section. The ↑ and ↓ arrow keys will navigate between sections. When I finish this sentence, you'll claim a small greenish square to mark your progress, and then you can press SPACE to trigger the next section.",
+	"code": "",
+	"contentHash": "aee7c40415da0558",
+	"wordTimings": [
+		{
+			"word": "Welcome",
+			"start": 0.09999999999999998,
+			"end": 0.5199999999999999
+		},
+		{
+			"word": "to",
+			"start": 0.681,
+			"end": 0.74
+		},
+		{
+			"word": "the",
+			"start": 0.8009999999999999,
+			"end": 0.8599999999999999
+		},
+		{
+			"word": "Effect",
+			"start": 0.8999999999999999,
+			"end": 1.321,
+			"style": {
+				"bold": true
+			}
+		},
+		{
+			"word": "Institute.",
+			"start": 1.56,
+			"end": 2.18,
+			"style": {
+				"bold": true
+			}
+		},
+		{
+			"word": "I'm",
+			"start": 3.2199999999999998,
+			"end": 3.46
+		},
+		{
+			"word": "Kit",
+			"start": 3.6,
+			"end": 3.9,
+			"link": "https://x.com/kitlangton"
+		},
+		{
+			"word": "and",
+			"start": 4.66,
+			"end": 4.859999999999999
+		},
+		{
+			"word": "I",
+			"start": 5.0009999999999994,
+			"end": 5.021000000000001
+		},
+		{
+			"word": "want",
+			"start": 5.119999999999999,
+			"end": 5.220000000000001
+		},
+		{
+			"word": "to",
+			"start": 5.279999999999999,
+			"end": 5.34
+		},
+		{
+			"word": "teach",
+			"start": 5.4399999999999995,
+			"end": 5.68
+		},
+		{
+			"word": "you",
+			"start": 5.800000000000001,
+			"end": 6.021000000000001
+		},
+		{
+			"word": "Effect.",
+			"start": 6.6,
+			"end": 7.061
+		},
+		{
+			"word": "But",
+			"start": 8.24,
+			"end": 8.341,
+			"paragraphBreak": true
+		},
+		{
+			"word": "first,",
+			"start": 8.44,
+			"end": 8.78
+		},
+		{
+			"word": "the",
+			"start": 9.36,
+			"end": 9.421
+		},
+		{
+			"word": "briefest",
+			"start": 9.501,
+			"end": 10.081
+		},
+		{
+			"word": "of",
+			"start": 10.139999999999999,
+			"end": 10.219999999999999
+		},
+		{
+			"word": "tutorials.",
+			"start": 10.28,
+			"end": 10.961
+		},
+		{
+			"word": "Pressing",
+			"start": 12.02,
+			"end": 12.381
+		},
+		{
+			"word": "SPACE,",
+			"start": 12.559999999999999,
+			"end": 12.979999999999999,
+			"style": {
+				"code": true
+			}
+		},
+		{
+			"word": "as",
+			"start": 13.059999999999999,
+			"end": 13.221
+		},
+		{
+			"word": "you",
+			"start": 13.28,
+			"end": 13.421
+		},
+		{
+			"word": "may",
+			"start": 13.479999999999999,
+			"end": 13.581
+		},
+		{
+			"word": "have",
+			"start": 13.62,
+			"end": 13.74
+		},
+		{
+			"word": "discovered,",
+			"start": 13.78,
+			"end": 14.299999999999999
+		},
+		{
+			"word": "will",
+			"start": 15.001,
+			"end": 15.2
+		},
+		{
+			"word": "play",
+			"start": 15.24,
+			"end": 15.719999999999999
+		},
+		{
+			"word": "or",
+			"start": 15.780000000000001,
+			"end": 15.861
+		},
+		{
+			"word": "pause",
+			"start": 16.001,
+			"end": 16.36
+		},
+		{
+			"word": "the",
+			"start": 16.421,
+			"end": 16.48
+		},
+		{
+			"word": "current",
+			"start": 16.54,
+			"end": 16.74
+		},
+		{
+			"word": "section.",
+			"start": 16.88,
+			"end": 17.261
+		},
+		{
+			"word": "The",
+			"start": 18.44,
+			"end": 18.501
+		},
+		{
+			"word": "↑",
+			"start": 18.581,
+			"end": 18.601,
+			"style": {
+				"code": true
+			}
+		},
+		{
+			"word": "and",
+			"start": 18.921,
+			"end": 19.02
+		},
+		{
+			"word": "↓",
+			"start": 19.081,
+			"end": 19.101,
+			"style": {
+				"code": true
+			}
+		},
+		{
+			"word": "arrow",
+			"start": 19.46,
+			"end": 19.62
+		},
+		{
+			"word": "keys",
+			"start": 19.74,
+			"end": 20.001
+		},
+		{
+			"word": "will",
+			"start": 20.081,
+			"end": 20.201
+		},
+		{
+			"word": "navigate",
+			"start": 20.22,
+			"end": 20.7
+		},
+		{
+			"word": "between",
+			"start": 21.24,
+			"end": 21.74
+		},
+		{
+			"word": "sections.",
+			"start": 21.9,
+			"end": 22.48
+		},
+		{
+			"word": "When",
+			"start": 23.64,
+			"end": 23.74,
+			"paragraphBreak": true
+		},
+		{
+			"word": "I",
+			"start": 23.82,
+			"end": 23.841
+		},
+		{
+			"word": "finish",
+			"start": 23.94,
+			"end": 24.4
+		},
+		{
+			"word": "this",
+			"start": 24.48,
+			"end": 24.74
+		},
+		{
+			"word": "sentence,",
+			"start": 24.921,
+			"end": 25.44
+		},
+		{
+			"word": "you'll",
+			"start": 26.2,
+			"end": 26.421
+		},
+		{
+			"word": "claim",
+			"start": 26.48,
+			"end": 26.8
+		},
+		{
+			"word": "a",
+			"start": 26.86,
+			"end": 26.9
+		},
+		{
+			"word": "small",
+			"start": 27.081,
+			"end": 27.46
+		},
+		{
+			"word": "greenish",
+			"start": 27.599999999999998,
+			"end": 28.001
+		},
+		{
+			"word": "square",
+			"start": 28.18,
+			"end": 28.599999999999998
+		},
+		{
+			"word": "to",
+			"start": 28.64,
+			"end": 28.7
+		},
+		{
+			"word": "mark",
+			"start": 28.78,
+			"end": 28.94
+		},
+		{
+			"word": "your",
+			"start": 29.001,
+			"end": 29.16
+		},
+		{
+			"word": "progress,",
+			"start": 29.2,
+			"end": 29.7
+		},
+		{
+			"word": "and",
+			"start": 30.599999999999998,
+			"end": 30.72
+		},
+		{
+			"word": "then",
+			"start": 30.759999999999998,
+			"end": 30.88
+		},
+		{
+			"word": "you",
+			"start": 30.921,
+			"end": 30.98
+		},
+		{
+			"word": "can",
+			"start": 31.001,
+			"end": 31.16
+		},
+		{
+			"word": "press",
+			"start": 31.18,
+			"end": 31.38
+		},
+		{
+			"word": "SPACE",
+			"start": 31.44,
+			"end": 32.52,
+			"style": {
+				"code": true
+			}
+		},
+		{
+			"word": "to",
+			"start": 32.581,
+			"end": 32.7
+		},
+		{
+			"word": "trigger",
+			"start": 32.74,
+			"end": 32.941
+		},
+		{
+			"word": "the",
+			"start": 33,
+			"end": 33.101000000000006
+		},
+		{
+			"word": "next",
+			"start": 33.160000000000004,
+			"end": 33.440000000000005
+		},
+		{
+			"word": "section.",
+			"start": 33.540000000000006,
+			"end": 33.941
+		}
+	],
+	"componentFlow": {
+		"name": "KeyboardDiagram",
+		"steps": [
+			{
+				"name": "start",
+				"at": "start"
+			},
+			{
+				"name": "Welcome",
+				"at": "Welcome",
+				"offset": 0.1
+			},
+			{
+				"name": "to",
+				"at": "to",
+				"after": "Welcome"
+			},
+			{
+				"name": "the",
+				"at": "the"
+			},
+			{
+				"name": "Effect",
+				"at": "Effect"
+			},
+			{
+				"name": "Institute",
+				"at": "Institute"
+			},
+			{
+				"name": "Kit",
+				"at": "Kit"
+			},
+			{
+				"name": "SPACE",
+				"at": "SPACE"
+			},
+			{
+				"name": "play",
+				"at": "play"
+			},
+			{
+				"name": "play",
+				"at": "play",
+				"offset": 0.4
+			},
+			{
+				"name": "pause",
+				"at": "pause"
+			},
+			{
+				"name": "pause",
+				"at": "pause",
+				"offset": 0.4
+			},
+			{
+				"name": "The",
+				"at": "The",
+				"after": "section"
+			},
+			{
+				"name": "↑",
+				"at": "↑"
+			},
+			{
+				"name": "↑",
+				"at": "↑",
+				"offset": 0.4
+			},
+			{
+				"name": "↓",
+				"at": "↓"
+			},
+			{
+				"name": "↓",
+				"at": "↓",
+				"offset": 0.4
+			},
+			{
+				"name": "navigate",
+				"at": "navigate"
+			},
+			{
+				"name": "navigate",
+				"at": "navigate",
+				"offset": 0.4
+			},
+			{
+				"name": "between",
+				"at": "between"
+			},
+			{
+				"name": "between",
+				"at": "between",
+				"offset": 0.4
+			},
+			{
+				"name": "claim",
+				"at": "claim"
+			},
+			{
+				"name": "SPACE",
+				"at": "SPACE",
+				"nth": 2
+			},
+			{
+				"name": "SPACE",
+				"at": "SPACE",
+				"nth": 2,
+				"offset": 0.4
+			}
+		],
+		"snapshots": [
+			{
+				"pressed": "none",
+				"activeWord": -1,
+				"showSpace": false,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 0,
+				"showSpace": false,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 1,
+				"showSpace": false,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 2,
+				"showSpace": false,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 3,
+				"showSpace": false,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 4,
+				"showSpace": false,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": false,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "space",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "space",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": false,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "up",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "down",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "up",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "down",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": false
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": true
+			},
+			{
+				"pressed": "space",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": true
+			},
+			{
+				"pressed": "none",
+				"activeWord": 999,
+				"showSpace": true,
+				"showArrows": true,
+				"showCompletion": true
+			}
+		]
+	},
+	"componentStepTimes": [
+		0,
+		0.1,
+		0.531,
+		0.6509999999999999,
+		0.7499999999999999,
+		1.4100000000000001,
+		3.45,
+		12.409999999999998,
+		15.09,
+		15.49,
+		15.851,
+		16.251,
+		18.290000000000003,
+		18.431,
+		18.831,
+		18.931,
+		19.331,
+		20.07,
+		20.47,
+		21.09,
+		21.49,
+		26.330000000000002,
+		31.290000000000003,
+		31.69
+	],
+	"_debug": {
+		"timingsStatus": "matched",
+		"dslWordCount": 70
+	},
+	"groupId": "welcome",
+	"groupTitle": "Welcome",
+	"isFirstInGroup": true,
+	"audioFile": "welcome.619d8af5.webm"
+}

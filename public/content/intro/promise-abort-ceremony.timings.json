@@ -1,0 +1,390 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "If",
+			"start": 0.1,
+			"end": 0.28
+		},
+		{
+			"index": 1,
+			"word": "we",
+			"start": 0.32000000000000006,
+			"end": 0.42100000000000004
+		},
+		{
+			"index": 2,
+			"word": "wanted",
+			"start": 0.481,
+			"end": 0.6799999999999999
+		},
+		{
+			"index": 3,
+			"word": "to",
+			"start": 0.72,
+			"end": 0.78
+		},
+		{
+			"index": 4,
+			"word": "fix",
+			"start": 0.8799999999999999,
+			"end": 1.1199999999999999
+		},
+		{
+			"index": 5,
+			"word": "this,",
+			"start": 1.2,
+			"end": 1.46
+		},
+		{
+			"index": 6,
+			"word": "we'd",
+			"start": 1.58,
+			"end": 1.78
+		},
+		{
+			"index": 7,
+			"word": "first",
+			"start": 1.84,
+			"end": 2.1010000000000004
+		},
+		{
+			"index": 8,
+			"word": "need",
+			"start": 2.2,
+			"end": 2.4200000000000004
+		},
+		{
+			"index": 9,
+			"word": "an",
+			"start": 2.52,
+			"end": 2.5810000000000004
+		},
+		{
+			"index": 10,
+			"word": "AbortController.",
+			"start": 2.62,
+			"end": 3.5
+		},
+		{
+			"index": 11,
+			"word": "Then",
+			"start": 4.281,
+			"end": 4.4399999999999995
+		},
+		{
+			"index": 12,
+			"word": "we",
+			"start": 4.5,
+			"end": 4.54
+		},
+		{
+			"index": 13,
+			"word": "could",
+			"start": 4.6,
+			"end": 4.72
+		},
+		{
+			"index": 14,
+			"word": "wrap",
+			"start": 4.761,
+			"end": 5.06
+		},
+		{
+			"index": 15,
+			"word": "our",
+			"start": 5.14,
+			"end": 5.281
+		},
+		{
+			"index": 16,
+			"word": "logic",
+			"start": 5.38,
+			"end": 5.739999999999999
+		},
+		{
+			"index": 17,
+			"word": "in",
+			"start": 5.781,
+			"end": 5.88
+		},
+		{
+			"index": 18,
+			"word": "try/catch,",
+			"start": 6.02,
+			"end": 6.76
+		},
+		{
+			"index": 19,
+			"word": "aborting",
+			"start": 7.4399999999999995,
+			"end": 8.040000000000001
+		},
+		{
+			"index": 20,
+			"word": "and",
+			"start": 8.100000000000001,
+			"end": 8.281
+		},
+		{
+			"index": 21,
+			"word": "rethrowing",
+			"start": 8.38,
+			"end": 8.92
+		},
+		{
+			"index": 22,
+			"word": "upon",
+			"start": 8.96,
+			"end": 9.3
+		},
+		{
+			"index": 23,
+			"word": "failure.",
+			"start": 9.46,
+			"end": 9.821000000000002
+		},
+		{
+			"index": 24,
+			"word": "ask",
+			"start": 11.14,
+			"end": 11.4
+		},
+		{
+			"index": 25,
+			"word": "would",
+			"start": 11.440000000000001,
+			"end": 11.56
+		},
+		{
+			"index": 26,
+			"word": "need",
+			"start": 11.600000000000001,
+			"end": 11.701
+		},
+		{
+			"index": 27,
+			"word": "to",
+			"start": 11.72,
+			"end": 11.861
+		},
+		{
+			"index": 28,
+			"word": "take",
+			"start": 11.9,
+			"end": 12.14
+		},
+		{
+			"index": 29,
+			"word": "an",
+			"start": 12.241000000000001,
+			"end": 12.281
+		},
+		{
+			"index": 30,
+			"word": "abort",
+			"start": 12.38,
+			"end": 12.600000000000001
+		},
+		{
+			"index": 31,
+			"word": "signal",
+			"start": 12.72,
+			"end": 13.040000000000001
+		},
+		{
+			"index": 32,
+			"word": "and",
+			"start": 13.100000000000001,
+			"end": 13.261000000000001
+		},
+		{
+			"index": 33,
+			"word": "pass",
+			"start": 13.3,
+			"end": 13.5
+		},
+		{
+			"index": 34,
+			"word": "it",
+			"start": 13.540000000000001,
+			"end": 13.701
+		},
+		{
+			"index": 35,
+			"word": "through",
+			"start": 13.72,
+			"end": 14
+		},
+		{
+			"index": 36,
+			"word": "to",
+			"start": 14.020000000000001,
+			"end": 14.121
+		},
+		{
+			"index": 37,
+			"word": "the",
+			"start": 14.14,
+			"end": 14.180000000000001
+		},
+		{
+			"index": 38,
+			"word": "AI",
+			"start": 14.38,
+			"end": 14.620000000000001
+		},
+		{
+			"index": 39,
+			"word": "SDK",
+			"start": 14.781,
+			"end": 15.280000000000001
+		},
+		{
+			"index": 40,
+			"word": "function",
+			"start": 15.34,
+			"end": 15.700000000000001
+		},
+		{
+			"index": 41,
+			"word": "it",
+			"start": 15.76,
+			"end": 15.961000000000002
+		},
+		{
+			"index": 42,
+			"word": "calls.",
+			"start": 16.041,
+			"end": 16.52
+		},
+		{
+			"index": 43,
+			"word": "Luckily,",
+			"start": 17.76,
+			"end": 18.121000000000002
+		},
+		{
+			"index": 44,
+			"word": "this",
+			"start": 18.220000000000002,
+			"end": 18.381
+		},
+		{
+			"index": 45,
+			"word": "library",
+			"start": 18.461000000000002,
+			"end": 18.981
+		},
+		{
+			"index": 46,
+			"word": "supports",
+			"start": 19.060000000000002,
+			"end": 19.52
+		},
+		{
+			"index": 47,
+			"word": "abort",
+			"start": 19.580000000000002,
+			"end": 19.861
+		},
+		{
+			"index": 48,
+			"word": "signals,",
+			"start": 19.92,
+			"end": 20.34
+		},
+		{
+			"index": 49,
+			"word": "otherwise",
+			"start": 21.060000000000002,
+			"end": 21.42
+		},
+		{
+			"index": 50,
+			"word": "we'd",
+			"start": 21.461000000000002,
+			"end": 21.621000000000002
+		},
+		{
+			"index": 51,
+			"word": "be",
+			"start": 21.64,
+			"end": 21.82
+		},
+		{
+			"index": 52,
+			"word": "sort",
+			"start": 21.881,
+			"end": 22.02
+		},
+		{
+			"index": 53,
+			"word": "of",
+			"start": 22.041,
+			"end": 22.220000000000002
+		},
+		{
+			"index": 54,
+			"word": "doomed.",
+			"start": 22.281000000000002,
+			"end": 22.720000000000002
+		},
+		{
+			"index": 55,
+			"word": "Finally,",
+			"start": 23.92,
+			"end": 24.34
+		},
+		{
+			"index": 56,
+			"word": "we'd",
+			"start": 24.44,
+			"end": 24.740000000000002
+		},
+		{
+			"index": 57,
+			"word": "thread",
+			"start": 24.76,
+			"end": 25
+		},
+		{
+			"index": 58,
+			"word": "our",
+			"start": 25.080000000000002,
+			"end": 25.201
+		},
+		{
+			"index": 59,
+			"word": "signal",
+			"start": 25.34,
+			"end": 25.801000000000002
+		},
+		{
+			"index": 60,
+			"word": "through",
+			"start": 25.82,
+			"end": 26.14
+		},
+		{
+			"index": 61,
+			"word": "each",
+			"start": 26.240000000000002,
+			"end": 26.46
+		},
+		{
+			"index": 62,
+			"word": "call",
+			"start": 26.740000000000002,
+			"end": 26.98
+		},
+		{
+			"index": 63,
+			"word": "site.",
+			"start": 27.080000000000002,
+			"end": 27.361
+		}
+	],
+	"textHash": "inky3o",
+	"wordCount": 64
+}

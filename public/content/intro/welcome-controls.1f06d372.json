@@ -1,0 +1,319 @@
+{
+	"id": "welcome-controls",
+	"text": "Wow. You actually did it. As a prize, you get more tutorial. The R key will restart the current section. And the ← and → arrow keys will jump backward and forward a couple of seconds.",
+	"code": "",
+	"contentHash": "73cb9c48a295d5ec",
+	"wordTimings": [
+		{
+			"word": "Wow.",
+			"start": 0.10000000000000003,
+			"end": 0.6000000000000001
+		},
+		{
+			"word": "You",
+			"start": 1.22,
+			"end": 1.36
+		},
+		{
+			"word": "actually",
+			"start": 1.421,
+			"end": 1.7800000000000002
+		},
+		{
+			"word": "did",
+			"start": 1.8199999999999998,
+			"end": 1.94
+		},
+		{
+			"word": "it.",
+			"start": 2,
+			"end": 2.141
+		},
+		{
+			"word": "As",
+			"start": 3.181,
+			"end": 3.2800000000000002
+		},
+		{
+			"word": "a",
+			"start": 3.32,
+			"end": 3.4010000000000002
+		},
+		{
+			"word": "prize,",
+			"start": 3.4210000000000003,
+			"end": 3.9000000000000004
+		},
+		{
+			"word": "you",
+			"start": 3.96,
+			"end": 4.041
+		},
+		{
+			"word": "get",
+			"start": 4.101,
+			"end": 4.44
+		},
+		{
+			"word": "more",
+			"start": 4.5,
+			"end": 4.641
+		},
+		{
+			"word": "tutorial.",
+			"start": 4.681,
+			"end": 5.3
+		},
+		{
+			"word": "The",
+			"start": 6.42,
+			"end": 6.48,
+			"paragraphBreak": true
+		},
+		{
+			"word": "R",
+			"start": 6.641,
+			"end": 6.82,
+			"style": {
+				"code": true
+			}
+		},
+		{
+			"word": "key",
+			"start": 6.9,
+			"end": 7.26
+		},
+		{
+			"word": "will",
+			"start": 7.32,
+			"end": 7.44
+		},
+		{
+			"word": "restart",
+			"start": 7.54,
+			"end": 7.941
+		},
+		{
+			"word": "the",
+			"start": 7.960999999999999,
+			"end": 8.081
+		},
+		{
+			"word": "current",
+			"start": 8.100999999999999,
+			"end": 8.36
+		},
+		{
+			"word": "section.",
+			"start": 8.401,
+			"end": 8.82
+		},
+		{
+			"word": "And",
+			"start": 9.5,
+			"end": 9.600999999999999
+		},
+		{
+			"word": "the",
+			"start": 9.620000000000001,
+			"end": 9.719999999999999
+		},
+		{
+			"word": "←",
+			"start": 9.741,
+			"end": 9.742,
+			"style": {
+				"code": true
+			}
+		},
+		{
+			"word": "and",
+			"start": 10.16,
+			"end": 10.260000000000002
+		},
+		{
+			"word": "→",
+			"start": 10.280000000000001,
+			"end": 10.280999999999999,
+			"style": {
+				"code": true
+			}
+		},
+		{
+			"word": "arrow",
+			"start": 10.579999999999998,
+			"end": 10.8
+		},
+		{
+			"word": "keys",
+			"start": 10.86,
+			"end": 11.141000000000002
+		},
+		{
+			"word": "will",
+			"start": 11.219999999999999,
+			"end": 11.401
+		},
+		{
+			"word": "jump",
+			"start": 11.420000000000002,
+			"end": 12.219999999999999
+		},
+		{
+			"word": "backward",
+			"start": 12.260000000000002,
+			"end": 12.681000000000001
+		},
+		{
+			"word": "and",
+			"start": 12.719999999999999,
+			"end": 12.901
+		},
+		{
+			"word": "forward",
+			"start": 12.920000000000002,
+			"end": 13.2
+		},
+		{
+			"word": "a",
+			"start": 13.260000000000002,
+			"end": 13.32
+		},
+		{
+			"word": "couple",
+			"start": 13.36,
+			"end": 13.54
+		},
+		{
+			"word": "of",
+			"start": 13.579999999999998,
+			"end": 13.719999999999999
+		},
+		{
+			"word": "seconds.",
+			"start": 13.760000000000002,
+			"end": 14.201
+		}
+	],
+	"componentFlow": {
+		"name": "WelcomeControls",
+		"steps": [
+			{
+				"name": "start",
+				"at": "start"
+			},
+			{
+				"name": "restart",
+				"at": "restart"
+			},
+			{
+				"name": "restart",
+				"at": "restart",
+				"offset": 0.4
+			},
+			{
+				"name": "←",
+				"at": "←"
+			},
+			{
+				"name": "←",
+				"at": "←",
+				"offset": 0.4
+			},
+			{
+				"name": "→",
+				"at": "→"
+			},
+			{
+				"name": "→",
+				"at": "→",
+				"offset": 0.4
+			},
+			{
+				"name": "backward",
+				"at": "backward"
+			},
+			{
+				"name": "backward",
+				"at": "backward",
+				"offset": 0.4
+			},
+			{
+				"name": "forward",
+				"at": "forward"
+			},
+			{
+				"name": "forward",
+				"at": "forward",
+				"offset": 0.4
+			}
+		],
+		"snapshots": [
+			{
+				"highlightedKey": "none",
+				"hasRotated": false
+			},
+			{
+				"highlightedKey": "restart",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "none",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "seek_left",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "none",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "seek_right",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "none",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "seek_left",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "none",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "seek_right",
+				"hasRotated": true
+			},
+			{
+				"highlightedKey": "none",
+				"hasRotated": true
+			}
+		]
+	},
+	"componentStepTimes": [
+		0,
+		7.39,
+		7.79,
+		9.591,
+		9.991,
+		10.13,
+		10.530000000000001,
+		12.110000000000001,
+		12.510000000000002,
+		12.770000000000001,
+		13.170000000000002
+	],
+	"_debug": {
+		"timingsStatus": "matched",
+		"dslWordCount": 36
+	},
+	"groupId": "welcome",
+	"groupTitle": "Welcome",
+	"isFirstInGroup": false,
+	"audioFile": "welcome-controls.2e7f9be9.webm"
+}

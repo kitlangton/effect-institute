@@ -1,0 +1,444 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "To",
+			"start": 0.10000000000000003,
+			"end": 0.4
+		},
+		{
+			"index": 1,
+			"word": "see",
+			"start": 0.45999999999999996,
+			"end": 0.6
+		},
+		{
+			"index": 2,
+			"word": "how",
+			"start": 0.641,
+			"end": 0.7410000000000001
+		},
+		{
+			"index": 3,
+			"word": "Effect",
+			"start": 0.8,
+			"end": 1.16
+		},
+		{
+			"index": 4,
+			"word": "helps,",
+			"start": 1.2610000000000001,
+			"end": 1.7400000000000002
+		},
+		{
+			"index": 5,
+			"word": "we'll",
+			"start": 1.9,
+			"end": 2.06
+		},
+		{
+			"index": 6,
+			"word": "write",
+			"start": 2.141,
+			"end": 2.3
+		},
+		{
+			"index": 7,
+			"word": "the",
+			"start": 2.361,
+			"end": 2.42
+		},
+		{
+			"index": 8,
+			"word": "same",
+			"start": 2.52,
+			"end": 2.78
+		},
+		{
+			"index": 9,
+			"word": "function",
+			"start": 2.96,
+			"end": 3.34
+		},
+		{
+			"index": 10,
+			"word": "twice,",
+			"start": 3.48,
+			"end": 3.9000000000000004
+		},
+		{
+			"index": 11,
+			"word": "beginning",
+			"start": 4.5,
+			"end": 4.88
+		},
+		{
+			"index": 12,
+			"word": "with",
+			"start": 4.92,
+			"end": 5.041
+		},
+		{
+			"index": 13,
+			"word": "the",
+			"start": 5.081,
+			"end": 5.141
+		},
+		{
+			"index": 14,
+			"word": "Promise",
+			"start": 5.3,
+			"end": 5.7
+		},
+		{
+			"index": 15,
+			"word": "version.",
+			"start": 5.88,
+			"end": 6.24
+		},
+		{
+			"index": 16,
+			"word": "slowDie",
+			"start": 7.581,
+			"end": 8.42
+		},
+		{
+			"index": 17,
+			"word": "rolls",
+			"start": 8.561,
+			"end": 8.78
+		},
+		{
+			"index": 18,
+			"word": "a",
+			"start": 8.82,
+			"end": 8.88
+		},
+		{
+			"index": 19,
+			"word": "die,",
+			"start": 8.941,
+			"end": 9.26
+		},
+		{
+			"index": 20,
+			"word": "waits",
+			"start": 9.88,
+			"end": 10.36
+		},
+		{
+			"index": 21,
+			"word": "for",
+			"start": 10.521,
+			"end": 10.7
+		},
+		{
+			"index": 22,
+			"word": "no",
+			"start": 10.84,
+			"end": 10.981
+		},
+		{
+			"index": 23,
+			"word": "reason,",
+			"start": 11.101,
+			"end": 11.5
+		},
+		{
+			"index": 24,
+			"word": "and",
+			"start": 12.24,
+			"end": 12.361
+		},
+		{
+			"index": 25,
+			"word": "then",
+			"start": 12.4,
+			"end": 12.54
+		},
+		{
+			"index": 26,
+			"word": "returns",
+			"start": 12.58,
+			"end": 13.141
+		},
+		{
+			"index": 27,
+			"word": "the",
+			"start": 13.2,
+			"end": 13.26
+		},
+		{
+			"index": 28,
+			"word": "result.",
+			"start": 13.3,
+			"end": 13.72
+		},
+		{
+			"index": 29,
+			"word": "We",
+			"start": 15.32,
+			"end": 15.4
+		},
+		{
+			"index": 30,
+			"word": "will",
+			"start": 15.44,
+			"end": 15.581
+		},
+		{
+			"index": 31,
+			"word": "then",
+			"start": 15.62,
+			"end": 15.799999999999999
+		},
+		{
+			"index": 32,
+			"word": "outlaw",
+			"start": 15.981,
+			"end": 16.46
+		},
+		{
+			"index": 33,
+			"word": "4,",
+			"start": 16.901000000000003,
+			"end": 16.92
+		},
+		{
+			"index": 34,
+			"word": "and",
+			"start": 17.36,
+			"end": 17.54
+		},
+		{
+			"index": 35,
+			"word": "pronounce",
+			"start": 17.581000000000003,
+			"end": 18.04
+		},
+		{
+			"index": 36,
+			"word": "its",
+			"start": 18.119999999999997,
+			"end": 18.299999999999997
+		},
+		{
+			"index": 37,
+			"word": "rolling",
+			"start": 18.380000000000003,
+			"end": 18.741
+		},
+		{
+			"index": 38,
+			"word": "to",
+			"start": 18.820999999999998,
+			"end": 18.880000000000003
+		},
+		{
+			"index": 39,
+			"word": "be",
+			"start": 18.92,
+			"end": 19.1
+		},
+		{
+			"index": 40,
+			"word": "punishable",
+			"start": 19.161,
+			"end": 19.700000000000003
+		},
+		{
+			"index": 41,
+			"word": "by",
+			"start": 19.759999999999998,
+			"end": 19.86
+		},
+		{
+			"index": 42,
+			"word": "death.",
+			"start": 20.04,
+			"end": 20.340000000000003
+		},
+		{
+			"index": 43,
+			"word": "If",
+			"start": 21.42,
+			"end": 21.759999999999998
+		},
+		{
+			"index": 44,
+			"word": "that",
+			"start": 21.840000000000003,
+			"end": 21.96
+		},
+		{
+			"index": 45,
+			"word": "accursed",
+			"start": 22.020000000000003,
+			"end": 22.481
+		},
+		{
+			"index": 46,
+			"word": "numeral",
+			"start": 22.58,
+			"end": 22.92
+		},
+		{
+			"index": 47,
+			"word": "has",
+			"start": 22.981,
+			"end": 23.1
+		},
+		{
+			"index": 48,
+			"word": "appeared,",
+			"start": 23.22,
+			"end": 23.641
+		},
+		{
+			"index": 49,
+			"word": "we",
+			"start": 24.28,
+			"end": 24.36
+		},
+		{
+			"index": 50,
+			"word": "will",
+			"start": 24.401000000000003,
+			"end": 24.581000000000003
+		},
+		{
+			"index": 51,
+			"word": "throw",
+			"start": 24.619999999999997,
+			"end": 24.96
+		},
+		{
+			"index": 52,
+			"word": "a",
+			"start": 25.020000000000003,
+			"end": 25.119999999999997
+		},
+		{
+			"index": 53,
+			"word": "VeryBadRoll",
+			"start": 25.18,
+			"end": 26.020000000000003
+		},
+		{
+			"index": 54,
+			"word": "error.",
+			"start": 26.119999999999997,
+			"end": 26.42
+		},
+		{
+			"index": 55,
+			"word": "Nevertheless,",
+			"start": 27.92,
+			"end": 28.520000000000003
+		},
+		{
+			"index": 56,
+			"word": "it",
+			"start": 28.6,
+			"end": 28.700000000000003
+		},
+		{
+			"index": 57,
+			"word": "continues",
+			"start": 28.740000000000002,
+			"end": 29.200000000000003
+		},
+		{
+			"index": 58,
+			"word": "to",
+			"start": 29.22,
+			"end": 29.340000000000003
+		},
+		{
+			"index": 59,
+			"word": "type-check.",
+			"start": 29.401000000000003,
+			"end": 29.939999999999998
+		},
+		{
+			"index": 60,
+			"word": "TypeScript",
+			"start": 30.901000000000003,
+			"end": 31.641
+		},
+		{
+			"index": 61,
+			"word": "doesn't",
+			"start": 31.680999999999997,
+			"end": 32.12
+		},
+		{
+			"index": 62,
+			"word": "care.",
+			"start": 32.181,
+			"end": 32.54
+		},
+		{
+			"index": 63,
+			"word": "Our",
+			"start": 33.62,
+			"end": 33.78
+		},
+		{
+			"index": 64,
+			"word": "feeble",
+			"start": 33.96,
+			"end": 34.3
+		},
+		{
+			"index": 65,
+			"word": "human",
+			"start": 34.641,
+			"end": 35.021
+		},
+		{
+			"index": 66,
+			"word": "mind",
+			"start": 35.1,
+			"end": 35.661
+		},
+		{
+			"index": 67,
+			"word": "is",
+			"start": 35.739999999999995,
+			"end": 36.3
+		},
+		{
+			"index": 68,
+			"word": "solely",
+			"start": 36.36,
+			"end": 36.641
+		},
+		{
+			"index": 69,
+			"word": "responsible",
+			"start": 36.699999999999996,
+			"end": 37.3
+		},
+		{
+			"index": 70,
+			"word": "for",
+			"start": 37.379999999999995,
+			"end": 37.501
+		},
+		{
+			"index": 71,
+			"word": "tracking",
+			"start": 37.559999999999995,
+			"end": 37.92
+		},
+		{
+			"index": 72,
+			"word": "this.",
+			"start": 37.96,
+			"end": 38.199999999999996
+		}
+	],
+	"textHash": "-cr6b10",
+	"wordCount": 73
+}

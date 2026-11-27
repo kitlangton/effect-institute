@@ -1,0 +1,564 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Succeeding",
+			"start": 0.09999999999999998,
+			"end": 0.6399999999999999
+		},
+		{
+			"index": 1,
+			"word": "or",
+			"start": 0.681,
+			"end": 0.74
+		},
+		{
+			"index": 2,
+			"word": "failing",
+			"start": 0.8999999999999999,
+			"end": 1.24
+		},
+		{
+			"index": 3,
+			"word": "with",
+			"start": 1.28,
+			"end": 1.38
+		},
+		{
+			"index": 4,
+			"word": "a",
+			"start": 1.441,
+			"end": 1.46
+		},
+		{
+			"index": 5,
+			"word": "value",
+			"start": 1.56,
+			"end": 1.9
+		},
+		{
+			"index": 6,
+			"word": "is",
+			"start": 1.94,
+			"end": 2.16
+		},
+		{
+			"index": 7,
+			"word": "fine.",
+			"start": 2.4,
+			"end": 2.78
+		},
+		{
+			"index": 8,
+			"word": "But",
+			"start": 3.581,
+			"end": 3.68
+		},
+		{
+			"index": 9,
+			"word": "what",
+			"start": 3.7600000000000002,
+			"end": 3.8400000000000003
+		},
+		{
+			"index": 10,
+			"word": "if",
+			"start": 3.8800000000000003,
+			"end": 3.9810000000000003
+		},
+		{
+			"index": 11,
+			"word": "we",
+			"start": 4.021000000000001,
+			"end": 4.1
+		},
+		{
+			"index": 12,
+			"word": "want",
+			"start": 4.16,
+			"end": 4.279999999999999
+		},
+		{
+			"index": 13,
+			"word": "to",
+			"start": 4.32,
+			"end": 4.4
+		},
+		{
+			"index": 14,
+			"word": "do",
+			"start": 4.461,
+			"end": 4.5809999999999995
+		},
+		{
+			"index": 15,
+			"word": "something",
+			"start": 4.640000000000001,
+			"end": 4.981
+		},
+		{
+			"index": 16,
+			"word": "more",
+			"start": 5.041,
+			"end": 5.300000000000001
+		},
+		{
+			"index": 17,
+			"word": "computery?",
+			"start": 5.82,
+			"end": 6.459999999999999
+		},
+		{
+			"index": 18,
+			"word": "Effect.sync",
+			"start": 7.541,
+			"end": 8.581
+		},
+		{
+			"index": 19,
+			"word": "takes",
+			"start": 8.66,
+			"end": 8.841
+		},
+		{
+			"index": 20,
+			"word": "a",
+			"start": 8.9,
+			"end": 8.961
+		},
+		{
+			"index": 21,
+			"word": "function",
+			"start": 9.041,
+			"end": 9.479999999999999
+		},
+		{
+			"index": 22,
+			"word": "of",
+			"start": 9.559999999999999,
+			"end": 9.74
+		},
+		{
+			"index": 23,
+			"word": "no",
+			"start": 9.94,
+			"end": 10.081
+		},
+		{
+			"index": 24,
+			"word": "arguments,",
+			"start": 10.139999999999999,
+			"end": 10.7
+		},
+		{
+			"index": 25,
+			"word": "a.k.a.",
+			"start": 11.501,
+			"end": 11.520999999999999
+		},
+		{
+			"index": 26,
+			"word": "a",
+			"start": 11.521999999999998,
+			"end": 12.62
+		},
+		{
+			"index": 27,
+			"word": "thunk,",
+			"start": 12.74,
+			"end": 13.1
+		},
+		{
+			"index": 28,
+			"word": "and",
+			"start": 13.799999999999999,
+			"end": 13.921
+		},
+		{
+			"index": 29,
+			"word": "stores",
+			"start": 14.059999999999999,
+			"end": 14.36
+		},
+		{
+			"index": 30,
+			"word": "it",
+			"start": 14.42,
+			"end": 14.541
+		},
+		{
+			"index": 31,
+			"word": "in",
+			"start": 14.799999999999999,
+			"end": 14.979999999999999
+		},
+		{
+			"index": 32,
+			"word": "an",
+			"start": 15.059999999999999,
+			"end": 15.18
+		},
+		{
+			"index": 33,
+			"word": "Effect.",
+			"start": 15.26,
+			"end": 15.7
+		},
+		{
+			"index": 34,
+			"word": "Here",
+			"start": 16.88,
+			"end": 17.06
+		},
+		{
+			"index": 35,
+			"word": "we'll",
+			"start": 17.12,
+			"end": 17.261
+		},
+		{
+			"index": 36,
+			"word": "log",
+			"start": 17.341,
+			"end": 17.54
+		},
+		{
+			"index": 37,
+			"word": "a",
+			"start": 17.601,
+			"end": 17.7
+		},
+		{
+			"index": 38,
+			"word": "message",
+			"start": 17.761,
+			"end": 18.34
+		},
+		{
+			"index": 39,
+			"word": "and",
+			"start": 18.4,
+			"end": 18.54
+		},
+		{
+			"index": 40,
+			"word": "return",
+			"start": 18.62,
+			"end": 19.14
+		},
+		{
+			"index": 41,
+			"word": "new Date().",
+			"start": 19.7,
+			"end": 20.32
+		},
+		{
+			"index": 42,
+			"word": "By",
+			"start": 21.7,
+			"end": 21.8
+		},
+		{
+			"index": 43,
+			"word": "the",
+			"start": 21.86,
+			"end": 21.96
+		},
+		{
+			"index": 44,
+			"word": "way,",
+			"start": 22.02,
+			"end": 22.24
+		},
+		{
+			"index": 45,
+			"word": "Effect's",
+			"start": 23.04,
+			"end": 23.46
+		},
+		{
+			"index": 46,
+			"word": "laziness",
+			"start": 23.54,
+			"end": 24.16
+		},
+		{
+			"index": 47,
+			"word": "isn't",
+			"start": 24.22,
+			"end": 24.52
+		},
+		{
+			"index": 48,
+			"word": "magic.",
+			"start": 24.7,
+			"end": 25.16
+		},
+		{
+			"index": 49,
+			"word": "It's",
+			"start": 25.82,
+			"end": 26.04
+		},
+		{
+			"index": 50,
+			"word": "inherited",
+			"start": 26.14,
+			"end": 26.74
+		},
+		{
+			"index": 51,
+			"word": "from",
+			"start": 27.081,
+			"end": 27.18
+		},
+		{
+			"index": 52,
+			"word": "the",
+			"start": 27.24,
+			"end": 27.341
+		},
+		{
+			"index": 53,
+			"word": "functions",
+			"start": 27.4,
+			"end": 28.08
+		},
+		{
+			"index": 54,
+			"word": "it",
+			"start": 28.14,
+			"end": 28.24
+		},
+		{
+			"index": 55,
+			"word": "wraps.",
+			"start": 28.32,
+			"end": 28.8
+		},
+		{
+			"index": 56,
+			"word": "When",
+			"start": 30.32,
+			"end": 30.421
+		},
+		{
+			"index": 57,
+			"word": "we",
+			"start": 30.46,
+			"end": 30.581
+		},
+		{
+			"index": 58,
+			"word": "run",
+			"start": 30.62,
+			"end": 30.74
+		},
+		{
+			"index": 59,
+			"word": "it,",
+			"start": 30.8,
+			"end": 30.98
+		},
+		{
+			"index": 60,
+			"word": "the",
+			"start": 31.7,
+			"end": 31.781000000000002
+		},
+		{
+			"index": 61,
+			"word": "thunk",
+			"start": 31.860000000000003,
+			"end": 32.101000000000006
+		},
+		{
+			"index": 62,
+			"word": "will",
+			"start": 32.14,
+			"end": 32.220000000000006
+		},
+		{
+			"index": 63,
+			"word": "be",
+			"start": 32.281000000000006,
+			"end": 32.440000000000005
+		},
+		{
+			"index": 64,
+			"word": "called,",
+			"start": 32.52,
+			"end": 32.900000000000006
+		},
+		{
+			"index": 65,
+			"word": "our",
+			"start": 33.5,
+			"end": 33.660000000000004
+		},
+		{
+			"index": 66,
+			"word": "message",
+			"start": 33.720000000000006,
+			"end": 34.220000000000006
+		},
+		{
+			"index": 67,
+			"word": "will",
+			"start": 34.261,
+			"end": 34.42100000000001
+		},
+		{
+			"index": 68,
+			"word": "be",
+			"start": 34.461000000000006,
+			"end": 34.540000000000006
+		},
+		{
+			"index": 69,
+			"word": "logged,",
+			"start": 34.7,
+			"end": 35.14
+		},
+		{
+			"index": 70,
+			"word": "and",
+			"start": 35.74,
+			"end": 35.88
+		},
+		{
+			"index": 71,
+			"word": "we'll",
+			"start": 35.961000000000006,
+			"end": 36.160000000000004
+		},
+		{
+			"index": 72,
+			"word": "succeed",
+			"start": 36.220000000000006,
+			"end": 36.720000000000006
+		},
+		{
+			"index": 73,
+			"word": "with",
+			"start": 36.761,
+			"end": 37
+		},
+		{
+			"index": 74,
+			"word": "a",
+			"start": 37.14,
+			"end": 37.160000000000004
+		},
+		{
+			"index": 75,
+			"word": "Date.",
+			"start": 37.32,
+			"end": 37.581
+		},
+		{
+			"index": 76,
+			"word": "If",
+			"start": 38.540000000000006,
+			"end": 38.64
+		},
+		{
+			"index": 77,
+			"word": "we",
+			"start": 38.7,
+			"end": 38.761
+		},
+		{
+			"index": 78,
+			"word": "run",
+			"start": 38.86000000000001,
+			"end": 38.96
+		},
+		{
+			"index": 79,
+			"word": "it",
+			"start": 39,
+			"end": 39.06
+		},
+		{
+			"index": 80,
+			"word": "again,",
+			"start": 39.18,
+			"end": 39.540000000000006
+		},
+		{
+			"index": 81,
+			"word": "the",
+			"start": 40.24,
+			"end": 40.34
+		},
+		{
+			"index": 82,
+			"word": "thunk",
+			"start": 40.38,
+			"end": 40.581
+		},
+		{
+			"index": 83,
+			"word": "will",
+			"start": 40.621,
+			"end": 40.74
+		},
+		{
+			"index": 84,
+			"word": "be",
+			"start": 40.781000000000006,
+			"end": 40.940000000000005
+		},
+		{
+			"index": 85,
+			"word": "called",
+			"start": 41.02,
+			"end": 41.261
+		},
+		{
+			"index": 86,
+			"word": "again,",
+			"start": 41.34,
+			"end": 41.68
+		},
+		{
+			"index": 87,
+			"word": "and",
+			"start": 42.300000000000004,
+			"end": 42.441
+		},
+		{
+			"index": 88,
+			"word": "we'll",
+			"start": 42.5,
+			"end": 42.641000000000005
+		},
+		{
+			"index": 89,
+			"word": "get",
+			"start": 42.68,
+			"end": 42.84
+		},
+		{
+			"index": 90,
+			"word": "a",
+			"start": 42.96,
+			"end": 43.080000000000005
+		},
+		{
+			"index": 91,
+			"word": "new",
+			"start": 43.14,
+			"end": 43.32
+		},
+		{
+			"index": 92,
+			"word": "Date.",
+			"start": 43.38,
+			"end": 43.7
+		}
+	],
+	"textHash": "6m3flb",
+	"wordCount": 93
+}

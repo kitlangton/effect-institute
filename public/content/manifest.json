@@ -1,0 +1,18 @@
+{
+	"chapters": [
+		{
+			"id": "intro",
+			"title": "Introduction to Effect",
+			"description": "Why Effect exists and the problems it solves",
+			"order": 1,
+			"sectionsCount": 17
+		},
+		{
+			"id": "basics",
+			"title": "Effect Basics",
+			"description": "Constructing, running, and composing basic Effects",
+			"order": 2,
+			"sectionsCount": 16
+		}
+	]
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Top-level config is local/dev so a bare `wrangler deploy` can never touch production.
+  // Production lives under `env.production` and deploys only via `bun run cf:deploy`
+  // with CONFIRM_PRODUCTION_DEPLOY=effect.institute.
+  // Routes are inheritable in Wrangler: never add routes or custom domains at the top level.
+  "name": "effect-institute-dev",
+  "compatibility_date": "2026-05-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/worker.ts",
+  "workers_dev": true,
+  "routes": [],
+  "assets": {
+    "binding": "ASSETS",
+    // Static assets lack byte-range support; the worker serves /content/* itself.
+    "run_worker_first": ["/content/*"]
+  },
+  "observability": {
+    "enabled": true
+  },
+  "env": {
+    "production": {
+      "name": "effect-institute",
+      "workers_dev": true,
+      "routes": [
+        { "pattern": "www.effect.institute/*", "zone_name": "effect.institute" },
+        { "pattern": "effect.institute/*", "zone_name": "effect.institute" }
+      ]
+    }
+  }
+}

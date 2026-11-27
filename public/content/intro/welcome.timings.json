@@ -1,0 +1,426 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Welcome",
+			"start": 0.09999999999999998,
+			"end": 0.5199999999999999
+		},
+		{
+			"index": 1,
+			"word": "to",
+			"start": 0.681,
+			"end": 0.74
+		},
+		{
+			"index": 2,
+			"word": "the",
+			"start": 0.8009999999999999,
+			"end": 0.8599999999999999
+		},
+		{
+			"index": 3,
+			"word": "Effect",
+			"start": 0.8999999999999999,
+			"end": 1.321
+		},
+		{
+			"index": 4,
+			"word": "Institute.",
+			"start": 1.56,
+			"end": 2.18
+		},
+		{
+			"index": 5,
+			"word": "I'm",
+			"start": 3.2199999999999998,
+			"end": 3.46
+		},
+		{
+			"index": 6,
+			"word": "Kit",
+			"start": 3.6,
+			"end": 3.9
+		},
+		{
+			"index": 7,
+			"word": "and",
+			"start": 4.66,
+			"end": 4.859999999999999
+		},
+		{
+			"index": 8,
+			"word": "I",
+			"start": 5.0009999999999994,
+			"end": 5.021000000000001
+		},
+		{
+			"index": 9,
+			"word": "want",
+			"start": 5.119999999999999,
+			"end": 5.220000000000001
+		},
+		{
+			"index": 10,
+			"word": "to",
+			"start": 5.279999999999999,
+			"end": 5.34
+		},
+		{
+			"index": 11,
+			"word": "teach",
+			"start": 5.4399999999999995,
+			"end": 5.68
+		},
+		{
+			"index": 12,
+			"word": "you",
+			"start": 5.800000000000001,
+			"end": 6.021000000000001
+		},
+		{
+			"index": 13,
+			"word": "Effect.",
+			"start": 6.6,
+			"end": 7.061
+		},
+		{
+			"index": 14,
+			"word": "But",
+			"start": 8.24,
+			"end": 8.341
+		},
+		{
+			"index": 15,
+			"word": "first,",
+			"start": 8.44,
+			"end": 8.78
+		},
+		{
+			"index": 16,
+			"word": "the",
+			"start": 9.36,
+			"end": 9.421
+		},
+		{
+			"index": 17,
+			"word": "briefest",
+			"start": 9.501,
+			"end": 10.081
+		},
+		{
+			"index": 18,
+			"word": "of",
+			"start": 10.139999999999999,
+			"end": 10.219999999999999
+		},
+		{
+			"index": 19,
+			"word": "tutorials.",
+			"start": 10.28,
+			"end": 10.961
+		},
+		{
+			"index": 20,
+			"word": "Pressing",
+			"start": 12.02,
+			"end": 12.381
+		},
+		{
+			"index": 21,
+			"word": "SPACE,",
+			"start": 12.559999999999999,
+			"end": 12.979999999999999
+		},
+		{
+			"index": 22,
+			"word": "as",
+			"start": 13.059999999999999,
+			"end": 13.221
+		},
+		{
+			"index": 23,
+			"word": "you",
+			"start": 13.28,
+			"end": 13.421
+		},
+		{
+			"index": 24,
+			"word": "may",
+			"start": 13.479999999999999,
+			"end": 13.581
+		},
+		{
+			"index": 25,
+			"word": "have",
+			"start": 13.62,
+			"end": 13.74
+		},
+		{
+			"index": 26,
+			"word": "discovered,",
+			"start": 13.78,
+			"end": 14.299999999999999
+		},
+		{
+			"index": 27,
+			"word": "will",
+			"start": 15.001,
+			"end": 15.2
+		},
+		{
+			"index": 28,
+			"word": "play",
+			"start": 15.24,
+			"end": 15.719999999999999
+		},
+		{
+			"index": 29,
+			"word": "or",
+			"start": 15.780000000000001,
+			"end": 15.861
+		},
+		{
+			"index": 30,
+			"word": "pause",
+			"start": 16.001,
+			"end": 16.36
+		},
+		{
+			"index": 31,
+			"word": "the",
+			"start": 16.421,
+			"end": 16.48
+		},
+		{
+			"index": 32,
+			"word": "current",
+			"start": 16.54,
+			"end": 16.74
+		},
+		{
+			"index": 33,
+			"word": "section.",
+			"start": 16.88,
+			"end": 17.261
+		},
+		{
+			"index": 34,
+			"word": "The",
+			"start": 18.44,
+			"end": 18.501
+		},
+		{
+			"index": 35,
+			"word": "↑",
+			"start": 18.581,
+			"end": 18.601
+		},
+		{
+			"index": 36,
+			"word": "and",
+			"start": 18.921,
+			"end": 19.02
+		},
+		{
+			"index": 37,
+			"word": "↓",
+			"start": 19.081,
+			"end": 19.101
+		},
+		{
+			"index": 38,
+			"word": "arrow",
+			"start": 19.46,
+			"end": 19.62
+		},
+		{
+			"index": 39,
+			"word": "keys",
+			"start": 19.74,
+			"end": 20.001
+		},
+		{
+			"index": 40,
+			"word": "will",
+			"start": 20.081,
+			"end": 20.201
+		},
+		{
+			"index": 41,
+			"word": "navigate",
+			"start": 20.22,
+			"end": 20.7
+		},
+		{
+			"index": 42,
+			"word": "between",
+			"start": 21.24,
+			"end": 21.74
+		},
+		{
+			"index": 43,
+			"word": "sections.",
+			"start": 21.9,
+			"end": 22.48
+		},
+		{
+			"index": 44,
+			"word": "When",
+			"start": 23.64,
+			"end": 23.74
+		},
+		{
+			"index": 45,
+			"word": "I",
+			"start": 23.82,
+			"end": 23.841
+		},
+		{
+			"index": 46,
+			"word": "finish",
+			"start": 23.94,
+			"end": 24.4
+		},
+		{
+			"index": 47,
+			"word": "this",
+			"start": 24.48,
+			"end": 24.74
+		},
+		{
+			"index": 48,
+			"word": "sentence,",
+			"start": 24.921,
+			"end": 25.44
+		},
+		{
+			"index": 49,
+			"word": "you'll",
+			"start": 26.2,
+			"end": 26.421
+		},
+		{
+			"index": 50,
+			"word": "claim",
+			"start": 26.48,
+			"end": 26.8
+		},
+		{
+			"index": 51,
+			"word": "a",
+			"start": 26.86,
+			"end": 26.9
+		},
+		{
+			"index": 52,
+			"word": "small",
+			"start": 27.081,
+			"end": 27.46
+		},
+		{
+			"index": 53,
+			"word": "greenish",
+			"start": 27.599999999999998,
+			"end": 28.001
+		},
+		{
+			"index": 54,
+			"word": "square",
+			"start": 28.18,
+			"end": 28.599999999999998
+		},
+		{
+			"index": 55,
+			"word": "to",
+			"start": 28.64,
+			"end": 28.7
+		},
+		{
+			"index": 56,
+			"word": "mark",
+			"start": 28.78,
+			"end": 28.94
+		},
+		{
+			"index": 57,
+			"word": "your",
+			"start": 29.001,
+			"end": 29.16
+		},
+		{
+			"index": 58,
+			"word": "progress,",
+			"start": 29.2,
+			"end": 29.7
+		},
+		{
+			"index": 59,
+			"word": "and",
+			"start": 30.599999999999998,
+			"end": 30.72
+		},
+		{
+			"index": 60,
+			"word": "then",
+			"start": 30.759999999999998,
+			"end": 30.88
+		},
+		{
+			"index": 61,
+			"word": "you",
+			"start": 30.921,
+			"end": 30.98
+		},
+		{
+			"index": 62,
+			"word": "can",
+			"start": 31.001,
+			"end": 31.16
+		},
+		{
+			"index": 63,
+			"word": "press",
+			"start": 31.18,
+			"end": 31.38
+		},
+		{
+			"index": 64,
+			"word": "SPACE",
+			"start": 31.44,
+			"end": 32.52
+		},
+		{
+			"index": 65,
+			"word": "to",
+			"start": 32.581,
+			"end": 32.7
+		},
+		{
+			"index": 66,
+			"word": "trigger",
+			"start": 32.74,
+			"end": 32.941
+		},
+		{
+			"index": 67,
+			"word": "the",
+			"start": 33,
+			"end": 33.101000000000006
+		},
+		{
+			"index": 68,
+			"word": "next",
+			"start": 33.160000000000004,
+			"end": 33.440000000000005
+		},
+		{
+			"index": 69,
+			"word": "section.",
+			"start": 33.540000000000006,
+			"end": 33.941
+		}
+	],
+	"textHash": "mbzpy1",
+	"wordCount": 70
+}

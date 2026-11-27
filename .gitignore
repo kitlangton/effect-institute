@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.env
+.env*.local
+.dev.vars*
+
+# Build & authoring artifacts
+.authoring
+.tanstack
+.wrangler
+.output

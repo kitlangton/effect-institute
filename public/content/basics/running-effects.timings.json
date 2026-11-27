@@ -1,0 +1,468 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "So",
+			"start": 0.09999999999999998,
+			"end": 0.24
+		},
+		{
+			"index": 1,
+			"word": "now",
+			"start": 0.2799999999999999,
+			"end": 0.3599999999999999
+		},
+		{
+			"index": 2,
+			"word": "that",
+			"start": 0.3999999999999999,
+			"end": 0.48
+		},
+		{
+			"index": 3,
+			"word": "we've",
+			"start": 0.52,
+			"end": 0.6799999999999999
+		},
+		{
+			"index": 4,
+			"word": "defined",
+			"start": 0.72,
+			"end": 1.22
+		},
+		{
+			"index": 5,
+			"word": "our",
+			"start": 1.5210000000000001,
+			"end": 1.6199999999999999
+		},
+		{
+			"index": 6,
+			"word": "effect,",
+			"start": 1.68,
+			"end": 2.0999999999999996
+		},
+		{
+			"index": 7,
+			"word": "how",
+			"start": 2.841,
+			"end": 2.9400000000000004
+		},
+		{
+			"index": 8,
+			"word": "do",
+			"start": 2.941,
+			"end": 2.9799999999999995
+		},
+		{
+			"index": 9,
+			"word": "we",
+			"start": 3.0199999999999996,
+			"end": 3.0810000000000004
+		},
+		{
+			"index": 10,
+			"word": "get",
+			"start": 3.12,
+			"end": 3.2199999999999998
+		},
+		{
+			"index": 11,
+			"word": "our",
+			"start": 3.2800000000000002,
+			"end": 3.4400000000000004
+		},
+		{
+			"index": 12,
+			"word": "hands",
+			"start": 3.4800000000000004,
+			"end": 3.88
+		},
+		{
+			"index": 13,
+			"word": "on",
+			"start": 3.92,
+			"end": 4
+		},
+		{
+			"index": 14,
+			"word": "its",
+			"start": 4.04,
+			"end": 4.261
+		},
+		{
+			"index": 15,
+			"word": "juicy",
+			"start": 4.5600000000000005,
+			"end": 4.94
+		},
+		{
+			"index": 16,
+			"word": "result?",
+			"start": 5.04,
+			"end": 5.48
+		},
+		{
+			"index": 17,
+			"word": "Remember,",
+			"start": 6.48,
+			"end": 6.92
+		},
+		{
+			"index": 18,
+			"word": "because",
+			"start": 7.5200000000000005,
+			"end": 7.8999999999999995
+		},
+		{
+			"index": 19,
+			"word": "effects",
+			"start": 7.94,
+			"end": 8.36
+		},
+		{
+			"index": 20,
+			"word": "are",
+			"start": 8.479999999999999,
+			"end": 8.641
+		},
+		{
+			"index": 21,
+			"word": "lazy,",
+			"start": 8.78,
+			"end": 9.181
+		},
+		{
+			"index": 22,
+			"word": "we",
+			"start": 9.7,
+			"end": 9.761
+		},
+		{
+			"index": 23,
+			"word": "have",
+			"start": 9.819999999999999,
+			"end": 9.94
+		},
+		{
+			"index": 24,
+			"word": "to",
+			"start": 9.979999999999999,
+			"end": 10.059999999999999
+		},
+		{
+			"index": 25,
+			"word": "explicitly",
+			"start": 10.2,
+			"end": 10.841
+		},
+		{
+			"index": 26,
+			"word": "run",
+			"start": 10.959999999999999,
+			"end": 11.12
+		},
+		{
+			"index": 27,
+			"word": "them.",
+			"start": 11.16,
+			"end": 11.36
+		},
+		{
+			"index": 28,
+			"word": "For",
+			"start": 12.42,
+			"end": 12.559999999999999
+		},
+		{
+			"index": 29,
+			"word": "simple,",
+			"start": 12.801,
+			"end": 13.2
+		},
+		{
+			"index": 30,
+			"word": "synchronous",
+			"start": 13.42,
+			"end": 13.86
+		},
+		{
+			"index": 31,
+			"word": "effects,",
+			"start": 13.979999999999999,
+			"end": 14.42
+		},
+		{
+			"index": 32,
+			"word": "we",
+			"start": 14.979999999999999,
+			"end": 15.1
+		},
+		{
+			"index": 33,
+			"word": "can",
+			"start": 15.16,
+			"end": 15.321
+		},
+		{
+			"index": 34,
+			"word": "use",
+			"start": 15.499999999999998,
+			"end": 15.74
+		},
+		{
+			"index": 35,
+			"word": "Effect.runSync.",
+			"start": 15.941,
+			"end": 17.361
+		},
+		{
+			"index": 36,
+			"word": "This",
+			"start": 18.32,
+			"end": 18.5
+		},
+		{
+			"index": 37,
+			"word": "runs",
+			"start": 18.580000000000002,
+			"end": 18.82
+		},
+		{
+			"index": 38,
+			"word": "the",
+			"start": 18.861,
+			"end": 18.92
+		},
+		{
+			"index": 39,
+			"word": "effect",
+			"start": 18.98,
+			"end": 19.48
+		},
+		{
+			"index": 40,
+			"word": "immediately",
+			"start": 19.601000000000003,
+			"end": 20.240000000000002
+		},
+		{
+			"index": 41,
+			"word": "and",
+			"start": 20.3,
+			"end": 20.42
+		},
+		{
+			"index": 42,
+			"word": "returns",
+			"start": 20.46,
+			"end": 20.92
+		},
+		{
+			"index": 43,
+			"word": "the",
+			"start": 20.96,
+			"end": 21.021
+		},
+		{
+			"index": 44,
+			"word": "value.",
+			"start": 21.080000000000002,
+			"end": 21.441000000000003
+		},
+		{
+			"index": 45,
+			"word": "However,",
+			"start": 22.560000000000002,
+			"end": 22.94
+		},
+		{
+			"index": 46,
+			"word": "in",
+			"start": 23.601000000000003,
+			"end": 23.720000000000002
+		},
+		{
+			"index": 47,
+			"word": "real",
+			"start": 23.82,
+			"end": 24
+		},
+		{
+			"index": 48,
+			"word": "applications,",
+			"start": 24.080000000000002,
+			"end": 24.86
+		},
+		{
+			"index": 49,
+			"word": "Effects",
+			"start": 25.080000000000002,
+			"end": 25.580000000000002
+		},
+		{
+			"index": 50,
+			"word": "probably",
+			"start": 25.62,
+			"end": 26.040000000000003
+		},
+		{
+			"index": 51,
+			"word": "involve",
+			"start": 26.101000000000003,
+			"end": 26.740000000000002
+		},
+		{
+			"index": 52,
+			"word": "async",
+			"start": 26.880000000000003,
+			"end": 27.36
+		},
+		{
+			"index": 53,
+			"word": "work.",
+			"start": 27.44,
+			"end": 27.720000000000002
+		},
+		{
+			"index": 54,
+			"word": "We'll",
+			"start": 28.62,
+			"end": 28.82
+		},
+		{
+			"index": 55,
+			"word": "mostly",
+			"start": 28.86,
+			"end": 29.32
+		},
+		{
+			"index": 56,
+			"word": "use",
+			"start": 29.44,
+			"end": 29.761000000000003
+		},
+		{
+			"index": 57,
+			"word": "Effect.runPromise,",
+			"start": 29.841,
+			"end": 31.4
+		},
+		{
+			"index": 58,
+			"word": "running",
+			"start": 32.24,
+			"end": 32.480000000000004
+		},
+		{
+			"index": 59,
+			"word": "our",
+			"start": 32.58,
+			"end": 32.721000000000004
+		},
+		{
+			"index": 60,
+			"word": "effect",
+			"start": 32.881,
+			"end": 33.56
+		},
+		{
+			"index": 61,
+			"word": "as",
+			"start": 33.681000000000004,
+			"end": 33.980000000000004
+		},
+		{
+			"index": 62,
+			"word": "a",
+			"start": 34.1,
+			"end": 34.120000000000005
+		},
+		{
+			"index": 63,
+			"word": "Promise,",
+			"start": 34.28,
+			"end": 34.701
+		},
+		{
+			"index": 64,
+			"word": "which,",
+			"start": 35.541000000000004,
+			"end": 35.841
+		},
+		{
+			"index": 65,
+			"word": "mind",
+			"start": 36.1,
+			"end": 36.300000000000004
+		},
+		{
+			"index": 66,
+			"word": "you,",
+			"start": 36.381,
+			"end": 36.5
+		},
+		{
+			"index": 67,
+			"word": "is",
+			"start": 36.56,
+			"end": 36.721000000000004
+		},
+		{
+			"index": 68,
+			"word": "not",
+			"start": 36.82,
+			"end": 37.041000000000004
+		},
+		{
+			"index": 69,
+			"word": "lazy,",
+			"start": 37.14,
+			"end": 37.5
+		},
+		{
+			"index": 70,
+			"word": "but",
+			"start": 38.160000000000004,
+			"end": 38.24
+		},
+		{
+			"index": 71,
+			"word": "a",
+			"start": 38.300000000000004,
+			"end": 38.4
+		},
+		{
+			"index": 72,
+			"word": "handle",
+			"start": 38.44,
+			"end": 38.96
+		},
+		{
+			"index": 73,
+			"word": "on",
+			"start": 39.041000000000004,
+			"end": 39.201
+		},
+		{
+			"index": 74,
+			"word": "a",
+			"start": 39.300000000000004,
+			"end": 39.4
+		},
+		{
+			"index": 75,
+			"word": "running",
+			"start": 39.46,
+			"end": 39.74
+		},
+		{
+			"index": 76,
+			"word": "computation.",
+			"start": 39.861000000000004,
+			"end": 40.56
+		}
+	],
+	"textHash": "um02fc",
+	"wordCount": 77
+}

@@ -1,0 +1,8 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /debug/
+Disallow: /og/home
+Disallow: /og/chapter
+Allow: /og/*.png
+
+Sitemap: https://www.effect.institute/sitemap

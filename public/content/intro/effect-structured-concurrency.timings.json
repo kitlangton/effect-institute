@@ -1,0 +1,384 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "How",
+			"start": 0.079,
+			"end": 0.199
+		},
+		{
+			"index": 1,
+			"word": "will",
+			"start": 0.219,
+			"end": 0.319
+		},
+		{
+			"index": 2,
+			"word": "Effect",
+			"start": 0.359,
+			"end": 0.779
+		},
+		{
+			"index": 3,
+			"word": "save",
+			"start": 1.22,
+			"end": 1.419
+		},
+		{
+			"index": 4,
+			"word": "us",
+			"start": 1.5,
+			"end": 1.719
+		},
+		{
+			"index": 5,
+			"word": "this",
+			"start": 1.86,
+			"end": 2.019
+		},
+		{
+			"index": 6,
+			"word": "time?",
+			"start": 2.099,
+			"end": 2.359
+		},
+		{
+			"index": 7,
+			"word": "First",
+			"start": 3.759,
+			"end": 4.139
+		},
+		{
+			"index": 8,
+			"word": "let's",
+			"start": 4.38,
+			"end": 4.559
+		},
+		{
+			"index": 9,
+			"word": "revert",
+			"start": 4.619,
+			"end": 4.9
+		},
+		{
+			"index": 10,
+			"word": "the",
+			"start": 4.92,
+			"end": 5
+		},
+		{
+			"index": 11,
+			"word": "Promise",
+			"start": 5.079,
+			"end": 5.5
+		},
+		{
+			"index": 12,
+			"word": "solution.",
+			"start": 5.659,
+			"end": 6.119
+		},
+		{
+			"index": 13,
+			"word": "Then",
+			"start": 7.179,
+			"end": 7.499
+		},
+		{
+			"index": 14,
+			"word": "we",
+			"start": 7.699,
+			"end": 7.799
+		},
+		{
+			"index": 15,
+			"word": "can",
+			"start": 7.859,
+			"end": 7.96
+		},
+		{
+			"index": 16,
+			"word": "switch",
+			"start": 8.099,
+			"end": 8.34
+		},
+		{
+			"index": 17,
+			"word": "ask",
+			"start": 8.539,
+			"end": 8.88
+		},
+		{
+			"index": 18,
+			"word": "over",
+			"start": 8.96,
+			"end": 9.099
+		},
+		{
+			"index": 19,
+			"word": "to",
+			"start": 9.199,
+			"end": 9.34
+		},
+		{
+			"index": 20,
+			"word": "Effect's",
+			"start": 9.42,
+			"end": 10.019
+		},
+		{
+			"index": 21,
+			"word": "AI",
+			"start": 10.119,
+			"end": 10.319
+		},
+		{
+			"index": 22,
+			"word": "library.",
+			"start": 10.42,
+			"end": 10.92
+		},
+		{
+			"index": 23,
+			"word": "We'll",
+			"start": 11.979,
+			"end": 12.119
+		},
+		{
+			"index": 24,
+			"word": "migrate",
+			"start": 12.159,
+			"end": 12.679
+		},
+		{
+			"index": 25,
+			"word": "getStockAdvice",
+			"start": 12.84,
+			"end": 13.92
+		},
+		{
+			"index": 26,
+			"word": "over",
+			"start": 14.019,
+			"end": 14.179
+		},
+		{
+			"index": 27,
+			"word": "to",
+			"start": 14.219,
+			"end": 14.319
+		},
+		{
+			"index": 28,
+			"word": "Effect,",
+			"start": 14.38,
+			"end": 14.759
+		},
+		{
+			"index": 29,
+			"word": "swapping",
+			"start": 15.699,
+			"end": 16.1
+		},
+		{
+			"index": 30,
+			"word": "out",
+			"start": 16.159,
+			"end": 16.319
+		},
+		{
+			"index": 31,
+			"word": "Promise.all",
+			"start": 16.479,
+			"end": 17.44
+		},
+		{
+			"index": 32,
+			"word": "for",
+			"start": 17.52,
+			"end": 17.739
+		},
+		{
+			"index": 33,
+			"word": "Effect.all.",
+			"start": 17.92,
+			"end": 18.879
+		},
+		{
+			"index": 34,
+			"word": "And...",
+			"start": 20.34,
+			"end": 20.779
+		},
+		{
+			"index": 35,
+			"word": "that's",
+			"start": 20.859,
+			"end": 21.379
+		},
+		{
+			"index": 36,
+			"word": "it.",
+			"start": 21.52,
+			"end": 21.739
+		},
+		{
+			"index": 37,
+			"word": "Our",
+			"start": 22.859,
+			"end": 23
+		},
+		{
+			"index": 38,
+			"word": "text",
+			"start": 23.1,
+			"end": 23.299
+		},
+		{
+			"index": 39,
+			"word": "generation",
+			"start": 23.399,
+			"end": 23.84
+		},
+		{
+			"index": 40,
+			"word": "requests",
+			"start": 23.899,
+			"end": 24.719
+		},
+		{
+			"index": 41,
+			"word": "will",
+			"start": 24.779,
+			"end": 24.94
+		},
+		{
+			"index": 42,
+			"word": "run",
+			"start": 24.959,
+			"end": 25.079
+		},
+		{
+			"index": 43,
+			"word": "in",
+			"start": 25.119,
+			"end": 25.26
+		},
+		{
+			"index": 44,
+			"word": "parallel,",
+			"start": 25.299,
+			"end": 25.76
+		},
+		{
+			"index": 45,
+			"word": "and",
+			"start": 26.559,
+			"end": 26.719
+		},
+		{
+			"index": 46,
+			"word": "if",
+			"start": 26.76,
+			"end": 26.879
+		},
+		{
+			"index": 47,
+			"word": "one",
+			"start": 27.019,
+			"end": 27.279
+		},
+		{
+			"index": 48,
+			"word": "fails,",
+			"start": 27.359,
+			"end": 27.779
+		},
+		{
+			"index": 49,
+			"word": "the",
+			"start": 28.439,
+			"end": 28.519
+		},
+		{
+			"index": 50,
+			"word": "others",
+			"start": 28.599,
+			"end": 28.899
+		},
+		{
+			"index": 51,
+			"word": "are",
+			"start": 28.979,
+			"end": 29.199
+		},
+		{
+			"index": 52,
+			"word": "automatically",
+			"start": 29.299,
+			"end": 30.019
+		},
+		{
+			"index": 53,
+			"word": "interrupted.",
+			"start": 30.079,
+			"end": 30.679
+		},
+		{
+			"index": 54,
+			"word": "This",
+			"start": 31.76,
+			"end": 31.94
+		},
+		{
+			"index": 55,
+			"word": "property",
+			"start": 32.079,
+			"end": 32.56
+		},
+		{
+			"index": 56,
+			"word": "of",
+			"start": 32.599,
+			"end": 32.739
+		},
+		{
+			"index": 57,
+			"word": "structured",
+			"start": 32.84,
+			"end": 33.299
+		},
+		{
+			"index": 58,
+			"word": "concurrency",
+			"start": 33.34,
+			"end": 34.159
+		},
+		{
+			"index": 59,
+			"word": "is",
+			"start": 34.239,
+			"end": 34.559
+		},
+		{
+			"index": 60,
+			"word": "built",
+			"start": 34.619,
+			"end": 34.919
+		},
+		{
+			"index": 61,
+			"word": "into",
+			"start": 35.04,
+			"end": 35.619
+		},
+		{
+			"index": 62,
+			"word": "Effect.",
+			"start": 35.779,
+			"end": 36.139
+		}
+	],
+	"textHash": "-t6dee7",
+	"wordCount": 63
+}

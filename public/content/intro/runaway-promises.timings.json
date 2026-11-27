@@ -1,0 +1,336 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Your",
+			"start": 0.1,
+			"end": 0.36
+		},
+		{
+			"index": 1,
+			"word": "ask",
+			"start": 0.5,
+			"end": 0.82
+		},
+		{
+			"index": 2,
+			"word": "function",
+			"start": 0.8999999999999999,
+			"end": 1.341
+		},
+		{
+			"index": 3,
+			"word": "queries",
+			"start": 1.48,
+			"end": 1.9600000000000002
+		},
+		{
+			"index": 4,
+			"word": "a",
+			"start": 2.0410000000000004,
+			"end": 2.12
+		},
+		{
+			"index": 5,
+			"word": "language",
+			"start": 2.16,
+			"end": 2.5
+		},
+		{
+			"index": 6,
+			"word": "model,",
+			"start": 2.6,
+			"end": 2.9000000000000004
+		},
+		{
+			"index": 7,
+			"word": "which",
+			"start": 3.321,
+			"end": 3.52
+		},
+		{
+			"index": 8,
+			"word": "is",
+			"start": 3.62,
+			"end": 3.841
+		},
+		{
+			"index": 9,
+			"word": "flakier",
+			"start": 3.9800000000000004,
+			"end": 4.58
+		},
+		{
+			"index": 10,
+			"word": "and",
+			"start": 4.66,
+			"end": 4.781000000000001
+		},
+		{
+			"index": 11,
+			"word": "costlier",
+			"start": 4.92,
+			"end": 5.48
+		},
+		{
+			"index": 12,
+			"word": "than",
+			"start": 5.5600000000000005,
+			"end": 5.66
+		},
+		{
+			"index": 13,
+			"word": "your",
+			"start": 5.72,
+			"end": 5.801
+		},
+		{
+			"index": 14,
+			"word": "average",
+			"start": 5.9,
+			"end": 6.180000000000001
+		},
+		{
+			"index": 15,
+			"word": "API.",
+			"start": 6.301,
+			"end": 6.801
+		},
+		{
+			"index": 16,
+			"word": "What",
+			"start": 7.841,
+			"end": 7.94
+		},
+		{
+			"index": 17,
+			"word": "if",
+			"start": 8,
+			"end": 8.16
+		},
+		{
+			"index": 18,
+			"word": "Zubenelgenubi",
+			"start": 8.399999999999999,
+			"end": 9.639999999999999
+		},
+		{
+			"index": 19,
+			"word": "implodes?",
+			"start": 9.721,
+			"end": 10.5
+		},
+		{
+			"index": 20,
+			"word": "Promise.all",
+			"start": 11.479999999999999,
+			"end": 12.341
+		},
+		{
+			"index": 21,
+			"word": "will",
+			"start": 12.399999999999999,
+			"end": 12.520999999999999
+		},
+		{
+			"index": 22,
+			"word": "reject",
+			"start": 12.6,
+			"end": 13.04
+		},
+		{
+			"index": 23,
+			"word": "immediately,",
+			"start": 13.16,
+			"end": 13.780999999999999
+		},
+		{
+			"index": 24,
+			"word": "while",
+			"start": 13.94,
+			"end": 14.221
+		},
+		{
+			"index": 25,
+			"word": "tree",
+			"start": 14.399999999999999,
+			"end": 14.68
+		},
+		{
+			"index": 26,
+			"word": "and",
+			"start": 14.739999999999998,
+			"end": 14.819999999999999
+		},
+		{
+			"index": 27,
+			"word": "beetle",
+			"start": 14.92,
+			"end": 15.261
+		},
+		{
+			"index": 28,
+			"word": "keep",
+			"start": 15.341,
+			"end": 15.54
+		},
+		{
+			"index": 29,
+			"word": "churning,",
+			"start": 15.721,
+			"end": 16.14
+		},
+		{
+			"index": 30,
+			"word": "draining",
+			"start": 17.14,
+			"end": 17.560000000000002
+		},
+		{
+			"index": 31,
+			"word": "your",
+			"start": 17.601000000000003,
+			"end": 17.781000000000002
+		},
+		{
+			"index": 32,
+			"word": "already",
+			"start": 17.861,
+			"end": 18.400000000000002
+		},
+		{
+			"index": 33,
+			"word": "parched",
+			"start": 18.46,
+			"end": 18.841
+		},
+		{
+			"index": 34,
+			"word": "coffers",
+			"start": 18.900000000000002,
+			"end": 19.42
+		},
+		{
+			"index": 35,
+			"word": "for",
+			"start": 19.540000000000003,
+			"end": 19.841
+		},
+		{
+			"index": 36,
+			"word": "nothing.",
+			"start": 19.900000000000002,
+			"end": 20.240000000000002
+		},
+		{
+			"index": 37,
+			"word": "Promise-strewn",
+			"start": 21.861,
+			"end": 22.92
+		},
+		{
+			"index": 38,
+			"word": "code",
+			"start": 23.080000000000002,
+			"end": 23.341
+		},
+		{
+			"index": 39,
+			"word": "is",
+			"start": 23.380000000000003,
+			"end": 23.521
+		},
+		{
+			"index": 40,
+			"word": "prone",
+			"start": 23.64,
+			"end": 23.82
+		},
+		{
+			"index": 41,
+			"word": "to",
+			"start": 23.880000000000003,
+			"end": 24
+		},
+		{
+			"index": 42,
+			"word": "leakage.",
+			"start": 24.060000000000002,
+			"end": 24.64
+		},
+		{
+			"index": 43,
+			"word": "Once",
+			"start": 25.42,
+			"end": 25.64
+		},
+		{
+			"index": 44,
+			"word": "created,",
+			"start": 25.700000000000003,
+			"end": 26.200000000000003
+		},
+		{
+			"index": 45,
+			"word": "promises",
+			"start": 26.720000000000002,
+			"end": 27.220000000000002
+		},
+		{
+			"index": 46,
+			"word": "run",
+			"start": 27.3,
+			"end": 27.560000000000002
+		},
+		{
+			"index": 47,
+			"word": "to",
+			"start": 27.62,
+			"end": 27.781000000000002
+		},
+		{
+			"index": 48,
+			"word": "completion,",
+			"start": 27.8,
+			"end": 28.5
+		},
+		{
+			"index": 49,
+			"word": "whether",
+			"start": 29.101000000000003,
+			"end": 29.400000000000002
+		},
+		{
+			"index": 50,
+			"word": "or",
+			"start": 29.46,
+			"end": 29.621000000000002
+		},
+		{
+			"index": 51,
+			"word": "not",
+			"start": 29.64,
+			"end": 29.92
+		},
+		{
+			"index": 52,
+			"word": "they're",
+			"start": 29.96,
+			"end": 30.121000000000002
+		},
+		{
+			"index": 53,
+			"word": "still",
+			"start": 30.14,
+			"end": 30.36
+		},
+		{
+			"index": 54,
+			"word": "required.",
+			"start": 30.42,
+			"end": 31.02
+		}
+	],
+	"textHash": "elb9jj",
+	"wordCount": 55
+}

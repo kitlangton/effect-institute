@@ -1,0 +1,348 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Finally,",
+			"start": 0.10000000000000003,
+			"end": 0.6
+		},
+		{
+			"index": 1,
+			"word": "there's",
+			"start": 0.98,
+			"end": 1.22
+		},
+		{
+			"index": 2,
+			"word": "a",
+			"start": 1.2810000000000001,
+			"end": 1.32
+		},
+		{
+			"index": 3,
+			"word": "settings",
+			"start": 1.46,
+			"end": 1.7999999999999998
+		},
+		{
+			"index": 4,
+			"word": "button",
+			"start": 1.9010000000000002,
+			"end": 2.34
+		},
+		{
+			"index": 5,
+			"word": "at",
+			"start": 2.4010000000000002,
+			"end": 2.48
+		},
+		{
+			"index": 6,
+			"word": "the",
+			"start": 2.52,
+			"end": 2.6
+		},
+		{
+			"index": 7,
+			"word": "top",
+			"start": 2.641,
+			"end": 2.8
+		},
+		{
+			"index": 8,
+			"word": "of",
+			"start": 2.86,
+			"end": 2.92
+		},
+		{
+			"index": 9,
+			"word": "the",
+			"start": 2.96,
+			"end": 3
+		},
+		{
+			"index": 10,
+			"word": "screen.",
+			"start": 3.121,
+			"end": 3.52
+		},
+		{
+			"index": 11,
+			"word": "In",
+			"start": 4.460000000000001,
+			"end": 4.5809999999999995
+		},
+		{
+			"index": 12,
+			"word": "there,",
+			"start": 4.699999999999999,
+			"end": 5.061
+		},
+		{
+			"index": 13,
+			"word": "you",
+			"start": 5.641,
+			"end": 5.779999999999999
+		},
+		{
+			"index": 14,
+			"word": "can",
+			"start": 5.84,
+			"end": 6.0809999999999995
+		},
+		{
+			"index": 15,
+			"word": "control",
+			"start": 6.141,
+			"end": 6.661
+		},
+		{
+			"index": 16,
+			"word": "playback",
+			"start": 6.859999999999999,
+			"end": 7.32
+		},
+		{
+			"index": 17,
+			"word": "speed,",
+			"start": 7.4399999999999995,
+			"end": 7.82
+		},
+		{
+			"index": 18,
+			"word": "as",
+			"start": 8.581,
+			"end": 8.84
+		},
+		{
+			"index": 19,
+			"word": "well",
+			"start": 8.881,
+			"end": 9.041
+		},
+		{
+			"index": 20,
+			"word": "as",
+			"start": 9.139999999999999,
+			"end": 9.32
+		},
+		{
+			"index": 21,
+			"word": "file",
+			"start": 9.461,
+			"end": 9.7
+		},
+		{
+			"index": 22,
+			"word": "feedback.",
+			"start": 9.82,
+			"end": 10.32
+		},
+		{
+			"index": 23,
+			"word": "All",
+			"start": 11.6,
+			"end": 11.78
+		},
+		{
+			"index": 24,
+			"word": "feedback",
+			"start": 11.94,
+			"end": 12.44
+		},
+		{
+			"index": 25,
+			"word": "is",
+			"start": 12.86,
+			"end": 13.001
+		},
+		{
+			"index": 26,
+			"word": "appreciated.",
+			"start": 13.139999999999999,
+			"end": 13.86
+		},
+		{
+			"index": 27,
+			"word": "This",
+			"start": 15.059999999999999,
+			"end": 15.18
+		},
+		{
+			"index": 28,
+			"word": "is",
+			"start": 15.24,
+			"end": 15.421
+		},
+		{
+			"index": 29,
+			"word": "very",
+			"start": 15.5,
+			"end": 15.761000000000001
+		},
+		{
+			"index": 30,
+			"word": "much",
+			"start": 15.819999999999999,
+			"end": 16.181
+		},
+		{
+			"index": 31,
+			"word": "alpha",
+			"start": 16.261000000000003,
+			"end": 16.520000000000003
+		},
+		{
+			"index": 32,
+			"word": "software",
+			"start": 16.64,
+			"end": 17.020000000000003
+		},
+		{
+			"index": 33,
+			"word": "at",
+			"start": 17.040000000000003,
+			"end": 17.121000000000002
+		},
+		{
+			"index": 34,
+			"word": "the",
+			"start": 17.14,
+			"end": 17.220000000000002
+		},
+		{
+			"index": 35,
+			"word": "moment,",
+			"start": 17.261000000000003,
+			"end": 17.601000000000003
+		},
+		{
+			"index": 36,
+			"word": "so",
+			"start": 18.48,
+			"end": 18.62
+		},
+		{
+			"index": 37,
+			"word": "please",
+			"start": 18.700000000000003,
+			"end": 19.020000000000003
+		},
+		{
+			"index": 38,
+			"word": "bear",
+			"start": 19.12,
+			"end": 19.28
+		},
+		{
+			"index": 39,
+			"word": "with",
+			"start": 19.32,
+			"end": 19.501
+		},
+		{
+			"index": 40,
+			"word": "me.",
+			"start": 19.560000000000002,
+			"end": 19.720000000000002
+		},
+		{
+			"index": 41,
+			"word": "I'll",
+			"start": 20.64,
+			"end": 20.740000000000002
+		},
+		{
+			"index": 42,
+			"word": "continue",
+			"start": 20.78,
+			"end": 21.12
+		},
+		{
+			"index": 43,
+			"word": "to",
+			"start": 21.161,
+			"end": 21.240000000000002
+		},
+		{
+			"index": 44,
+			"word": "add",
+			"start": 21.341,
+			"end": 21.48
+		},
+		{
+			"index": 45,
+			"word": "lessons",
+			"start": 21.581000000000003,
+			"end": 22.18
+		},
+		{
+			"index": 46,
+			"word": "and",
+			"start": 22.68,
+			"end": 22.78
+		},
+		{
+			"index": 47,
+			"word": "superfluous",
+			"start": 22.900000000000002,
+			"end": 23.761000000000003
+		},
+		{
+			"index": 48,
+			"word": "animations",
+			"start": 23.82,
+			"end": 24.62
+		},
+		{
+			"index": 49,
+			"word": "until",
+			"start": 25.18,
+			"end": 25.44
+		},
+		{
+			"index": 50,
+			"word": "I",
+			"start": 25.560000000000002,
+			"end": 25.62
+		},
+		{
+			"index": 51,
+			"word": "die.",
+			"start": 25.700000000000003,
+			"end": 25.98
+		},
+		{
+			"index": 52,
+			"word": "Let",
+			"start": 26.94,
+			"end": 27.020000000000003
+		},
+		{
+			"index": 53,
+			"word": "us",
+			"start": 27.081000000000003,
+			"end": 27.220000000000002
+		},
+		{
+			"index": 54,
+			"word": "now",
+			"start": 27.32,
+			"end": 27.520000000000003
+		},
+		{
+			"index": 55,
+			"word": "become",
+			"start": 27.560000000000002,
+			"end": 28.040000000000003
+		},
+		{
+			"index": 56,
+			"word": "effect-pilled.",
+			"start": 29.001,
+			"end": 30
+		}
+	],
+	"textHash": "-hzuz80",
+	"wordCount": 57
+}

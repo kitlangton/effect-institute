@@ -1,0 +1,354 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Say",
+			"start": 0.09999999999999998,
+			"end": 0.33999999999999997
+		},
+		{
+			"index": 1,
+			"word": "you're",
+			"start": 0.3810000000000001,
+			"end": 0.521
+		},
+		{
+			"index": 2,
+			"word": "a",
+			"start": 0.5399999999999999,
+			"end": 0.6
+		},
+		{
+			"index": 3,
+			"word": "penurious",
+			"start": 0.781,
+			"end": 1.3200000000000003
+		},
+		{
+			"index": 4,
+			"word": "pantheist",
+			"start": 1.5210000000000004,
+			"end": 2.18
+		},
+		{
+			"index": 5,
+			"word": "in",
+			"start": 2.241,
+			"end": 2.3000000000000003
+		},
+		{
+			"index": 6,
+			"word": "need",
+			"start": 2.3800000000000003,
+			"end": 2.54
+		},
+		{
+			"index": 7,
+			"word": "of",
+			"start": 2.58,
+			"end": 2.64
+		},
+		{
+			"index": 8,
+			"word": "stock",
+			"start": 2.781,
+			"end": 3.04
+		},
+		{
+			"index": 9,
+			"word": "advice.",
+			"start": 3.1,
+			"end": 3.5400000000000005
+		},
+		{
+			"index": 10,
+			"word": "Naturally,",
+			"start": 4.54,
+			"end": 5.06
+		},
+		{
+			"index": 11,
+			"word": "you",
+			"start": 5.14,
+			"end": 5.241
+		},
+		{
+			"index": 12,
+			"word": "consult",
+			"start": 5.281,
+			"end": 5.8
+		},
+		{
+			"index": 13,
+			"word": "an",
+			"start": 5.84,
+			"end": 5.9399999999999995
+		},
+		{
+			"index": 14,
+			"word": "LLM",
+			"start": 6.14,
+			"end": 6.52
+		},
+		{
+			"index": 15,
+			"word": "council",
+			"start": 6.68,
+			"end": 7.159999999999999
+		},
+		{
+			"index": 16,
+			"word": "comprised",
+			"start": 7.221,
+			"end": 7.681
+		},
+		{
+			"index": 17,
+			"word": "of",
+			"start": 7.701,
+			"end": 7.781
+		},
+		{
+			"index": 18,
+			"word": "a",
+			"start": 7.86,
+			"end": 8.001000000000001
+		},
+		{
+			"index": 19,
+			"word": "tree,",
+			"start": 8.081000000000001,
+			"end": 8.4
+		},
+		{
+			"index": 20,
+			"word": "an",
+			"start": 9.020000000000001,
+			"end": 9.081000000000001
+		},
+		{
+			"index": 21,
+			"word": "obscure",
+			"start": 9.14,
+			"end": 9.581000000000001
+		},
+		{
+			"index": 22,
+			"word": "star",
+			"start": 9.781,
+			"end": 10
+		},
+		{
+			"index": 23,
+			"word": "system,",
+			"start": 10.121,
+			"end": 10.540000000000001
+		},
+		{
+			"index": 24,
+			"word": "and",
+			"start": 11.081000000000001,
+			"end": 11.281
+		},
+		{
+			"index": 25,
+			"word": "a",
+			"start": 11.46,
+			"end": 11.581000000000001
+		},
+		{
+			"index": 26,
+			"word": "dung",
+			"start": 11.64,
+			"end": 11.82
+		},
+		{
+			"index": 27,
+			"word": "beetle.",
+			"start": 11.9,
+			"end": 12.22
+		},
+		{
+			"index": 28,
+			"word": "Promise.all",
+			"start": 13.121,
+			"end": 14.120000000000001
+		},
+		{
+			"index": 29,
+			"word": "kicks",
+			"start": 14.201,
+			"end": 14.56
+		},
+		{
+			"index": 30,
+			"word": "off",
+			"start": 14.64,
+			"end": 14.940000000000001
+		},
+		{
+			"index": 31,
+			"word": "all",
+			"start": 15.040000000000001,
+			"end": 15.18
+		},
+		{
+			"index": 32,
+			"word": "three",
+			"start": 15.320000000000002,
+			"end": 15.6
+		},
+		{
+			"index": 33,
+			"word": "queries",
+			"start": 15.680000000000001,
+			"end": 16.06
+		},
+		{
+			"index": 34,
+			"word": "in",
+			"start": 16.099999999999998,
+			"end": 16.221
+		},
+		{
+			"index": 35,
+			"word": "parallel,",
+			"start": 16.281,
+			"end": 16.701
+		},
+		{
+			"index": 36,
+			"word": "so",
+			"start": 17.439999999999998,
+			"end": 17.52
+		},
+		{
+			"index": 37,
+			"word": "you'll",
+			"start": 17.56,
+			"end": 17.701
+		},
+		{
+			"index": 38,
+			"word": "get",
+			"start": 17.721,
+			"end": 17.86
+		},
+		{
+			"index": 39,
+			"word": "your",
+			"start": 17.881,
+			"end": 17.980999999999998
+		},
+		{
+			"index": 40,
+			"word": "answer",
+			"start": 18.02,
+			"end": 18.381
+		},
+		{
+			"index": 41,
+			"word": "in",
+			"start": 18.419999999999998,
+			"end": 18.52
+		},
+		{
+			"index": 42,
+			"word": "no",
+			"start": 18.58,
+			"end": 18.66
+		},
+		{
+			"index": 43,
+			"word": "time.",
+			"start": 18.801,
+			"end": 19.099999999999998
+		},
+		{
+			"index": 44,
+			"word": "Soon",
+			"start": 20.099999999999998,
+			"end": 20.32
+		},
+		{
+			"index": 45,
+			"word": "you'll",
+			"start": 20.36,
+			"end": 20.5
+		},
+		{
+			"index": 46,
+			"word": "have",
+			"start": 20.541,
+			"end": 20.641
+		},
+		{
+			"index": 47,
+			"word": "a",
+			"start": 20.701,
+			"end": 20.84
+		},
+		{
+			"index": 48,
+			"word": "golden",
+			"start": 20.881,
+			"end": 21.24
+		},
+		{
+			"index": 49,
+			"word": "hovel",
+			"start": 21.419999999999998,
+			"end": 21.961
+		},
+		{
+			"index": 50,
+			"word": "all",
+			"start": 22.08,
+			"end": 22.201
+		},
+		{
+			"index": 51,
+			"word": "your",
+			"start": 22.36,
+			"end": 22.48
+		},
+		{
+			"index": 52,
+			"word": "own.",
+			"start": 22.58,
+			"end": 22.86
+		},
+		{
+			"index": 53,
+			"word": "What",
+			"start": 23.72,
+			"end": 23.82
+		},
+		{
+			"index": 54,
+			"word": "could",
+			"start": 23.9,
+			"end": 24.24
+		},
+		{
+			"index": 55,
+			"word": "possibly",
+			"start": 24.32,
+			"end": 24.799999999999997
+		},
+		{
+			"index": 56,
+			"word": "go",
+			"start": 24.86,
+			"end": 24.939999999999998
+		},
+		{
+			"index": 57,
+			"word": "wrong?",
+			"start": 25.041,
+			"end": 25.34
+		}
+	],
+	"textHash": "r724in",
+	"wordCount": 58
+}

@@ -1,0 +1,366 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Behold!",
+			"start": 0.1,
+			"end": 0.9
+		},
+		{
+			"index": 1,
+			"word": "A",
+			"start": 1.8,
+			"end": 1.82
+		},
+		{
+			"index": 2,
+			"word": "checkout",
+			"start": 1.921,
+			"end": 2.26
+		},
+		{
+			"index": 3,
+			"word": "function",
+			"start": 2.381,
+			"end": 2.8
+		},
+		{
+			"index": 4,
+			"word": "returning",
+			"start": 2.881,
+			"end": 3.1999999999999997
+		},
+		{
+			"index": 5,
+			"word": "a",
+			"start": 3.2399999999999998,
+			"end": 3.34
+		},
+		{
+			"index": 6,
+			"word": "Promise<Order>.",
+			"start": 3.421,
+			"end": 4.640000000000001
+		},
+		{
+			"index": 7,
+			"word": "Internally,",
+			"start": 5.58,
+			"end": 6.12
+		},
+		{
+			"index": 8,
+			"word": "it",
+			"start": 6.180000000000001,
+			"end": 6.260000000000001
+		},
+		{
+			"index": 9,
+			"word": "calls",
+			"start": 6.361000000000001,
+			"end": 6.7
+		},
+		{
+			"index": 10,
+			"word": "three",
+			"start": 6.881,
+			"end": 7.260000000000001
+		},
+		{
+			"index": 11,
+			"word": "more",
+			"start": 7.48,
+			"end": 7.760000000000001
+		},
+		{
+			"index": 12,
+			"word": "async",
+			"start": 8,
+			"end": 8.5
+		},
+		{
+			"index": 13,
+			"word": "functions.",
+			"start": 8.641,
+			"end": 9.181
+		},
+		{
+			"index": 14,
+			"word": "What",
+			"start": 10.16,
+			"end": 10.280999999999999
+		},
+		{
+			"index": 15,
+			"word": "will",
+			"start": 10.319999999999999,
+			"end": 10.459999999999999
+		},
+		{
+			"index": 16,
+			"word": "happen",
+			"start": 10.559999999999999,
+			"end": 11
+		},
+		{
+			"index": 17,
+			"word": "when",
+			"start": 11.04,
+			"end": 11.181
+		},
+		{
+			"index": 18,
+			"word": "we",
+			"start": 11.2,
+			"end": 11.341
+		},
+		{
+			"index": 19,
+			"word": "call",
+			"start": 11.421,
+			"end": 11.62
+		},
+		{
+			"index": 20,
+			"word": "it?",
+			"start": 11.68,
+			"end": 11.801
+		},
+		{
+			"index": 21,
+			"word": "A",
+			"start": 12.979999999999999,
+			"end": 13.12
+		},
+		{
+			"index": 22,
+			"word": "Promise",
+			"start": 13.18,
+			"end": 13.62
+		},
+		{
+			"index": 23,
+			"word": "has",
+			"start": 13.74,
+			"end": 13.899999999999999
+		},
+		{
+			"index": 24,
+			"word": "but",
+			"start": 14,
+			"end": 14.221
+		},
+		{
+			"index": 25,
+			"word": "one",
+			"start": 14.301,
+			"end": 14.479999999999999
+		},
+		{
+			"index": 26,
+			"word": "type",
+			"start": 14.66,
+			"end": 14.819999999999999
+		},
+		{
+			"index": 27,
+			"word": "parameter:",
+			"start": 14.86,
+			"end": 15.301
+		},
+		{
+			"index": 28,
+			"word": "its",
+			"start": 16.06,
+			"end": 16.28
+		},
+		{
+			"index": 29,
+			"word": "success",
+			"start": 16.361,
+			"end": 16.761
+		},
+		{
+			"index": 30,
+			"word": "value.",
+			"start": 16.88,
+			"end": 17.34
+		},
+		{
+			"index": 31,
+			"word": "Here,",
+			"start": 18.261,
+			"end": 18.441
+		},
+		{
+			"index": 32,
+			"word": "that's",
+			"start": 18.5,
+			"end": 18.681
+		},
+		{
+			"index": 33,
+			"word": "the",
+			"start": 18.72,
+			"end": 18.86
+		},
+		{
+			"index": 34,
+			"word": "Order",
+			"start": 18.96,
+			"end": 19.4
+		},
+		{
+			"index": 35,
+			"word": "we",
+			"start": 19.46,
+			"end": 19.54
+		},
+		{
+			"index": 36,
+			"word": "hope",
+			"start": 19.601,
+			"end": 19.74
+		},
+		{
+			"index": 37,
+			"word": "to",
+			"start": 19.78,
+			"end": 19.88
+		},
+		{
+			"index": 38,
+			"word": "get.",
+			"start": 19.941,
+			"end": 20.14
+		},
+		{
+			"index": 39,
+			"word": "But",
+			"start": 21.04,
+			"end": 21.181
+		},
+		{
+			"index": 40,
+			"word": "can",
+			"start": 21.24,
+			"end": 21.4
+		},
+		{
+			"index": 41,
+			"word": "checkout",
+			"start": 21.46,
+			"end": 22.04
+		},
+		{
+			"index": 42,
+			"word": "fail?",
+			"start": 22.2,
+			"end": 22.521
+		},
+		{
+			"index": 43,
+			"word": "And",
+			"start": 23.4,
+			"end": 23.56
+		},
+		{
+			"index": 44,
+			"word": "if",
+			"start": 23.62,
+			"end": 23.72
+		},
+		{
+			"index": 45,
+			"word": "it",
+			"start": 23.74,
+			"end": 23.88
+		},
+		{
+			"index": 46,
+			"word": "does,",
+			"start": 23.921,
+			"end": 24.28
+		},
+		{
+			"index": 47,
+			"word": "how",
+			"start": 24.86,
+			"end": 25.181
+		},
+		{
+			"index": 48,
+			"word": "will",
+			"start": 25.439999999999998,
+			"end": 25.56
+		},
+		{
+			"index": 49,
+			"word": "it",
+			"start": 25.58,
+			"end": 25.681
+		},
+		{
+			"index": 50,
+			"word": "fail?",
+			"start": 25.78,
+			"end": 26.08
+		},
+		{
+			"index": 51,
+			"word": "Unfortunately,",
+			"start": 27.12,
+			"end": 28.02
+		},
+		{
+			"index": 52,
+			"word": "Promise",
+			"start": 28.22,
+			"end": 28.601
+		},
+		{
+			"index": 53,
+			"word": "is",
+			"start": 28.64,
+			"end": 28.841
+		},
+		{
+			"index": 54,
+			"word": "not",
+			"start": 28.86,
+			"end": 29.08
+		},
+		{
+			"index": 55,
+			"word": "very",
+			"start": 29.16,
+			"end": 29.341
+		},
+		{
+			"index": 56,
+			"word": "forthcoming",
+			"start": 29.48,
+			"end": 30.261
+		},
+		{
+			"index": 57,
+			"word": "in",
+			"start": 30.3,
+			"end": 30.38
+		},
+		{
+			"index": 58,
+			"word": "this",
+			"start": 30.4,
+			"end": 30.54
+		},
+		{
+			"index": 59,
+			"word": "regard.",
+			"start": 30.58,
+			"end": 31
+		}
+	],
+	"textHash": "-c2eup7",
+	"wordCount": 60
+}

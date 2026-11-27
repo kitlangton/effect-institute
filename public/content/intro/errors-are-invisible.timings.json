@@ -1,0 +1,366 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "This",
+			"start": 0.09999999999999998,
+			"end": 0.42000000000000004
+		},
+		{
+			"index": 1,
+			"word": "problem",
+			"start": 0.45999999999999996,
+			"end": 0.8200000000000001
+		},
+		{
+			"index": 2,
+			"word": "is",
+			"start": 0.8799999999999999,
+			"end": 1.04
+		},
+		{
+			"index": 3,
+			"word": "fractal,",
+			"start": 1.14,
+			"end": 1.58
+		},
+		{
+			"index": 4,
+			"word": "of",
+			"start": 1.88,
+			"end": 1.96
+		},
+		{
+			"index": 5,
+			"word": "course.",
+			"start": 2.04,
+			"end": 2.42
+		},
+		{
+			"index": 6,
+			"word": "Our",
+			"start": 3.341,
+			"end": 3.5
+		},
+		{
+			"index": 7,
+			"word": "call",
+			"start": 3.64,
+			"end": 3.9600000000000004
+		},
+		{
+			"index": 8,
+			"word": "to",
+			"start": 4.021000000000001,
+			"end": 4.121
+		},
+		{
+			"index": 9,
+			"word": "getCart,",
+			"start": 4.199999999999999,
+			"end": 4.74
+		},
+		{
+			"index": 10,
+			"word": "which",
+			"start": 4.82,
+			"end": 5.0809999999999995
+		},
+		{
+			"index": 11,
+			"word": "presumably",
+			"start": 5.140000000000001,
+			"end": 5.720000000000001
+		},
+		{
+			"index": 12,
+			"word": "returns",
+			"start": 5.779999999999999,
+			"end": 6.279999999999999
+		},
+		{
+			"index": 13,
+			"word": "a",
+			"start": 6.359999999999999,
+			"end": 6.42
+		},
+		{
+			"index": 14,
+			"word": "Promise<Cart>,",
+			"start": 6.699999999999999,
+			"end": 7.601000000000001
+		},
+		{
+			"index": 15,
+			"word": "is",
+			"start": 8.48,
+			"end": 8.721
+		},
+		{
+			"index": 16,
+			"word": "just",
+			"start": 8.860000000000001,
+			"end": 9.121
+		},
+		{
+			"index": 17,
+			"word": "as",
+			"start": 9.200000000000001,
+			"end": 9.32
+		},
+		{
+			"index": 18,
+			"word": "opaque.",
+			"start": 9.421000000000001,
+			"end": 9.860000000000001
+		},
+		{
+			"index": 19,
+			"word": "To",
+			"start": 10.9,
+			"end": 11.06
+		},
+		{
+			"index": 20,
+			"word": "know",
+			"start": 11.1,
+			"end": 11.24
+		},
+		{
+			"index": 21,
+			"word": "how",
+			"start": 11.3,
+			"end": 11.4
+		},
+		{
+			"index": 22,
+			"word": "it",
+			"start": 11.440000000000001,
+			"end": 11.541
+		},
+		{
+			"index": 23,
+			"word": "might",
+			"start": 11.56,
+			"end": 11.82
+		},
+		{
+			"index": 24,
+			"word": "fail,",
+			"start": 11.88,
+			"end": 12.18
+		},
+		{
+			"index": 25,
+			"word": "we",
+			"start": 12.3,
+			"end": 12.42
+		},
+		{
+			"index": 26,
+			"word": "have",
+			"start": 12.48,
+			"end": 12.681000000000001
+		},
+		{
+			"index": 27,
+			"word": "to",
+			"start": 12.700000000000001,
+			"end": 13.32
+		},
+		{
+			"index": 28,
+			"word": "read",
+			"start": 13.38,
+			"end": 13.52
+		},
+		{
+			"index": 29,
+			"word": "its",
+			"start": 13.56,
+			"end": 13.8
+		},
+		{
+			"index": 30,
+			"word": "implementation.",
+			"start": 13.88,
+			"end": 14.72
+		},
+		{
+			"index": 31,
+			"word": "And",
+			"start": 15.721000000000002,
+			"end": 15.860000000000001
+		},
+		{
+			"index": 32,
+			"word": "then,",
+			"start": 15.961,
+			"end": 16.2
+		},
+		{
+			"index": 33,
+			"word": "we",
+			"start": 16.279999999999998,
+			"end": 16.36
+		},
+		{
+			"index": 34,
+			"word": "must",
+			"start": 16.439999999999998,
+			"end": 16.66
+		},
+		{
+			"index": 35,
+			"word": "recursively",
+			"start": 16.7,
+			"end": 17.939999999999998
+		},
+		{
+			"index": 36,
+			"word": "read",
+			"start": 18.061,
+			"end": 18.36
+		},
+		{
+			"index": 37,
+			"word": "any",
+			"start": 18.439999999999998,
+			"end": 18.599999999999998
+		},
+		{
+			"index": 38,
+			"word": "definitions",
+			"start": 18.68,
+			"end": 19.48
+		},
+		{
+			"index": 39,
+			"word": "it",
+			"start": 19.541,
+			"end": 19.66
+		},
+		{
+			"index": 40,
+			"word": "references,",
+			"start": 19.7,
+			"end": 20.439999999999998
+		},
+		{
+			"index": 41,
+			"word": "and",
+			"start": 21.2,
+			"end": 21.419999999999998
+		},
+		{
+			"index": 42,
+			"word": "so",
+			"start": 21.52,
+			"end": 21.66
+		},
+		{
+			"index": 43,
+			"word": "on.",
+			"start": 21.759999999999998,
+			"end": 21.98
+		},
+		{
+			"index": 44,
+			"word": "Perhaps",
+			"start": 23.099999999999998,
+			"end": 23.541
+		},
+		{
+			"index": 45,
+			"word": "we'd",
+			"start": 23.599999999999998,
+			"end": 23.741
+		},
+		{
+			"index": 46,
+			"word": "rather",
+			"start": 23.779999999999998,
+			"end": 24.121
+		},
+		{
+			"index": 47,
+			"word": "trust",
+			"start": 24.18,
+			"end": 24.4
+		},
+		{
+			"index": 48,
+			"word": "the",
+			"start": 24.461,
+			"end": 24.500999999999998
+		},
+		{
+			"index": 49,
+			"word": "docstring,",
+			"start": 24.56,
+			"end": 25.16
+		},
+		{
+			"index": 50,
+			"word": "if",
+			"start": 25.7,
+			"end": 25.801
+		},
+		{
+			"index": 51,
+			"word": "there",
+			"start": 25.84,
+			"end": 25.961
+		},
+		{
+			"index": 52,
+			"word": "is",
+			"start": 26,
+			"end": 26.121
+		},
+		{
+			"index": 53,
+			"word": "one,",
+			"start": 26.22,
+			"end": 26.4
+		},
+		{
+			"index": 54,
+			"word": "and",
+			"start": 27.2,
+			"end": 27.36
+		},
+		{
+			"index": 55,
+			"word": "pray",
+			"start": 27.74,
+			"end": 28.02
+		},
+		{
+			"index": 56,
+			"word": "it's",
+			"start": 28.08,
+			"end": 28.24
+		},
+		{
+			"index": 57,
+			"word": "up",
+			"start": 28.301,
+			"end": 28.4
+		},
+		{
+			"index": 58,
+			"word": "to",
+			"start": 28.439999999999998,
+			"end": 28.54
+		},
+		{
+			"index": 59,
+			"word": "date.",
+			"start": 28.599999999999998,
+			"end": 28.88
+		}
+	],
+	"textHash": "xfmyj1",
+	"wordCount": 60
+}

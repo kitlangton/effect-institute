@@ -1,0 +1,540 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "To",
+			"start": 0.1,
+			"end": 0.26
+		},
+		{
+			"index": 1,
+			"word": "see",
+			"start": 0.30000000000000004,
+			"end": 0.44000000000000006
+		},
+		{
+			"index": 2,
+			"word": "how",
+			"start": 0.48,
+			"end": 0.56
+		},
+		{
+			"index": 3,
+			"word": "to",
+			"start": 0.6,
+			"end": 0.68
+		},
+		{
+			"index": 4,
+			"word": "compose",
+			"start": 0.74,
+			"end": 1.1199999999999999
+		},
+		{
+			"index": 5,
+			"word": "Effects",
+			"start": 1.18,
+			"end": 1.5599999999999998
+		},
+		{
+			"index": 6,
+			"word": "properly,",
+			"start": 1.66,
+			"end": 2.14
+		},
+		{
+			"index": 7,
+			"word": "let",
+			"start": 2.94,
+			"end": 3.0210000000000004
+		},
+		{
+			"index": 8,
+			"word": "us",
+			"start": 3.06,
+			"end": 3.16
+		},
+		{
+			"index": 9,
+			"word": "briefly",
+			"start": 3.281,
+			"end": 3.56
+		},
+		{
+			"index": 10,
+			"word": "return",
+			"start": 3.62,
+			"end": 4.201
+		},
+		{
+			"index": 11,
+			"word": "to",
+			"start": 4.241,
+			"end": 4.3
+		},
+		{
+			"index": 12,
+			"word": "the",
+			"start": 4.34,
+			"end": 4.3999999999999995
+		},
+		{
+			"index": 13,
+			"word": "vile",
+			"start": 4.52,
+			"end": 4.84
+		},
+		{
+			"index": 14,
+			"word": "Promise.",
+			"start": 5.06,
+			"end": 5.54
+		},
+		{
+			"index": 15,
+			"word": "To",
+			"start": 6.4399999999999995,
+			"end": 6.56
+		},
+		{
+			"index": 16,
+			"word": "sequence",
+			"start": 6.64,
+			"end": 7.04
+		},
+		{
+			"index": 17,
+			"word": "these,",
+			"start": 7.12,
+			"end": 7.56
+		},
+		{
+			"index": 18,
+			"word": "we",
+			"start": 8.100000000000001,
+			"end": 8.161000000000001
+		},
+		{
+			"index": 19,
+			"word": "define",
+			"start": 8.201,
+			"end": 8.541
+		},
+		{
+			"index": 20,
+			"word": "a",
+			"start": 8.581000000000001,
+			"end": 8.64
+		},
+		{
+			"index": 21,
+			"word": "program,",
+			"start": 8.72,
+			"end": 9.26
+		},
+		{
+			"index": 22,
+			"word": "mark",
+			"start": 10,
+			"end": 10.18
+		},
+		{
+			"index": 23,
+			"word": "it",
+			"start": 10.22,
+			"end": 10.32
+		},
+		{
+			"index": 24,
+			"word": "async,",
+			"start": 10.46,
+			"end": 11.020000000000001
+		},
+		{
+			"index": 25,
+			"word": "await",
+			"start": 11.741000000000001,
+			"end": 12.100000000000001
+		},
+		{
+			"index": 26,
+			"word": "sensor",
+			"start": 12.26,
+			"end": 12.72
+		},
+		{
+			"index": 27,
+			"word": "data,",
+			"start": 12.8,
+			"end": 13.06
+		},
+		{
+			"index": 28,
+			"word": "await",
+			"start": 13.701,
+			"end": 13.98
+		},
+		{
+			"index": 29,
+			"word": "biometrics,",
+			"start": 14.08,
+			"end": 14.92
+		},
+		{
+			"index": 30,
+			"word": "then",
+			"start": 15.600000000000001,
+			"end": 15.76
+		},
+		{
+			"index": 31,
+			"word": "await",
+			"start": 15.860000000000001,
+			"end": 16.16
+		},
+		{
+			"index": 32,
+			"word": "analyze.",
+			"start": 16.301,
+			"end": 16.86
+		},
+		{
+			"index": 33,
+			"word": "As",
+			"start": 18.041,
+			"end": 18.14
+		},
+		{
+			"index": 34,
+			"word": "we",
+			"start": 18.221,
+			"end": 18.301
+		},
+		{
+			"index": 35,
+			"word": "all",
+			"start": 18.381,
+			"end": 18.48
+		},
+		{
+			"index": 36,
+			"word": "know,",
+			"start": 18.58,
+			"end": 18.82
+		},
+		{
+			"index": 37,
+			"word": "calling",
+			"start": 19.4,
+			"end": 19.72
+		},
+		{
+			"index": 38,
+			"word": "this",
+			"start": 19.82,
+			"end": 20.08
+		},
+		{
+			"index": 39,
+			"word": "will",
+			"start": 20.14,
+			"end": 20.299999999999997
+		},
+		{
+			"index": 40,
+			"word": "execute",
+			"start": 20.381,
+			"end": 20.801
+		},
+		{
+			"index": 41,
+			"word": "the",
+			"start": 20.84,
+			"end": 20.919999999999998
+		},
+		{
+			"index": 42,
+			"word": "first",
+			"start": 21.041,
+			"end": 21.259999999999998
+		},
+		{
+			"index": 43,
+			"word": "promise,",
+			"start": 21.381,
+			"end": 21.86
+		},
+		{
+			"index": 44,
+			"word": "then",
+			"start": 22.4,
+			"end": 22.52
+		},
+		{
+			"index": 45,
+			"word": "the",
+			"start": 22.56,
+			"end": 22.621
+		},
+		{
+			"index": 46,
+			"word": "second,",
+			"start": 22.781,
+			"end": 23.24
+		},
+		{
+			"index": 47,
+			"word": "then",
+			"start": 23.72,
+			"end": 23.82
+		},
+		{
+			"index": 48,
+			"word": "the",
+			"start": 23.86,
+			"end": 23.921
+		},
+		{
+			"index": 49,
+			"word": "third,",
+			"start": 24.06,
+			"end": 24.419999999999998
+		},
+		{
+			"index": 50,
+			"word": "resolving",
+			"start": 25,
+			"end": 25.72
+		},
+		{
+			"index": 51,
+			"word": "the",
+			"start": 25.759999999999998,
+			"end": 25.84
+		},
+		{
+			"index": 52,
+			"word": "outer",
+			"start": 25.961,
+			"end": 26.24
+		},
+		{
+			"index": 53,
+			"word": "program.",
+			"start": 26.32,
+			"end": 26.86
+		},
+		{
+			"index": 54,
+			"word": "And",
+			"start": 27.98,
+			"end": 28.08
+		},
+		{
+			"index": 55,
+			"word": "now,",
+			"start": 28.16,
+			"end": 28.439999999999998
+		},
+		{
+			"index": 56,
+			"word": "prepare",
+			"start": 29.22,
+			"end": 29.56
+		},
+		{
+			"index": 57,
+			"word": "yourself.",
+			"start": 29.599999999999998,
+			"end": 30.16
+		},
+		{
+			"index": 58,
+			"word": "First,",
+			"start": 31.4,
+			"end": 31.72
+		},
+		{
+			"index": 59,
+			"word": "we'll",
+			"start": 31.820999999999998,
+			"end": 31.939999999999998
+		},
+		{
+			"index": 60,
+			"word": "wrap",
+			"start": 31.981,
+			"end": 32.321
+		},
+		{
+			"index": 61,
+			"word": "each",
+			"start": 32.42,
+			"end": 32.641
+		},
+		{
+			"index": 62,
+			"word": "thunk",
+			"start": 32.76,
+			"end": 33.1
+		},
+		{
+			"index": 63,
+			"word": "in",
+			"start": 33.161,
+			"end": 33.339999999999996
+		},
+		{
+			"index": 64,
+			"word": "Effect.promise.",
+			"start": 33.44,
+			"end": 34.76
+		},
+		{
+			"index": 65,
+			"word": "And",
+			"start": 35.72,
+			"end": 35.86
+		},
+		{
+			"index": 66,
+			"word": "then,",
+			"start": 35.92,
+			"end": 36.199999999999996
+		},
+		{
+			"index": 67,
+			"word": "I'll",
+			"start": 37.08,
+			"end": 37.24
+		},
+		{
+			"index": 68,
+			"word": "gesture",
+			"start": 37.321,
+			"end": 38.24
+		},
+		{
+			"index": 69,
+			"word": "magnificently",
+			"start": 38.339999999999996,
+			"end": 39.301
+		},
+		{
+			"index": 70,
+			"word": "to",
+			"start": 39.379999999999995,
+			"end": 39.621
+		},
+		{
+			"index": 71,
+			"word": "the",
+			"start": 39.961,
+			"end": 40.1
+		},
+		{
+			"index": 72,
+			"word": "right.",
+			"start": 40.18,
+			"end": 40.5
+		},
+		{
+			"index": 73,
+			"word": "To",
+			"start": 41.6,
+			"end": 41.66
+		},
+		{
+			"index": 74,
+			"word": "the",
+			"start": 41.72,
+			"end": 41.781
+		},
+		{
+			"index": 75,
+			"word": "left.",
+			"start": 41.879999999999995,
+			"end": 42.26
+		},
+		{
+			"index": 76,
+			"word": "Back",
+			"start": 43.321,
+			"end": 43.56
+		},
+		{
+			"index": 77,
+			"word": "to",
+			"start": 43.699999999999996,
+			"end": 43.839999999999996
+		},
+		{
+			"index": 78,
+			"word": "the",
+			"start": 43.94,
+			"end": 44.001
+		},
+		{
+			"index": 79,
+			"word": "right.",
+			"start": 44.1,
+			"end": 44.42
+		},
+		{
+			"index": 80,
+			"word": "Promise.",
+			"start": 45.699999999999996,
+			"end": 46.3
+		},
+		{
+			"index": 81,
+			"word": "Effect.",
+			"start": 47.24,
+			"end": 47.86
+		},
+		{
+			"index": 82,
+			"word": "Async/Await.",
+			"start": 48.72,
+			"end": 49.68
+		},
+		{
+			"index": 83,
+			"word": "Effect.gen.",
+			"start": 50.68,
+			"end": 52.04
+		},
+		{
+			"index": 84,
+			"word": "Do",
+			"start": 53.32,
+			"end": 53.379999999999995
+		},
+		{
+			"index": 85,
+			"word": "you",
+			"start": 53.461,
+			"end": 53.641
+		},
+		{
+			"index": 86,
+			"word": "see",
+			"start": 53.72,
+			"end": 53.82
+		},
+		{
+			"index": 87,
+			"word": "it",
+			"start": 53.879999999999995,
+			"end": 54.6
+		},
+		{
+			"index": 88,
+			"word": "now?",
+			"start": 54.699999999999996,
+			"end": 55.019999999999996
+		}
+	],
+	"textHash": "jw6c3z",
+	"wordCount": 89
+}

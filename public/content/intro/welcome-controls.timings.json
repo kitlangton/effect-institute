@@ -1,0 +1,222 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Wow.",
+			"start": 0.10000000000000003,
+			"end": 0.6000000000000001
+		},
+		{
+			"index": 1,
+			"word": "You",
+			"start": 1.22,
+			"end": 1.36
+		},
+		{
+			"index": 2,
+			"word": "actually",
+			"start": 1.421,
+			"end": 1.7800000000000002
+		},
+		{
+			"index": 3,
+			"word": "did",
+			"start": 1.8199999999999998,
+			"end": 1.94
+		},
+		{
+			"index": 4,
+			"word": "it.",
+			"start": 2,
+			"end": 2.141
+		},
+		{
+			"index": 5,
+			"word": "As",
+			"start": 3.181,
+			"end": 3.2800000000000002
+		},
+		{
+			"index": 6,
+			"word": "a",
+			"start": 3.32,
+			"end": 3.4010000000000002
+		},
+		{
+			"index": 7,
+			"word": "prize,",
+			"start": 3.4210000000000003,
+			"end": 3.9000000000000004
+		},
+		{
+			"index": 8,
+			"word": "you",
+			"start": 3.96,
+			"end": 4.041
+		},
+		{
+			"index": 9,
+			"word": "get",
+			"start": 4.101,
+			"end": 4.44
+		},
+		{
+			"index": 10,
+			"word": "more",
+			"start": 4.5,
+			"end": 4.641
+		},
+		{
+			"index": 11,
+			"word": "tutorial.",
+			"start": 4.681,
+			"end": 5.3
+		},
+		{
+			"index": 12,
+			"word": "The",
+			"start": 6.42,
+			"end": 6.48
+		},
+		{
+			"index": 13,
+			"word": "R",
+			"start": 6.641,
+			"end": 6.82
+		},
+		{
+			"index": 14,
+			"word": "key",
+			"start": 6.9,
+			"end": 7.26
+		},
+		{
+			"index": 15,
+			"word": "will",
+			"start": 7.32,
+			"end": 7.44
+		},
+		{
+			"index": 16,
+			"word": "restart",
+			"start": 7.54,
+			"end": 7.941
+		},
+		{
+			"index": 17,
+			"word": "the",
+			"start": 7.960999999999999,
+			"end": 8.081
+		},
+		{
+			"index": 18,
+			"word": "current",
+			"start": 8.100999999999999,
+			"end": 8.36
+		},
+		{
+			"index": 19,
+			"word": "section.",
+			"start": 8.401,
+			"end": 8.82
+		},
+		{
+			"index": 20,
+			"word": "And",
+			"start": 9.5,
+			"end": 9.600999999999999
+		},
+		{
+			"index": 21,
+			"word": "the",
+			"start": 9.620000000000001,
+			"end": 9.719999999999999
+		},
+		{
+			"index": 22,
+			"word": "←",
+			"start": 9.741,
+			"end": 9.742
+		},
+		{
+			"index": 23,
+			"word": "and",
+			"start": 10.16,
+			"end": 10.260000000000002
+		},
+		{
+			"index": 24,
+			"word": "→",
+			"start": 10.280000000000001,
+			"end": 10.280999999999999
+		},
+		{
+			"index": 25,
+			"word": "arrow",
+			"start": 10.579999999999998,
+			"end": 10.8
+		},
+		{
+			"index": 26,
+			"word": "keys",
+			"start": 10.86,
+			"end": 11.141000000000002
+		},
+		{
+			"index": 27,
+			"word": "will",
+			"start": 11.219999999999999,
+			"end": 11.401
+		},
+		{
+			"index": 28,
+			"word": "jump",
+			"start": 11.420000000000002,
+			"end": 12.219999999999999
+		},
+		{
+			"index": 29,
+			"word": "backward",
+			"start": 12.260000000000002,
+			"end": 12.681000000000001
+		},
+		{
+			"index": 30,
+			"word": "and",
+			"start": 12.719999999999999,
+			"end": 12.901
+		},
+		{
+			"index": 31,
+			"word": "forward",
+			"start": 12.920000000000002,
+			"end": 13.2
+		},
+		{
+			"index": 32,
+			"word": "a",
+			"start": 13.260000000000002,
+			"end": 13.32
+		},
+		{
+			"index": 33,
+			"word": "couple",
+			"start": 13.36,
+			"end": 13.54
+		},
+		{
+			"index": 34,
+			"word": "of",
+			"start": 13.579999999999998,
+			"end": 13.719999999999999
+		},
+		{
+			"index": 35,
+			"word": "seconds.",
+			"start": 13.760000000000002,
+			"end": 14.201
+		}
+	],
+	"textHash": "-4vk82k",
+	"wordCount": 36
+}

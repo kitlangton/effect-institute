@@ -1,0 +1,516 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Now",
+			"start": 0.10000000000000003,
+			"end": 0.30100000000000005
+		},
+		{
+			"index": 1,
+			"word": "that",
+			"start": 0.3400000000000001,
+			"end": 0.42100000000000004
+		},
+		{
+			"index": 2,
+			"word": "we",
+			"start": 0.4800000000000001,
+			"end": 0.5800000000000001
+		},
+		{
+			"index": 3,
+			"word": "can",
+			"start": 0.62,
+			"end": 0.8010000000000002
+		},
+		{
+			"index": 4,
+			"word": "create",
+			"start": 0.8600000000000001,
+			"end": 1.181
+		},
+		{
+			"index": 5,
+			"word": "and",
+			"start": 1.22,
+			"end": 1.32
+		},
+		{
+			"index": 6,
+			"word": "run",
+			"start": 1.3800000000000001,
+			"end": 1.52
+		},
+		{
+			"index": 7,
+			"word": "a",
+			"start": 1.56,
+			"end": 1.62
+		},
+		{
+			"index": 8,
+			"word": "few",
+			"start": 1.681,
+			"end": 1.8199999999999998
+		},
+		{
+			"index": 9,
+			"word": "primitive",
+			"start": 1.8810000000000002,
+			"end": 2.2
+		},
+		{
+			"index": 10,
+			"word": "Effects,",
+			"start": 2.2600000000000002,
+			"end": 2.82
+		},
+		{
+			"index": 11,
+			"word": "it's",
+			"start": 3.4010000000000002,
+			"end": 3.56
+		},
+		{
+			"index": 12,
+			"word": "time",
+			"start": 3.64,
+			"end": 3.8600000000000003
+		},
+		{
+			"index": 13,
+			"word": "to",
+			"start": 3.9000000000000004,
+			"end": 3.96
+		},
+		{
+			"index": 14,
+			"word": "compose",
+			"start": 4,
+			"end": 4.44
+		},
+		{
+			"index": 15,
+			"word": "them",
+			"start": 4.5,
+			"end": 4.6610000000000005
+		},
+		{
+			"index": 16,
+			"word": "into",
+			"start": 4.7,
+			"end": 4.96
+		},
+		{
+			"index": 17,
+			"word": "larger",
+			"start": 5.081,
+			"end": 5.48
+		},
+		{
+			"index": 18,
+			"word": "and",
+			"start": 5.54,
+			"end": 5.641
+		},
+		{
+			"index": 19,
+			"word": "more",
+			"start": 5.72,
+			"end": 5.84
+		},
+		{
+			"index": 20,
+			"word": "meaningful",
+			"start": 5.94,
+			"end": 6.32
+		},
+		{
+			"index": 21,
+			"word": "programs.",
+			"start": 6.46,
+			"end": 7.06
+		},
+		{
+			"index": 22,
+			"word": "In",
+			"start": 7.901000000000001,
+			"end": 7.981000000000001
+		},
+		{
+			"index": 23,
+			"word": "the",
+			"start": 8,
+			"end": 8.061
+		},
+		{
+			"index": 24,
+			"word": "preceding",
+			"start": 8.120000000000001,
+			"end": 8.561
+		},
+		{
+			"index": 25,
+			"word": "lessons,",
+			"start": 8.620000000000001,
+			"end": 9.021
+		},
+		{
+			"index": 26,
+			"word": "I've",
+			"start": 9.120000000000001,
+			"end": 9.280999999999999
+		},
+		{
+			"index": 27,
+			"word": "hacked",
+			"start": 9.3,
+			"end": 9.54
+		},
+		{
+			"index": 28,
+			"word": "my",
+			"start": 9.600999999999999,
+			"end": 9.719999999999999
+		},
+		{
+			"index": 29,
+			"word": "way",
+			"start": 9.739999999999998,
+			"end": 9.861
+		},
+		{
+			"index": 30,
+			"word": "around",
+			"start": 9.940999999999999,
+			"end": 10.181000000000001
+		},
+		{
+			"index": 31,
+			"word": "this",
+			"start": 10.260000000000002,
+			"end": 10.46
+		},
+		{
+			"index": 32,
+			"word": "by",
+			"start": 10.521,
+			"end": 10.620999999999999
+		},
+		{
+			"index": 33,
+			"word": "running",
+			"start": 10.7,
+			"end": 10.96
+		},
+		{
+			"index": 34,
+			"word": "one",
+			"start": 11.440000000000001,
+			"end": 11.54
+		},
+		{
+			"index": 35,
+			"word": "Effect",
+			"start": 11.600999999999999,
+			"end": 12.021
+		},
+		{
+			"index": 36,
+			"word": "and",
+			"start": 12.600999999999999,
+			"end": 12.701
+		},
+		{
+			"index": 37,
+			"word": "then",
+			"start": 12.739999999999998,
+			"end": 12.879999999999999
+		},
+		{
+			"index": 38,
+			"word": "separately",
+			"start": 13.04,
+			"end": 13.48
+		},
+		{
+			"index": 39,
+			"word": "running",
+			"start": 13.561,
+			"end": 13.879999999999999
+		},
+		{
+			"index": 40,
+			"word": "another.",
+			"start": 13.940000000000001,
+			"end": 14.32
+		},
+		{
+			"index": 41,
+			"word": "If",
+			"start": 15.420000000000002,
+			"end": 15.521
+		},
+		{
+			"index": 42,
+			"word": "Effect",
+			"start": 15.561,
+			"end": 15.920000000000002
+		},
+		{
+			"index": 43,
+			"word": "has",
+			"start": 15.98,
+			"end": 16.240000000000002
+		},
+		{
+			"index": 44,
+			"word": "anything",
+			"start": 16.3,
+			"end": 16.601000000000003
+		},
+		{
+			"index": 45,
+			"word": "to",
+			"start": 16.64,
+			"end": 16.76
+		},
+		{
+			"index": 46,
+			"word": "offer",
+			"start": 16.82,
+			"end": 17.040000000000003
+		},
+		{
+			"index": 47,
+			"word": "us,",
+			"start": 17.14,
+			"end": 17.380000000000003
+		},
+		{
+			"index": 48,
+			"word": "it's",
+			"start": 17.92,
+			"end": 18.141000000000002
+		},
+		{
+			"index": 49,
+			"word": "not",
+			"start": 18.220000000000002,
+			"end": 18.521
+		},
+		{
+			"index": 50,
+			"word": "down",
+			"start": 18.560000000000002,
+			"end": 18.861
+		},
+		{
+			"index": 51,
+			"word": "this",
+			"start": 18.92,
+			"end": 19.12
+		},
+		{
+			"index": 52,
+			"word": "path.",
+			"start": 19.181,
+			"end": 19.5
+		},
+		{
+			"index": 53,
+			"word": "We",
+			"start": 20.42,
+			"end": 20.541
+		},
+		{
+			"index": 54,
+			"word": "want",
+			"start": 20.560000000000002,
+			"end": 20.701
+		},
+		{
+			"index": 55,
+			"word": "to",
+			"start": 20.720000000000002,
+			"end": 20.84
+		},
+		{
+			"index": 56,
+			"word": "combine",
+			"start": 20.861,
+			"end": 21.42
+		},
+		{
+			"index": 57,
+			"word": "our",
+			"start": 21.521,
+			"end": 21.66
+		},
+		{
+			"index": 58,
+			"word": "effects",
+			"start": 21.82,
+			"end": 22.181
+		},
+		{
+			"index": 59,
+			"word": "without",
+			"start": 22.220000000000002,
+			"end": 22.48
+		},
+		{
+			"index": 60,
+			"word": "forfeiting",
+			"start": 22.64,
+			"end": 23.201
+		},
+		{
+			"index": 61,
+			"word": "their",
+			"start": 23.240000000000002,
+			"end": 23.880000000000003
+		},
+		{
+			"index": 62,
+			"word": "blueprintness.",
+			"start": 24,
+			"end": 25.040000000000003
+		},
+		{
+			"index": 63,
+			"word": "Ideally,",
+			"start": 26.040000000000003,
+			"end": 26.441000000000003
+		},
+		{
+			"index": 64,
+			"word": "our",
+			"start": 26.560000000000002,
+			"end": 26.681
+		},
+		{
+			"index": 65,
+			"word": "entire",
+			"start": 26.720000000000002,
+			"end": 27.240000000000002
+		},
+		{
+			"index": 66,
+			"word": "program",
+			"start": 27.32,
+			"end": 27.78
+		},
+		{
+			"index": 67,
+			"word": "will",
+			"start": 27.82,
+			"end": 27.941000000000003
+		},
+		{
+			"index": 68,
+			"word": "be",
+			"start": 27.96,
+			"end": 28.080000000000002
+		},
+		{
+			"index": 69,
+			"word": "composed",
+			"start": 28.12,
+			"end": 28.681
+		},
+		{
+			"index": 70,
+			"word": "into",
+			"start": 28.720000000000002,
+			"end": 28.961000000000002
+		},
+		{
+			"index": 71,
+			"word": "a",
+			"start": 29.021,
+			"end": 29.14
+		},
+		{
+			"index": 72,
+			"word": "single",
+			"start": 29.181,
+			"end": 29.48
+		},
+		{
+			"index": 73,
+			"word": "Effect",
+			"start": 29.66,
+			"end": 30.601000000000003
+		},
+		{
+			"index": 74,
+			"word": "that",
+			"start": 30.64,
+			"end": 30.740000000000002
+		},
+		{
+			"index": 75,
+			"word": "is",
+			"start": 30.78,
+			"end": 30.880000000000003
+		},
+		{
+			"index": 76,
+			"word": "run",
+			"start": 30.96,
+			"end": 31.181
+		},
+		{
+			"index": 77,
+			"word": "once",
+			"start": 31.3,
+			"end": 31.721
+		},
+		{
+			"index": 78,
+			"word": "at",
+			"start": 31.76,
+			"end": 31.861
+		},
+		{
+			"index": 79,
+			"word": "the",
+			"start": 31.900000000000002,
+			"end": 32
+		},
+		{
+			"index": 80,
+			"word": "very",
+			"start": 32.061,
+			"end": 32.32
+		},
+		{
+			"index": 81,
+			"word": "top",
+			"start": 32.381,
+			"end": 32.58
+		},
+		{
+			"index": 82,
+			"word": "of",
+			"start": 32.62,
+			"end": 32.721
+		},
+		{
+			"index": 83,
+			"word": "our",
+			"start": 32.76,
+			"end": 32.881
+		},
+		{
+			"index": 84,
+			"word": "application.",
+			"start": 32.94,
+			"end": 33.599999999999994
+		}
+	],
+	"textHash": "-fswra8",
+	"wordCount": 85
+}

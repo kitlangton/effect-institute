@@ -1,0 +1,558 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Some",
+			"start": 0.1,
+			"end": 0.31999999999999995
+		},
+		{
+			"index": 1,
+			"word": "internet",
+			"start": 0.401,
+			"end": 0.7999999999999999
+		},
+		{
+			"index": 2,
+			"word": "ne'er-do-wells",
+			"start": 0.8599999999999999,
+			"end": 1.66
+		},
+		{
+			"index": 3,
+			"word": "have",
+			"start": 1.701,
+			"end": 1.78
+		},
+		{
+			"index": 4,
+			"word": "suggested",
+			"start": 1.841,
+			"end": 2.3600000000000003
+		},
+		{
+			"index": 5,
+			"word": "that",
+			"start": 2.4200000000000004,
+			"end": 2.5
+		},
+		{
+			"index": 6,
+			"word": "Effect",
+			"start": 2.5410000000000004,
+			"end": 2.9000000000000004
+		},
+		{
+			"index": 7,
+			"word": "requires",
+			"start": 2.9600000000000004,
+			"end": 3.4200000000000004
+		},
+		{
+			"index": 8,
+			"word": "a",
+			"start": 3.48,
+			"end": 3.5
+		},
+		{
+			"index": 9,
+			"word": "PhD",
+			"start": 3.64,
+			"end": 4.281000000000001
+		},
+		{
+			"index": 10,
+			"word": "in",
+			"start": 4.321000000000001,
+			"end": 4.46
+		},
+		{
+			"index": 11,
+			"word": "generator",
+			"start": 4.58,
+			"end": 4.96
+		},
+		{
+			"index": 12,
+			"word": "functions.",
+			"start": 5.08,
+			"end": 5.58
+		},
+		{
+			"index": 13,
+			"word": "This",
+			"start": 6.66,
+			"end": 6.86
+		},
+		{
+			"index": 14,
+			"word": "is",
+			"start": 7.04,
+			"end": 7.301
+		},
+		{
+			"index": 15,
+			"word": "unadulterated",
+			"start": 7.821000000000001,
+			"end": 8.641
+		},
+		{
+			"index": 16,
+			"word": "poppycock.",
+			"start": 9.399999999999999,
+			"end": 10.059999999999999
+		},
+		{
+			"index": 17,
+			"word": "If",
+			"start": 11.2,
+			"end": 11.319999999999999
+		},
+		{
+			"index": 18,
+			"word": "you",
+			"start": 11.36,
+			"end": 11.459999999999999
+		},
+		{
+			"index": 19,
+			"word": "get",
+			"start": 11.52,
+			"end": 11.7
+		},
+		{
+			"index": 20,
+			"word": "async/await,",
+			"start": 11.78,
+			"end": 12.58
+		},
+		{
+			"index": 21,
+			"word": "you'll",
+			"start": 12.92,
+			"end": 13.059999999999999
+		},
+		{
+			"index": 22,
+			"word": "get",
+			"start": 13.12,
+			"end": 13.261
+		},
+		{
+			"index": 23,
+			"word": "Effect.gen.",
+			"start": 13.341,
+			"end": 14.42
+		},
+		{
+			"index": 24,
+			"word": "The",
+			"start": 15.18,
+			"end": 15.301
+		},
+		{
+			"index": 25,
+			"word": "former",
+			"start": 15.379999999999999,
+			"end": 15.78
+		},
+		{
+			"index": 26,
+			"word": "is,",
+			"start": 15.9,
+			"end": 16.101000000000003
+		},
+		{
+			"index": 27,
+			"word": "unfortunately,",
+			"start": 16.240000000000002,
+			"end": 16.98
+		},
+		{
+			"index": 28,
+			"word": "hard-coded",
+			"start": 17.101000000000003,
+			"end": 17.580000000000002
+		},
+		{
+			"index": 29,
+			"word": "to",
+			"start": 17.62,
+			"end": 17.720000000000002
+		},
+		{
+			"index": 30,
+			"word": "work",
+			"start": 17.761000000000003,
+			"end": 17.96
+		},
+		{
+			"index": 31,
+			"word": "with",
+			"start": 18,
+			"end": 18.101000000000003
+		},
+		{
+			"index": 32,
+			"word": "Promise,",
+			"start": 18.240000000000002,
+			"end": 18.681
+		},
+		{
+			"index": 33,
+			"word": "so",
+			"start": 19.48,
+			"end": 19.540000000000003
+		},
+		{
+			"index": 34,
+			"word": "the",
+			"start": 19.601000000000003,
+			"end": 19.66
+		},
+		{
+			"index": 35,
+			"word": "authors",
+			"start": 19.761000000000003,
+			"end": 20.021
+		},
+		{
+			"index": 36,
+			"word": "of",
+			"start": 20.060000000000002,
+			"end": 20.14
+		},
+		{
+			"index": 37,
+			"word": "Effect",
+			"start": 20.28,
+			"end": 20.601000000000003
+		},
+		{
+			"index": 38,
+			"word": "needed",
+			"start": 20.700000000000003,
+			"end": 20.92
+		},
+		{
+			"index": 39,
+			"word": "to",
+			"start": 20.941000000000003,
+			"end": 21.021
+		},
+		{
+			"index": 40,
+			"word": "come",
+			"start": 21.080000000000002,
+			"end": 21.200000000000003
+		},
+		{
+			"index": 41,
+			"word": "up",
+			"start": 21.261000000000003,
+			"end": 21.361
+		},
+		{
+			"index": 42,
+			"word": "with",
+			"start": 21.400000000000002,
+			"end": 21.5
+		},
+		{
+			"index": 43,
+			"word": "an",
+			"start": 21.540000000000003,
+			"end": 21.64
+		},
+		{
+			"index": 44,
+			"word": "alternate",
+			"start": 21.740000000000002,
+			"end": 22.080000000000002
+		},
+		{
+			"index": 45,
+			"word": "method",
+			"start": 22.16,
+			"end": 22.98
+		},
+		{
+			"index": 46,
+			"word": "of",
+			"start": 23.040000000000003,
+			"end": 23.121000000000002
+		},
+		{
+			"index": 47,
+			"word": "direct-style,",
+			"start": 23.200000000000003,
+			"end": 24
+		},
+		{
+			"index": 48,
+			"word": "sequential",
+			"start": 24.14,
+			"end": 24.78
+		},
+		{
+			"index": 49,
+			"word": "composition.",
+			"start": 24.86,
+			"end": 25.46
+		},
+		{
+			"index": 50,
+			"word": "And",
+			"start": 26.380000000000003,
+			"end": 26.5
+		},
+		{
+			"index": 51,
+			"word": "yes,",
+			"start": 26.601000000000003,
+			"end": 26.8
+		},
+		{
+			"index": 52,
+			"word": "it",
+			"start": 26.880000000000003,
+			"end": 27
+		},
+		{
+			"index": 53,
+			"word": "happens",
+			"start": 27.101000000000003,
+			"end": 27.5
+		},
+		{
+			"index": 54,
+			"word": "to",
+			"start": 27.540000000000003,
+			"end": 27.621000000000002
+		},
+		{
+			"index": 55,
+			"word": "involve",
+			"start": 27.64,
+			"end": 28.12
+		},
+		{
+			"index": 56,
+			"word": "a",
+			"start": 28.200000000000003,
+			"end": 28.341
+		},
+		{
+			"index": 57,
+			"word": "few",
+			"start": 28.400000000000002,
+			"end": 28.700000000000003
+		},
+		{
+			"index": 58,
+			"word": "asterisks.",
+			"start": 28.8,
+			"end": 29.46
+		},
+		{
+			"index": 59,
+			"word": "So",
+			"start": 30.841,
+			"end": 30.92
+		},
+		{
+			"index": 60,
+			"word": "when",
+			"start": 30.96,
+			"end": 31.060000000000002
+		},
+		{
+			"index": 61,
+			"word": "we",
+			"start": 31.080000000000002,
+			"end": 31.201
+		},
+		{
+			"index": 62,
+			"word": "execute",
+			"start": 31.240000000000002,
+			"end": 32.14
+		},
+		{
+			"index": 63,
+			"word": "this",
+			"start": 32.201,
+			"end": 32.401
+		},
+		{
+			"index": 64,
+			"word": "program,",
+			"start": 32.620000000000005,
+			"end": 33.120000000000005
+		},
+		{
+			"index": 65,
+			"word": "the",
+			"start": 33.82,
+			"end": 33.861000000000004
+		},
+		{
+			"index": 66,
+			"word": "first",
+			"start": 33.980000000000004,
+			"end": 34.221000000000004
+		},
+		{
+			"index": 67,
+			"word": "Effect",
+			"start": 34.341,
+			"end": 34.6
+		},
+		{
+			"index": 68,
+			"word": "will",
+			"start": 34.660000000000004,
+			"end": 34.800000000000004
+		},
+		{
+			"index": 69,
+			"word": "run",
+			"start": 34.841,
+			"end": 35.660000000000004
+		},
+		{
+			"index": 70,
+			"word": "until",
+			"start": 35.76,
+			"end": 35.980000000000004
+		},
+		{
+			"index": 71,
+			"word": "it",
+			"start": 36,
+			"end": 36.120000000000005
+		},
+		{
+			"index": 72,
+			"word": "completes,",
+			"start": 36.14,
+			"end": 36.76
+		},
+		{
+			"index": 73,
+			"word": "then",
+			"start": 37.521,
+			"end": 37.681000000000004
+		},
+		{
+			"index": 74,
+			"word": "the",
+			"start": 37.74,
+			"end": 37.78
+		},
+		{
+			"index": 75,
+			"word": "next,",
+			"start": 37.9,
+			"end": 38.361000000000004
+		},
+		{
+			"index": 76,
+			"word": "until",
+			"start": 38.881,
+			"end": 39.541000000000004
+		},
+		{
+			"index": 77,
+			"word": "the",
+			"start": 39.620000000000005,
+			"end": 39.660000000000004
+		},
+		{
+			"index": 78,
+			"word": "last.",
+			"start": 39.78,
+			"end": 41
+		},
+		{
+			"index": 79,
+			"word": "The",
+			"start": 41.06,
+			"end": 41.1
+		},
+		{
+			"index": 80,
+			"word": "fact",
+			"start": 41.201,
+			"end": 41.381
+		},
+		{
+			"index": 81,
+			"word": "that",
+			"start": 41.42,
+			"end": 41.541000000000004
+		},
+		{
+			"index": 82,
+			"word": "generator",
+			"start": 41.58,
+			"end": 42
+		},
+		{
+			"index": 83,
+			"word": "functions",
+			"start": 42.06,
+			"end": 42.58
+		},
+		{
+			"index": 84,
+			"word": "are",
+			"start": 42.620000000000005,
+			"end": 42.721000000000004
+		},
+		{
+			"index": 85,
+			"word": "involved",
+			"start": 42.74,
+			"end": 43.76
+		},
+		{
+			"index": 86,
+			"word": "is",
+			"start": 43.861000000000004,
+			"end": 44.06
+		},
+		{
+			"index": 87,
+			"word": "incidental.",
+			"start": 44.14,
+			"end": 44.82
+		},
+		{
+			"index": 88,
+			"word": "It",
+			"start": 45.5,
+			"end": 45.561
+		},
+		{
+			"index": 89,
+			"word": "is",
+			"start": 45.6,
+			"end": 45.721000000000004
+		},
+		{
+			"index": 90,
+			"word": "mere",
+			"start": 45.82,
+			"end": 46.341
+		},
+		{
+			"index": 91,
+			"word": "syntax.",
+			"start": 46.5,
+			"end": 47.14
+		}
+	],
+	"textHash": "730i5s",
+	"wordCount": 92
+}

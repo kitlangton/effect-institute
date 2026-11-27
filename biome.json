@@ -1,0 +1,78 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.4.7/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"includes": [
+			"**/src/**/*",
+			"**/content/**/*.ts",
+			"**/scripts/**/*.ts",
+			"**/.vscode/**/*",
+			"**/index.html",
+			"**/vite.config.ts",
+			"!**/src/routeTree.gen.ts",
+			"!**/src/styles.css"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab",
+		"lineWidth": 120
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"a11y": {
+				"noStaticElementInteractions": "off",
+				"noSvgWithoutTitle": "off",
+				"useKeyWithClickEvents": "off",
+				"useButtonType": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off",
+				"noExplicitAny": "off",
+				"noAssignInExpressions": "off",
+				"useIterableCallbackReturn": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off"
+			},
+			"security": {
+				"noDangerouslySetInnerHtml": "off"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"semicolons": "asNeeded"
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/content/**/*.ts"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noTemplateCurlyInString": "off"
+					}
+				}
+			}
+		}
+	]
+}

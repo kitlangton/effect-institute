@@ -1,0 +1,39 @@
+.code-block {
+	transform: translateZ(0);
+	text-rendering: geometricPrecision;
+	scroll-behavior: smooth;
+	font-display: swap;
+}
+
+.code-block .line {
+	contain: style layout;
+}
+
+/* Performance optimizations only - presentational styles moved to Tailwind */
+
+.code-block .log-scrollbar {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(64, 64, 64, 0.45) transparent;
+	scrollbar-gutter: stable both-edges;
+}
+
+.code-block .log-scrollbar::-webkit-scrollbar {
+	width: 6px;
+}
+
+.code-block .log-scrollbar::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 9999px;
+}
+
+.code-block .log-scrollbar::-webkit-scrollbar-thumb {
+	background: rgba(64, 64, 64, 0.5);
+	border-radius: 9999px;
+	box-shadow:
+		inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+		0 0 6px rgba(15, 23, 42, 0.35);
+}
+
+.code-block .log-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: rgba(64, 64, 64, 0.7);
+}

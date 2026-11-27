@@ -1,0 +1,444 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "What",
+			"start": 0.09999999999999998,
+			"end": 0.29899999999999993
+		},
+		{
+			"index": 1,
+			"word": "went",
+			"start": 0.5189999999999999,
+			"end": 0.7599999999999999
+		},
+		{
+			"index": 2,
+			"word": "wrong?",
+			"start": 0.999,
+			"end": 1.4
+		},
+		{
+			"index": 3,
+			"word": "Ah,",
+			"start": 2.419,
+			"end": 2.54
+		},
+		{
+			"index": 4,
+			"word": "yes.",
+			"start": 2.599,
+			"end": 2.979
+		},
+		{
+			"index": 5,
+			"word": "That",
+			"start": 3.7590000000000003,
+			"end": 3.9000000000000004
+		},
+		{
+			"index": 6,
+			"word": "perfidious",
+			"start": 4.0200000000000005,
+			"end": 4.739
+		},
+		{
+			"index": 7,
+			"word": "Promise.",
+			"start": 5.0200000000000005,
+			"end": 5.54
+		},
+		{
+			"index": 8,
+			"word": "A",
+			"start": 6.599,
+			"end": 6.699
+		},
+		{
+			"index": 9,
+			"word": "Promise",
+			"start": 6.779,
+			"end": 7.159
+		},
+		{
+			"index": 10,
+			"word": "is",
+			"start": 7.279,
+			"end": 7.399
+		},
+		{
+			"index": 11,
+			"word": "not",
+			"start": 7.48,
+			"end": 7.678999999999999
+		},
+		{
+			"index": 12,
+			"word": "lazy.",
+			"start": 7.8,
+			"end": 8.178999999999998
+		},
+		{
+			"index": 13,
+			"word": "In",
+			"start": 8.938999999999998,
+			"end": 9.02
+		},
+		{
+			"index": 14,
+			"word": "fact,",
+			"start": 9.119,
+			"end": 9.34
+		},
+		{
+			"index": 15,
+			"word": "it",
+			"start": 9.459999999999999,
+			"end": 9.5
+		},
+		{
+			"index": 16,
+			"word": "is",
+			"start": 9.54,
+			"end": 9.658999999999999
+		},
+		{
+			"index": 17,
+			"word": "what",
+			"start": 9.699,
+			"end": 9.819999999999999
+		},
+		{
+			"index": 18,
+			"word": "the",
+			"start": 9.859,
+			"end": 9.938999999999998
+		},
+		{
+			"index": 19,
+			"word": "programming",
+			"start": 10,
+			"end": 10.5
+		},
+		{
+			"index": 20,
+			"word": "linguists",
+			"start": 10.598999999999998,
+			"end": 11.238999999999999
+		},
+		{
+			"index": 21,
+			"word": "call",
+			"start": 11.34,
+			"end": 11.639
+		},
+		{
+			"index": 22,
+			"word": "eager.",
+			"start": 12.158999999999999,
+			"end": 12.559
+		},
+		{
+			"index": 23,
+			"word": "It",
+			"start": 13.299,
+			"end": 13.459999999999999
+		},
+		{
+			"index": 24,
+			"word": "kicks",
+			"start": 13.518999999999998,
+			"end": 13.799
+		},
+		{
+			"index": 25,
+			"word": "off",
+			"start": 13.879999999999999,
+			"end": 14.059999999999999
+		},
+		{
+			"index": 26,
+			"word": "the",
+			"start": 14.098999999999998,
+			"end": 14.199
+		},
+		{
+			"index": 27,
+			"word": "moment",
+			"start": 14.238999999999999,
+			"end": 14.54
+		},
+		{
+			"index": 28,
+			"word": "it",
+			"start": 14.619,
+			"end": 14.68
+		},
+		{
+			"index": 29,
+			"word": "is",
+			"start": 14.699,
+			"end": 14.818999999999999
+		},
+		{
+			"index": 30,
+			"word": "defined.",
+			"start": 14.838999999999999,
+			"end": 15.399
+		},
+		{
+			"index": 31,
+			"word": "And",
+			"start": 15.779,
+			"end": 15.96
+		},
+		{
+			"index": 32,
+			"word": "once",
+			"start": 15.998999999999999,
+			"end": 16.259
+		},
+		{
+			"index": 33,
+			"word": "it",
+			"start": 16.319,
+			"end": 16.439
+		},
+		{
+			"index": 34,
+			"word": "resolves,",
+			"start": 16.48,
+			"end": 17.14
+		},
+		{
+			"index": 35,
+			"word": "either",
+			"start": 17.579,
+			"end": 17.88
+		},
+		{
+			"index": 36,
+			"word": "successfully",
+			"start": 17.939,
+			"end": 18.779
+		},
+		{
+			"index": 37,
+			"word": "or",
+			"start": 18.839,
+			"end": 18.919
+		},
+		{
+			"index": 38,
+			"word": "catastrophically,",
+			"start": 19.04,
+			"end": 19.939
+		},
+		{
+			"index": 39,
+			"word": "it",
+			"start": 20.54,
+			"end": 20.619
+		},
+		{
+			"index": 40,
+			"word": "will",
+			"start": 20.679,
+			"end": 20.839
+		},
+		{
+			"index": 41,
+			"word": "forever",
+			"start": 20.858999999999998,
+			"end": 21.279
+		},
+		{
+			"index": 42,
+			"word": "hold",
+			"start": 21.339,
+			"end": 21.858999999999998
+		},
+		{
+			"index": 43,
+			"word": "this",
+			"start": 21.919,
+			"end": 22.06
+		},
+		{
+			"index": 44,
+			"word": "initial",
+			"start": 22.119,
+			"end": 22.46
+		},
+		{
+			"index": 45,
+			"word": "value.",
+			"start": 22.519,
+			"end": 22.899
+		},
+		{
+			"index": 46,
+			"word": "Thus,",
+			"start": 24.079,
+			"end": 24.399
+		},
+		{
+			"index": 47,
+			"word": "when",
+			"start": 24.479,
+			"end": 24.56
+		},
+		{
+			"index": 48,
+			"word": "it",
+			"start": 24.599,
+			"end": 24.679
+		},
+		{
+			"index": 49,
+			"word": "was",
+			"start": 24.739,
+			"end": 24.858999999999998
+		},
+		{
+			"index": 50,
+			"word": "awaited",
+			"start": 24.96,
+			"end": 25.339
+		},
+		{
+			"index": 51,
+			"word": "a",
+			"start": 25.38,
+			"end": 25.479
+		},
+		{
+			"index": 52,
+			"word": "second",
+			"start": 25.54,
+			"end": 25.839
+		},
+		{
+			"index": 53,
+			"word": "time",
+			"start": 25.899,
+			"end": 26.239
+		},
+		{
+			"index": 54,
+			"word": "on",
+			"start": 26.279,
+			"end": 26.358999999999998
+		},
+		{
+			"index": 55,
+			"word": "the",
+			"start": 26.38,
+			"end": 26.46
+		},
+		{
+			"index": 56,
+			"word": "day",
+			"start": 26.519,
+			"end": 26.64
+		},
+		{
+			"index": 57,
+			"word": "of",
+			"start": 26.659,
+			"end": 26.759
+		},
+		{
+			"index": 58,
+			"word": "your",
+			"start": 26.8,
+			"end": 26.919
+		},
+		{
+			"index": 59,
+			"word": "unexpected",
+			"start": 26.979,
+			"end": 27.538999999999998
+		},
+		{
+			"index": 60,
+			"word": "demise,",
+			"start": 27.579,
+			"end": 28.139
+		},
+		{
+			"index": 61,
+			"word": "it",
+			"start": 28.698999999999998,
+			"end": 28.779
+		},
+		{
+			"index": 62,
+			"word": "did",
+			"start": 28.8,
+			"end": 28.919
+		},
+		{
+			"index": 63,
+			"word": "not",
+			"start": 28.979,
+			"end": 29.179
+		},
+		{
+			"index": 64,
+			"word": "procure",
+			"start": 29.198999999999998,
+			"end": 29.659
+		},
+		{
+			"index": 65,
+			"word": "a",
+			"start": 29.698999999999998,
+			"end": 29.8
+		},
+		{
+			"index": 66,
+			"word": "fresh",
+			"start": 29.858999999999998,
+			"end": 30.119
+		},
+		{
+			"index": 67,
+			"word": "reading,",
+			"start": 30.179,
+			"end": 30.499
+		},
+		{
+			"index": 68,
+			"word": "but",
+			"start": 31.079,
+			"end": 31.179
+		},
+		{
+			"index": 69,
+			"word": "instead",
+			"start": 31.218999999999998,
+			"end": 32.019
+		},
+		{
+			"index": 70,
+			"word": "regurgitated",
+			"start": 32.08,
+			"end": 33.259
+		},
+		{
+			"index": 71,
+			"word": "yesterday's",
+			"start": 33.339,
+			"end": 33.9
+		},
+		{
+			"index": 72,
+			"word": "value.",
+			"start": 33.999,
+			"end": 34.359
+		}
+	],
+	"textHash": "73ngnh",
+	"wordCount": 73
+}

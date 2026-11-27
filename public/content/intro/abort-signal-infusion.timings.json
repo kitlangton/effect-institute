@@ -1,0 +1,438 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "Now",
+			"start": 0.1,
+			"end": 0.44000000000000006
+		},
+		{
+			"index": 1,
+			"word": "when",
+			"start": 0.7,
+			"end": 0.86
+		},
+		{
+			"index": 2,
+			"word": "the",
+			"start": 0.9199999999999999,
+			"end": 0.96
+		},
+		{
+			"index": 3,
+			"word": "dung",
+			"start": 1.04,
+			"end": 1.201
+		},
+		{
+			"index": 4,
+			"word": "beetle",
+			"start": 1.28,
+			"end": 1.56
+		},
+		{
+			"index": 5,
+			"word": "is",
+			"start": 1.6400000000000001,
+			"end": 1.78
+		},
+		{
+			"index": 6,
+			"word": "crushed",
+			"start": 1.9400000000000002,
+			"end": 2.36
+		},
+		{
+			"index": 7,
+			"word": "mid-reply,",
+			"start": 2.6399999999999997,
+			"end": 3.4
+		},
+		{
+			"index": 8,
+			"word": "the",
+			"start": 4.06,
+			"end": 4.12
+		},
+		{
+			"index": 9,
+			"word": "error",
+			"start": 4.24,
+			"end": 4.54
+		},
+		{
+			"index": 10,
+			"word": "is",
+			"start": 4.6,
+			"end": 4.7
+		},
+		{
+			"index": 11,
+			"word": "caught",
+			"start": 4.82,
+			"end": 5.16
+		},
+		{
+			"index": 12,
+			"word": "and",
+			"start": 5.62,
+			"end": 5.7
+		},
+		{
+			"index": 13,
+			"word": "the",
+			"start": 5.74,
+			"end": 5.78
+		},
+		{
+			"index": 14,
+			"word": "controller",
+			"start": 5.84,
+			"end": 6.401
+		},
+		{
+			"index": 15,
+			"word": "is",
+			"start": 6.481,
+			"end": 6.64
+		},
+		{
+			"index": 16,
+			"word": "aborted,",
+			"start": 6.7,
+			"end": 7.22
+		},
+		{
+			"index": 17,
+			"word": "signaling",
+			"start": 8,
+			"end": 8.481
+		},
+		{
+			"index": 18,
+			"word": "generateText",
+			"start": 8.62,
+			"end": 9.52
+		},
+		{
+			"index": 19,
+			"word": "to",
+			"start": 9.6,
+			"end": 9.72
+		},
+		{
+			"index": 20,
+			"word": "stop",
+			"start": 9.879999999999999,
+			"end": 10.06
+		},
+		{
+			"index": 21,
+			"word": "itself.",
+			"start": 10.12,
+			"end": 10.6
+		},
+		{
+			"index": 22,
+			"word": "As",
+			"start": 11.84,
+			"end": 11.941
+		},
+		{
+			"index": 23,
+			"word": "Promise",
+			"start": 12.06,
+			"end": 12.459999999999999
+		},
+		{
+			"index": 24,
+			"word": "doesn't",
+			"start": 12.58,
+			"end": 12.879999999999999
+		},
+		{
+			"index": 25,
+			"word": "natively",
+			"start": 12.959999999999999,
+			"end": 13.34
+		},
+		{
+			"index": 26,
+			"word": "support",
+			"start": 13.379999999999999,
+			"end": 13.8
+		},
+		{
+			"index": 27,
+			"word": "cancellation,",
+			"start": 13.861,
+			"end": 14.6
+		},
+		{
+			"index": 28,
+			"word": "we",
+			"start": 15.26,
+			"end": 15.361
+		},
+		{
+			"index": 29,
+			"word": "must",
+			"start": 15.401,
+			"end": 15.76
+		},
+		{
+			"index": 30,
+			"word": "do",
+			"start": 15.82,
+			"end": 15.92
+		},
+		{
+			"index": 31,
+			"word": "this",
+			"start": 15.981,
+			"end": 16.12
+		},
+		{
+			"index": 32,
+			"word": "verbose",
+			"start": 16.220000000000002,
+			"end": 16.6
+		},
+		{
+			"index": 33,
+			"word": "wiring",
+			"start": 16.700000000000003,
+			"end": 17.040000000000003
+		},
+		{
+			"index": 34,
+			"word": "ourselves.",
+			"start": 17.12,
+			"end": 17.921000000000003
+		},
+		{
+			"index": 35,
+			"word": "Furthermore,",
+			"start": 19.001,
+			"end": 19.540000000000003
+		},
+		{
+			"index": 36,
+			"word": "your",
+			"start": 19.78,
+			"end": 19.901000000000003
+		},
+		{
+			"index": 37,
+			"word": "dependencies",
+			"start": 19.94,
+			"end": 20.62
+		},
+		{
+			"index": 38,
+			"word": "won't",
+			"start": 20.680000000000003,
+			"end": 20.96
+		},
+		{
+			"index": 39,
+			"word": "always",
+			"start": 21.020000000000003,
+			"end": 21.380000000000003
+		},
+		{
+			"index": 40,
+			"word": "work",
+			"start": 21.481,
+			"end": 21.64
+		},
+		{
+			"index": 41,
+			"word": "with",
+			"start": 21.700000000000003,
+			"end": 21.8
+		},
+		{
+			"index": 42,
+			"word": "abort",
+			"start": 21.821,
+			"end": 22.12
+		},
+		{
+			"index": 43,
+			"word": "signals,",
+			"start": 22.180000000000003,
+			"end": 22.62
+		},
+		{
+			"index": 44,
+			"word": "or",
+			"start": 23.380000000000003,
+			"end": 23.560000000000002
+		},
+		{
+			"index": 45,
+			"word": "do",
+			"start": 23.8,
+			"end": 23.901000000000003
+		},
+		{
+			"index": 46,
+			"word": "so",
+			"start": 24.040000000000003,
+			"end": 24.14
+		},
+		{
+			"index": 47,
+			"word": "uniformly.",
+			"start": 24.241000000000003,
+			"end": 24.901000000000003
+		},
+		{
+			"index": 48,
+			"word": "Most",
+			"start": 26.161,
+			"end": 26.44
+		},
+		{
+			"index": 49,
+			"word": "production",
+			"start": 26.560000000000002,
+			"end": 27.240000000000002
+		},
+		{
+			"index": 50,
+			"word": "TypeScript",
+			"start": 27.321,
+			"end": 27.821
+		},
+		{
+			"index": 51,
+			"word": "backends",
+			"start": 27.92,
+			"end": 28.981
+		},
+		{
+			"index": 52,
+			"word": "simply",
+			"start": 29.12,
+			"end": 29.520000000000003
+		},
+		{
+			"index": 53,
+			"word": "ignore",
+			"start": 29.6,
+			"end": 30.200000000000003
+		},
+		{
+			"index": 54,
+			"word": "this",
+			"start": 30.28,
+			"end": 30.421000000000003
+		},
+		{
+			"index": 55,
+			"word": "problem,",
+			"start": 30.520000000000003,
+			"end": 30.94
+		},
+		{
+			"index": 56,
+			"word": "tolerating,",
+			"start": 31.741000000000003,
+			"end": 32.300000000000004
+		},
+		{
+			"index": 57,
+			"word": "perhaps",
+			"start": 32.940000000000005,
+			"end": 33.4
+		},
+		{
+			"index": 58,
+			"word": "unwittingly,",
+			"start": 33.481,
+			"end": 34.1
+		},
+		{
+			"index": 59,
+			"word": "the",
+			"start": 34.760000000000005,
+			"end": 34.800000000000004
+		},
+		{
+			"index": 60,
+			"word": "monetary",
+			"start": 34.88,
+			"end": 35.481
+		},
+		{
+			"index": 61,
+			"word": "and",
+			"start": 35.501000000000005,
+			"end": 35.6
+		},
+		{
+			"index": 62,
+			"word": "computational",
+			"start": 35.7,
+			"end": 36.480000000000004
+		},
+		{
+			"index": 63,
+			"word": "costs",
+			"start": 36.54,
+			"end": 37.14
+		},
+		{
+			"index": 64,
+			"word": "of",
+			"start": 37.2,
+			"end": 37.341
+		},
+		{
+			"index": 65,
+			"word": "leaking",
+			"start": 37.46,
+			"end": 37.86
+		},
+		{
+			"index": 66,
+			"word": "everything",
+			"start": 38.481,
+			"end": 39.04
+		},
+		{
+			"index": 67,
+			"word": "everywhere,",
+			"start": 39.521,
+			"end": 40.041000000000004
+		},
+		{
+			"index": 68,
+			"word": "all",
+			"start": 40.64,
+			"end": 40.74
+		},
+		{
+			"index": 69,
+			"word": "of",
+			"start": 40.760000000000005,
+			"end": 40.861000000000004
+		},
+		{
+			"index": 70,
+			"word": "the",
+			"start": 40.88,
+			"end": 41.001000000000005
+		},
+		{
+			"index": 71,
+			"word": "time.",
+			"start": 41.06,
+			"end": 41.440000000000005
+		}
+	],
+	"textHash": "-of6o6r",
+	"wordCount": 72
+}

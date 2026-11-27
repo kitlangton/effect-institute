@@ -1,0 +1,564 @@
+{
+	"wordTimings": [
+		{
+			"index": 0,
+			"word": "To",
+			"start": 0.1,
+			"end": 0.22
+		},
+		{
+			"index": 1,
+			"word": "fix",
+			"start": 0.36,
+			"end": 0.6
+		},
+		{
+			"index": 2,
+			"word": "this,",
+			"start": 0.7000000000000001,
+			"end": 1.001
+		},
+		{
+			"index": 3,
+			"word": "we",
+			"start": 1.16,
+			"end": 1.22
+		},
+		{
+			"index": 4,
+			"word": "would",
+			"start": 1.261,
+			"end": 1.3599999999999999
+		},
+		{
+			"index": 5,
+			"word": "have",
+			"start": 1.401,
+			"end": 1.5399999999999998
+		},
+		{
+			"index": 6,
+			"word": "to",
+			"start": 1.5999999999999999,
+			"end": 1.66
+		},
+		{
+			"index": 7,
+			"word": "wrap",
+			"start": 1.72,
+			"end": 1.961
+		},
+		{
+			"index": 8,
+			"word": "our",
+			"start": 2.04,
+			"end": 2.16
+		},
+		{
+			"index": 9,
+			"word": "Promise",
+			"start": 2.3200000000000003,
+			"end": 2.8000000000000003
+		},
+		{
+			"index": 10,
+			"word": "in",
+			"start": 2.8800000000000003,
+			"end": 3.04
+		},
+		{
+			"index": 11,
+			"word": "a",
+			"start": 3.14,
+			"end": 3.2
+		},
+		{
+			"index": 12,
+			"word": "thunk.",
+			"start": 3.3600000000000003,
+			"end": 3.68
+		},
+		{
+			"index": 13,
+			"word": "Then",
+			"start": 4.6,
+			"end": 4.761
+		},
+		{
+			"index": 14,
+			"word": "each",
+			"start": 4.859999999999999,
+			"end": 5
+		},
+		{
+			"index": 15,
+			"word": "time",
+			"start": 5.08,
+			"end": 5.241
+		},
+		{
+			"index": 16,
+			"word": "we",
+			"start": 5.281,
+			"end": 5.3999999999999995
+		},
+		{
+			"index": 17,
+			"word": "call",
+			"start": 5.4799999999999995,
+			"end": 5.64
+		},
+		{
+			"index": 18,
+			"word": "it,",
+			"start": 5.701,
+			"end": 5.84
+		},
+		{
+			"index": 19,
+			"word": "a",
+			"start": 6.38,
+			"end": 6.3999999999999995
+		},
+		{
+			"index": 20,
+			"word": "fresh",
+			"start": 6.56,
+			"end": 6.819999999999999
+		},
+		{
+			"index": 21,
+			"word": "Promise",
+			"start": 6.9799999999999995,
+			"end": 7.3999999999999995
+		},
+		{
+			"index": 22,
+			"word": "is",
+			"start": 7.62,
+			"end": 7.8
+		},
+		{
+			"index": 23,
+			"word": "created.",
+			"start": 7.94,
+			"end": 8.440000000000001
+		},
+		{
+			"index": 24,
+			"word": "Alas,",
+			"start": 9.541,
+			"end": 9.9
+		},
+		{
+			"index": 25,
+			"word": "it",
+			"start": 9.96,
+			"end": 10
+		},
+		{
+			"index": 26,
+			"word": "is",
+			"start": 10.041,
+			"end": 10.4
+		},
+		{
+			"index": 27,
+			"word": "too",
+			"start": 10.48,
+			"end": 10.68
+		},
+		{
+			"index": 28,
+			"word": "easy",
+			"start": 10.860000000000001,
+			"end": 11.121
+		},
+		{
+			"index": 29,
+			"word": "to",
+			"start": 11.241000000000001,
+			"end": 11.34
+		},
+		{
+			"index": 30,
+			"word": "make",
+			"start": 11.4,
+			"end": 11.56
+		},
+		{
+			"index": 31,
+			"word": "meaningful",
+			"start": 11.661000000000001,
+			"end": 12.22
+		},
+		{
+			"index": 32,
+			"word": "and",
+			"start": 12.281,
+			"end": 12.4
+		},
+		{
+			"index": 33,
+			"word": "likely",
+			"start": 12.48,
+			"end": 12.84
+		},
+		{
+			"index": 34,
+			"word": "erroneous",
+			"start": 13.34,
+			"end": 13.88
+		},
+		{
+			"index": 35,
+			"word": "semantic",
+			"start": 14.06,
+			"end": 14.46
+		},
+		{
+			"index": 36,
+			"word": "changes",
+			"start": 14.540000000000001,
+			"end": 14.98
+		},
+		{
+			"index": 37,
+			"word": "to",
+			"start": 15.06,
+			"end": 15.14
+		},
+		{
+			"index": 38,
+			"word": "your",
+			"start": 15.161000000000001,
+			"end": 15.281
+		},
+		{
+			"index": 39,
+			"word": "programs.",
+			"start": 15.34,
+			"end": 15.980000000000002
+		},
+		{
+			"index": 40,
+			"word": "You",
+			"start": 16.701,
+			"end": 16.759999999999998
+		},
+		{
+			"index": 41,
+			"word": "have",
+			"start": 16.801,
+			"end": 16.901
+		},
+		{
+			"index": 42,
+			"word": "to",
+			"start": 16.919999999999998,
+			"end": 17
+		},
+		{
+			"index": 43,
+			"word": "be",
+			"start": 17.041,
+			"end": 17.14
+		},
+		{
+			"index": 44,
+			"word": "extremely",
+			"start": 17.24,
+			"end": 17.9
+		},
+		{
+			"index": 45,
+			"word": "careful",
+			"start": 17.98,
+			"end": 18.4
+		},
+		{
+			"index": 46,
+			"word": "when",
+			"start": 18.939999999999998,
+			"end": 19.061
+		},
+		{
+			"index": 47,
+			"word": "refactoring",
+			"start": 19.099999999999998,
+			"end": 19.801
+		},
+		{
+			"index": 48,
+			"word": "Promise",
+			"start": 20.24,
+			"end": 20.64
+		},
+		{
+			"index": 49,
+			"word": "-strewn",
+			"start": 20.759999999999998,
+			"end": 21.259999999999998
+		},
+		{
+			"index": 50,
+			"word": "code.",
+			"start": 21.4,
+			"end": 21.74
+		},
+		{
+			"index": 51,
+			"word": "Instead,",
+			"start": 22.881,
+			"end": 23.32
+		},
+		{
+			"index": 52,
+			"word": "let's",
+			"start": 23.701,
+			"end": 23.919999999999998
+		},
+		{
+			"index": 53,
+			"word": "call",
+			"start": 23.98,
+			"end": 24.281
+		},
+		{
+			"index": 54,
+			"word": "Effect.promise,",
+			"start": 24.381,
+			"end": 25.82
+		},
+		{
+			"index": 55,
+			"word": "wrapping",
+			"start": 26.48,
+			"end": 26.86
+		},
+		{
+			"index": 56,
+			"word": "up",
+			"start": 26.939999999999998,
+			"end": 27.201
+		},
+		{
+			"index": 57,
+			"word": "our",
+			"start": 27.281,
+			"end": 27.439999999999998
+		},
+		{
+			"index": 58,
+			"word": "Promise",
+			"start": 27.52,
+			"end": 27.82
+		},
+		{
+			"index": 59,
+			"word": "thunk",
+			"start": 27.9,
+			"end": 28.14
+		},
+		{
+			"index": 60,
+			"word": "into",
+			"start": 28.18,
+			"end": 28.381
+		},
+		{
+			"index": 61,
+			"word": "a",
+			"start": 28.439999999999998,
+			"end": 28.56
+		},
+		{
+			"index": 62,
+			"word": "perfectly",
+			"start": 28.621,
+			"end": 29.281
+		},
+		{
+			"index": 63,
+			"word": "cozy",
+			"start": 29.36,
+			"end": 30.16
+		},
+		{
+			"index": 64,
+			"word": "and",
+			"start": 30.201,
+			"end": 30.32
+		},
+		{
+			"index": 65,
+			"word": "inert",
+			"start": 30.419999999999998,
+			"end": 30.7
+		},
+		{
+			"index": 66,
+			"word": "Effect.",
+			"start": 30.88,
+			"end": 31.22
+		},
+		{
+			"index": 67,
+			"word": "When",
+			"start": 32.18,
+			"end": 32.321
+		},
+		{
+			"index": 68,
+			"word": "this",
+			"start": 32.36,
+			"end": 32.501
+		},
+		{
+			"index": 69,
+			"word": "is",
+			"start": 32.56,
+			"end": 32.68
+		},
+		{
+			"index": 70,
+			"word": "run,",
+			"start": 32.781,
+			"end": 33.019999999999996
+		},
+		{
+			"index": 71,
+			"word": "the",
+			"start": 33.699999999999996,
+			"end": 33.781
+		},
+		{
+			"index": 72,
+			"word": "thunk",
+			"start": 33.879999999999995,
+			"end": 34.121
+		},
+		{
+			"index": 73,
+			"word": "will",
+			"start": 34.161,
+			"end": 34.281
+		},
+		{
+			"index": 74,
+			"word": "be",
+			"start": 34.321,
+			"end": 34.46
+		},
+		{
+			"index": 75,
+			"word": "called,",
+			"start": 34.54,
+			"end": 34.92
+		},
+		{
+			"index": 76,
+			"word": "which",
+			"start": 35.481,
+			"end": 35.641
+		},
+		{
+			"index": 77,
+			"word": "will",
+			"start": 35.68,
+			"end": 35.801
+		},
+		{
+			"index": 78,
+			"word": "kick",
+			"start": 35.839999999999996,
+			"end": 35.961
+		},
+		{
+			"index": 79,
+			"word": "off",
+			"start": 36.04,
+			"end": 36.24
+		},
+		{
+			"index": 80,
+			"word": "a",
+			"start": 36.321,
+			"end": 36.461
+		},
+		{
+			"index": 81,
+			"word": "new",
+			"start": 36.5,
+			"end": 36.781
+		},
+		{
+			"index": 82,
+			"word": "Promise,",
+			"start": 36.86,
+			"end": 37.301
+		},
+		{
+			"index": 83,
+			"word": "and",
+			"start": 37.86,
+			"end": 37.94
+		},
+		{
+			"index": 84,
+			"word": "the",
+			"start": 37.961,
+			"end": 38.001
+		},
+		{
+			"index": 85,
+			"word": "Effect",
+			"start": 38.16,
+			"end": 38.5
+		},
+		{
+			"index": 86,
+			"word": "will",
+			"start": 38.86,
+			"end": 39.04
+		},
+		{
+			"index": 87,
+			"word": "succeed",
+			"start": 39.08,
+			"end": 39.6
+		},
+		{
+			"index": 88,
+			"word": "when",
+			"start": 40.121,
+			"end": 40.199999999999996
+		},
+		{
+			"index": 89,
+			"word": "the",
+			"start": 40.22,
+			"end": 40.26
+		},
+		{
+			"index": 90,
+			"word": "underlying",
+			"start": 40.379999999999995,
+			"end": 40.801
+		},
+		{
+			"index": 91,
+			"word": "Promise",
+			"start": 40.92,
+			"end": 41.339999999999996
+		},
+		{
+			"index": 92,
+			"word": "resolves.",
+			"start": 41.4,
+			"end": 42.019999999999996
+		}
+	],
+	"textHash": "z4jyaf",
+	"wordCount": 93
+}
