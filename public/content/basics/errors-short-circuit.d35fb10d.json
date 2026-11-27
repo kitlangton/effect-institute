@@ -656,268 +656,312 @@
 		],
 		"snapshots": [
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "b",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "b",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "ba",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "ba",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "ban",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "ban",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "bana",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "bana",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "banan",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "banan",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "banana",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "banana",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "banana",
-				"enterPressed": true,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "banana",
+					"enterPressed": true,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": false,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": true,
-				"typedText": "banana",
-				"enterPressed": false,
-				"inputShake": true,
-				"inputError": true
+				"state": {
+					"visible": false,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": true,
+					"typedText": "banana",
+					"enterPressed": false,
+					"inputShake": true,
+					"inputError": true
+				}
 			},
 			{
-				"visible": true,
-				"mode": "success",
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "success",
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "fail-name",
-				"askName": "running",
-				"askAge": "idle",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "fail-name",
+					"askName": "running",
+					"askAge": "idle",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "fail-name",
-				"askName": "failed",
-				"askAge": "idle",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "fail-name",
+					"askName": "failed",
+					"askAge": "idle",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "fail-name",
-				"askName": "failed",
-				"askAge": "idle",
-				"getUser": "failed",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "fail-name",
+					"askName": "failed",
+					"askAge": "idle",
+					"getUser": "failed",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "fail-age",
-				"askName": "running",
-				"askAge": "idle",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "fail-age",
+					"askName": "running",
+					"askAge": "idle",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "fail-age",
-				"askName": "completed",
-				"askAge": "running",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "fail-age",
+					"askName": "completed",
+					"askAge": "running",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "fail-age",
-				"askName": "completed",
-				"askAge": "failed",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "fail-age",
+					"askName": "completed",
+					"askAge": "failed",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "fail-age",
-				"askName": "completed",
-				"askAge": "failed",
-				"getUser": "failed",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "fail-age",
+					"askName": "completed",
+					"askAge": "failed",
+					"getUser": "failed",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "success",
-				"askName": "running",
-				"askAge": "running",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "success",
+					"askName": "running",
+					"askAge": "running",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "success",
-				"askName": "completed",
-				"askAge": "running",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "success",
+					"askName": "completed",
+					"askAge": "running",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "success",
-				"askName": "completed",
-				"askAge": "completed",
-				"getUser": "running",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "success",
+					"askName": "completed",
+					"askAge": "completed",
+					"getUser": "running",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			},
 			{
-				"visible": true,
-				"mode": "success",
-				"askName": "completed",
-				"askAge": "completed",
-				"getUser": "completed",
-				"inputVisible": false,
-				"typedText": "",
-				"enterPressed": false,
-				"inputShake": false,
-				"inputError": false
+				"state": {
+					"visible": true,
+					"mode": "success",
+					"askName": "completed",
+					"askAge": "completed",
+					"getUser": "completed",
+					"inputVisible": false,
+					"typedText": "",
+					"enterPressed": false,
+					"inputShake": false,
+					"inputError": false
+				}
 			}
 		]
 	},

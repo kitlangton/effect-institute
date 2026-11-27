@@ -525,20 +525,28 @@
 		],
 		"snapshots": [
 			{
-				"show": false,
-				"state": "idle"
+				"state": {
+					"show": false,
+					"state": "idle"
+				}
 			},
 			{
-				"show": true,
-				"state": "idle"
+				"state": {
+					"show": true,
+					"state": "idle"
+				}
 			},
 			{
-				"show": true,
-				"state": "running"
+				"state": {
+					"show": true,
+					"state": "running"
+				}
 			},
 			{
-				"show": true,
-				"state": "completed"
+				"state": {
+					"show": true,
+					"state": "completed"
+				}
 			}
 		]
 	},

@@ -2,6 +2,8 @@
  * Canonical types for narration data, shared between tooling and app.
  */
 import { Schema } from "effect"
+import { AnimationSoundName } from "@/lib/animated-code/annotations"
+import { CodeSlideshow } from "@/lib/animated-code/slideshow"
 
 // --- Branded IDs ---
 
@@ -46,14 +48,21 @@ export class StepRef extends Schema.Class<StepRef>("StepRef")({
 	offset: Schema.optional(Schema.Number),
 }) {}
 
+/** One component step: the component's state, and the sound the step plays */
+export const ComponentSnapshot = Schema.Struct({
+	state: Schema.Record(Schema.String, Schema.Unknown),
+	sound: Schema.optionalKey(AnimationSoundName),
+})
+export type ComponentSnapshot = typeof ComponentSnapshot.Type
+
 /** Compiled component flow - step-driven component state */
 export class ComponentFlowData extends Schema.Class<ComponentFlowData>("ComponentFlowData")({
 	/** Component name (for registry lookup) */
 	name: Schema.String,
 	/** Step references for timing resolution */
 	steps: Schema.Array(StepRef),
-	/** State snapshots (one per step) */
-	snapshots: Schema.Array(Schema.Unknown),
+	/** One per step */
+	snapshots: Schema.Array(ComponentSnapshot),
 }) {}
 
 export class DebugInfo extends Schema.Class<DebugInfo>("DebugInfo")({
@@ -73,8 +82,8 @@ export class SectionData extends Schema.Class<SectionData>("SectionData")({
 	wordTimings: Schema.Array(WordTiming),
 	/** Step-driven component flow (receives state per step) */
 	componentFlow: Schema.optional(ComponentFlowData),
-	/** Pre-compiled slideshow data (with tokens) */
-	slideshowData: Schema.optional(Schema.Unknown),
+	/** Compiled code animation (static code is a one-step slideshow) */
+	slideshowData: Schema.optional(CodeSlideshow),
 	/** Step references for timing resolution */
 	steps: Schema.optional(Schema.Array(StepRef)),
 	/** Precomputed step timestamps (seconds) for code animation. Only present when timings matched. */

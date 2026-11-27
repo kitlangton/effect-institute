@@ -11,11 +11,9 @@
 import { act } from "react"
 import { createRoot, type Root } from "react-dom/client"
 import { describe, expect, it } from "vitest"
-import { type AnimationDef, line, slot, stack } from "@/lib/animated-code/animation"
-import { compileAndTokenize } from "@/lib/animated-code/animation/compile-with-tokens"
+import { type AnimationDef, compileSlideshow, line, slot, stack } from "@/lib/animated-code/animation"
 import { Focus } from "@/lib/animated-code/annotations"
-import { compress, expandFrame } from "@/lib/neo-code-block/compress"
-import type { TemplateSlideshowData } from "@/lib/neo-code-block/types"
+import { type CodeSlideshow, expandFrame } from "@/lib/animated-code/slideshow"
 import { NeoCodeBlock } from "@/lib/neo-code-block/view/NeoCodeBlock"
 
 ;(globalThis as unknown as { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -49,29 +47,20 @@ const lifecycleDef: AnimationDef = {
 		line("close", "})"),
 	),
 	snapshots: [
-		{ fetch: "hidden", validate: "hidden", save: "hidden", result: "raw" },
+		{ slots: { fetch: "hidden", validate: "hidden", save: "hidden", result: "raw" }, annotations: [] },
 		{
-			fetch: "shown",
-			validate: "hidden",
-			save: "hidden",
-			result: "raw",
+			slots: { fetch: "shown", validate: "hidden", save: "hidden", result: "raw" },
 			annotations: [new Focus({ lines: ["fetch"] })],
 		},
 		{
-			fetch: "shown",
-			validate: "shown",
-			save: "hidden",
-			result: "parsed",
+			slots: { fetch: "shown", validate: "shown", save: "hidden", result: "parsed" },
 			annotations: [new Focus({ lines: ["validate", "return"] })],
 		},
 		{
-			fetch: "shown",
-			validate: "shown",
-			save: "shown",
-			result: "parsed",
+			slots: { fetch: "shown", validate: "shown", save: "shown", result: "parsed" },
 			annotations: [new Focus({ lines: ["save"] })],
 		},
-		{ fetch: "shown", validate: "shown", save: "shown", result: "parsed" },
+		{ slots: { fetch: "shown", validate: "shown", save: "shown", result: "parsed" }, annotations: [] },
 	],
 }
 
@@ -88,14 +77,10 @@ const crossfadeDef: AnimationDef = {
 		]),
 	),
 	snapshots: [
-		{ mode: "promise" },
-		{ mode: "effect", annotations: [new Focus({ lines: ["call"] })] },
-		{ mode: "layer" },
+		{ slots: { mode: "promise" }, annotations: [] },
+		{ slots: { mode: "effect" }, annotations: [new Focus({ lines: ["call"] })] },
+		{ slots: { mode: "layer" }, annotations: [] },
 	],
-}
-
-async function compileFixture(def: AnimationDef): Promise<TemplateSlideshowData> {
-	return compress(await compileAndTokenize(def, "ts"))
 }
 
 interface Harness {
@@ -106,7 +91,7 @@ interface Harness {
 	unmount: () => void
 }
 
-async function mountBlock(code: TemplateSlideshowData): Promise<Harness> {
+async function mountBlock(code: CodeSlideshow): Promise<Harness> {
 	const container = document.createElement("div")
 	document.body.appendChild(container)
 	let root: Root | undefined
@@ -160,7 +145,7 @@ function lineOpacity(container: HTMLElement, lineId: string): number {
 }
 
 /** Assert the DOM matches the given frame exactly. */
-function expectFrameRendered(container: HTMLElement, code: TemplateSlideshowData, snapshot: number) {
+function expectFrameRendered(container: HTMLElement, code: CodeSlideshow, snapshot: number) {
 	const frame = expandFrame(code.frames[snapshot], code.template)
 	for (const line of frame.lines) {
 		expect(visibleLineText(container, line.lineId), `line ${line.lineId} text at frame ${snapshot}`).toBe(line.text)
@@ -172,7 +157,7 @@ function expectFrameRendered(container: HTMLElement, code: TemplateSlideshowData
 
 describe("NeoCodeBlock stepping", { timeout: 20_000 }, () => {
 	it("converges after stepping forward through every frame", async () => {
-		const code = await compileFixture(lifecycleDef)
+		const code = await compileSlideshow(lifecycleDef)
 		const harness = await mountBlock(code)
 
 		for (let i = 1; i < code.frames.length; i++) {
@@ -184,7 +169,7 @@ describe("NeoCodeBlock stepping", { timeout: 20_000 }, () => {
 	})
 
 	it("converges after rapid back/forth hammering (no settling between steps)", async () => {
-		const code = await compileFixture(lifecycleDef)
+		const code = await compileSlideshow(lifecycleDef)
 		const harness = await mountBlock(code)
 		const last = code.frames.length - 1
 
@@ -211,7 +196,7 @@ describe("NeoCodeBlock stepping", { timeout: 20_000 }, () => {
 	})
 
 	it("converges for crossfade version swaps under hammering", async () => {
-		const code = await compileFixture(crossfadeDef)
+		const code = await compileSlideshow(crossfadeDef)
 		const harness = await mountBlock(code)
 		const last = code.frames.length - 1
 

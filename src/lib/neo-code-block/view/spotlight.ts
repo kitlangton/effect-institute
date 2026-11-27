@@ -1,4 +1,4 @@
-import type { Token } from "../highlighter"
+import type { Token } from "@/lib/animated-code/slideshow"
 
 /* ------------------------------------------------------------------ */
 /* Token Splitting at Spotlight Boundaries                             */
@@ -16,9 +16,9 @@ export interface TokenSegment {
  * to different parts of the same token.
  */
 export function splitTokensAtSpotlightBoundaries(
-	tokens: Token[],
+	tokens: readonly Token[],
 	partOffset: number,
-	spotlightRanges: Array<{ start: number; end: number }>,
+	spotlightRanges: ReadonlyArray<{ readonly start: number; readonly end: number }>,
 ): TokenSegment[] {
 	const result: TokenSegment[] = []
 	let charOffset = partOffset

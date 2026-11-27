@@ -9,7 +9,7 @@ export interface BurstTarget {
 	lineId: string
 	charOffset: number
 	textLength: number
-	emoji: string[]
+	emoji: readonly string[]
 	count: number
 }
 

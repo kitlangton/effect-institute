@@ -18,7 +18,7 @@ text("const x = 1")
 ### `empty`
 Identity element. Renders nothing. Use for conditional visibility in slots.
 ```ts
-slot.hidden("extra", line("x", "...")) // starts hidden, reveal with { extra: "shown" }
+slot("extra", { none: empty, shown: line("x", "...") })
 ```
 
 ### `line(id: string, content: AnimationInput)`
@@ -72,24 +72,14 @@ slot("name", { slowDie: "slowDie", safeDie: "safeDie" })
 - `empty` renders nothing but maintains the slot's position for future values.
 - Same slot name can appear multiple times. All instances use the same value.
 
-### `slot.hidden(name: string, content: AnimationInput)`
-Shorthand for common hide/show pattern. Content starts hidden, use `.slots({ name: "shown" })` to reveal.
-```ts
-// Instead of:
-slot("arrow", { _: empty, shown: concat("(", param, ")") })
-
-// Use:
-slot.hidden("arrow", concat("(", param, ")"))
-
-// Then in flow:
-on("word").slots({ arrow: "shown" })
-```
-
 ### `slot.optional(name: string, content: AnimationInput)`
-Defaults to reserved `"hidden"` without defining it explicitly. Reveal with `{ name: "shown" }`.
+The hide/show pattern: content starts as the reserved `"hidden"` value. Reveal with `{ name: "shown" }`.
 ```ts
 line("sig", ["Effect<number", slot.optional("error", ", Error"), ">"])
 // base state uses error="hidden" automatically
+
+// Then in flow:
+on("word").slots({ error: "shown" })
 ```
 
 **Same slot, multiple positions (for paired delimiters):**
@@ -118,8 +108,7 @@ stack(
 
 | Constructor | Purpose |
 |-------------|---------|
-| `slot.hidden(name, content)` | Slot starting hidden, reveal with `"shown"` |
-| `slot.optional(name, content)` | Slot defaulting to reserved `"hidden"` |
+| `slot.optional(name, content)` | Slot starting `"hidden"`, reveal with `"shown"` |
 | `code(indent)` | Template tag for static multi-line code blocks |
 
 ### `code(indent: number)`
@@ -152,31 +141,25 @@ stack(
 
 Snapshots define animation state at each step.
 
-A `Snapshot` is:
-- **slot assignments**: `{ [slotName]: "valueKey" }`
-- optional **annotations**: `annotations: Annotation[]`
-
-### Slot Assignments
-Select which value each slot shows:
-```ts
-{ body: "expanded", visibility: "shown" }
-```
-
-### Annotations
-
-Annotations are stored on the snapshot as `annotations: Annotation[]` (see `src/lib/animated-code/annotations/schema.ts`).
+A `Snapshot` is `{ slots, annotations }`:
+- **slots**: which value each slot shows, `{ [slotName]: "valueKey" }`
+- **annotations**: `Annotation[]` (see `src/lib/animated-code/annotations.ts`)
 
 ```ts
 import { Focus, Cursor } from "@/lib/animated-code/annotations"
 
 {
-  body: "shown",
+  slots: { body: "expanded", visibility: "shown" },
   annotations: [
     new Focus({ lines: ["sig", "return"] }),
     new Cursor({ text: "await" }),
   ],
 }
 ```
+
+## Compiling
+
+`compileSlideshow({ animation, snapshots })` compiles to the `CodeSlideshow` the player reads (schema in `src/lib/animated-code/slideshow.ts`), highlighting each line as a whole with Shiki. `compile(def)` does the same synchronously with plain, unhighlighted tokens (tests). `evaluateLines(animation, slots)` gives the lines one snapshot shows, exactly as the compiled frame shows them.
 
 ## Imports
 
@@ -190,6 +173,7 @@ Low-level (compiler/tests):
 
 ```ts
 import { stack, line, slot, text, concat, empty, section, code } from "@/lib/animated-code/animation"
+import { compile, compileSlideshow, evaluateLines } from "@/lib/animated-code/animation"
 import type { Animation, Snapshot, AnimationDef } from "@/lib/animated-code/animation"
 ```
 
@@ -201,4 +185,4 @@ Use the CLI to preview animation steps:
 bun narrate steps <section> --chapter <chapter>
 ```
 
-Shows rendered code at each step with slot values. Useful for debugging animation flow.
+Shows each step's code exactly as the player shows it, with slot values, where every annotation lands, and `(not found!)` for targets that match nothing.

@@ -47,16 +47,16 @@ export const catchingErrors = section("catching-errors", {
 				`,
 				wrapped: stack(
 					// slowDie line - always visible, .pipe( is conditional
-					line("slowDieRef", concat("  slowDie", slot.hidden("pipeShow", ".pipe("))),
+					line("slowDieRef", concat("  slowDie", slot.optional("pipeShow", ".pipe("))),
 					// catchLine controlled separately via catchShow slot
-					slot.hidden(
+					slot.optional(
 						"catchShow",
 						line(
 							"catchLine",
 							concat(
 								"    Effect.catch(",
 								// Arrow function structure - once shown, parens are stable
-								slot.hidden(
+								slot.optional(
 									"arrow",
 									concat(
 										"(",
@@ -76,7 +76,7 @@ export const catchingErrors = section("catching-errors", {
 						),
 					),
 					// closing paren - only when piped
-					slot.hidden("pipeShow", line("pipeClose", "  )")),
+					slot.optional("pipeShow", line("pipeClose", "  )")),
 				),
 			}),
 		),

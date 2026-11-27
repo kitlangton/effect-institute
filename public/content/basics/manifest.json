@@ -5,11 +5,11 @@
 	"sections": [
 		{
 			"id": "effect-is-a-description",
-			"file": "effect-is-a-description.4054842e.json"
+			"file": "effect-is-a-description.f0e3b31c.json"
 		},
 		{
 			"id": "types-capture-runtime",
-			"file": "types-capture-runtime.e08fcb59.json"
+			"file": "types-capture-runtime.7aff86ca.json"
 		},
 		{
 			"id": "effect-succeed",
@@ -17,11 +17,11 @@
 		},
 		{
 			"id": "running-effects",
-			"file": "running-effects.1bbaa517.json"
+			"file": "running-effects.b60a0919.json"
 		},
 		{
 			"id": "effect-fail",
-			"file": "effect-fail.2b425b8d.json"
+			"file": "effect-fail.f7078b85.json"
 		},
 		{
 			"id": "branch-type-merging",
@@ -29,11 +29,11 @@
 		},
 		{
 			"id": "effect-sync",
-			"file": "effect-sync.5aa4ac35.json"
+			"file": "effect-sync.597a2d0e.json"
 		},
 		{
 			"id": "sync-vs-succeed",
-			"file": "sync-vs-succeed.40f812ee.json"
+			"file": "sync-vs-succeed.76a43c2c.json"
 		},
 		{
 			"id": "effect-promise",
@@ -45,11 +45,11 @@
 		},
 		{
 			"id": "effect-promise-fix",
-			"file": "effect-promise-fix.74109c8b.json"
+			"file": "effect-promise-fix.6e51d432.json"
 		},
 		{
 			"id": "why-compose",
-			"file": "why-compose.ec0f5cb2.json"
+			"file": "why-compose.b88b05be.json"
 		},
 		{
 			"id": "effect-gen-syntax",
@@ -57,15 +57,15 @@
 		},
 		{
 			"id": "generators-vs-promises",
-			"file": "generators-vs-promises.e5f68450.json"
+			"file": "generators-vs-promises.141569e9.json"
 		},
 		{
 			"id": "gen-type-inference",
-			"file": "gen-type-inference.fe596420.json"
+			"file": "gen-type-inference.61d41da6.json"
 		},
 		{
 			"id": "errors-short-circuit",
-			"file": "errors-short-circuit.40cedfea.json"
+			"file": "errors-short-circuit.d35fb10d.json"
 		}
 	],
 	"groups": [

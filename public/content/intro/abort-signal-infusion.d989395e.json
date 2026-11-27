@@ -1,8 +1,8 @@
 {
 	"id": "abort-signal-infusion",
 	"text": "Now when the dung beetle is crushed mid-reply, the error is caught and the controller is aborted, signaling generateText to stop itself. As Promise doesn't natively support cancellation, we must do this verbose wiring ourselves. Furthermore, your dependencies won't always work with abort signals, or do so uniformly. Most production TypeScript backends simply ignore this problem, tolerating, perhaps unwittingly, the monetary and computational costs of leaking everything everywhere, all of the time.",
-	"code": "function ask(role: string, ticker: string, signal: AbortSignal) {\n  return generateText({\n    model: anthropic('claude-opus-4-5'),\n    system: `You are a ${role}. Give stock advice.`,\n    prompt: ticker,\n    abortSignal: signal\n  })\n}\n\nasync function getStockAdvice(ticker: string) {\n  const controller = new AbortController()\n  try {\n    const [tree, star, beetle] = await Promise.all([\n      ask(\"tree\", ticker, controller.signal),\n      ask(\"Zubenelgenubi\", ticker, controller.signal),\n      ask(\"dung beetle\", ticker, controller.signal)\n    ])\n    return { tree, star, beetle }\n  } catch (e) {\n    controller.abort()\n    throw e\n  }\n}",
-	"contentHash": "10052f3973c2b65e",
+	"code": "function ask(role: string, ticker: string, signal: AbortSignal) {\n  return generateText({\n    model: anthropic('claude-opus-4-5'),\n    system: `You are a ${role}. Give stock advice.`,\n    prompt: ticker,\n    abortSignal: signal\n  })\n}\n\nasync function getStockAdvice(ticker: string) {\n  const controller = new AbortController()\n\n  try {\n    const [tree, star, beetle] = await Promise.all([\n      ask(\"tree\", ticker, controller.signal),\n      ask(\"Zubenelgenubi\", ticker, controller.signal),\n      ask(\"dung beetle\", ticker, controller.signal)\n    ])\n    return { tree, star, beetle }\n  } catch (e) {\n    controller.abort()\n    throw e\n  }\n}",
+	"contentHash": "4175ec4b5f99da30",
 	"wordTimings": [
 		{
 			"word": "Now",

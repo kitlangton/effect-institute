@@ -7,6 +7,7 @@
 import { Match } from "effect"
 import { type Animation, resolveSlotValue, type Snapshot } from "@/lib/animated-code/animation"
 import {
+	type AnimationSoundName,
 	type Annotation,
 	Bright,
 	Burst,
@@ -27,7 +28,6 @@ import type {
 	CursorSpec,
 	FocusSpec,
 	MarkSpec,
-	SpotlightSpec,
 	SquiggleSpec,
 	StatusSpec,
 	StepBuilder,
@@ -162,7 +162,6 @@ export function compileFlow(
 	// Unified focus has separate persistence for lines and tokens
 	const focusLines = new Persistent<FocusSpec>((f) => "persist" in f && !!f.persist)
 	const focusTokens = new PersistentArray<TokenFocusSpec>()
-	const spotlight = new PersistentArray<SpotlightSpec>() // Legacy, kept for backward compat
 	const cursor = new Persistent<CursorSpec>()
 	const burst = new Persistent<BurstSpec>()
 	const bright = new PersistentArray<BrightSpec>()
@@ -173,7 +172,7 @@ export function compileFlow(
 
 	// Initial snapshot
 	steps.push({ name: "start", at: "start" })
-	snapshots.push({ ...effectiveBase })
+	snapshots.push({ slots: { ...effectiveBase }, annotations: [] })
 
 	for (const builder of flow) {
 		const step = builder._build()
@@ -206,8 +205,6 @@ export function compileFlow(
 		// Unified focus - separate trackers for lines and tokens
 		const effectiveFocusLines = focusLines.update(ann.focus?.lines, ann.focusClear)
 		const effectiveFocusTokens = focusTokens.update(ann.focus?.tokens, ann.focusClear)
-		// Legacy spotlight support (deprecated, but still works)
-		const effectiveLegacySpotlight = spotlight.update(ann.spotlight, ann.spotlightClear)
 		const effectiveCursor = cursor.update(ann.cursor, ann.cursorClear)
 		const effectiveBurst = burst.update(ann.burst, ann.burstClear)
 		const effectiveBright = bright.update(ann.bright, ann.brightClear)
@@ -224,29 +221,13 @@ export function compileFlow(
 			annotations.push(new Focus({ lines: resolvedFocus }))
 		}
 
-		// Merge unified token focus and legacy spotlight into one annotation
-		const allTokenSpecs: TokenFocusSpec[] = [
-			...(effectiveFocusTokens ?? []),
-			// Convert legacy SpotlightSpec to TokenFocusSpec
-			...(effectiveLegacySpotlight ?? []).map((s): TokenFocusSpec => {
-				const spec: TokenFocusSpec = {
-					text: typeof s.pattern === "string" ? s.pattern : (s.pattern.text ?? ""),
-				}
-				if (typeof s.pattern === "object" && s.pattern.line) {
-					spec.line = s.pattern.line
-				}
-				if (s.dim !== undefined) spec.dim = s.dim
-				if (s.glow !== undefined) spec.glow = s.glow
-				if (s.persist !== undefined) spec.persist = s.persist
-				return spec
-			}),
-		]
-
-		if (allTokenSpecs.length > 0) {
-			const patterns = allTokenSpecs.map((t): string | { line: string; text?: string } =>
+		// Token focus lowers to one spotlight; the first spec sets dim and glow
+		const tokenSpecs = effectiveFocusTokens ?? []
+		if (tokenSpecs.length > 0) {
+			const patterns = tokenSpecs.map((t): string | { line: string; text?: string } =>
 				t.line ? { line: t.line, text: t.text } : t.text,
 			)
-			const first = allTokenSpecs[0]
+			const first = tokenSpecs[0]
 			annotations.push(
 				new Spotlight({
 					patterns,
@@ -359,12 +340,7 @@ export function compileFlow(
 			annotations.push(new Sound({ name: ann.sound }))
 		}
 
-		const snapshot: Snapshot = {
-			...currentSlots,
-			...(annotations.length > 0 && { annotations }),
-		}
-
-		snapshots.push(snapshot)
+		snapshots.push({ slots: { ...currentSlots }, annotations })
 	}
 
 	return { steps, snapshots, warnings }
@@ -374,11 +350,17 @@ export function compileFlow(
 // Component Flow Compilation
 // ============================================================================
 
+/** One component step: the component's state, and the sound the step plays */
+export interface ComponentSnapshot {
+	readonly state: Record<string, unknown>
+	readonly sound?: AnimationSoundName
+}
+
 /** Compiled component flow */
 export interface CompiledComponentFlow {
 	readonly name: string
 	readonly steps: StepRef[]
-	readonly snapshots: Record<string, unknown>[]
+	readonly snapshots: ComponentSnapshot[]
 }
 
 /**
@@ -395,16 +377,16 @@ export function compileComponentFlow(componentFlow: {
 			nth?: number
 			offset?: number
 			stateDelta?: Record<string, unknown>
-			annotations?: { sound?: string }
+			annotations?: { sound?: AnimationSoundName }
 		}
 	}[]
 }): CompiledComponentFlow {
 	const steps: StepRef[] = []
-	const snapshots: Record<string, unknown>[] = []
+	const snapshots: ComponentSnapshot[] = []
 	let currentState: Record<string, unknown> = { ...componentFlow.base }
 
 	steps.push({ name: "start", at: "start" })
-	snapshots.push({ ...currentState })
+	snapshots.push({ state: { ...currentState } })
 
 	for (const builder of componentFlow.flow) {
 		const step = builder._build()
@@ -422,12 +404,8 @@ export function compileComponentFlow(componentFlow: {
 			currentState = { ...currentState, ...step.stateDelta }
 		}
 
-		const snapshot: Record<string, unknown> = { ...currentState }
-		if (step.annotations?.sound) {
-			snapshot._sound = step.annotations.sound
-		}
-
-		snapshots.push(snapshot)
+		const sound = step.annotations?.sound
+		snapshots.push({ state: { ...currentState }, ...(sound && { sound }) })
 	}
 
 	return { name: componentFlow.name, steps, snapshots }

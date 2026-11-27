@@ -84,16 +84,12 @@ export function StepDrivenComponent({ componentFlow, step }: StepDrivenComponent
 
 	// Clamp step to valid range
 	const clampedStep = Math.max(0, Math.min(step, componentFlow.snapshots.length - 1))
-	const state = componentFlow.snapshots[clampedStep] ?? componentFlow.snapshots[0] ?? {}
+	const state = componentFlow.snapshots[clampedStep]?.state ?? {}
 
 	return (
 		<ChunkErrorBoundary>
 			<Suspense fallback={<ComponentLoadingFallback />}>
-				<Component
-					state={state as Record<string, unknown>}
-					step={clampedStep}
-					totalSteps={componentFlow.snapshots.length}
-				/>
+				<Component state={state} step={clampedStep} totalSteps={componentFlow.snapshots.length} />
 			</Suspense>
 		</ChunkErrorBoundary>
 	)

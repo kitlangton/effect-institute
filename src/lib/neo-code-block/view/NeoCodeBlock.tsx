@@ -5,6 +5,7 @@ import type { MotionStyle } from "motion/react"
 import { AnimatePresence, motion } from "motion/react"
 import React from "react"
 import { responsiveSettingsAtom } from "@/atoms/responsiveSettings"
+import type { CodeSlideshow, FrameLine, Overlay, Spotlight, StatusIndicators } from "@/lib/animated-code/slideshow"
 import { getGlowColor, getHighlightColor } from "../annotation-colors"
 import {
 	CONTAINER_TRANSITION,
@@ -18,7 +19,6 @@ import {
 } from "../constants"
 import { NeoCodeMeasurementsProvider } from "../hooks/NeoCodeMeasurementsContext"
 import { NeoCodeMeasurementsManager } from "../hooks/NeoCodeMeasurementsManager"
-import type { AnnotationOverlay, FrameLine, NeoCodeBlockProps, SpotlightConfig, StatusConfig } from "../types"
 import { useFrame } from "../useFrame"
 import { BurstEffect } from "./BurstEffect"
 import { Cursor } from "./Cursor"
@@ -93,9 +93,9 @@ interface CodeLineProps {
 	mountStatic: boolean
 	/** Transition window hint for will-change */
 	isAnimating: boolean
-	spotlight?: SpotlightConfig
-	status?: StatusConfig
-	brightRanges?: readonly AnnotationOverlay[]
+	spotlight?: Spotlight
+	status?: StatusIndicators
+	brightRanges?: readonly Overlay[]
 	/** Render the hidden measurement replica (cursor target line) */
 	withMeasurementLine?: boolean
 }
@@ -180,6 +180,13 @@ const CodeLine = React.memo(function CodeLine({
 /* NeoCodeBlock                                                        */
 /* ------------------------------------------------------------------ */
 
+interface NeoCodeBlockProps {
+	data: CodeSlideshow
+	snapshot: number
+	className?: string
+	style?: React.CSSProperties
+}
+
 export function NeoCodeBlock({ data, snapshot, className, style }: NeoCodeBlockProps) {
 	const managerRef = React.useRef<NeoCodeMeasurementsManager | null>(null)
 	if (!managerRef.current) {
@@ -256,7 +263,7 @@ export function NeoCodeBlock({ data, snapshot, className, style }: NeoCodeBlockP
 
 	// Get line text for overlays (marks, glows, etc.)
 	const getLineText = (lineIndex: number) => frame.lines[lineIndex]?.text ?? ""
-	const overlayKey = (kind: string, overlay: AnnotationOverlay) =>
+	const overlayKey = (kind: string, overlay: Overlay) =>
 		`${kind}-${frame.lines[overlay.lineIndex]?.lineId ?? overlay.lineIndex}:${overlay.start}-${overlay.end}`
 
 	return (

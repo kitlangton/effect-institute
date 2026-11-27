@@ -6,22 +6,16 @@
  * @module
  */
 
+import type { AnimationSoundName, CursorType, StatusKind } from "@/lib/animated-code/annotations"
 import {
-	type AnimationSoundName,
 	type AnnotationBuilder,
-	type BrightSpec,
-	type BurstSpec,
-	type CursorSpec,
 	type FlowStep,
 	FocusAll,
 	FocusExcept,
 	type FocusInput,
 	FocusLines,
 	FocusRange,
-	type GlowSpec,
 	type PatternMatchOptions,
-	type SquiggleSpec,
-	type StatusSpec,
 	type StepBuilder,
 	type TokenFocusSpec,
 	type UnifiedFocusSpec,
@@ -31,77 +25,47 @@ import {
 // Annotation Builder Implementation
 // ============================================================================
 
-type AnnotationEntry =
-	| { type: "cursor"; config: CursorSpec }
-	| { type: "bright"; config: BrightSpec }
-	| { type: "glow"; config: GlowSpec }
-	| { type: "squiggle"; config: SquiggleSpec }
-	| { type: "burst"; config: BurstSpec }
-	| { type: "status"; config: StatusSpec }
+/** `.at()`'s builder: each call is the step's own annotation method on the shared target */
+class TargetBuilder implements AnnotationBuilder {
+	constructor(
+		private readonly step: StepBuilder,
+		private readonly text: string,
+		private readonly opts: PatternMatchOptions,
+	) {}
 
-class AnnotationBuilderImpl implements AnnotationBuilder {
-	private text: string
-	private opts: PatternMatchOptions
-	private annotations: AnnotationEntry[] = []
-
-	constructor(text: string, opts?: PatternMatchOptions) {
-		this.text = text
-		this.opts = opts ?? {}
-	}
-
-	cursor(opts?: { type?: "pointer" | "hand" | "thumbsDown"; persist?: boolean }): AnnotationBuilder {
-		this.annotations.push({
-			type: "cursor",
-			config: { text: this.text, ...this.opts, ...opts },
-		})
+	cursor(opts?: { type?: CursorType; persist?: boolean }): AnnotationBuilder {
+		this.step.cursor(this.text, { ...this.opts, ...opts })
 		return this
 	}
 
 	bright(opts?: { color?: string; persist?: boolean }): AnnotationBuilder {
-		this.annotations.push({
-			type: "bright",
-			config: { text: this.text, ...this.opts, ...opts },
-		})
+		this.step.bright(this.text, { ...this.opts, ...opts })
 		return this
 	}
 
 	glow(opts?: { color?: string }): AnnotationBuilder {
-		this.annotations.push({
-			type: "glow",
-			config: { text: this.text, ...this.opts, ...opts },
-		})
+		this.step.glow(this.text, { ...this.opts, ...opts })
 		return this
 	}
 
 	squiggle(opts?: { color?: string; persist?: boolean }): AnnotationBuilder {
-		this.annotations.push({
-			type: "squiggle",
-			config: { text: this.text, ...this.opts, ...opts },
-		})
+		this.step.squiggle(this.text, { ...this.opts, ...opts })
+		return this
+	}
+
+	mark(opts?: { color?: string; persist?: boolean }): AnnotationBuilder {
+		this.step.mark(this.text, { ...this.opts, ...opts })
 		return this
 	}
 
 	burst(emoji: string | string[], opts?: { count?: number; persist?: boolean }): AnnotationBuilder {
-		this.annotations.push({
-			type: "burst",
-			config: { text: this.text, emoji, ...this.opts, ...opts },
-		})
+		this.step.burst(this.text, emoji, { ...this.opts, ...opts })
 		return this
 	}
 
-	status(
-		status: "running" | "success" | "error" | "interrupted" | "die",
-		opts?: { persist?: boolean },
-	): AnnotationBuilder {
-		this.annotations.push({
-			type: "status",
-			config: { text: this.text, status, ...this.opts, ...opts },
-		})
+	status(status: StatusKind, opts?: { persist?: boolean }): AnnotationBuilder {
+		this.step.status(this.text, status, { ...this.opts, ...opts })
 		return this
-	}
-
-	_getAnnotations() {
-		return this.annotations
 	}
 }
 
@@ -226,39 +190,6 @@ class StepBuilderImpl implements StepBuilder {
 			},
 			clear: (): StepBuilder => {
 				this.step.annotations.focusClear = true
-				// Also clear legacy spotlight for backward compat
-				this.step.annotations.spotlightClear = true
-				return this
-			},
-		},
-	)
-
-	/**
-	 * @deprecated Use `.focus({ text: "pattern" })` instead
-	 */
-	spotlight = Object.assign(
-		(
-			pattern: string | { line: string; text?: string },
-			opts?: { dim?: number; glow?: boolean; persist?: boolean },
-		): StepBuilder => {
-			// Convert to unified focus token spec
-			const spec = this.ensureFocus()
-			if (!spec.tokens) {
-				spec.tokens = []
-			}
-
-			const tokenSpec: TokenFocusSpec = {
-				text: typeof pattern === "string" ? pattern : (pattern.text ?? ""),
-				...(typeof pattern === "object" && pattern.line && { line: pattern.line }),
-				...opts,
-			}
-			spec.tokens.push(tokenSpec)
-			return this
-		},
-		{
-			clear: (): StepBuilder => {
-				this.step.annotations.focusClear = true
-				this.step.annotations.spotlightClear = true
 				return this
 			},
 		},
@@ -269,7 +200,7 @@ class StepBuilderImpl implements StepBuilder {
 			text: string,
 			opts?: {
 				nth?: number
-				type?: "pointer" | "hand" | "thumbsDown"
+				type?: CursorType
 				after?: string
 				substring?: boolean
 				persist?: boolean
@@ -425,49 +356,14 @@ class StepBuilderImpl implements StepBuilder {
 		configure: (builder: AnnotationBuilder) => AnnotationBuilder,
 		opts?: PatternMatchOptions,
 	): StepBuilder {
-		const annotationBuilder = new AnnotationBuilderImpl(text, opts)
-		configure(annotationBuilder)
-		for (const annotation of annotationBuilder._getAnnotations()) {
-			switch (annotation.type) {
-				case "cursor":
-					this.step.annotations.cursor = annotation.config
-					break
-				case "bright":
-					if (!this.step.annotations.bright) {
-						this.step.annotations.bright = []
-					}
-					this.step.annotations.bright.push(annotation.config)
-					break
-				case "glow":
-					if (!this.step.annotations.glow) {
-						this.step.annotations.glow = []
-					}
-					this.step.annotations.glow.push(annotation.config)
-					break
-				case "squiggle":
-					if (!this.step.annotations.squiggle) {
-						this.step.annotations.squiggle = []
-					}
-					this.step.annotations.squiggle.push(annotation.config)
-					break
-				case "burst":
-					this.step.annotations.burst = annotation.config
-					break
-				case "status":
-					if (!this.step.annotations.status) {
-						this.step.annotations.status = []
-					}
-					this.step.annotations.status.push(annotation.config)
-					break
-			}
-		}
+		configure(new TargetBuilder(this, text, opts ?? {}))
 		return this
 	}
 
 	status = Object.assign(
 		(
 			text: string,
-			status: "running" | "success" | "error" | "interrupted" | "die",
+			status: StatusKind,
 			opts?: {
 				nth?: number
 				after?: string
@@ -532,9 +428,4 @@ export function on(word: string, opts?: OnOptions): StepBuilder {
 	if (opts?.nth) builder.nth(opts.nth)
 	if (opts?.offset) builder.offset(opts.offset)
 	return builder
-}
-
-/** Start a manually-driven animation step without tying it to narration. */
-export function step(name: string): StepBuilder {
-	return new StepBuilderImpl(name).as(name)
 }

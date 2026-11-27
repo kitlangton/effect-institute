@@ -5,7 +5,7 @@ import type { SectionData } from "@/atoms/narration"
 import { createStepAtom } from "@/atoms/narration"
 import { AnimatedCodeBlock } from "@/components/narrated/AnimatedCodeBlock"
 import { StepDrivenComponent } from "@/components/narrated/StepDrivenComponent"
-import { useAnimationSound } from "@/lib/animated-code/animation/useAnimationSound"
+import { useAnimationSound } from "@/hooks/useAnimationSound"
 import type { ComponentFlowData } from "@/lib/tooling/types"
 
 interface CodePanelContentProps {
@@ -87,10 +87,7 @@ function StepDrivenComponentWrapper({
 	)
 	const step = useAtomValue(stepAtom)
 
-	// Get sound from current snapshot and play on step change
-	const currentSnapshot = componentFlow.snapshots[step] as Record<string, unknown> | undefined
-	const currentSound = currentSnapshot?._sound as string | undefined
-	useAnimationSound(step, currentSound)
+	useAnimationSound(step, componentFlow.snapshots[step]?.sound)
 
 	return (
 		<div className="w-full px-2 sm:px-8">

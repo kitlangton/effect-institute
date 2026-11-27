@@ -508,40 +508,52 @@
 		],
 		"snapshots": [
 			{
-				"visible": false,
-				"sensor": "idle",
-				"bio": "idle",
-				"analyze": "idle"
+				"state": {
+					"visible": false,
+					"sensor": "idle",
+					"bio": "idle",
+					"analyze": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"sensor": "idle",
-				"bio": "idle",
-				"analyze": "idle"
+				"state": {
+					"visible": true,
+					"sensor": "idle",
+					"bio": "idle",
+					"analyze": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"sensor": "running",
-				"bio": "idle",
-				"analyze": "idle"
+				"state": {
+					"visible": true,
+					"sensor": "running",
+					"bio": "idle",
+					"analyze": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"sensor": "completed",
-				"bio": "running",
-				"analyze": "idle"
+				"state": {
+					"visible": true,
+					"sensor": "completed",
+					"bio": "running",
+					"analyze": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"sensor": "completed",
-				"bio": "completed",
-				"analyze": "running"
+				"state": {
+					"visible": true,
+					"sensor": "completed",
+					"bio": "completed",
+					"analyze": "running"
+				}
 			},
 			{
-				"visible": true,
-				"sensor": "completed",
-				"bio": "completed",
-				"analyze": "completed"
+				"state": {
+					"visible": true,
+					"sensor": "completed",
+					"bio": "completed",
+					"analyze": "completed"
+				}
 			}
 		]
 	},

@@ -11,19 +11,17 @@
  */
 
 import { createHash } from "node:crypto"
-import type { Animation, Snapshot } from "@/lib/animated-code/animation/animation"
-import { render, toPlainText } from "@/lib/animated-code/animation/render"
+import { type Animation, type Snapshot, stack } from "@/lib/animated-code/animation/animation"
+import { evaluateCode } from "@/lib/animated-code/animation/compile/evaluate"
 import type { StepRef } from "@/lib/animated-code/flow"
 import {
 	type CompiledComponentFlow,
 	compileComponentFlow,
 	compileFlow,
-	extractLineIds,
 	type FlowWarning,
 	validateFlowPatterns,
 	validateFlowWords,
 } from "@/lib/animated-code/flow"
-import type { TemplateSlideshowData } from "@/lib/neo-code-block/types"
 import { normalizeWord } from "@/lib/text"
 import type { ChapterManifest, ManifestGroupEntry } from "@/lib/tooling/types"
 import type { AnimatedCodeFlow, ChapterDef, GroupDef, SectionDef } from "./dsl"
@@ -45,12 +43,8 @@ export interface CompiledSection {
 	readonly code: string
 	/** Step-driven component flow (new mode - receives state per step) */
 	readonly componentFlow?: CompiledComponentFlow
-	/** Raw animation data (transformed to slideshowData by build.ts) */
+	/** Code animation (static code is a one-step animation), compiled to slideshowData by the build */
 	readonly animation?: CompiledAnimation
-	/** Pre-compiled slideshow data (with tokens) for animated code - output by build.ts */
-	readonly slideshowData?: TemplateSlideshowData
-	/** Step references for timing resolution (kept separate from slideshowData) - output by build.ts */
-	readonly steps?: readonly StepRef[]
 	/** Hash of DSL content for change detection */
 	readonly contentHash: string
 	/** Group ID if section belongs to a group */
@@ -124,16 +118,14 @@ function logFlowWarnings(sectionId: string, warnings: FlowWarning[], prefix = ""
 
 /**
  * Extract code string from CodeDef.
- * For animated code, renders the base state.
+ * For animated code, the lines the base state shows.
  */
 export function extractCode(code: string | AnimatedCodeFlow): string {
 	if (typeof code === "string") {
 		return code.trim()
 	}
 
-	// Flow-based animated code: render with base state (defaults if not specified)
-	const rendered = render(code.animation, code.base ?? {})
-	return toPlainText(rendered)
+	return evaluateCode(code.animation, code.base ?? {})
 }
 
 // ============================================================================
@@ -196,6 +188,13 @@ export interface GroupContext {
 	readonly groupDraft?: boolean
 }
 
+/** Static code as a one-snapshot animation: one auto-ID line per source line */
+const staticAnimation = (code: string): CompiledAnimation => ({
+	animation: stack(...code.split("\n")),
+	snapshots: [{ slots: {}, annotations: [] }],
+	steps: [{ name: "start", at: "start" }],
+})
+
 /**
  * Compile a section definition to output format.
  */
@@ -229,7 +228,8 @@ export function compileSection(
 		}
 	})
 
-	let animationData: CompiledAnimation | undefined
+	// Static code becomes a one-step animation so every section renders through the same player
+	let animationData: CompiledAnimation | undefined = code ? staticAnimation(code) : undefined
 	let componentFlowData: CompiledComponentFlow | undefined
 	let warnings: FlowWarning[] | undefined
 	const transcriptWords = words.map((w) => w.word)
@@ -254,12 +254,7 @@ export function compileSection(
 		// Validate step words exist in transcript
 		const wordWarnings = validateFlowWords([...def.code.flow], transcriptWords)
 
-		// Validate each step's annotation patterns against the code that step renders.
-		// snapshots[0] is the base state; snapshots[i + 1] is produced by flow[i].
-		const anim = def.code.animation
-		const stepCode = snapshots.slice(1).map((snap) => toPlainText(render(anim, snap)))
-		const lineIds = extractLineIds(anim)
-		const patternWarnings = validateFlowPatterns([...def.code.flow], stepCode, lineIds)
+		const patternWarnings = validateFlowPatterns(def.code.animation, def.code.flow, snapshots)
 
 		warnings = [...flowWarnings, ...wordWarnings, ...patternWarnings]
 		if (warnings.length > 0) {

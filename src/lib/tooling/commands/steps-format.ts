@@ -3,12 +3,15 @@
  *
  * @module
  */
+
+import type { EvaluatedLine } from "@/lib/animated-code/animation/compile/evaluate"
 import {
 	type AnnotationLocation,
 	describeTarget,
 	locateAnnotations,
 	type StepPreview,
 } from "@/lib/animated-code/animation/preview"
+import type { Burst, Cursor } from "@/lib/animated-code/annotations"
 
 export const STEPS_LEGEND =
 	"▸ focused | <cursor> <burst> <bright> <glow> <squiggle> <mark> <status> <spotlight> | Δ «slot» changed content"
@@ -83,50 +86,51 @@ export function slotSummary(preview: StepPreview, prevSlots: Readonly<Record<str
 	return changes.length > 0 ? `Slots: ${changes.join(", ")}` : undefined
 }
 
-/** The rendered line with text from slots that changed this step marked `«…»`, if any. */
-function stabilityLine(preview: StepPreview, lineIndex: number, changedSlots: ReadonlySet<string>): string | undefined {
-	const renderedLine = preview.renderedLines[lineIndex]
-	if (!renderedLine || changedSlots.size === 0) return undefined
+/** The line with text from slots that changed this step marked `«…»`, if any. */
+function stabilityLine(line: EvaluatedLine, changedSlots: ReadonlySet<string>): string | undefined {
+	if (changedSlots.size === 0) return undefined
 
-	let line = ""
+	let marked = ""
 	let hasChangedParts = false
-	for (const part of renderedLine.parts) {
-		const source = part.source
-		const fromChangedSlot =
-			typeof source === "object" &&
-			source !== null &&
-			"_tag" in source &&
-			source._tag === "SlotSource" &&
-			"name" in source &&
-			typeof source.name === "string" &&
-			changedSlots.has(source.name)
-		if (fromChangedSlot) {
-			if (part.content) {
-				line += `«${part.content}»`
+	for (const run of line.runs) {
+		if (run.slot !== undefined && changedSlots.has(run.slot)) {
+			if (run.text) {
+				marked += `«${run.text}»`
 				hasChangedParts = true
 			}
 		} else {
-			line += part.content
+			marked += run.text
 		}
 	}
-	return hasChangedParts ? line : undefined
+	return hasChangedParts ? marked : undefined
 }
 
 function summaryLine(preview: StepPreview, located: ReturnType<typeof locateAnnotations>): string | undefined {
-	const ann = preview.annotations
+	// The last of each is the one that shows
+	let cursor: Cursor | undefined
+	let burst: Burst | undefined
+	let say: string | undefined
+	let sound: string | undefined
+	for (const ann of preview.annotations) {
+		if (ann._tag === "Cursor") cursor = ann
+		else if (ann._tag === "Burst") burst = ann
+		else if (ann._tag === "Say") say = ann.text
+		else if (ann._tag === "Sound") sound = ann.name
+	}
 	const isMissing = (kind: AnnotationLocation["kind"]) => located.missing.some((m) => m.kind === kind)
 	const parts: string[] = []
 
-	if (ann.cursor) {
+	if (cursor) {
 		const loc = located.locations.find((l) => l.kind === "cursor")
 		const posInfo = loc ? `L${loc.line}:${loc.start}-${loc.end}` : "(not found!)"
-		parts.push(`cursor: ${describeTarget(ann.cursor)} ${posInfo}`)
+		parts.push(`cursor: ${describeTarget(cursor)} ${posInfo}`)
 	}
-	if (ann.burst) {
-		parts.push(`burst: ${describeTarget(ann.burst)} ${ann.burst.emoji}${isMissing("burst") ? " (not found!)" : ""}`)
+	if (burst) {
+		const emoji = typeof burst.emoji === "string" ? burst.emoji : burst.emoji[0]
+		parts.push(`burst: ${describeTarget(burst)} ${emoji}${isMissing("burst") ? " (not found!)" : ""}`)
 	}
-	if (ann.say !== undefined) parts.push(`say: "${ann.say}"`)
-	if (ann.sound) parts.push(`sound: ${ann.sound}`)
+	if (say !== undefined) parts.push(`say: "${say}"`)
+	if (sound) parts.push(`sound: ${sound}`)
 	for (const miss of located.missing) {
 		if (miss.kind === "cursor" || miss.kind === "burst") continue
 		parts.push(`${miss.kind}: ${describeTarget(miss.target)} (not found!)`)
@@ -150,15 +154,15 @@ export function formatCodeStepBody(preview: StepPreview, prevSlots: Readonly<Rec
 		preview.index > 0 ? Object.keys(preview.slots).filter((name) => prevSlots[name] !== preview.slots[name]) : [],
 	)
 
-	preview.codeLines.forEach((codeLine, i) => {
+	preview.lines.forEach((line, i) => {
 		const lineNum = i + 1
 		const focusMarker = located.focusedLines.has(lineNum) ? "▸" : " "
 		const ranges = located.locations
 			.filter((loc) => loc.line === lineNum)
 			.map((loc) => ({ start: loc.start, end: loc.end, tag: loc.kind }))
-		out.push(`${focusMarker}${String(lineNum).padStart(LINE_NUM_WIDTH)}${GUTTER}${annotateLine(codeLine, ranges)}`)
+		out.push(`${focusMarker}${String(lineNum).padStart(LINE_NUM_WIDTH)}${GUTTER}${annotateLine(line.text, ranges)}`)
 
-		const stability = stabilityLine(preview, i, changedSlots)
+		const stability = stabilityLine(line, changedSlots)
 		if (stability !== undefined) out.push(`${" ".repeat(1 + LINE_NUM_WIDTH)}Δ ${stability}`)
 	})
 
@@ -167,7 +171,7 @@ export function formatCodeStepBody(preview: StepPreview, prevSlots: Readonly<Rec
 	return out
 }
 
-/** "State:" line for a component step - full state first, then changed keys (underscore keys hidden). */
+/** "State:" line for a component step - full state first, then changed keys. */
 export function componentStateSummary(
 	index: number,
 	snapshot: Readonly<Record<string, unknown>>,
@@ -175,13 +179,12 @@ export function componentStateSummary(
 ): string | undefined {
 	if (index === 0) {
 		const stateStr = Object.entries(snapshot)
-			.filter(([k]) => !k.startsWith("_"))
 			.map(([k, v]) => `${k}=${JSON.stringify(v)}`)
 			.join(", ")
 		return `State: ${stateStr}`
 	}
 	const changes = Object.entries(snapshot)
-		.filter(([key, curr]) => !key.startsWith("_") && JSON.stringify(prevState[key]) !== JSON.stringify(curr))
+		.filter(([key, curr]) => JSON.stringify(prevState[key]) !== JSON.stringify(curr))
 		.map(([key, curr]) => `${key}: ${JSON.stringify(prevState[key])} → ${JSON.stringify(curr)}`)
 	return changes.length > 0 ? `State: ${changes.join(", ")}` : undefined
 }

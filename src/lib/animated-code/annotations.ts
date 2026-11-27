@@ -81,14 +81,16 @@ export class Bright extends Schema.TaggedClass<Bright>()("Bright", {
 	color: Schema.optional(Schema.String),
 }) {}
 
+export const StatusKind = Schema.Literals(["running", "success", "error", "interrupted", "die"])
+export type StatusKind = typeof StatusKind.Type
+
 /**
  * Status indicator next to text (running/success/error/interrupted/die).
  * Rendered as inline DOM element.
  */
 export class Status extends Schema.TaggedClass<Status>()("Status", {
 	...TextTargetFields,
-	/** Status state */
-	status: Schema.Literals(["running", "success", "error", "interrupted", "die"]),
+	status: StatusKind,
 }) {}
 
 // ============================================================================
@@ -99,10 +101,13 @@ export class Status extends Schema.TaggedClass<Status>()("Status", {
  * Cursor/pointer at a text location.
  * Rendered as positioned DOM element.
  */
+export const CursorType = Schema.Literals(["pointer", "hand", "thumbsDown"])
+export type CursorType = typeof CursorType.Type
+
 export class Cursor extends Schema.TaggedClass<Cursor>()("Cursor", {
 	...TextTargetFields,
 	/** Cursor icon type. Default: hand */
-	type: Schema.optional(Schema.Literals(["pointer", "hand", "thumbsDown"])),
+	type: Schema.optional(CursorType),
 }) {}
 
 /**
@@ -168,22 +173,47 @@ export class Spotlight extends Schema.TaggedClass<Spotlight>()("Spotlight", {
 	glow: Schema.optional(Schema.Boolean),
 }) {}
 
+export const LineBackground = Schema.Literals(["success", "error", "warning", "info"])
+export type LineBackground = typeof LineBackground.Type
+
 /**
  * Background color for a specific line.
  */
 export class Background extends Schema.TaggedClass<Background>()("Background", {
 	/** Line ID to color */
 	lineId: Schema.String,
-	/** Background style preset */
-	style: Schema.Literals(["success", "error", "warning", "info"]),
+	style: LineBackground,
 }) {}
+
+/** Names of the sound effects a step can play */
+export const AnimationSoundName = Schema.Literals([
+	"tick",
+	"pop",
+	"whoosh",
+	"sad",
+	"celebrate",
+	"chime",
+	"success",
+	"error",
+	"alarm",
+	"doom",
+	"spooky",
+	"press",
+	"fail",
+	"succeed",
+	"ping1",
+	"ping2",
+	"ping3",
+	"derp",
+	"skip",
+])
+export type AnimationSoundName = typeof AnimationSoundName.Type
 
 /**
  * Sound effect to play.
  */
 export class Sound extends Schema.TaggedClass<Sound>()("Sound", {
-	/** Sound name/path */
-	name: Schema.String,
+	name: AnimationSoundName,
 }) {}
 
 // ============================================================================
@@ -208,36 +238,3 @@ export const Annotation = Schema.Union([
 
 /** Annotation type (union of all variants) */
 export type Annotation = Schema.Schema.Type<typeof Annotation>
-
-// ============================================================================
-// Type Guards (using instanceof)
-// ============================================================================
-
-/** Check if annotation targets text (has TextTargetFields) */
-export function hasTextTarget(ann: Annotation): ann is Mark | Glow | Squiggle | Bright | Status | Cursor | Burst {
-	return (
-		ann instanceof Mark ||
-		ann instanceof Glow ||
-		ann instanceof Squiggle ||
-		ann instanceof Bright ||
-		ann instanceof Status ||
-		ann instanceof Cursor ||
-		ann instanceof Burst
-	)
-}
-
-/** Check if annotation is a character-range type */
-export function isCharRangeAnnotation(ann: Annotation): ann is Mark | Glow | Squiggle | Bright | Status {
-	return (
-		ann instanceof Mark ||
-		ann instanceof Glow ||
-		ann instanceof Squiggle ||
-		ann instanceof Bright ||
-		ann instanceof Status
-	)
-}
-
-/** Check if annotation is a point-location type */
-export function isPointAnnotation(ann: Annotation): ann is Cursor | Burst {
-	return ann instanceof Cursor || ann instanceof Burst
-}

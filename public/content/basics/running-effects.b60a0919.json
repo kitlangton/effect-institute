@@ -437,29 +437,39 @@
 		],
 		"snapshots": [
 			{
-				"mode": "sync",
-				"syncState": "idle",
-				"asyncState": "idle"
+				"state": {
+					"mode": "sync",
+					"syncState": "idle",
+					"asyncState": "idle"
+				}
 			},
 			{
-				"mode": "sync",
-				"syncState": "completed",
-				"asyncState": "idle"
+				"state": {
+					"mode": "sync",
+					"syncState": "completed",
+					"asyncState": "idle"
+				}
 			},
 			{
-				"mode": "async",
-				"syncState": "completed",
-				"asyncState": "idle"
+				"state": {
+					"mode": "async",
+					"syncState": "completed",
+					"asyncState": "idle"
+				}
 			},
 			{
-				"mode": "async",
-				"syncState": "completed",
-				"asyncState": "running"
+				"state": {
+					"mode": "async",
+					"syncState": "completed",
+					"asyncState": "running"
+				}
 			},
 			{
-				"mode": "async",
-				"syncState": "completed",
-				"asyncState": "completed"
+				"state": {
+					"mode": "async",
+					"syncState": "completed",
+					"asyncState": "completed"
+				}
 			}
 		]
 	},

@@ -1,38 +1,41 @@
 import { describe, expect, it } from "vitest"
 import { concat, empty, line, section, slot, stack, text } from "./animation"
-import { getLineIds, render, toPlainText } from "./render"
+import { type EvaluatedLine, evaluateLines } from "./compile/evaluate"
+
+const textOf = (lines: readonly EvaluatedLine[]) => lines.map((l) => l.text).join("\n")
+const idsOf = (lines: readonly EvaluatedLine[]) => lines.map((l) => l.id)
 
 describe("Animation Algebra", () => {
 	describe("text", () => {
 		it("renders literal text", () => {
-			const anim = text("hello")
-			const output = render(anim, {})
-			expect(toPlainText(output)).toBe("hello")
+			const anim = line("l", text("hello"))
+			const output = evaluateLines(anim, {})
+			expect(textOf(output)).toBe("hello")
 		})
 	})
 
 	describe("empty", () => {
 		it("renders nothing", () => {
-			const output = render(empty, {})
-			expect(output.lines).toHaveLength(0)
+			const output = evaluateLines(empty, {})
+			expect(output).toHaveLength(0)
 		})
 	})
 
 	describe("concat", () => {
 		it("joins parts horizontally on same line", () => {
-			const anim = concat(text("const "), text("x"), text(" = 42;"))
-			const output = render(anim, {})
-			expect(toPlainText(output)).toBe("const x = 42;")
-			expect(output.lines).toHaveLength(1)
+			const anim = line("l", concat(text("const "), text("x"), text(" = 42;")))
+			const output = evaluateLines(anim, {})
+			expect(textOf(output)).toBe("const x = 42;")
+			expect(output).toHaveLength(1)
 		})
 	})
 
 	describe("stack", () => {
 		it("joins parts vertically on different lines", () => {
-			const anim = stack(text("line1"), text("line2"), text("line3"))
-			const output = render(anim, {})
-			expect(toPlainText(output)).toBe("line1\nline2\nline3")
-			expect(output.lines).toHaveLength(3)
+			const anim = stack(line("a", "line1"), line("b", "line2"), line("c", "line3"))
+			const output = evaluateLines(anim, {})
+			expect(textOf(output)).toBe("line1\nline2\nline3")
+			expect(output).toHaveLength(3)
 		})
 
 		it("is associative", () => {
@@ -43,7 +46,7 @@ describe("Animation Algebra", () => {
 			const left = stack(stack(a, b), c)
 			const right = stack(a, stack(b, c))
 
-			expect(toPlainText(render(left, {}))).toBe(toPlainText(render(right, {})))
+			expect(textOf(evaluateLines(left, {}))).toBe(textOf(evaluateLines(right, {})))
 		})
 
 		it("has empty as identity", () => {
@@ -52,71 +55,65 @@ describe("Animation Algebra", () => {
 			const withEmpty = stack(a, empty)
 			const withoutEmpty = a
 
-			expect(toPlainText(render(withEmpty, {}))).toBe(toPlainText(render(withoutEmpty, {})))
+			expect(textOf(evaluateLines(withEmpty, {}))).toBe(textOf(evaluateLines(withoutEmpty, {})))
 		})
 	})
 
 	describe("line", () => {
 		it("assigns ID to content", () => {
 			const anim = line("my-line", text("content"))
-			const output = render(anim, {})
-			expect(output.lines[0].id).toBe("my-line")
+			const output = evaluateLines(anim, {})
+			expect(output[0].id).toBe("my-line")
 		})
 
 		it("works with string content shorthand", () => {
 			const anim = line("sig", "function foo() {")
-			const output = render(anim, {})
-			expect(output.lines[0].id).toBe("sig")
-			expect(toPlainText(output)).toBe("function foo() {")
+			const output = evaluateLines(anim, {})
+			expect(output[0].id).toBe("sig")
+			expect(textOf(output)).toBe("function foo() {")
 		})
 	})
 
 	describe("section", () => {
 		it("namespaces line IDs", () => {
 			const anim = section("checkout", stack(line("open", "function checkout() {"), line("close", "}")))
-			const output = render(anim, {})
-			expect(getLineIds(output)).toEqual(["checkout/open", "checkout/close"])
+			const output = evaluateLines(anim, {})
+			expect(idsOf(output)).toEqual(["checkout/open", "checkout/close"])
 		})
 
 		it("supports nested sections", () => {
 			const anim = section("outer", section("inner", line("line", "content")))
-			const output = render(anim, {})
-			expect(output.lines[0].id).toBe("outer/inner/line")
+			const output = evaluateLines(anim, {})
+			expect(output[0].id).toBe("outer/inner/line")
 		})
 	})
 
 	describe("slot", () => {
 		it("selects value from environment", () => {
-			const anim = slot("value", {
-				a: text("42"),
-				b: text("84"),
-			})
+			const anim = line("v", slot("value", { a: text("42"), b: text("84") }))
 
-			expect(toPlainText(render(anim, { value: "a" }))).toBe("42")
-			expect(toPlainText(render(anim, { value: "b" }))).toBe("84")
+			expect(textOf(evaluateLines(anim, { value: "a" }))).toBe("42")
+			expect(textOf(evaluateLines(anim, { value: "b" }))).toBe("84")
 		})
 
 		it("uses first value as default", () => {
-			const anim = slot("value", {
-				first: text("default"),
-				second: text("other"),
-			})
+			const anim = line("v", slot("value", { first: text("default"), second: text("other") }))
 
-			expect(toPlainText(render(anim, {}))).toBe("default")
+			expect(textOf(evaluateLines(anim, {}))).toBe("default")
 		})
 
 		it("hides optional slots by default", () => {
 			const anim = line("sig", ["Effect<number", slot.optional("error", ", Error"), ">"])
 
-			expect(toPlainText(render(anim, {}))).toBe("Effect<number>")
-			expect(toPlainText(render(anim, { error: "shown" }))).toBe("Effect<number, Error>")
+			expect(textOf(evaluateLines(anim, {}))).toBe("Effect<number>")
+			expect(textOf(evaluateLines(anim, { error: "shown" }))).toBe("Effect<number, Error>")
 		})
 
 		it("works with string values (auto-wrapped)", () => {
 			const anim = slot("kw", { const: "const", let: "let" })
 
-			expect(toPlainText(render(anim, { kw: "const" }))).toBe("const")
-			expect(toPlainText(render(anim, { kw: "let" }))).toBe("let")
+			expect(textOf(evaluateLines(anim, { kw: "const" }))).toBe("const")
+			expect(textOf(evaluateLines(anim, { kw: "let" }))).toBe("let")
 		})
 
 		it("slot values can be complex animations", () => {
@@ -125,13 +122,13 @@ describe("Animation Algebra", () => {
 				collapsed: line("bc", "  // ..."),
 			})
 
-			const full = render(anim, { body: "full" })
-			expect(toPlainText(full)).toBe("  line1;\n  line2;")
-			expect(getLineIds(full)).toEqual(["b1", "b2"])
+			const full = evaluateLines(anim, { body: "full" })
+			expect(textOf(full)).toBe("  line1;\n  line2;")
+			expect(idsOf(full)).toEqual(["b1", "b2"])
 
-			const collapsed = render(anim, { body: "collapsed" })
-			expect(toPlainText(collapsed)).toBe("  // ...")
-			expect(getLineIds(collapsed)).toEqual(["bc"])
+			const collapsed = evaluateLines(anim, { body: "collapsed" })
+			expect(textOf(collapsed)).toBe("  // ...")
+			expect(idsOf(collapsed)).toEqual(["bc"])
 		})
 	})
 
@@ -147,8 +144,8 @@ describe("Animation Algebra", () => {
 				),
 			)
 
-			expect(toPlainText(render(anim, { kw: "const", val: "num" }))).toBe("const x = 42;")
-			expect(toPlainText(render(anim, { kw: "let", val: "str" }))).toBe('let x = "hello";')
+			expect(textOf(evaluateLines(anim, { kw: "const", val: "num" }))).toBe("const x = 42;")
+			expect(textOf(evaluateLines(anim, { kw: "let", val: "str" }))).toBe('let x = "hello";')
 		})
 
 		it("same slot name coordinates across sections", () => {
@@ -170,11 +167,11 @@ describe("Animation Algebra", () => {
 
 			const full = stack(checkout, getCart)
 
-			const snap1 = render(full, { active: "checkout" })
-			expect(toPlainText(snap1)).toBe("  // checkout body\n  // ...")
+			const snap1 = evaluateLines(full, { active: "checkout" })
+			expect(textOf(snap1)).toBe("  // checkout body\n  // ...")
 
-			const snap2 = render(full, { active: "getCart" })
-			expect(toPlainText(snap2)).toBe("  // ...\n  // getCart body")
+			const snap2 = evaluateLines(full, { active: "getCart" })
+			expect(textOf(snap2)).toBe("  // ...\n  // getCart body")
 		})
 
 		it("full function example", () => {
@@ -214,21 +211,15 @@ describe("Animation Algebra", () => {
 			)
 
 			// Snapshot 0: full checkout, nothing below
-			const snap0 = render(fullAnimation, { body: "full", below: "none" })
-			expect(getLineIds(snap0)).toEqual([
-				"checkout/open",
-				"checkout/b1",
-				"checkout/b2",
-				"checkout/b3",
-				"checkout/close",
-			])
+			const snap0 = evaluateLines(fullAnimation, { body: "full", below: "none" })
+			expect(idsOf(snap0)).toEqual(["checkout/open", "checkout/b1", "checkout/b2", "checkout/b3", "checkout/close"])
 
 			// Snapshot 1: collapsed checkout, getCart below
-			const snap1 = render(fullAnimation, {
+			const snap1 = evaluateLines(fullAnimation, {
 				body: "collapsed",
 				below: "showGetCart",
 			})
-			expect(getLineIds(snap1)).toEqual([
+			expect(idsOf(snap1)).toEqual([
 				"checkout/open",
 				"checkout/bc",
 				"checkout/close",
@@ -239,20 +230,26 @@ describe("Animation Algebra", () => {
 			])
 
 			// Line IDs are stable: checkout/open is same in both
-			expect(snap0.lines[0].id).toBe(snap1.lines[0].id)
-			expect(snap0.lines[0].id).toBe("checkout/open")
+			expect(snap0[0].id).toBe(snap1[0].id)
+			expect(snap0[0].id).toBe("checkout/open")
 		})
 	})
 
 	describe("edge cases", () => {
+		it("keeps a blank line a slot shows, like the compiled frame", () => {
+			const anim = stack(line("a", "a"), slot.optional("gap", line("blank", "")), line("b", "b"))
+			expect(idsOf(evaluateLines(anim, {}))).toEqual(["a", "b"])
+			expect(textOf(evaluateLines(anim, { gap: "shown" }))).toBe("a\n\nb")
+		})
+
 		it("handles empty slot value", () => {
 			const anim = slot("extra", {
 				none: empty,
-				some: text("extra content"),
+				some: line("extra", "extra content"),
 			})
 
-			expect(render(anim, { extra: "none" }).lines).toHaveLength(0)
-			expect(toPlainText(render(anim, { extra: "some" }))).toBe("extra content")
+			expect(evaluateLines(anim, { extra: "none" })).toHaveLength(0)
+			expect(textOf(evaluateLines(anim, { extra: "some" }))).toBe("extra content")
 		})
 
 		it("handles deeply nested slots", () => {
@@ -266,9 +263,10 @@ describe("Animation Algebra", () => {
 				useB: slot("inner", { a: text("X"), b: text("Y") }),
 			})
 
-			expect(toPlainText(render(outer, { outer: "useA", inner: "a" }))).toBe("A")
-			expect(toPlainText(render(outer, { outer: "useA", inner: "b" }))).toBe("B")
-			expect(toPlainText(render(outer, { outer: "useB", inner: "a" }))).toBe("X")
+			const anim = line("v", outer)
+			expect(textOf(evaluateLines(anim, { outer: "useA", inner: "a" }))).toBe("A")
+			expect(textOf(evaluateLines(anim, { outer: "useA", inner: "b" }))).toBe("B")
+			expect(textOf(evaluateLines(anim, { outer: "useB", inner: "a" }))).toBe("X")
 		})
 	})
 })

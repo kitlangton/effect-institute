@@ -14,14 +14,7 @@ export {
 	stack,
 	text,
 } from "./animation"
-export { compile } from "./compile/compile"
+export { compile, compileSlideshow } from "./compile/compile"
+export { type EvaluatedLine, evaluateCode, evaluateLines } from "./compile/evaluate"
 export { previewSteps, type StepPreview } from "./preview"
-export {
-	getLineIds,
-	type RenderedLine,
-	type RenderedOutput,
-	type RenderedPart,
-	render,
-	toPlainText,
-} from "./render"
 export { analyzeStability, type StabilityWarning } from "./stability"

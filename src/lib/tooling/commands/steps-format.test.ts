@@ -92,8 +92,8 @@ describe("formatCodeStepBody", () => {
 })
 
 describe("componentStateSummary", () => {
-	it("shows full public state first, then changed keys", () => {
-		expect(componentStateSummary(0, { a: 1, _sound: "pop", b: "x" }, {})).toBe('State: a=1, b="x"')
+	it("shows full state first, then changed keys", () => {
+		expect(componentStateSummary(0, { a: 1, b: "x" }, {})).toBe('State: a=1, b="x"')
 		expect(componentStateSummary(1, { a: 2, b: "x" }, { a: 1, b: "x" })).toBe("State: a: 1 → 2")
 		expect(componentStateSummary(1, { a: 1 }, { a: 1 })).toBeUndefined()
 	})

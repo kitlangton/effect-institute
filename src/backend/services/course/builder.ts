@@ -7,8 +7,7 @@
  */
 
 import { Effect, Schema } from "effect"
-import { type AnimationDef, stack } from "@/lib/animated-code/animation"
-import { compileAndTokenize } from "@/lib/animated-code/animation/compile-with-tokens"
+import { compileSlideshow } from "@/lib/animated-code/animation"
 import type { StepRef } from "@/lib/animated-code/flow"
 import { compileChapter, compileSectionsWithGroups } from "@/lib/content/compile"
 import { type ChapterDef, flattenPublishedSections, flattenSections } from "@/lib/content/dsl"
@@ -24,8 +23,6 @@ import {
 import { isNarratedComponentName } from "@/lib/content/narrated-components"
 import { resolveStepTimes } from "@/lib/content/resolve-steps"
 import { mergeTimings } from "@/lib/content/timing-merge"
-import { compress } from "@/lib/neo-code-block/compress"
-import type { TemplateSlideshowData } from "@/lib/neo-code-block/types"
 import { ChapterManifest, type ChapterMetadata, CourseManifest, SectionData } from "@/lib/tooling/types"
 import type { Loader } from "./loader"
 import type { makePruner } from "./pruner"
@@ -108,29 +105,6 @@ const flowWarningError = (sectionId: string, w: FlowWarning): BuildError | null 
 		default:
 			return null
 	}
-}
-
-/** Static code becomes a one-snapshot animation so every section renders through the same player. */
-const slideshowFor = (compiled: CompiledSectionInput) => {
-	if (compiled.animation) {
-		const animDef: AnimationDef = {
-			animation: compiled.animation.animation as AnimationDef["animation"],
-			snapshots: compiled.animation.snapshots as AnimationDef["snapshots"],
-		}
-		return Effect.promise(() => compileAndTokenize(animDef, "typescript")).pipe(
-			Effect.map((raw) => ({ slideshowData: compress(raw), steps: compiled.animation?.steps })),
-		)
-	}
-	if (compiled.code) {
-		const animDef: AnimationDef = { animation: stack(...compiled.code.split("\n")), snapshots: [{}] }
-		return Effect.promise(() => compileAndTokenize(animDef, "typescript")).pipe(
-			Effect.map((raw) => ({
-				slideshowData: compress(raw),
-				steps: [{ name: "start", at: "start" as const }] as readonly StepRef[],
-			})),
-		)
-	}
-	return Effect.succeed({ slideshowData: undefined as TemplateSlideshowData | undefined, steps: undefined })
 }
 
 export const makeBuilder = (ctx: CourseContext, loader: Loader, pruner: ReturnType<typeof makePruner>) => {
@@ -249,7 +223,9 @@ export const makeBuilder = (ctx: CourseContext, loader: Loader, pruner: ReturnTy
 				return yield* failWith(`Unknown narrated component: ${rest.componentFlow.name}`)
 			}
 
-			const { slideshowData, steps } = yield* slideshowFor(compiled)
+			const animation = compiled.animation
+			const slideshowData = animation ? yield* Effect.promise(() => compileSlideshow(animation)) : undefined
+			const steps = animation?.steps
 
 			// Precompute step times when timings match the transcript
 			let stepTimes: number[] | undefined

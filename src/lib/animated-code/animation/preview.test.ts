@@ -1,20 +1,8 @@
 import { describe, expect, it } from "vitest"
-import {
-	Bright,
-	Burst,
-	Cursor,
-	Focus,
-	Glow,
-	Mark,
-	Say,
-	Sound,
-	Spotlight,
-	Squiggle,
-	Status,
-} from "@/lib/animated-code/annotations"
+import { Bright, Cursor, Spotlight } from "@/lib/animated-code/annotations"
 import { on } from "@/lib/animated-code/flow"
 import { line, slot, stack } from "./animation"
-import { describeTarget, extractAnnotations, locateAnnotations, previewSteps, type StepPreview } from "./preview"
+import { describeTarget, locateAnnotations, previewSteps, type StepPreview } from "./preview"
 
 const animation = stack(
 	"// unlabeled header",
@@ -25,42 +13,6 @@ const animation = stack(
 
 const at = (previews: StepPreview[], name: string) => previews.find((p) => p.name === name)!
 
-describe("extractAnnotations", () => {
-	it("keeps every targeting option and every spec", () => {
-		const preview = extractAnnotations([
-			new Cursor({ text: "a", nth: 2, after: "b", substring: true, type: "pointer" }),
-			new Bright({ text: "x", color: "red" }),
-			new Bright({ text: "y", nth: 3 }),
-			new Glow({ text: "g", after: "z" }),
-			new Squiggle({ text: "s", nth: 2, color: "yellow" }),
-			new Mark({ text: "m", substring: true }),
-			new Burst({ text: "boom", emoji: ["🎉", "✨"], after: "go" }),
-			new Status({ text: "task", status: "running", nth: 2 }),
-			new Spotlight({ patterns: ["any", { line: "l1" }, { line: "l2", text: "t" }], dim: 0.2 }),
-			new Focus({ lines: ["l1", "l2"] }),
-			new Say({ text: "hideous" }),
-			new Sound({ name: "pop" }),
-		])
-
-		expect(preview).toEqual({
-			cursor: { text: "a", nth: 2, after: "b", substring: true, type: "pointer" },
-			bright: [
-				{ text: "x", color: "red" },
-				{ text: "y", nth: 3 },
-			],
-			glow: [{ text: "g", after: "z" }],
-			squiggle: [{ text: "s", nth: 2, color: "yellow" }],
-			mark: [{ text: "m", substring: true }],
-			burst: { text: "boom", after: "go", emoji: "🎉" },
-			status: [{ text: "task", nth: 2, status: "running" }],
-			spotlight: { patterns: ["any", { line: "l1" }, { line: "l2", text: "t" }], dim: 0.2 },
-			focus: ["l1", "l2"],
-			say: "hideous",
-			sound: "pop",
-		})
-	})
-})
-
 describe("previewSteps", () => {
 	it("preserves after/substring/nth specs from the flow", () => {
 		const previews = previewSteps(animation, undefined, [
@@ -69,15 +21,13 @@ describe("previewSteps", () => {
 		])
 
 		expect(previews.map((p) => p.name)).toEqual(["start", "one", "two"])
-		expect(at(previews, "one").annotations.cursor).toEqual({
-			text: "isEnabled",
-			nth: 1,
-			after: "if",
-			substring: false,
-			type: "hand",
-		})
-		expect(at(previews, "one").annotations.bright).toEqual([{ text: "isEnable", nth: 2, substring: true }])
-		expect(at(previews, "two").annotations.spotlight?.patterns).toEqual([{ line: "use", text: "isEnabled" }])
+		expect(at(previews, "one").annotations).toEqual([
+			new Cursor({ text: "isEnabled", nth: 1, type: "hand", after: "if", substring: false }),
+			new Bright({ text: "isEnable", nth: 2, color: undefined, after: undefined, substring: true }),
+		])
+		expect(at(previews, "two").annotations[0]).toEqual(
+			new Spotlight({ patterns: [{ line: "use", text: "isEnabled" }], dim: 0.4, glow: false }),
+		)
 	})
 })
 

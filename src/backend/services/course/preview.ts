@@ -20,11 +20,9 @@ export const makePreview = (loader: Loader) => {
 					index: 0,
 					name: "static",
 					triggerWord: "start",
-					codeLines: code.split("\n"),
-					lineIds: [],
-					renderedLines: [],
+					lines: code.split("\n").map((text, i) => ({ id: `line-${i + 1}`, text, runs: [{ text }] })),
 					slots: {},
-					annotations: {},
+					annotations: [],
 				},
 			] satisfies StepPreview[]
 		}

@@ -1,7 +1,14 @@
 import { describe, expect, it } from "@effect/vitest"
 import { Spotlight, Status } from "../../annotations"
-import { line, slot, stack } from "../animation"
+import { expandFrame } from "../../slideshow"
+import { type AnimationDef, line, slot, stack } from "../animation"
 import { compile } from "./compile"
+
+/** Compile and expand every frame, as the renderer sees them */
+const compileFrames = (def: AnimationDef) => {
+	const { template, frames } = compile(def)
+	return { frames: frames.map((frame) => expandFrame(frame, template)) }
+}
 
 describe("status and spotlight after line collapse", () => {
 	/**
@@ -21,19 +28,13 @@ describe("status and spotlight after line collapse", () => {
 				),
 				snapshots: [
 					// Frame 0: both lines visible, status on target (index 1)
-					{
-						extra: "shown",
-						annotations: [new Status({ text: "doSomething()", status: "running" })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Status({ text: "doSomething()", status: "running" })] },
 					// Frame 1: collapsible hidden, target is now index 0
-					{
-						extra: "hidden",
-						annotations: [new Status({ text: "doSomething()", status: "success" })],
-					},
+					{ slots: { extra: "hidden" }, annotations: [new Status({ text: "doSomething()", status: "success" })] },
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			// Frame 0: target at index 1
 			expect(data.frames[0].lines).toHaveLength(2)
@@ -63,19 +64,13 @@ describe("status and spotlight after line collapse", () => {
 				),
 				snapshots: [
 					// Frame 0: both lines visible, spotlight on target
-					{
-						extra: "shown",
-						annotations: [new Spotlight({ patterns: ["doSomething"] })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Spotlight({ patterns: ["doSomething"] })] },
 					// Frame 1: collapsible hidden, target is now index 0
-					{
-						extra: "hidden",
-						annotations: [new Spotlight({ patterns: ["doSomething"] })],
-					},
+					{ slots: { extra: "hidden" }, annotations: [new Spotlight({ patterns: ["doSomething"] })] },
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			// Frame 0: target at index 1
 			expect(data.frames[0].lines).toHaveLength(2)
@@ -102,24 +97,15 @@ describe("status and spotlight after line collapse", () => {
 				),
 				snapshots: [
 					// Frame 0: both visible, status on target (index 1)
-					{
-						extra: "shown",
-						annotations: [new Status({ text: "doSomething()", status: "running" })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Status({ text: "doSomething()", status: "running" })] },
 					// Frame 1: collapsed, target at index 0
-					{
-						extra: "hidden",
-						annotations: [new Status({ text: "doSomething()", status: "running" })],
-					},
+					{ slots: { extra: "hidden" }, annotations: [new Status({ text: "doSomething()", status: "running" })] },
 					// Frame 2: expanded again, target back at index 1
-					{
-						extra: "shown",
-						annotations: [new Status({ text: "doSomething()", status: "success" })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Status({ text: "doSomething()", status: "success" })] },
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			// All frames should have allRanges keyed by "target"
 			expect(data.frames[0].status?.allRanges.target).toBeDefined()

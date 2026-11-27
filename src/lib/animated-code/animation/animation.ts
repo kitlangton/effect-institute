@@ -21,8 +21,8 @@
  * const def: AnimationDef = {
  *   animation,
  *   snapshots: [
- *     { body: "simple" },
- *     { body: "withName" },
+ *     { slots: { body: "simple" }, annotations: [] },
+ *     { slots: { body: "withName" }, annotations: [] },
  *   ],
  * }
  *
@@ -103,9 +103,9 @@
  * import { Cursor, Focus, Mark, Spotlight } from "@/lib/animated-code/annotations"
  *
  * const snapshots = [
- *   { slotName: "value1" },
- *   { slotName: "value2", annotations: [new Focus({ lines: ["await"] })] },
- *   { slotName: "value2", annotations: [new Spotlight({ patterns: ["Promise<Order>"] })] },
+ *   { slots: { slotName: "value1" }, annotations: [] },
+ *   { slots: { slotName: "value2" }, annotations: [new Focus({ lines: ["await"] })] },
+ *   { slots: { slotName: "value2" }, annotations: [new Spotlight({ patterns: ["Promise<Order>"] })] },
  * ]
  * ```
  *
@@ -152,16 +152,14 @@
  *   animation,
  *   snapshots: [
  *     // Just checkout expanded
- *     { body: "expanded", gap: "none", getCartVisible: "hidden" },
+ *     { slots: { body: "expanded", gap: "none", getCartVisible: "hidden" }, annotations: [] },
  *     // Spotlight getCart call
  *     {
- *       body: "expanded",
- *       gap: "none",
- *       getCartVisible: "hidden",
+ *       slots: { body: "expanded", gap: "none", getCartVisible: "hidden" },
  *       annotations: [new Spotlight({ patterns: ["getCart"] })],
  *     },
  *     // Drill into getCart
- *     { body: "collapsed", gap: "show", getCartVisible: "shown" },
+ *     { slots: { body: "collapsed", gap: "show", getCartVisible: "shown" }, annotations: [] },
  *   ],
  * }
  * ```
@@ -286,7 +284,7 @@ export const text = (content: string): Animation => new Text({ content })
  * - Animation → as-is
  * - array → concat(...coerced items)
  */
-export const coerce = (input: AnimationInput): Animation => {
+const coerce = (input: AnimationInput): Animation => {
 	if (typeof input === "string") return text(input)
 	if (Array.isArray(input)) {
 		const coerced = input.map(coerce)
@@ -330,9 +328,8 @@ const autoLine = (content: string, index: number): Animation =>
  *   hidden: empty,
  * })
  *
- * // Use slot.hidden() for common hide/show pattern:
- * slot.hidden("extra", line("line", "extra content"))
- * // Equivalent to: slot("extra", { _: empty, shown: line("line", "extra content") })
+ * // Use slot.optional() for the common hide/show pattern:
+ * slot.optional("extra", line("line", "extra content"))
  * ```
  */
 const slotFn = (name: string, values: Record<string, AnimationInput>): Animation =>
@@ -348,22 +345,6 @@ const slotFn = (name: string, values: Record<string, AnimationInput>): Animation
 	})
 
 export const slot = Object.assign(slotFn, {
-	/**
-	 * Create a slot that starts hidden. Use `.slots({ name: "shown" })` to reveal.
-	 * Default key is `_` (underscore) for the hidden state.
-	 *
-	 * @example
-	 * ```typescript
-	 * slot.hidden("arrow", concat("(", param, ")"))
-	 * // Then in flow: on("word").slots({ arrow: "shown" })
-	 * ```
-	 */
-	hidden: (name: string, content: AnimationInput): Animation =>
-		slotFn(name, {
-			_: empty,
-			shown: coerce(content),
-		}),
-
 	/**
 	 * Create a slot that defaults to hidden. Use `.slots({ name: "shown" })` to reveal.
 	 * Uses reserved "hidden" state (rendered as `empty`) without defining it explicitly.
@@ -544,51 +525,26 @@ export const code =
 // Snapshot Type
 // ============================================================================
 
-/** Line background style presets */
-export type LineBgStyle = "success" | "error" | "warning" | "info"
+/** Which value each slot shows, by slot name. Slots not listed show their default. */
+export type SlotValues = Readonly<Record<string, string>>
 
 /**
- * Snapshot defines the animation state at a point in time.
- *
- * Properties:
- * - Slot assignments: `{ slotName: "valueName" }` selects which slot value to show
- * - `annotations`: Array of Annotation instances for visual effects
+ * The animation state at one step: which value each slot shows, and the visual annotations.
  *
  * @example
  * ```typescript
- * import { Cursor, Focus, Mark, Spotlight } from "@/lib/animated-code/annotations"
+ * import { Focus, Mark } from "@/lib/animated-code/annotations"
  *
- * // Select slot values only
- * { body: "expanded", visibility: "shown" }
- *
- * // With annotations
  * {
- *   body: "expanded",
- *   annotations: [
- *     new Focus({ lines: ["getCart"] }),
- *     new Mark({ text: "Promise", color: "yellow" }),
- *   ],
+ *   slots: { body: "expanded", visibility: "shown" },
+ *   annotations: [new Focus({ lines: ["getCart"] }), new Mark({ text: "Promise", color: "yellow" })],
  * }
  * ```
  */
 export interface Snapshot {
-	/** Slot assignments - which value each slot should show */
-	readonly [slotName: string]: string | Annotation[] | undefined
-
-	/** Annotations for visual effects (focus, cursor, marks, etc.) */
-	readonly annotations?: Annotation[] | undefined
+	readonly slots: SlotValues
+	readonly annotations: readonly Annotation[]
 }
-
-// ============================================================================
-// Snapshot Schema
-// ============================================================================
-
-/** Schema for line background styles */
-export const LineBgStyleSchema = Schema.Literals(["success", "error", "warning", "info"])
-
-// Note: Snapshot schema validation is done via TypeScript types.
-// Annotations use TaggedClass which provides its own schema.
-// Runtime validation not needed (build-time only).
 
 // ============================================================================
 // Animation Definition
@@ -605,8 +561,8 @@ export const LineBgStyleSchema = Schema.Literals(["success", "error", "warning",
  *     slot("extra", { hidden: empty, shown: line("b", "line 2") }),
  *   ),
  *   snapshots: [
- *     { extra: "hidden" },
- *     { extra: "shown" },
+ *     { slots: { extra: "hidden" }, annotations: [] },
+ *     { slots: { extra: "shown" }, annotations: [] },
  *   ],
  * }
  *

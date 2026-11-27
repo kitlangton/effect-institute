@@ -39,15 +39,19 @@ Word refs are normalized (case-insensitive, common punctuation stripped). Refs c
 
 | Method | Description |
 |--------|-------------|
-| `.focus(...ids)` | Focus specific line IDs. Others dim. (Shorthand for `.focus.lines`) |
-| `.focus.lines(...ids)` | Same as above |
+| `.focus(...ids)` | Focus specific line IDs. Others dim. |
 | `.focus.range(from, to)` | Focus lines between two IDs (inclusive) |
 | `.focus.except(...ids)` | Focus all lines except these |
 | `.focus.all()` | Clear focus (all lines visible) |
-| `.focus.clear()` | Clear persisted focus |
+| `.focus.clear()` | Clear persisted line and token focus |
 | `.focus(...ids, { persist: true })` | Focus lines with persistence across steps |
 | `.focus.range(from, to, { persist: true })` | Range focus with persistence |
-| `.focus.except(...ids, { persist: true })` | Except focus with persistence |
+
+### Focus (Token-Level)
+
+| Method | Description |
+|--------|-------------|
+| `.focus({ text, line?, dim?, glow?, persist? })` | Spotlight every match of `text` (only on `line` when given); everything else dims to `dim` (default 0.4). Several token focuses in one step share the first one's `dim` and `glow`. |
 
 ### Visual Effects
 
@@ -59,8 +63,6 @@ Use `{ substring: true }` only when you explicitly want to match *inside* identi
 
 | Method | Description |
 |--------|-------------|
-| `.spotlight(pattern, opts?)` | Spotlight text. Opts: `{ dim?, glow?, persist? }` |
-| `.spotlight.clear()` | Clear persisted spotlight |
 | `.cursor(text, opts?)` | Show cursor. Opts: `{ nth?, type?, after?, substring?, persist? }` |
 | `.cursor.clear()` | Clear persisted cursor |
 | `.bright(text, opts?)` | Text glow. Opts: `{ nth?, color?, after?, substring?, persist? }` |
@@ -68,10 +70,13 @@ Use `{ substring: true }` only when you explicitly want to match *inside* identi
 | `.glow(text, opts?)` | Background glow (transient). Opts: `{ color?, nth?, after?, substring? }` |
 | `.squiggle(text, opts?)` | Wavy underline. Opts: `{ color?, nth?, after?, substring?, persist? }` |
 | `.squiggle.clear()` | Clear persisted squiggles |
+| `.mark(text, opts?)` | Highlighter box. Opts: `{ color?, nth?, after?, substring?, persist? }` |
+| `.mark.clear()` | Clear persisted marks |
 | `.burst(text, emoji, opts?)` | Emoji particles. Opts: `{ count?, nth?, after?, substring?, persist? }` |
 | `.burst.clear()` | Clear persisted burst |
 | `.status(text, status, opts?)` | Status indicator. Opts: `{ nth?, after?, substring?, persist? }` |
 | `.status.clear()` | Clear persisted status |
+| `.say(text)` | Speech bubble on the cursor |
 
 ### Grouping Multiple Effects
 
@@ -79,7 +84,10 @@ Apply multiple annotations to the same target without repeating the pattern:
 
 ```ts
 on("TooHigh").at("TooHigh", (t) => t.bright().cursor().glow({ color: "blue" }))
+on("second").at("Err", (t) => t.mark().status("error"), { nth: 2 })
 ```
+
+The builder has `cursor`, `bright`, `glow`, `squiggle`, `mark`, `burst` and `status`, each the step method of the same name on the shared target. The third argument sets `{ nth?, after?, substring? }` for all of them.
 
 ### Audio
 
@@ -88,7 +96,7 @@ on("TooHigh").at("TooHigh", (t) => t.bright().cursor().glow({ color: "blue" }))
 | `.sound(name)` | Play a sound effect (`AnimationSoundName`) |
 
 Current sound names:
-`tick`, `pop`, `whoosh`, `sad`, `celebrate`, `chime`, `success`, `error`, `alarm`, `doom`, `spooky`, `press`, `fail`, `succeed`.
+`tick`, `pop`, `whoosh`, `sad`, `celebrate`, `chime`, `success`, `error`, `alarm`, `doom`, `spooky`, `press`, `fail`, `succeed`, `ping1`, `ping2`, `ping3`, `derp`, `skip`.
 
 ## Key Behaviors
 
@@ -128,6 +136,10 @@ flow: [
 ### Implicit Start Step
 
 An initial `start` step/snapshot is automatically added at step 0.
+
+### Build Validation
+
+The course build resolves every annotation against the code its step shows, the same way the player does, and fails on any target that matches nothing (a persisting annotation is reported at the first step it misses), any line ID a line focus names that doesn't exist, and any trigger word missing from the transcript.
 
 ## Imports (Content Authoring)
 

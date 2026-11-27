@@ -69,15 +69,11 @@ interface CompileContext {
 // Main Entry Point
 // ============================================================================
 
-/**
- * Compile Animation content to Parts.
- * The allocatePartId parameter is ignored - IDs are path-based for stability.
- */
+/** Compile Animation content to Parts (IDs are path-based for stability). */
 export function compileLineContentFromAST(
 	anim: Animation,
 	snapshots: readonly Snapshot[],
 	snapshotIndices: readonly number[],
-	_allocatePartId: () => string, // kept for API compatibility
 ): Part[] {
 	const ctx: CompileContext = {
 		snapshots,
@@ -120,7 +116,7 @@ function compileToAstParts(anim: Animation, ctx: CompileContext): AstPart[] {
 			// Group indices by their selected value
 			const valueToIndices = new Map<string, number[]>()
 			for (const snapIdx of indices) {
-				const valueName = resolveSlotValue(anim, snapshots[snapIdx][anim.name] as string | undefined)
+				const valueName = resolveSlotValue(anim, snapshots[snapIdx].slots[anim.name])
 				if (valueName === undefined) continue
 				const existing = valueToIndices.get(valueName)
 				if (existing) {
@@ -189,7 +185,7 @@ function compileToAstParts(anim: Animation, ctx: CompileContext): AstPart[] {
 			// Use slot name in path (no specific value since it varies)
 			const versions = new Map<string, number[]>()
 			for (const snapIdx of indices) {
-				const text = evaluateToText(anim, snapshots[snapIdx])
+				const text = evaluateToText(anim, snapshots[snapIdx].slots)
 				const existing = versions.get(text)
 				if (existing) {
 					existing.push(snapIdx)

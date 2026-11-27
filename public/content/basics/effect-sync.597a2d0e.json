@@ -577,76 +577,94 @@
 		],
 		"snapshots": [
 			{
-				"show1": false,
-				"state1": "idle",
-				"showLog1": false,
-				"show2": false,
-				"state2": "idle",
-				"showLog2": false
+				"state": {
+					"show1": false,
+					"state1": "idle",
+					"showLog1": false,
+					"show2": false,
+					"state2": "idle",
+					"showLog2": false
+				}
 			},
 			{
-				"show1": true,
-				"state1": "idle",
-				"showLog1": false,
-				"show2": false,
-				"state2": "idle",
-				"showLog2": false
+				"state": {
+					"show1": true,
+					"state1": "idle",
+					"showLog1": false,
+					"show2": false,
+					"state2": "idle",
+					"showLog2": false
+				}
 			},
 			{
-				"show1": true,
-				"state1": "running",
-				"showLog1": false,
-				"show2": false,
-				"state2": "idle",
-				"showLog2": false
+				"state": {
+					"show1": true,
+					"state1": "running",
+					"showLog1": false,
+					"show2": false,
+					"state2": "idle",
+					"showLog2": false
+				}
 			},
 			{
-				"show1": true,
-				"state1": "running",
-				"showLog1": true,
-				"show2": false,
-				"state2": "idle",
-				"showLog2": false
+				"state": {
+					"show1": true,
+					"state1": "running",
+					"showLog1": true,
+					"show2": false,
+					"state2": "idle",
+					"showLog2": false
+				}
 			},
 			{
-				"show1": true,
-				"state1": "completed",
-				"showLog1": false,
-				"show2": false,
-				"state2": "idle",
-				"showLog2": false
+				"state": {
+					"show1": true,
+					"state1": "completed",
+					"showLog1": false,
+					"show2": false,
+					"state2": "idle",
+					"showLog2": false
+				}
 			},
 			{
-				"show1": true,
-				"state1": "completed",
-				"showLog1": false,
-				"show2": true,
-				"state2": "idle",
-				"showLog2": false
+				"state": {
+					"show1": true,
+					"state1": "completed",
+					"showLog1": false,
+					"show2": true,
+					"state2": "idle",
+					"showLog2": false
+				}
 			},
 			{
-				"show1": true,
-				"state1": "completed",
-				"showLog1": false,
-				"show2": true,
-				"state2": "running",
-				"showLog2": false
+				"state": {
+					"show1": true,
+					"state1": "completed",
+					"showLog1": false,
+					"show2": true,
+					"state2": "running",
+					"showLog2": false
+				}
 			},
 			{
-				"show1": true,
-				"state1": "completed",
-				"showLog1": false,
-				"show2": true,
-				"state2": "running",
-				"showLog2": true
+				"state": {
+					"show1": true,
+					"state1": "completed",
+					"showLog1": false,
+					"show2": true,
+					"state2": "running",
+					"showLog2": true
+				}
 			},
 			{
-				"show1": true,
-				"state1": "completed",
-				"showLog1": false,
-				"show2": true,
-				"state2": "completed",
-				"showLog2": false
+				"state": {
+					"show1": true,
+					"state1": "completed",
+					"showLog1": false,
+					"show2": true,
+					"state2": "completed",
+					"showLog2": false
+				}
 			}
 		]
 	},

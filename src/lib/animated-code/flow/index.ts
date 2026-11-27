@@ -6,42 +6,7 @@
  * @module
  */
 
-// Compilation
-export {
-	type CompiledComponentFlow,
-	compileComponentFlow,
-	compileFlow,
-	extractLineIds,
-	extractSlotDefaults,
-	resolveFocus,
-} from "./compile"
-// Persistence utilities
-export { Persistent, PersistentArray } from "./persistence"
-// Builder
-export { on, step } from "./step-builder"
-// Types
-export {
-	type AnimationSoundName,
-	type BrightSpec,
-	type BurstSpec,
-	type CursorSpec,
-	type FlowStep,
-	FocusAll,
-	FocusExcept,
-	FocusLines,
-	FocusRange,
-	FocusSpec,
-	type GlowSpec,
-	type PatternMatchOptions,
-	type SpotlightSpec,
-	type SquiggleSpec,
-	type StatusSpec,
-	type StepBuilder,
-	type StepRef,
-} from "./types"
-// Validation
-export {
-	type FlowWarning,
-	validateFlowPatterns,
-	validateFlowWords,
-} from "./validate"
+export { type CompiledComponentFlow, compileComponentFlow, compileFlow, extractLineIds } from "./compile"
+export { on } from "./step-builder"
+export type { StepBuilder, StepRef } from "./types"
+export { type FlowWarning, validateFlowPatterns, validateFlowWords } from "./validate"

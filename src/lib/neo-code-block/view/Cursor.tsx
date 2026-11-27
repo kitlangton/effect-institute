@@ -3,10 +3,9 @@
 import { HandPointingIcon, CursorIcon as PhCursorIcon, ThumbsDownIcon } from "@phosphor-icons/react"
 import { AnimatePresence, motion } from "motion/react"
 import React from "react"
+import type { CursorType } from "@/lib/animated-code/annotations"
 import { CURSOR_OFFSET, CURSOR_SIZE, CURSOR_TRANSITION } from "../constants"
 import { useTextMeasurement } from "../hooks/useTextMeasurement"
-
-export type CursorType = "pointer" | "hand" | "thumbsDown"
 
 export interface CursorTarget {
 	lineId: string

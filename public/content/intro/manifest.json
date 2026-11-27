@@ -5,15 +5,15 @@
 	"sections": [
 		{
 			"id": "welcome",
-			"file": "welcome.98da185f.json"
+			"file": "welcome.b252b91e.json"
 		},
 		{
 			"id": "welcome-controls",
-			"file": "welcome-controls.1f06d372.json"
+			"file": "welcome-controls.584b417b.json"
 		},
 		{
 			"id": "welcome-feedback",
-			"file": "welcome-feedback.968c973a.json"
+			"file": "welcome-feedback.a072d5de.json"
 		},
 		{
 			"id": "promises-only-happy-path",
@@ -65,11 +65,11 @@
 		},
 		{
 			"id": "abort-signal-infusion",
-			"file": "abort-signal-infusion.2c984bdc.json"
+			"file": "abort-signal-infusion.d989395e.json"
 		},
 		{
 			"id": "effect-structured-concurrency",
-			"file": "effect-structured-concurrency.070a1e07.json"
+			"file": "effect-structured-concurrency.34a604bd.json"
 		}
 	],
 	"groups": [

@@ -345,24 +345,32 @@
 		],
 		"snapshots": [
 			{
-				"show": true,
-				"visualState": "idle",
-				"result": ""
+				"state": {
+					"show": true,
+					"visualState": "idle",
+					"result": ""
+				}
 			},
 			{
-				"show": true,
-				"visualState": "running",
-				"result": ""
+				"state": {
+					"show": true,
+					"visualState": "running",
+					"result": ""
+				}
 			},
 			{
-				"show": true,
-				"visualState": "completed",
-				"result": "1736078400000"
+				"state": {
+					"show": true,
+					"visualState": "completed",
+					"result": "1736078400000"
+				}
 			},
 			{
-				"show": true,
-				"visualState": "idle",
-				"result": ""
+				"state": {
+					"show": true,
+					"visualState": "idle",
+					"result": ""
+				}
 			}
 		]
 	},

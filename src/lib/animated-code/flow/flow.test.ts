@@ -160,6 +160,16 @@ describe("flow", () => {
 			const step = on("run").status("code", "running")._build()
 			expect(step.annotations.status).toEqual([{ text: "code", status: "running" }])
 		})
+
+		it(".at() applies each annotation to the shared target, mark included", () => {
+			const step = on("x")
+				.at("Err", (t) => t.bright().cursor({ type: "pointer" }).mark({ color: "red" }).status("error"), { nth: 2 })
+				._build()
+			expect(step.annotations.bright).toEqual([{ text: "Err", nth: 2 }])
+			expect(step.annotations.cursor).toEqual({ text: "Err", nth: 2, type: "pointer" })
+			expect(step.annotations.mark).toEqual([{ text: "Err", nth: 2, color: "red" }])
+			expect(step.annotations.status).toEqual([{ text: "Err", status: "error", nth: 2 }])
+		})
 	})
 
 	describe("extractSlotDefaults()", () => {
@@ -220,12 +230,12 @@ describe("flow", () => {
 		it("uses slot defaults for base state", () => {
 			const { snapshots } = compileFlow(undefined, [], simpleAnim)
 			// First key "hidden" should be default
-			expect(snapshots[0].body).toBe("hidden")
+			expect(snapshots[0].slots.body).toBe("hidden")
 		})
 
 		it("explicit base overrides defaults", () => {
 			const { snapshots } = compileFlow({ body: "shown" }, [], simpleAnim)
-			expect(snapshots[0].body).toBe("shown")
+			expect(snapshots[0].slots.body).toBe("shown")
 		})
 
 		it("accumulates slot changes across steps", () => {
@@ -235,9 +245,9 @@ describe("flow", () => {
 			]
 			const { snapshots } = compileFlow({ body: "hidden" }, flow, simpleAnim)
 
-			expect(snapshots[0].body).toBe("hidden") // start
-			expect(snapshots[1].body).toBe("shown") // first
-			expect(snapshots[2].body).toBe("shown") // second (persisted)
+			expect(snapshots[0].slots.body).toBe("hidden") // start
+			expect(snapshots[1].slots.body).toBe("shown") // first
+			expect(snapshots[2].slots.body).toBe("shown") // second (persisted)
 		})
 
 		it("creates StepRef with word and name", () => {

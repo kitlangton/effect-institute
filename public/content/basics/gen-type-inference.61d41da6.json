@@ -711,40 +711,52 @@
 		],
 		"snapshots": [
 			{
-				"visible": false,
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle"
+				"state": {
+					"visible": false,
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"askName": "idle",
-				"askAge": "idle",
-				"getUser": "idle"
+				"state": {
+					"visible": true,
+					"askName": "idle",
+					"askAge": "idle",
+					"getUser": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"askName": "running",
-				"askAge": "idle",
-				"getUser": "running"
+				"state": {
+					"visible": true,
+					"askName": "running",
+					"askAge": "idle",
+					"getUser": "running"
+				}
 			},
 			{
-				"visible": true,
-				"askName": "completed",
-				"askAge": "running",
-				"getUser": "running"
+				"state": {
+					"visible": true,
+					"askName": "completed",
+					"askAge": "running",
+					"getUser": "running"
+				}
 			},
 			{
-				"visible": true,
-				"askName": "completed",
-				"askAge": "completed",
-				"getUser": "running"
+				"state": {
+					"visible": true,
+					"askName": "completed",
+					"askAge": "completed",
+					"getUser": "running"
+				}
 			},
 			{
-				"visible": true,
-				"askName": "completed",
-				"askAge": "completed",
-				"getUser": "completed"
+				"state": {
+					"visible": true,
+					"askName": "completed",
+					"askAge": "completed",
+					"getUser": "completed"
+				}
 			}
 		]
 	},

@@ -9,7 +9,7 @@
  */
 
 import type { Animation } from "./animation"
-import { render } from "./render"
+import { evaluateToText } from "./compile/evaluate"
 
 /** A warning about a potential stability issue */
 export interface StabilityWarning {
@@ -19,15 +19,6 @@ export interface StabilityWarning {
 	commonText: string
 	/** The slot values that all contain this text */
 	values: string[]
-}
-
-/**
- * Render an animation subtree to plain text.
- */
-function renderToText(animation: Animation): string {
-	// Render with empty snapshot (slots use first value or "hidden")
-	const result = render(animation, {})
-	return result.lines.map((line) => line.parts.map((p) => p.content).join("")).join("\n")
 }
 
 /**
@@ -140,7 +131,7 @@ export function analyzeStability(animation: Animation): StabilityWarning[] {
 		// Render each value to text
 		const renderedValues: Record<string, string> = {}
 		for (const name of valueNames) {
-			renderedValues[name] = renderToText(slot.values[name])
+			renderedValues[name] = evaluateToText(slot.values[name], {})
 		}
 
 		// Find common substrings across all rendered values

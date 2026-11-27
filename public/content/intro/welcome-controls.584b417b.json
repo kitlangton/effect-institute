@@ -250,48 +250,70 @@
 		],
 		"snapshots": [
 			{
-				"highlightedKey": "none",
-				"hasRotated": false
+				"state": {
+					"highlightedKey": "none",
+					"hasRotated": false
+				}
 			},
 			{
-				"highlightedKey": "restart",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "restart",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "none",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "none",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "seek_left",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "seek_left",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "none",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "none",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "seek_right",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "seek_right",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "none",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "none",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "seek_left",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "seek_left",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "none",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "none",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "seek_right",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "seek_right",
+					"hasRotated": true
+				}
 			},
 			{
-				"highlightedKey": "none",
-				"hasRotated": true
+				"state": {
+					"highlightedKey": "none",
+					"hasRotated": true
+				}
 			}
 		]
 	},

@@ -4,10 +4,12 @@
  * @module
  */
 
-import type { EvaluatedLine } from "@/lib/animated-code/animation/compile/evaluate"
-import { findPatternGlobally, indexLines } from "@/lib/animated-code/animation/compile/pattern-matching"
+import type { Animation, Snapshot } from "@/lib/animated-code/animation/animation"
+import { evaluateLines } from "@/lib/animated-code/animation/compile/evaluate"
+import { type AnnotationMiss, resolveAnnotations, type TargetKind } from "@/lib/animated-code/animation/compile/resolve"
 import { normalizeWord, wordMatchesRef } from "@/lib/text"
-import type { StepBuilder } from "./types"
+import { extractLineIds } from "./compile"
+import type { FocusSpec, StepBuilder } from "./types"
 
 // ============================================================================
 // Warning Types
@@ -71,122 +73,76 @@ export function validateFlowWords(flow: StepBuilder[], transcriptWords: string[]
 	return warnings
 }
 
-/** Split rendered code into per-line entries, matching how the runtime compiler indexes lines. */
-function indexRenderedCode(code: string) {
-	return indexLines(code.split("\n").map((text, i) => ({ id: `__line_${i}__`, text }) as EvaluatedLine))
+/** Line IDs a line focus names */
+function focusLineIds(focus: FocusSpec | undefined): readonly string[] {
+	switch (focus?._tag) {
+		case "FocusLines":
+		case "FocusExcept":
+			return focus.ids
+		case "FocusRange":
+			return [focus.from, focus.to]
+		default:
+			return []
+	}
+}
+
+const ANNOTATION_LABEL: Record<TargetKind, string> = {
+	cursor: "cursor",
+	burst: "burst",
+	bright: "bright",
+	glow: "glow",
+	squiggle: "squiggle",
+	mark: "mark",
+	status: "status",
+	spotlight: "focus (token)",
+}
+
+const patternOf = (target: AnnotationMiss["target"]): string => {
+	if (typeof target === "string") return target
+	if (!("line" in target)) return target.text
+	return target.text === undefined ? `line ${target.line}` : `${target.text} (line ${target.line})`
 }
 
 /**
- * Validate annotation patterns exist in rendered code.
- *
- * @param renderedCode - Either one code string used for every step, or one rendered
- *   code string per flow step (index-aligned with `flow`). Per-step code is what the
- *   course compiler passes: each step's annotations must match the snapshot that
- *   step produces, not text that only appears in some other step.
+ * Check every annotation against the code its step shows, exactly as the compiler resolves it,
+ * and every line ID a line focus names. `snapshots` is compileFlow's output: the base state,
+ * then one per flow step. An annotation that persists while missing is reported at the first
+ * step it misses.
  */
 export function validateFlowPatterns(
-	flow: StepBuilder[],
-	renderedCode: string | readonly string[],
-	allLineIds: string[],
+	animation: Animation,
+	flow: readonly StepBuilder[],
+	snapshots: readonly Snapshot[],
 ): FlowWarning[] {
+	if (snapshots.length !== flow.length + 1) {
+		throw new Error(`validateFlowPatterns: expected ${flow.length + 1} snapshots, got ${snapshots.length}`)
+	}
+	const lineIds = new Set(extractLineIds(animation))
 	const warnings: FlowWarning[] = []
-	const lineIdSet = new Set(allLineIds)
+	let missedBefore = new Set<string>()
 
-	const sharedLines = typeof renderedCode === "string" ? indexRenderedCode(renderedCode) : undefined
-	if (typeof renderedCode !== "string" && renderedCode.length !== flow.length) {
-		throw new Error(`validateFlowPatterns: expected ${flow.length} rendered steps, got ${renderedCode.length}`)
-	}
-	let indexedLines = sharedLines ?? []
-
-	const checkPattern = (
-		spec: { text: string; nth?: number; after?: string; substring?: boolean },
-		stepName: string,
-		annotation: string,
-	) => {
-		const match = findPatternGlobally(indexedLines, spec.text, {
-			nth: spec.nth,
-			after: spec.after,
-			substring: spec.substring,
-		})
-		if (!match) {
-			warnings.push({
-				type: "pattern-not-found",
-				pattern: spec.text,
-				stepName,
-				annotation,
-			})
-		}
-	}
-
-	for (const [stepIndex, builder] of flow.entries()) {
-		if (typeof renderedCode !== "string") indexedLines = indexRenderedCode(renderedCode[stepIndex])
+	for (const [i, builder] of flow.entries()) {
 		const step = builder._build()
 		const stepName = step.name ?? step.word
-		const ann = step.annotations
+		const snapshot = snapshots[i + 1]
+		const { missing } = resolveAnnotations(evaluateLines(animation, snapshot.slots), snapshot.annotations)
 
-		if (ann.cursor) {
-			checkPattern(ann.cursor, stepName, "cursor")
+		const missed = new Set<string>()
+		for (const miss of missing) {
+			const key = JSON.stringify([miss.kind, miss.target])
+			missed.add(key)
+			if (missedBefore.has(key)) continue
+			warnings.push({
+				type: "pattern-not-found",
+				pattern: patternOf(miss.target),
+				stepName,
+				annotation: ANNOTATION_LABEL[miss.kind],
+			})
 		}
+		missedBefore = missed
 
-		if (ann.burst) {
-			checkPattern(ann.burst, stepName, "burst")
-		}
-
-		if (ann.bright) {
-			for (const spec of ann.bright) {
-				checkPattern(spec, stepName, "bright")
-			}
-		}
-
-		if (ann.glow) {
-			for (const spec of ann.glow) {
-				checkPattern(spec, stepName, "glow")
-			}
-		}
-
-		if (ann.squiggle) {
-			for (const spec of ann.squiggle) {
-				checkPattern(spec, stepName, "squiggle")
-			}
-		}
-
-		// Validate line-level focus (unified focus uses .lines)
-		const focusLines = ann.focus?.lines
-		if (focusLines && focusLines._tag === "FocusLines") {
-			for (const id of focusLines.ids) {
-				if (!lineIdSet.has(id)) {
-					warnings.push({ type: "line-id-not-found", lineId: id, stepName })
-				}
-			}
-		}
-		if (focusLines && focusLines._tag === "FocusRange") {
-			if (!lineIdSet.has(focusLines.from)) {
-				warnings.push({
-					type: "line-id-not-found",
-					lineId: focusLines.from,
-					stepName,
-				})
-			}
-			if (!lineIdSet.has(focusLines.to)) {
-				warnings.push({
-					type: "line-id-not-found",
-					lineId: focusLines.to,
-					stepName,
-				})
-			}
-		}
-		if (focusLines && focusLines._tag === "FocusExcept") {
-			for (const id of focusLines.ids) {
-				if (!lineIdSet.has(id)) {
-					warnings.push({ type: "line-id-not-found", lineId: id, stepName })
-				}
-			}
-		}
-		// Validate token-level focus (unified focus uses .tokens)
-		if (ann.focus?.tokens) {
-			for (const tokenSpec of ann.focus.tokens) {
-				checkPattern(tokenSpec, stepName, "focus (token)")
-			}
+		for (const lineId of focusLineIds(step.annotations.focus?.lines)) {
+			if (!lineIds.has(lineId)) warnings.push({ type: "line-id-not-found", lineId, stepName })
 		}
 	}
 

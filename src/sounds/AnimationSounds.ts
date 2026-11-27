@@ -3,28 +3,8 @@
  *
  * Maps preset names to playback functions using existing Tone.js synths.
  */
+import type { AnimationSoundName } from "@/lib/animated-code/annotations"
 import { appSounds } from "./AppSounds"
-
-export type AnimationSoundName =
-	| "tick"
-	| "pop"
-	| "whoosh"
-	| "sad"
-	| "celebrate"
-	| "chime"
-	| "success"
-	| "error"
-	| "alarm"
-	| "doom"
-	| "spooky"
-	| "press"
-	| "fail"
-	| "succeed"
-	| "ping1"
-	| "ping2"
-	| "ping3"
-	| "derp"
-	| "skip"
 
 export const animationSounds: Record<AnimationSoundName, () => Promise<void>> = {
 	tick: () => appSounds.playClick(),
@@ -48,13 +28,7 @@ export const animationSounds: Record<AnimationSoundName, () => Promise<void>> = 
 	skip: () => appSounds.playSkipTick(),
 }
 
-/**
- * Play an animation sound effect by name.
- * Unknown sound names are silently ignored.
- */
-export function playAnimationSound(name: string): void {
-	const play = animationSounds[name as AnimationSoundName]
-	if (play) {
-		play()
-	}
+/** Play an animation sound effect by name. */
+export function playAnimationSound(name: AnimationSoundName): void {
+	animationSounds[name]()
 }
