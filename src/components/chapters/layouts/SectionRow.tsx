@@ -132,7 +132,7 @@ export const SectionRow = memo(function SectionRow({
 			)}
 
 			{/* Press Space prompt - only on first section */}
-			<AnimatePresence mode="popLayout">
+			<AnimatePresence>
 				{prompts.showPressSpace && <SpacePrompt variant="begin" onClick={onPressSpace} />}
 			</AnimatePresence>
 
@@ -160,21 +160,19 @@ export const SectionRow = memo(function SectionRow({
 			</div>
 
 			{/* Next section prompt - outside section div so hover doesn't highlight section */}
-			<AnimatePresence mode="popLayout">
+			<AnimatePresence>
 				{prompts.showNextSection && <SpacePrompt variant="continue" onClick={onNextSection} />}
 			</AnimatePresence>
 
 			{/* Next chapter prompt - shown at end of chapter */}
-			<AnimatePresence mode="popLayout">
+			<AnimatePresence>
 				{prompts.showNextChapter && prompts.nextChapterTitle && (
 					<NextChapterPrompt chapterTitle={prompts.nextChapterTitle} onClick={onNextChapter} />
 				)}
 			</AnimatePresence>
 
 			{/* Go home prompt - shown at end of all available chapters */}
-			<AnimatePresence mode="popLayout">
-				{prompts.showGoHome && <SpacePrompt variant="home" onClick={onGoHome} />}
-			</AnimatePresence>
+			<AnimatePresence>{prompts.showGoHome && <SpacePrompt variant="home" onClick={onGoHome} />}</AnimatePresence>
 
 			{/* Divider between sections - but not if next section starts a new group */}
 			{/* Also add bottom border on last section */}

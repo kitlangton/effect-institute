@@ -121,7 +121,7 @@ export function WelcomeFeedback({ state }: StepDrivenComponentProps<WelcomeFeedb
 
 	return (
 		<div className="flex flex-col items-center justify-center min-h-[300px] font-mono select-none">
-			<AnimatePresence mode="popLayout" initial={false}>
+			<AnimatePresence initial={false}>
 				{stage === "settings" && <SettingsStage cursorState={cursorState} key="settings" />}
 				{stage === "playback" && <PlaybackStage selectedSpeed={selectedSpeed} key="playback" />}
 				{stage === "feedback" && <FeedbackStage buttonPressed={sendButtonPressed} sent={feedbackSent} key="feedback" />}

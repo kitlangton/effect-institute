@@ -125,7 +125,7 @@ function KeyboardDiagram({ state }: StepDrivenComponentProps<KeyboardState>) {
 			</AnimatePresence>
 
 			{/* Arrow keys */}
-			<AnimatePresence initial={false} mode="popLayout">
+			<AnimatePresence initial={false}>
 				{showArrows && (
 					<StageWrapper
 						key="arrows"
