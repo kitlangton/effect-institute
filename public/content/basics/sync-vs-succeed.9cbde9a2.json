@@ -838,6 +838,20 @@
 						"p1",
 						"thunk:shown/0",
 						"p2"
+					],
+					"brightBoundaries": [
+						{
+							"start": 23,
+							"end": 30
+						},
+						{
+							"start": 31,
+							"end": 41
+						},
+						{
+							"start": 23,
+							"end": 27
+						}
 					]
 				},
 				"blank2": {
@@ -913,6 +927,12 @@
 					},
 					"partOrder": [
 						"p0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 25,
+							"end": 35
+						}
 					]
 				},
 				"run2": {

@@ -51,10 +51,16 @@ export const TemplatePart = Schema.Struct({
 })
 export type TemplatePart = typeof TemplatePart.Type
 
+/** Character range within a line */
+export const CharRange = Schema.Struct({ start: Schema.Number, end: Schema.Number })
+export type CharRange = typeof CharRange.Type
+
 export const TemplateLine = Schema.Struct({
 	parts: Schema.Record(Schema.String, TemplatePart),
 	/** Part IDs in render order */
 	partOrder: Schema.Array(Schema.String),
+	/** Every range bright lights on this line in any frame, so token spans stay stable as it comes and goes */
+	brightBoundaries: Schema.optionalKey(Schema.Array(CharRange)),
 })
 export type TemplateLine = typeof TemplateLine.Type
 
@@ -71,10 +77,6 @@ export const LineState = Schema.Struct({
 	background: Schema.optionalKey(LineBackground),
 })
 export type LineState = typeof LineState.Type
-
-/** Character range within a line */
-export const CharRange = Schema.Struct({ start: Schema.Number, end: Schema.Number })
-export type CharRange = typeof CharRange.Type
 
 export const StatusRange = Schema.Struct({ start: Schema.Number, end: Schema.Number, status: StatusKind })
 export type StatusRange = typeof StatusRange.Type
@@ -184,6 +186,8 @@ export interface FrameLine {
 	readonly background?: LineBackground
 	/** Dimmed by line focus */
 	readonly dimmed: boolean
+	/** Every range bright lights on this line in any frame */
+	readonly brightBoundaries?: readonly CharRange[]
 }
 
 /** Everything the renderer needs for one frame */
@@ -246,6 +250,7 @@ export function expandFrame(frameState: FrameState, template: Template): Frame {
 			entering: lineState.entering ?? false,
 			dimmed: lineState.dimmed ?? false,
 			...(lineState.background && { background: lineState.background }),
+			...(templateLine.brightBoundaries && { brightBoundaries: templateLine.brightBoundaries }),
 		}
 	})
 

@@ -39,6 +39,7 @@ function renderTokensWithAnnotations(
 	tokens: readonly Token[],
 	partOffset: number,
 	lineId: string,
+	brightBoundaries: readonly CharRange[],
 	lineIndex: number,
 	spotlight?: Spotlight,
 	status?: StatusIndicators,
@@ -59,8 +60,7 @@ function renderTokensWithAnnotations(
 	const statusRanges = status?.ranges[lineIndex] ?? []
 	const currentBrightRanges = brightRanges.filter((range) => range.lineIndex === lineIndex)
 
-	// Bright has no persisted boundary manifest yet, so it introduces segments while active.
-	const allBoundaryRanges = [...allSpotlightRanges, ...allStatusRanges, ...currentBrightRanges]
+	const allBoundaryRanges = [...allSpotlightRanges, ...allStatusRanges, ...brightBoundaries]
 
 	// Split tokens using ALL ranges for stable DOM structure
 	const segments = splitTokensAtSpotlightBoundaries(tokens, partOffset, allBoundaryRanges)
@@ -228,6 +228,7 @@ export const LineParts = React.memo(function LineParts({
 									tokens,
 									currentOffset,
 									line.lineId,
+									line.brightBoundaries ?? [],
 									lineIndex,
 									spotlight,
 									status,

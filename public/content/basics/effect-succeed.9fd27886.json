@@ -620,6 +620,12 @@
 						"effectSucceed:shown/0",
 						"value:*/0",
 						"closeParen:shown/0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 25,
+							"end": 32
+						}
 					]
 				}
 			}

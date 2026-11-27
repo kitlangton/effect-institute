@@ -13,27 +13,27 @@
 		},
 		{
 			"id": "effect-succeed",
-			"file": "effect-succeed.2783548d.json"
+			"file": "effect-succeed.9fd27886.json"
 		},
 		{
 			"id": "running-effects",
-			"file": "running-effects.b60a0919.json"
+			"file": "running-effects.f1750efe.json"
 		},
 		{
 			"id": "effect-fail",
-			"file": "effect-fail.f7078b85.json"
+			"file": "effect-fail.f8127dcf.json"
 		},
 		{
 			"id": "branch-type-merging",
-			"file": "branch-type-merging.9760bfd3.json"
+			"file": "branch-type-merging.57d4af93.json"
 		},
 		{
 			"id": "effect-sync",
-			"file": "effect-sync.597a2d0e.json"
+			"file": "effect-sync.b8045a6b.json"
 		},
 		{
 			"id": "sync-vs-succeed",
-			"file": "sync-vs-succeed.76a43c2c.json"
+			"file": "sync-vs-succeed.9cbde9a2.json"
 		},
 		{
 			"id": "effect-promise",
@@ -41,11 +41,11 @@
 		},
 		{
 			"id": "promises-are-eager",
-			"file": "promises-are-eager.36cca2ed.json"
+			"file": "promises-are-eager.24789e93.json"
 		},
 		{
 			"id": "effect-promise-fix",
-			"file": "effect-promise-fix.6e51d432.json"
+			"file": "effect-promise-fix.db26877f.json"
 		},
 		{
 			"id": "why-compose",
@@ -61,11 +61,11 @@
 		},
 		{
 			"id": "gen-type-inference",
-			"file": "gen-type-inference.61d41da6.json"
+			"file": "gen-type-inference.e1330c4c.json"
 		},
 		{
 			"id": "errors-short-circuit",
-			"file": "errors-short-circuit.d35fb10d.json"
+			"file": "errors-short-circuit.229f11c8.json"
 		}
 	],
 	"groups": [

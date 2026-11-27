@@ -11,6 +11,7 @@ describe("LineParts", () => {
 					text: "const result = value",
 					entering: false,
 					dimmed: false,
+					brightBoundaries: [{ start: 15, end: 20 }],
 					parts: [
 						{
 							partId: "p0",

@@ -1073,6 +1073,12 @@
 						"p0",
 						"askNameError:shown/0",
 						"p1"
+					],
+					"brightBoundaries": [
+						{
+							"start": 37,
+							"end": 43
+						}
 					]
 				},
 				"askAge": {
@@ -1180,6 +1186,12 @@
 						"p0",
 						"askAgeError:shown/0",
 						"p1"
+					],
+					"brightBoundaries": [
+						{
+							"start": 36,
+							"end": 45
+						}
 					]
 				},
 				"blank1": {

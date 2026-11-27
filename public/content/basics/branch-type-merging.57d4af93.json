@@ -527,6 +527,12 @@
 					},
 					"partOrder": [
 						"p0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 6,
+							"end": 16
+						}
 					]
 				},
 				"fnParams": {
@@ -1029,6 +1035,12 @@
 						"failExpr:*/0",
 						"failArg:*/0",
 						"failClose:shown/0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 20,
+							"end": 24
+						}
 					]
 				},
 				"succeedReturn": {
@@ -1140,6 +1152,12 @@
 						"succeedExpr:*/0",
 						"succeedArg:*/0",
 						"succeedClose:shown/0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 18,
+							"end": 25
+						}
 					]
 				}
 			}

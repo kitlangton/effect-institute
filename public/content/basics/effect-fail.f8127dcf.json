@@ -778,6 +778,12 @@
 						"effectFail:shown/0",
 						"value:*/0",
 						"closeParen:shown/0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 20,
+							"end": 24
+						}
 					]
 				},
 				"runBlank": {
@@ -910,6 +916,16 @@
 						"p1",
 						"refName:*/0",
 						"p2"
+					],
+					"brightBoundaries": [
+						{
+							"start": 7,
+							"end": 14
+						},
+						{
+							"start": 13,
+							"end": 23
+						}
 					]
 				},
 				"delay": {
@@ -958,6 +974,12 @@
 					},
 					"partOrder": [
 						"p0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 15,
+							"end": 20
+						}
 					]
 				}
 			}
