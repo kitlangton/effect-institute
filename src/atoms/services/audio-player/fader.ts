@@ -45,7 +45,7 @@ export class WebAudioFader {
 
 	resumeIfSuspended(): Effect.Effect<void> {
 		const ctx = this.audioContext
-		if (!ctx || ctx.state !== "suspended") return Effect.void
+		if (ctx?.state !== "suspended") return Effect.void
 		return Effect.tryPromise(() => ctx.resume()).pipe(Effect.catch(() => Effect.void))
 	}
 
