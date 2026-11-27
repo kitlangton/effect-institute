@@ -88,7 +88,7 @@ export const CURSOR_OFFSET = { x: 4, y: 0 }
 export const CURSOR_TRANSITION = {
 	type: "spring" as const,
 	visualDuration: 0.5,
-	bounce: 0.35,
+	bounce: 0,
 }
 
 /* ------------------------------------------------------------------ */
