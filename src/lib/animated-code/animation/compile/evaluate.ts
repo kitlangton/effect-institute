@@ -6,13 +6,13 @@
  * @module
  */
 
-import { type Animation, resolveSlotValue, type Snapshot } from "../animation"
+import { type Animation, resolveSlotValue, type SlotValues } from "../animation"
 
 /**
  * Evaluate an Animation (line content) to plain text for a given snapshot.
  * Used for pattern matching in annotation resolution.
  */
-export function evaluateToText(content: Animation, snapshot: Snapshot): string {
+export function evaluateToText(content: Animation, slots: SlotValues): string {
 	switch (content._tag) {
 		case "Empty":
 			return ""
@@ -21,11 +21,10 @@ export function evaluateToText(content: Animation, snapshot: Snapshot): string {
 			return content.content
 
 		case "Concat":
-			return content.parts.map((p) => evaluateToText(p, snapshot)).join("")
+			return content.parts.map((p) => evaluateToText(p, slots)).join("")
 
 		case "Slot": {
-			const snapshotValue = snapshot[content.name] as string | undefined
-			const valueName = resolveSlotValue(content, snapshotValue)
+			const valueName = resolveSlotValue(content, slots[content.name])
 			if (valueName === undefined) return ""
 			// "hidden" is reserved to mean empty ONLY for defaultHidden slots
 			// that don't have an explicit "hidden" value
@@ -34,7 +33,7 @@ export function evaluateToText(content: Animation, snapshot: Snapshot): string {
 			}
 			const value = content.values[valueName]
 			if (!value) return ""
-			return evaluateToText(value, snapshot)
+			return evaluateToText(value, slots)
 		}
 
 		case "Inline":
@@ -42,13 +41,13 @@ export function evaluateToText(content: Animation, snapshot: Snapshot): string {
 
 		// These shouldn't appear inside line content, but handle gracefully
 		case "Line":
-			return evaluateToText(content.content, snapshot)
+			return evaluateToText(content.content, slots)
 
 		case "Stack":
-			return content.parts.map((p) => evaluateToText(p, snapshot)).join("\n")
+			return content.parts.map((p) => evaluateToText(p, slots)).join("\n")
 
 		case "Section":
-			return evaluateToText(content.content, snapshot)
+			return evaluateToText(content.content, slots)
 	}
 }
 
@@ -65,7 +64,7 @@ export interface EvaluatedLine {
 export function evaluateLinesForSnapshot(
 	lines: ReadonlyArray<{ id: string; content: Animation }>,
 	lineIds: readonly string[],
-	snapshot: Snapshot,
+	slots: SlotValues,
 ): EvaluatedLine[] {
 	const lineMap = new Map(lines.map((l) => [l.id, l.content]))
 
@@ -75,7 +74,7 @@ export function evaluateLinesForSnapshot(
 			if (!content) return null
 			return {
 				id,
-				text: evaluateToText(content, snapshot),
+				text: evaluateToText(content, slots),
 			}
 		})
 		.filter((l): l is EvaluatedLine => l !== null)

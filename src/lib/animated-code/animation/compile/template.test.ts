@@ -36,7 +36,17 @@ const chars = (tokens: readonly Token[]) =>
 
 describe("compile: template and frame states", () => {
 	it("stores an unchanging part once, with no versions", () => {
-		const slideshow = compile({ animation: stack(line("a", "const x = 1")), snapshots: [{}, {}, {}] }, contextual)
+		const slideshow = compile(
+			{
+				animation: stack(line("a", "const x = 1")),
+				snapshots: [
+					{ slots: {}, annotations: [] },
+					{ slots: {}, annotations: [] },
+					{ slots: {}, annotations: [] },
+				],
+			},
+			contextual,
+		)
 		const partId = partIdAt(slideshow, "a", 0)
 		expect(slideshow.template.lines.a.parts[partId].versions).toBeUndefined()
 		expect(slideshow.frames.map((f) => f.state.a.parts[partId])).toEqual([true, true, true])
@@ -46,7 +56,11 @@ describe("compile: template and frame states", () => {
 		const slideshow = compile(
 			{
 				animation: stack(line("a", [slot("lead", { code: "", comment: "// " }), "const x"])),
-				snapshots: [{ lead: "code" }, { lead: "comment" }, { lead: "code" }],
+				snapshots: [
+					{ slots: { lead: "code" }, annotations: [] },
+					{ slots: { lead: "comment" }, annotations: [] },
+					{ slots: { lead: "code" }, annotations: [] },
+				],
 			},
 			contextual,
 		)
@@ -70,7 +84,10 @@ describe("compile: template and frame states", () => {
 		const slideshow = compile(
 			{
 				animation: stack(line("a", ["x", slot.optional("kw", " const")])),
-				snapshots: [{}, { kw: "shown" }],
+				snapshots: [
+					{ slots: {}, annotations: [] },
+					{ slots: { kw: "shown" }, annotations: [] },
+				],
 			},
 			contextual,
 		)
@@ -84,7 +101,11 @@ describe("compile: template and frame states", () => {
 		const slideshow = compile(
 			{
 				animation: stack(line("a", ["x", slot("note", { todo: " // ???", none: "", done: " // ok" })])),
-				snapshots: [{ note: "todo" }, { note: "none" }, { note: "done" }],
+				snapshots: [
+					{ slots: { note: "todo" }, annotations: [] },
+					{ slots: { note: "none" }, annotations: [] },
+					{ slots: { note: "done" }, annotations: [] },
+				],
 			},
 			contextual,
 		)
@@ -101,7 +122,11 @@ describe("compile: template and frame states", () => {
 	it("lists every version with the active key, falling back to the first while hidden", () => {
 		const slideshow = compile({
 			animation: stack(line("a", ["v = ", slot.optional("value", slot("n", { one: "1", two: "2" }))])),
-			snapshots: [{}, { value: "shown", n: "one" }, { value: "shown", n: "two" }],
+			snapshots: [
+				{ slots: {}, annotations: [] },
+				{ slots: { value: "shown", n: "one" }, annotations: [] },
+				{ slots: { value: "shown", n: "two" }, annotations: [] },
+			],
 		})
 		const shown = partAt(slideshow, 2, "a", 1)
 		expect(shown.versions?.map((v) => v.key)).toEqual(["1", "2"])
@@ -113,7 +138,10 @@ describe("compile: template and frame states", () => {
 	it("survives JSON, the way it ships", () => {
 		const def: AnimationDef = {
 			animation: stack(line("a", ["const x", slot("t", { none: "", num: ": number" })])),
-			snapshots: [{ t: "none" }, { t: "num" }],
+			snapshots: [
+				{ slots: { t: "none" }, annotations: [] },
+				{ slots: { t: "num" }, annotations: [] },
+			],
 		}
 		const slideshow = compile(def, contextual)
 		expect(JSON.parse(JSON.stringify(slideshow))).toEqual(slideshow)
@@ -145,10 +173,16 @@ describe("compileSlideshow: TypeScript highlighting", () => {
 				]),
 			),
 			snapshots: [
-				{ param: "bare", ret: "none", body: "str", end: "good", start: "placeholder" },
-				{ param: "typed", ret: "none", body: "str", end: "bad", start: "code", rest: "shown" },
-				{ param: "typed", ret: "typed", body: "call", end: "bad", start: "placeholder" },
-				{ param: "bare", ret: "typed", body: "call", end: "good", start: "code", rest: "shown" },
+				{ slots: { param: "bare", ret: "none", body: "str", end: "good", start: "placeholder" }, annotations: [] },
+				{
+					slots: { param: "typed", ret: "none", body: "str", end: "bad", start: "code", rest: "shown" },
+					annotations: [],
+				},
+				{ slots: { param: "typed", ret: "typed", body: "call", end: "bad", start: "placeholder" }, annotations: [] },
+				{
+					slots: { param: "bare", ret: "typed", body: "call", end: "good", start: "code", rest: "shown" },
+					annotations: [],
+				},
 			],
 		}
 		const highlight = await typescriptHighlighter()
@@ -170,7 +204,10 @@ describe("compileSlideshow: TypeScript highlighting", () => {
 					slot.optional("rest", "] = await Promise.all(["),
 				]),
 			),
-			snapshots: [{ start: "placeholder" }, { start: "code", rest: "shown" }],
+			snapshots: [
+				{ slots: { start: "placeholder" }, annotations: [] },
+				{ slots: { start: "code", rest: "shown" }, annotations: [] },
+			],
 		})
 		const [placeholder] = linesOf(slideshow, 0)
 		expect(placeholder.map((t) => t.text).join("")).toBe("  // ...")

@@ -178,12 +178,35 @@ export class Background extends Schema.TaggedClass<Background>()("Background", {
 	style: Schema.Literals(["success", "error", "warning", "info"]),
 }) {}
 
+/** Names of the sound effects a step can play */
+export const AnimationSoundName = Schema.Literals([
+	"tick",
+	"pop",
+	"whoosh",
+	"sad",
+	"celebrate",
+	"chime",
+	"success",
+	"error",
+	"alarm",
+	"doom",
+	"spooky",
+	"press",
+	"fail",
+	"succeed",
+	"ping1",
+	"ping2",
+	"ping3",
+	"derp",
+	"skip",
+])
+export type AnimationSoundName = typeof AnimationSoundName.Type
+
 /**
  * Sound effect to play.
  */
 export class Sound extends Schema.TaggedClass<Sound>()("Sound", {
-	/** Sound name/path */
-	name: Schema.String,
+	name: AnimationSoundName,
 }) {}
 
 // ============================================================================

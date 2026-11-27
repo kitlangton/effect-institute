@@ -361,34 +361,44 @@
 		],
 		"snapshots": [
 			{
-				"visible": false,
-				"tree": "idle",
-				"star": "idle",
-				"beetle": "idle"
+				"state": {
+					"visible": false,
+					"tree": "idle",
+					"star": "idle",
+					"beetle": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"tree": "idle",
-				"star": "idle",
-				"beetle": "idle"
+				"state": {
+					"visible": true,
+					"tree": "idle",
+					"star": "idle",
+					"beetle": "idle"
+				}
 			},
 			{
-				"visible": true,
-				"tree": "running",
-				"star": "running",
-				"beetle": "running"
+				"state": {
+					"visible": true,
+					"tree": "running",
+					"star": "running",
+					"beetle": "running"
+				}
 			},
 			{
-				"visible": true,
-				"tree": "running",
-				"star": "failed",
-				"beetle": "running"
+				"state": {
+					"visible": true,
+					"tree": "running",
+					"star": "failed",
+					"beetle": "running"
+				}
 			},
 			{
-				"visible": true,
-				"tree": "interrupted",
-				"star": "failed",
-				"beetle": "interrupted"
+				"state": {
+					"visible": true,
+					"tree": "interrupted",
+					"star": "failed",
+					"beetle": "interrupted"
+				}
 			}
 		]
 	},

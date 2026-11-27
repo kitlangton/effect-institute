@@ -16,6 +16,7 @@
 
 // Schema exports (annotation classes and types)
 export {
+	AnimationSoundName,
 	// Union type
 	Annotation,
 	type Annotation as AnnotationType,

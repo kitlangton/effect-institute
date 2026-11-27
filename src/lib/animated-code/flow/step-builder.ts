@@ -6,8 +6,8 @@
  * @module
  */
 
+import type { AnimationSoundName } from "@/lib/animated-code/annotations"
 import {
-	type AnimationSoundName,
 	type AnnotationBuilder,
 	type BrightSpec,
 	type BurstSpec,

@@ -87,10 +87,7 @@ function StepDrivenComponentWrapper({
 	)
 	const step = useAtomValue(stepAtom)
 
-	// Get sound from current snapshot and play on step change
-	const currentSnapshot = componentFlow.snapshots[step] as Record<string, unknown> | undefined
-	const currentSound = currentSnapshot?._sound as string | undefined
-	useAnimationSound(step, currentSound)
+	useAnimationSound(step, componentFlow.snapshots[step]?.sound)
 
 	return (
 		<div className="w-full px-2 sm:px-8">

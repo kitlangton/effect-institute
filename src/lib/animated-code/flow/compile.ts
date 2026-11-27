@@ -7,6 +7,7 @@
 import { Match } from "effect"
 import { type Animation, resolveSlotValue, type Snapshot } from "@/lib/animated-code/animation"
 import {
+	type AnimationSoundName,
 	type Annotation,
 	Bright,
 	Burst,
@@ -173,7 +174,7 @@ export function compileFlow(
 
 	// Initial snapshot
 	steps.push({ name: "start", at: "start" })
-	snapshots.push({ ...effectiveBase })
+	snapshots.push({ slots: { ...effectiveBase }, annotations: [] })
 
 	for (const builder of flow) {
 		const step = builder._build()
@@ -359,12 +360,7 @@ export function compileFlow(
 			annotations.push(new Sound({ name: ann.sound }))
 		}
 
-		const snapshot: Snapshot = {
-			...currentSlots,
-			...(annotations.length > 0 && { annotations }),
-		}
-
-		snapshots.push(snapshot)
+		snapshots.push({ slots: { ...currentSlots }, annotations })
 	}
 
 	return { steps, snapshots, warnings }
@@ -374,11 +370,17 @@ export function compileFlow(
 // Component Flow Compilation
 // ============================================================================
 
+/** One component step: the component's state, and the sound the step plays */
+export interface ComponentSnapshot {
+	readonly state: Record<string, unknown>
+	readonly sound?: AnimationSoundName
+}
+
 /** Compiled component flow */
 export interface CompiledComponentFlow {
 	readonly name: string
 	readonly steps: StepRef[]
-	readonly snapshots: Record<string, unknown>[]
+	readonly snapshots: ComponentSnapshot[]
 }
 
 /**
@@ -395,16 +397,16 @@ export function compileComponentFlow(componentFlow: {
 			nth?: number
 			offset?: number
 			stateDelta?: Record<string, unknown>
-			annotations?: { sound?: string }
+			annotations?: { sound?: AnimationSoundName }
 		}
 	}[]
 }): CompiledComponentFlow {
 	const steps: StepRef[] = []
-	const snapshots: Record<string, unknown>[] = []
+	const snapshots: ComponentSnapshot[] = []
 	let currentState: Record<string, unknown> = { ...componentFlow.base }
 
 	steps.push({ name: "start", at: "start" })
-	snapshots.push({ ...currentState })
+	snapshots.push({ state: { ...currentState } })
 
 	for (const builder of componentFlow.flow) {
 		const step = builder._build()
@@ -422,12 +424,8 @@ export function compileComponentFlow(componentFlow: {
 			currentState = { ...currentState, ...step.stateDelta }
 		}
 
-		const snapshot: Record<string, unknown> = { ...currentState }
-		if (step.annotations?.sound) {
-			snapshot._sound = step.annotations.sound
-		}
-
-		snapshots.push(snapshot)
+		const sound = step.annotations?.sound
+		snapshots.push({ state: { ...currentState }, ...(sound && { sound }) })
 	}
 
 	return { name: componentFlow.name, steps, snapshots }

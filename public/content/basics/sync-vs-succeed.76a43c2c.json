@@ -558,76 +558,100 @@
 		],
 		"snapshots": [
 			{
-				"mode": "succeed",
-				"run1State": "idle",
-				"run2State": "idle",
-				"run3State": "idle"
+				"state": {
+					"mode": "succeed",
+					"run1State": "idle",
+					"run2State": "idle",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "succeed",
-				"run1State": "running",
-				"run2State": "idle",
-				"run3State": "idle"
+				"state": {
+					"mode": "succeed",
+					"run1State": "running",
+					"run2State": "idle",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "succeed",
-				"run1State": "completed",
-				"run2State": "idle",
-				"run3State": "idle"
+				"state": {
+					"mode": "succeed",
+					"run1State": "completed",
+					"run2State": "idle",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "succeed",
-				"run1State": "completed",
-				"run2State": "running",
-				"run3State": "idle"
+				"state": {
+					"mode": "succeed",
+					"run1State": "completed",
+					"run2State": "running",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "succeed",
-				"run1State": "completed",
-				"run2State": "completed",
-				"run3State": "idle"
+				"state": {
+					"mode": "succeed",
+					"run1State": "completed",
+					"run2State": "completed",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "succeed",
-				"run1State": "completed",
-				"run2State": "completed",
-				"run3State": "running"
+				"state": {
+					"mode": "succeed",
+					"run1State": "completed",
+					"run2State": "completed",
+					"run3State": "running"
+				}
 			},
 			{
-				"mode": "succeed",
-				"run1State": "completed",
-				"run2State": "completed",
-				"run3State": "completed"
+				"state": {
+					"mode": "succeed",
+					"run1State": "completed",
+					"run2State": "completed",
+					"run3State": "completed"
+				}
 			},
 			{
-				"mode": "sync",
-				"run1State": "idle",
-				"run2State": "idle",
-				"run3State": "idle"
+				"state": {
+					"mode": "sync",
+					"run1State": "idle",
+					"run2State": "idle",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "sync",
-				"run1State": "running",
-				"run2State": "idle",
-				"run3State": "idle"
+				"state": {
+					"mode": "sync",
+					"run1State": "running",
+					"run2State": "idle",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "sync",
-				"run1State": "completed",
-				"run2State": "idle",
-				"run3State": "idle"
+				"state": {
+					"mode": "sync",
+					"run1State": "completed",
+					"run2State": "idle",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "sync",
-				"run1State": "completed",
-				"run2State": "running",
-				"run3State": "idle"
+				"state": {
+					"mode": "sync",
+					"run1State": "completed",
+					"run2State": "running",
+					"run3State": "idle"
+				}
 			},
 			{
-				"mode": "sync",
-				"run1State": "completed",
-				"run2State": "completed",
-				"run3State": "idle"
+				"state": {
+					"mode": "sync",
+					"run1State": "completed",
+					"run2State": "completed",
+					"run3State": "idle"
+				}
 			}
 		]
 	},

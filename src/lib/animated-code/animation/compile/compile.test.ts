@@ -15,7 +15,7 @@ describe("compile", () => {
 		it("compiles single line single snapshot", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [{}],
+				snapshots: [{ slots: {}, annotations: [] }],
 			}
 
 			const data = compileFrames(def)
@@ -29,7 +29,7 @@ describe("compile", () => {
 		it("compiles multiple lines", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1"), line("line2", "const y = 2"), line("line3", "const z = 3")),
-				snapshots: [{}],
+				snapshots: [{ slots: {}, annotations: [] }],
 			}
 
 			const data = compileFrames(def)
@@ -41,7 +41,11 @@ describe("compile", () => {
 		it("compiles multiple snapshots", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [{}, {}, {}],
+				snapshots: [
+					{ slots: {}, annotations: [] },
+					{ slots: {}, annotations: [] },
+					{ slots: {}, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -56,7 +60,10 @@ describe("compile", () => {
 				animation: stack(
 					line("line1", concat(text("const x: "), slot("type", { num: text("number"), str: text("string") }))),
 				),
-				snapshots: [{ type: "num" }, { type: "str" }],
+				snapshots: [
+					{ slots: { type: "num" }, annotations: [] },
+					{ slots: { type: "str" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -70,7 +77,10 @@ describe("compile", () => {
 				animation: stack(
 					line("line1", concat(text("const x"), slot("type", { hidden: empty, shown: text(": number") }))),
 				),
-				snapshots: [{ type: "hidden" }, { type: "shown" }],
+				snapshots: [
+					{ slots: { type: "hidden" }, annotations: [] },
+					{ slots: { type: "shown" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -84,7 +94,10 @@ describe("compile", () => {
 		it("omits optional lines from an unspecified initial snapshot", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1"), slot.optional("extra", line("line2", "const y = 2"))),
-				snapshots: [{}, { extra: "shown" }],
+				snapshots: [
+					{ slots: {}, annotations: [] },
+					{ slots: { extra: "shown" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -102,7 +115,10 @@ describe("compile", () => {
 						shown: line("line2", "const y = 2"),
 					}),
 				),
-				snapshots: [{ extra: "hidden" }, { extra: "shown" }],
+				snapshots: [
+					{ slots: { extra: "hidden" }, annotations: [] },
+					{ slots: { extra: "shown" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -124,7 +140,10 @@ describe("compile", () => {
 						shown: line("line2", "const y = 2"),
 					}),
 				),
-				snapshots: [{ extra: "hidden" }, { extra: "shown" }],
+				snapshots: [
+					{ slots: { extra: "hidden" }, annotations: [] },
+					{ slots: { extra: "shown" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -137,11 +156,7 @@ describe("compile", () => {
 		it("processes Mark annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Mark({ text: "const" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Mark({ text: "const" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -155,11 +170,7 @@ describe("compile", () => {
 		it("processes Glow annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Glow({ text: "x", color: "blue" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Glow({ text: "x", color: "blue" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -171,11 +182,7 @@ describe("compile", () => {
 		it("processes Squiggle annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = error")),
-				snapshots: [
-					{
-						annotations: [new Squiggle({ text: "error", color: "red" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Squiggle({ text: "error", color: "red" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -187,11 +194,7 @@ describe("compile", () => {
 		it("processes Cursor annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Cursor({ text: "x", type: "pointer" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Cursor({ text: "x", type: "pointer" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -203,11 +206,7 @@ describe("compile", () => {
 		it("processes Burst annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Burst({ text: "x", emoji: "🎉", count: 3 })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Burst({ text: "x", emoji: "🎉", count: 3 })] }],
 			}
 
 			const data = compileFrames(def)
@@ -220,11 +219,7 @@ describe("compile", () => {
 		it("processes Focus annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1"), line("line2", "const y = 2")),
-				snapshots: [
-					{
-						annotations: [new Focus({ lines: ["line1"] })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Focus({ lines: ["line1"] })] }],
 			}
 
 			const data = compileFrames(def)
@@ -236,11 +231,7 @@ describe("compile", () => {
 		it("processes Status annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Status({ text: "x", status: "running" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Status({ text: "x", status: "running" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -252,11 +243,7 @@ describe("compile", () => {
 		it("processes Spotlight annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Spotlight({ patterns: ["const"], dim: 0.5 })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Spotlight({ patterns: ["const"], dim: 0.5 })] }],
 			}
 
 			const data = compileFrames(def)
@@ -268,11 +255,7 @@ describe("compile", () => {
 		it("processes Background annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Background({ lineId: "line1", style: "success" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Background({ lineId: "line1", style: "success" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -283,16 +266,12 @@ describe("compile", () => {
 		it("processes Sound annotations", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Sound({ name: "ding" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Sound({ name: "chime" })] }],
 			}
 
 			const data = compileFrames(def)
 
-			expect(data.frames[0].sound).toBe("ding")
+			expect(data.frames[0].sound).toBe("chime")
 		})
 	})
 
@@ -300,11 +279,7 @@ describe("compile", () => {
 		it("finds pattern at correct position", () => {
 			const def = {
 				animation: stack(line("line1", "const foo = bar")),
-				snapshots: [
-					{
-						annotations: [new Mark({ text: "foo" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Mark({ text: "foo" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -316,11 +291,7 @@ describe("compile", () => {
 		it("matches punctuation-leading patterns by default", () => {
 			const def = {
 				animation: stack(line("line1", "const x: any = 1")),
-				snapshots: [
-					{
-						annotations: [new Mark({ text: ": any" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Mark({ text: ": any" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -333,11 +304,7 @@ describe("compile", () => {
 		it("matches dot-leading patterns even when preceded by a word char", () => {
 			const def = {
 				animation: stack(line("line1", "slowDie.pipe(")),
-				snapshots: [
-					{
-						annotations: [new Mark({ text: ".pipe" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Mark({ text: ".pipe" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -350,11 +317,7 @@ describe("compile", () => {
 		it("handles nth option for multiple matches", () => {
 			const def = {
 				animation: stack(line("line1", "const x = x + x")),
-				snapshots: [
-					{
-						annotations: [new Mark({ text: "x", nth: 2 })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Mark({ text: "x", nth: 2 })] }],
 			}
 
 			const data = compileFrames(def)
@@ -365,11 +328,7 @@ describe("compile", () => {
 		it("handles after option", () => {
 			const def = {
 				animation: stack(line("line1", "const x = x + y")),
-				snapshots: [
-					{
-						annotations: [new Mark({ text: "x", after: "=" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Mark({ text: "x", after: "=" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -380,11 +339,7 @@ describe("compile", () => {
 		it("returns empty when pattern not found", () => {
 			const def = {
 				animation: stack(line("line1", "const x = 1")),
-				snapshots: [
-					{
-						annotations: [new Mark({ text: "notfound" })],
-					},
-				],
+				snapshots: [{ slots: {}, annotations: [new Mark({ text: "notfound" })] }],
 			}
 
 			const data = compileFrames(def)
@@ -401,7 +356,11 @@ describe("compile", () => {
 				animation: stack(
 					line("line1", concat(text("const x"), slot("type", { hidden: empty, shown: text(": number") }))),
 				),
-				snapshots: [{ type: "hidden" }, { type: "shown" }, { type: "hidden" }],
+				snapshots: [
+					{ slots: { type: "hidden" }, annotations: [] },
+					{ slots: { type: "shown" }, annotations: [] },
+					{ slots: { type: "hidden" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -420,11 +379,11 @@ describe("compile", () => {
 			const def = {
 				animation: stack(line("line1", concat(text("fn"), slot("parens", { hidden: empty, shown: text("()") })))),
 				snapshots: [
-					{ parens: "hidden" },
-					{ parens: "shown" },
-					{ parens: "hidden" },
-					{ parens: "shown" },
-					{ parens: "hidden" },
+					{ slots: { parens: "hidden" }, annotations: [] },
+					{ slots: { parens: "shown" }, annotations: [] },
+					{ slots: { parens: "hidden" }, annotations: [] },
+					{ slots: { parens: "shown" }, annotations: [] },
+					{ slots: { parens: "hidden" }, annotations: [] },
 				],
 			}
 
@@ -448,10 +407,10 @@ describe("compile", () => {
 					}),
 				),
 				snapshots: [
-					{ thunk: "hidden", calls: "hidden" },
-					{ thunk: "shown", calls: "hidden" },
-					{ thunk: "shown", calls: "shown" },
-					{ thunk: "hidden", calls: "shown" }, // thunk goes back to hidden while calls still shown
+					{ slots: { thunk: "hidden", calls: "hidden" }, annotations: [] },
+					{ slots: { thunk: "shown", calls: "hidden" }, annotations: [] },
+					{ slots: { thunk: "shown", calls: "shown" }, annotations: [] },
+					{ slots: { thunk: "hidden", calls: "shown" }, annotations: [] }, // thunk goes back to hidden while calls still shown
 				],
 			}
 
@@ -477,7 +436,10 @@ describe("compile", () => {
 				animation: stack(
 					line("line1", concat(text("const x"), slot("type", { hidden: empty, shown: text(": number") }))),
 				),
-				snapshots: [{ type: "hidden" }, { type: "shown" }],
+				snapshots: [
+					{ slots: { type: "hidden" }, annotations: [] },
+					{ slots: { type: "shown" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)
@@ -493,7 +455,10 @@ describe("compile", () => {
 				animation: stack(
 					line("line1", concat(text("const x: "), slot("type", { num: text("number"), str: text("string") }))),
 				),
-				snapshots: [{ type: "num" }, { type: "str" }],
+				snapshots: [
+					{ slots: { type: "num" }, annotations: [] },
+					{ slots: { type: "str" }, annotations: [] },
+				],
 			}
 
 			const data = compileFrames(def)

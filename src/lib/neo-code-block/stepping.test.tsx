@@ -47,29 +47,20 @@ const lifecycleDef: AnimationDef = {
 		line("close", "})"),
 	),
 	snapshots: [
-		{ fetch: "hidden", validate: "hidden", save: "hidden", result: "raw" },
+		{ slots: { fetch: "hidden", validate: "hidden", save: "hidden", result: "raw" }, annotations: [] },
 		{
-			fetch: "shown",
-			validate: "hidden",
-			save: "hidden",
-			result: "raw",
+			slots: { fetch: "shown", validate: "hidden", save: "hidden", result: "raw" },
 			annotations: [new Focus({ lines: ["fetch"] })],
 		},
 		{
-			fetch: "shown",
-			validate: "shown",
-			save: "hidden",
-			result: "parsed",
+			slots: { fetch: "shown", validate: "shown", save: "hidden", result: "parsed" },
 			annotations: [new Focus({ lines: ["validate", "return"] })],
 		},
 		{
-			fetch: "shown",
-			validate: "shown",
-			save: "shown",
-			result: "parsed",
+			slots: { fetch: "shown", validate: "shown", save: "shown", result: "parsed" },
 			annotations: [new Focus({ lines: ["save"] })],
 		},
-		{ fetch: "shown", validate: "shown", save: "shown", result: "parsed" },
+		{ slots: { fetch: "shown", validate: "shown", save: "shown", result: "parsed" }, annotations: [] },
 	],
 }
 
@@ -86,9 +77,9 @@ const crossfadeDef: AnimationDef = {
 		]),
 	),
 	snapshots: [
-		{ mode: "promise" },
-		{ mode: "effect", annotations: [new Focus({ lines: ["call"] })] },
-		{ mode: "layer" },
+		{ slots: { mode: "promise" }, annotations: [] },
+		{ slots: { mode: "effect" }, annotations: [new Focus({ lines: ["call"] })] },
+		{ slots: { mode: "layer" }, annotations: [] },
 	],
 }
 

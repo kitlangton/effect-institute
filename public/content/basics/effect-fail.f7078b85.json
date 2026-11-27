@@ -449,40 +449,52 @@
 		],
 		"snapshots": [
 			{
-				"show": false,
-				"mode": "sync",
-				"syncState": "idle",
-				"asyncState": "idle"
+				"state": {
+					"show": false,
+					"mode": "sync",
+					"syncState": "idle",
+					"asyncState": "idle"
+				}
 			},
 			{
-				"show": true,
-				"mode": "sync",
-				"syncState": "idle",
-				"asyncState": "idle"
+				"state": {
+					"show": true,
+					"mode": "sync",
+					"syncState": "idle",
+					"asyncState": "idle"
+				}
 			},
 			{
-				"show": true,
-				"mode": "sync",
-				"syncState": "failed",
-				"asyncState": "idle"
+				"state": {
+					"show": true,
+					"mode": "sync",
+					"syncState": "failed",
+					"asyncState": "idle"
+				}
 			},
 			{
-				"show": true,
-				"mode": "async",
-				"syncState": "failed",
-				"asyncState": "idle"
+				"state": {
+					"show": true,
+					"mode": "async",
+					"syncState": "failed",
+					"asyncState": "idle"
+				}
 			},
 			{
-				"show": true,
-				"mode": "async",
-				"syncState": "failed",
-				"asyncState": "running"
+				"state": {
+					"show": true,
+					"mode": "async",
+					"syncState": "failed",
+					"asyncState": "running"
+				}
 			},
 			{
-				"show": true,
-				"mode": "async",
-				"syncState": "failed",
-				"asyncState": "failed"
+				"state": {
+					"show": true,
+					"mode": "async",
+					"syncState": "failed",
+					"asyncState": "failed"
+				}
 			}
 		]
 	},

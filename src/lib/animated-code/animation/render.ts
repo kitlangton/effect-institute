@@ -1,5 +1,5 @@
 import { Schema } from "effect"
-import { type Animation, resolveSlotValue, type Snapshot } from "./animation"
+import { type Animation, resolveSlotValue, type SlotValues } from "./animation"
 
 // ============================================================================
 // Source Tracking (for stability analysis)
@@ -52,7 +52,7 @@ interface RenderContext {
 	/** Current section namespace stack */
 	readonly sectionPath: readonly string[]
 	/** Slot value assignments */
-	readonly env: Record<string, string>
+	readonly env: SlotValues
 	/** Whether we're inside a Concat (affects Empty behavior) */
 	readonly insideConcat: boolean
 	/** Current slot we're rendering inside (for source tracking) */
@@ -64,21 +64,13 @@ interface RenderContext {
 // ============================================================================
 
 /**
- * Render an Animation with a given snapshot environment.
+ * Render an Animation with the given slot values.
  * Returns lines with IDs and parts.
  */
-export function render(animation: Animation, snapshot: Snapshot): RenderedOutput {
-	// Extract slot assignments from snapshot (filter out annotation keys)
-	const env: Record<string, string> = {}
-	for (const [key, value] of Object.entries(snapshot)) {
-		if (!key.startsWith("_") && typeof value === "string") {
-			env[key] = value
-		}
-	}
-
+export function render(animation: Animation, slots: SlotValues): RenderedOutput {
 	const ctx: RenderContext = {
 		sectionPath: [],
-		env,
+		env: slots,
 		insideConcat: false,
 	}
 	const lines = renderAnimation(animation, ctx)

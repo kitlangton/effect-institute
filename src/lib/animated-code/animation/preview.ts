@@ -154,21 +154,11 @@ export function previewSteps(
 		const step = steps[i]
 
 		// Render animation with snapshot
-		const rendered = render(animation, snapshot)
+		const rendered = render(animation, snapshot.slots)
 		const codeLines = rendered.lines.map((line) => line.parts.map((p) => p.content).join(""))
 		const lineIds = rendered.lines.map((line) => line.id).filter((id): id is string => id !== null)
 
-		// Extract slot values from snapshot (filter out annotations)
-		const slots: Record<string, string> = {}
-		for (const [key, value] of Object.entries(snapshot)) {
-			if (!key.startsWith("_") && key !== "annotations" && typeof value === "string") {
-				slots[key] = value
-			}
-		}
-
-		// Extract annotations
-		const rawAnnotations = (snapshot.annotations as Annotation[] | undefined) ?? []
-		const annotations = extractAnnotations(rawAnnotations)
+		const annotations = extractAnnotations(snapshot.annotations)
 
 		previews.push({
 			index: i,
@@ -179,7 +169,7 @@ export function previewSteps(
 			codeLines,
 			lineIds,
 			renderedLines: rendered.lines,
-			slots,
+			slots: snapshot.slots,
 			annotations,
 		})
 	}

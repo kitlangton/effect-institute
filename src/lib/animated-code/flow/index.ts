@@ -21,7 +21,6 @@ export { Persistent, PersistentArray } from "./persistence"
 export { on, step } from "./step-builder"
 // Types
 export {
-	type AnimationSoundName,
 	type BrightSpec,
 	type BurstSpec,
 	type CursorSpec,

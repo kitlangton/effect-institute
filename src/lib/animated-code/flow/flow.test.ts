@@ -220,12 +220,12 @@ describe("flow", () => {
 		it("uses slot defaults for base state", () => {
 			const { snapshots } = compileFlow(undefined, [], simpleAnim)
 			// First key "hidden" should be default
-			expect(snapshots[0].body).toBe("hidden")
+			expect(snapshots[0].slots.body).toBe("hidden")
 		})
 
 		it("explicit base overrides defaults", () => {
 			const { snapshots } = compileFlow({ body: "shown" }, [], simpleAnim)
-			expect(snapshots[0].body).toBe("shown")
+			expect(snapshots[0].slots.body).toBe("shown")
 		})
 
 		it("accumulates slot changes across steps", () => {
@@ -235,9 +235,9 @@ describe("flow", () => {
 			]
 			const { snapshots } = compileFlow({ body: "hidden" }, flow, simpleAnim)
 
-			expect(snapshots[0].body).toBe("hidden") // start
-			expect(snapshots[1].body).toBe("shown") // first
-			expect(snapshots[2].body).toBe("shown") // second (persisted)
+			expect(snapshots[0].slots.body).toBe("hidden") // start
+			expect(snapshots[1].slots.body).toBe("shown") // first
+			expect(snapshots[2].slots.body).toBe("shown") // second (persisted)
 		})
 
 		it("creates StepRef with word and name", () => {

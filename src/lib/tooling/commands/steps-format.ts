@@ -167,7 +167,7 @@ export function formatCodeStepBody(preview: StepPreview, prevSlots: Readonly<Rec
 	return out
 }
 
-/** "State:" line for a component step - full state first, then changed keys (underscore keys hidden). */
+/** "State:" line for a component step - full state first, then changed keys. */
 export function componentStateSummary(
 	index: number,
 	snapshot: Readonly<Record<string, unknown>>,
@@ -175,13 +175,12 @@ export function componentStateSummary(
 ): string | undefined {
 	if (index === 0) {
 		const stateStr = Object.entries(snapshot)
-			.filter(([k]) => !k.startsWith("_"))
 			.map(([k, v]) => `${k}=${JSON.stringify(v)}`)
 			.join(", ")
 		return `State: ${stateStr}`
 	}
 	const changes = Object.entries(snapshot)
-		.filter(([key, curr]) => !key.startsWith("_") && JSON.stringify(prevState[key]) !== JSON.stringify(curr))
+		.filter(([key, curr]) => JSON.stringify(prevState[key]) !== JSON.stringify(curr))
 		.map(([key, curr]) => `${key}: ${JSON.stringify(prevState[key])} → ${JSON.stringify(curr)}`)
 	return changes.length > 0 ? `State: ${changes.join(", ")}` : undefined
 }

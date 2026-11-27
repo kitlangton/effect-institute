@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import type { AnimationSoundName } from "@/lib/animated-code/annotations"
 import { playAnimationSound } from "@/sounds/AnimationSounds"
 
 /**
@@ -17,7 +18,7 @@ import { playAnimationSound } from "@/sounds/AnimationSounds"
  * useAnimationSound(step, currentSound)
  * ```
  */
-export function useAnimationSound(step: number, sound: string | undefined): void {
+export function useAnimationSound(step: number, sound: AnimationSoundName | undefined): void {
 	const prevStepRef = useRef(step)
 
 	useEffect(() => {

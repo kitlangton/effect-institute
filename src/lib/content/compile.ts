@@ -194,7 +194,7 @@ export interface GroupContext {
 /** Static code as a one-snapshot animation: one auto-ID line per source line */
 const staticAnimation = (code: string): CompiledAnimation => ({
 	animation: stack(...code.split("\n")),
-	snapshots: [{}],
+	snapshots: [{ slots: {}, annotations: [] }],
 	steps: [{ name: "start", at: "start" }],
 })
 
@@ -260,7 +260,7 @@ export function compileSection(
 		// Validate each step's annotation patterns against the code that step renders.
 		// snapshots[0] is the base state; snapshots[i + 1] is produced by flow[i].
 		const anim = def.code.animation
-		const stepCode = snapshots.slice(1).map((snap) => toPlainText(render(anim, snap)))
+		const stepCode = snapshots.slice(1).map((snap) => toPlainText(render(anim, snap.slots)))
 		const lineIds = extractLineIds(anim)
 		const patternWarnings = validateFlowPatterns([...def.code.flow], stepCode, lineIds)
 

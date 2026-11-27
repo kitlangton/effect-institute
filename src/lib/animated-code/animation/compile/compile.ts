@@ -9,6 +9,7 @@
  */
 
 import {
+	type AnimationSoundName,
 	type Background,
 	type Bright,
 	type Burst,
@@ -135,11 +136,11 @@ function collectAllRanges(
 		const evaluatedLines = evaluateLinesForSnapshot(
 			manifest.lines.map((l) => ({ id: l.id, content: l.content })),
 			lineIds,
-			snapshot,
+			snapshot.slots,
 		)
 		const indexedLines = indexLines(evaluatedLines)
 
-		for (const ann of snapshot.annotations ?? []) {
+		for (const ann of snapshot.annotations) {
 			if (ann instanceof Spotlight) {
 				const ranges = collectSimpleRanges(indexedLines, [...ann.patterns])
 				for (const [lineId, lineRanges] of Object.entries(ranges)) {
@@ -207,7 +208,7 @@ function renderFrame(
 	const evaluatedLines = evaluateLinesForSnapshot(
 		manifest.lines.map((l) => ({ id: l.id, content: l.content })),
 		lineIds,
-		snapshot,
+		snapshot.slots,
 	)
 	const indexedLines = indexLines(evaluatedLines)
 	const lineIdToIndex = new Map(lineIds.map((id, i) => [id, i]))
@@ -422,7 +423,7 @@ interface AnnotationResult {
 	status?: StatusIndicators
 	cursor?: CursorTarget
 	bursts: BurstTarget[]
-	sound?: string
+	sound?: AnimationSoundName
 	say?: string
 	hasFocus: boolean
 	focusedLineIds: Set<string>
@@ -585,7 +586,7 @@ function processAnnotations(
 		statusRanges: {},
 	}
 
-	for (const ann of snapshot.annotations ?? []) {
+	for (const ann of snapshot.annotations) {
 		const handler = annotationHandlers[ann._tag]
 		handler?.(ann, ctx)
 	}

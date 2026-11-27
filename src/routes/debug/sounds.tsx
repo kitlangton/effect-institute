@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router"
 import { useState } from "react"
-import { type AnimationSoundName, animationSounds } from "@/sounds/AnimationSounds"
+import type { AnimationSoundName } from "@/lib/animated-code/annotations"
+import { animationSounds } from "@/sounds/AnimationSounds"
 import { appSounds, COMPLETION_VARIANTS } from "@/sounds/AppSounds"
 
 export const Route = createFileRoute("/debug/sounds")({

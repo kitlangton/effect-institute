@@ -73,7 +73,7 @@ export const stepsCmd = Command.make("steps", { section: stepsSectionArg, chapte
 					type: "component",
 					wordIndex: findWordIndex(step.at, step),
 					triggerWord: step.at,
-					componentStep: { index: i, name: step.name ?? cf.name, snapshot: cf.snapshots[i] as Record<string, unknown> },
+					componentStep: { index: i, name: step.name ?? cf.name, snapshot: cf.snapshots[i]?.state ?? {} },
 					...ref(step),
 				})
 			})

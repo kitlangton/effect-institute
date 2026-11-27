@@ -172,7 +172,7 @@ function groupSnapshotsBySlotValue(
 		activeSnapshots,
 		Arr.groupBy((idx) => {
 			const snap = snapshots[idx]
-			return resolveSlotValue(slot, snap[slot.name] as string | undefined) ?? "hidden"
+			return resolveSlotValue(slot, snap.slots[slot.name]) ?? "hidden"
 		}),
 	) as Record<string, number[]>
 }

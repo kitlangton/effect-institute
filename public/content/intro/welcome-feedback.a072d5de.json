@@ -359,116 +359,144 @@
 		],
 		"snapshots": [
 			{
-				"stage": "settings",
-				"cursorState": "hidden",
-				"selectedSpeed": "none",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": null
+				"state": {
+					"stage": "settings",
+					"cursorState": "hidden",
+					"selectedSpeed": "none",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": null
+				}
 			},
 			{
-				"stage": "settings",
-				"cursorState": "approaching",
-				"selectedSpeed": "none",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": null
+				"state": {
+					"stage": "settings",
+					"cursorState": "approaching",
+					"selectedSpeed": "none",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": null
+				}
 			},
 			{
-				"stage": "settings",
-				"cursorState": "hovering",
-				"selectedSpeed": "none",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": null
+				"state": {
+					"stage": "settings",
+					"cursorState": "hovering",
+					"selectedSpeed": "none",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": null
+				}
 			},
 			{
-				"stage": "settings",
-				"cursorState": "clicking",
-				"selectedSpeed": "none",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": null
+				"state": {
+					"stage": "settings",
+					"cursorState": "clicking",
+					"selectedSpeed": "none",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": null
+				}
 			},
 			{
-				"stage": "playback",
-				"cursorState": "hidden",
-				"selectedSpeed": "1×",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": null
+				"state": {
+					"stage": "playback",
+					"cursorState": "hidden",
+					"selectedSpeed": "1×",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": null
+				}
 			},
 			{
-				"stage": "playback",
-				"cursorState": "hidden",
-				"selectedSpeed": "0.75×",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": 0.75
+				"state": {
+					"stage": "playback",
+					"cursorState": "hidden",
+					"selectedSpeed": "0.75×",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": 0.75
+				}
 			},
 			{
-				"stage": "playback",
-				"cursorState": "hidden",
-				"selectedSpeed": "0.5×",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": 0.5
+				"state": {
+					"stage": "playback",
+					"cursorState": "hidden",
+					"selectedSpeed": "0.5×",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": 0.5
+				}
 			},
 			{
-				"stage": "playback",
-				"cursorState": "hidden",
-				"selectedSpeed": "1.5×",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": 1.5
+				"state": {
+					"stage": "playback",
+					"cursorState": "hidden",
+					"selectedSpeed": "1.5×",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": 1.5
+				}
 			},
 			{
-				"stage": "playback",
-				"cursorState": "hidden",
-				"selectedSpeed": "2×",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": 2
+				"state": {
+					"stage": "playback",
+					"cursorState": "hidden",
+					"selectedSpeed": "2×",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": 2
+				}
 			},
 			{
-				"stage": "playback",
-				"cursorState": "hidden",
-				"selectedSpeed": "1×",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": 1
+				"state": {
+					"stage": "playback",
+					"cursorState": "hidden",
+					"selectedSpeed": "1×",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": 1
+				}
 			},
 			{
-				"stage": "feedback",
-				"cursorState": "hidden",
-				"selectedSpeed": "1×",
-				"sendButtonPressed": false,
-				"feedbackSent": false,
-				"actualSpeed": 1
+				"state": {
+					"stage": "feedback",
+					"cursorState": "hidden",
+					"selectedSpeed": "1×",
+					"sendButtonPressed": false,
+					"feedbackSent": false,
+					"actualSpeed": 1
+				}
 			},
 			{
-				"stage": "feedback",
-				"cursorState": "hidden",
-				"selectedSpeed": "1×",
-				"sendButtonPressed": true,
-				"feedbackSent": false,
-				"actualSpeed": 1
+				"state": {
+					"stage": "feedback",
+					"cursorState": "hidden",
+					"selectedSpeed": "1×",
+					"sendButtonPressed": true,
+					"feedbackSent": false,
+					"actualSpeed": 1
+				}
 			},
 			{
-				"stage": "feedback",
-				"cursorState": "hidden",
-				"selectedSpeed": "1×",
-				"sendButtonPressed": false,
-				"feedbackSent": true,
-				"actualSpeed": 1
+				"state": {
+					"stage": "feedback",
+					"cursorState": "hidden",
+					"selectedSpeed": "1×",
+					"sendButtonPressed": false,
+					"feedbackSent": true,
+					"actualSpeed": 1
+				}
 			},
 			{
-				"stage": "badge",
-				"cursorState": "hidden",
-				"selectedSpeed": "1×",
-				"sendButtonPressed": false,
-				"feedbackSent": true,
-				"actualSpeed": 1
+				"state": {
+					"stage": "badge",
+					"cursorState": "hidden",
+					"selectedSpeed": "1×",
+					"sendButtonPressed": false,
+					"feedbackSent": true,
+					"actualSpeed": 1
+				}
 			}
 		]
 	},

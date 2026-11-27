@@ -28,15 +28,9 @@ describe("status and spotlight after line collapse", () => {
 				),
 				snapshots: [
 					// Frame 0: both lines visible, status on target (index 1)
-					{
-						extra: "shown",
-						annotations: [new Status({ text: "doSomething()", status: "running" })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Status({ text: "doSomething()", status: "running" })] },
 					// Frame 1: collapsible hidden, target is now index 0
-					{
-						extra: "hidden",
-						annotations: [new Status({ text: "doSomething()", status: "success" })],
-					},
+					{ slots: { extra: "hidden" }, annotations: [new Status({ text: "doSomething()", status: "success" })] },
 				],
 			}
 
@@ -70,15 +64,9 @@ describe("status and spotlight after line collapse", () => {
 				),
 				snapshots: [
 					// Frame 0: both lines visible, spotlight on target
-					{
-						extra: "shown",
-						annotations: [new Spotlight({ patterns: ["doSomething"] })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Spotlight({ patterns: ["doSomething"] })] },
 					// Frame 1: collapsible hidden, target is now index 0
-					{
-						extra: "hidden",
-						annotations: [new Spotlight({ patterns: ["doSomething"] })],
-					},
+					{ slots: { extra: "hidden" }, annotations: [new Spotlight({ patterns: ["doSomething"] })] },
 				],
 			}
 
@@ -109,20 +97,11 @@ describe("status and spotlight after line collapse", () => {
 				),
 				snapshots: [
 					// Frame 0: both visible, status on target (index 1)
-					{
-						extra: "shown",
-						annotations: [new Status({ text: "doSomething()", status: "running" })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Status({ text: "doSomething()", status: "running" })] },
 					// Frame 1: collapsed, target at index 0
-					{
-						extra: "hidden",
-						annotations: [new Status({ text: "doSomething()", status: "running" })],
-					},
+					{ slots: { extra: "hidden" }, annotations: [new Status({ text: "doSomething()", status: "running" })] },
 					// Frame 2: expanded again, target back at index 1
-					{
-						extra: "shown",
-						annotations: [new Status({ text: "doSomething()", status: "success" })],
-					},
+					{ slots: { extra: "shown" }, annotations: [new Status({ text: "doSomething()", status: "success" })] },
 				],
 			}
 

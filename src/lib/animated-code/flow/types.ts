@@ -7,7 +7,7 @@
  */
 
 import { Schema } from "effect"
-import type { AnimationSoundName } from "@/sounds/AnimationSounds"
+import type { AnimationSoundName } from "@/lib/animated-code/annotations"
 
 // ============================================================================
 // Focus Spec (TaggedClass discriminated union)
@@ -382,9 +382,3 @@ export interface StepRef {
 	readonly nth?: number
 	readonly offset?: number
 }
-
-// ============================================================================
-// Re-export sound name type
-// ============================================================================
-
-export type { AnimationSoundName } from "@/sounds/AnimationSounds"

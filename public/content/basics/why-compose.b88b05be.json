@@ -494,148 +494,172 @@
 		],
 		"snapshots": [
 			{
-				"show": false,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": false,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": false,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": false,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": false,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": false,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "running",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": false,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "running",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": false,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "completed",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": false,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "completed",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": false,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "completed",
-				"state2": "running",
-				"showLog2": true,
-				"showContainer": false,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "completed",
+					"state2": "running",
+					"showLog2": true,
+					"showContainer": false,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "completed",
-				"state2": "completed",
-				"showLog2": false,
-				"showContainer": false,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "completed",
+					"state2": "completed",
+					"showLog2": false,
+					"showContainer": false,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": false,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": false,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": true,
-				"combined": false,
-				"showProgramNode": false,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": true,
+					"combined": false,
+					"showProgramNode": false,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": true,
-				"combined": true,
-				"showProgramNode": true,
-				"hideBackground": false,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": true,
+					"combined": true,
+					"showProgramNode": true,
+					"hideBackground": false,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": true,
-				"combined": true,
-				"showProgramNode": true,
-				"hideBackground": true,
-				"programState": "idle",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": true,
+					"combined": true,
+					"showProgramNode": true,
+					"hideBackground": true,
+					"programState": "idle",
+					"showProgramLog": false
+				}
 			},
 			{
-				"show": true,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": true,
-				"combined": true,
-				"showProgramNode": true,
-				"hideBackground": true,
-				"programState": "running",
-				"showProgramLog": true
+				"state": {
+					"show": true,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": true,
+					"combined": true,
+					"showProgramNode": true,
+					"hideBackground": true,
+					"programState": "running",
+					"showProgramLog": true
+				}
 			},
 			{
-				"show": true,
-				"state1": "idle",
-				"state2": "idle",
-				"showLog2": false,
-				"showContainer": true,
-				"combined": true,
-				"showProgramNode": true,
-				"hideBackground": true,
-				"programState": "completed",
-				"showProgramLog": false
+				"state": {
+					"show": true,
+					"state1": "idle",
+					"state2": "idle",
+					"showLog2": false,
+					"showContainer": true,
+					"combined": true,
+					"showProgramNode": true,
+					"hideBackground": true,
+					"programState": "completed",
+					"showProgramLog": false
+				}
 			}
 		]
 	},

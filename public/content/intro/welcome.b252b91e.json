@@ -490,172 +490,220 @@
 		],
 		"snapshots": [
 			{
-				"pressed": "none",
-				"activeWord": -1,
-				"showSpace": false,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": -1,
+					"showSpace": false,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 0,
-				"showSpace": false,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 0,
+					"showSpace": false,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 1,
-				"showSpace": false,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 1,
+					"showSpace": false,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 2,
-				"showSpace": false,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 2,
+					"showSpace": false,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 3,
-				"showSpace": false,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 3,
+					"showSpace": false,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 4,
-				"showSpace": false,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 4,
+					"showSpace": false,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": false,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": false,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "space",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "space",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "space",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "space",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": false,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": false,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "up",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "up",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "down",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "down",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "up",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "up",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "down",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "down",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": false
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": false
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": true
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": true
+				}
 			},
 			{
-				"pressed": "space",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": true
+				"state": {
+					"pressed": "space",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": true
+				}
 			},
 			{
-				"pressed": "none",
-				"activeWord": 999,
-				"showSpace": true,
-				"showArrows": true,
-				"showCompletion": true
+				"state": {
+					"pressed": "none",
+					"activeWord": 999,
+					"showSpace": true,
+					"showArrows": true,
+					"showCompletion": true
+				}
 			}
 		]
 	},

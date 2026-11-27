@@ -74,7 +74,7 @@ export const readCmd = Command.make(
 
 				const { snapshots } = compileFlow(section.code.base, [...section.code.flow], section.code.animation)
 
-				const rendered = render(section.code.animation, snapshots[0])
+				const rendered = render(section.code.animation, snapshots[0].slots)
 				return rendered.lines.map((line) => line.parts.map((p) => p.content).join("")).join("\n")
 			}
 

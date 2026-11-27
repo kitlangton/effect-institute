@@ -327,27 +327,35 @@
 		],
 		"snapshots": [
 			{
-				"showSuccess": false,
-				"showError": false,
-				"showRequirements": false
+				"state": {
+					"showSuccess": false,
+					"showError": false,
+					"showRequirements": false
+				}
 			},
 			{
-				"showSuccess": true,
-				"showError": false,
-				"showRequirements": false,
-				"_sound": "ping1"
+				"state": {
+					"showSuccess": true,
+					"showError": false,
+					"showRequirements": false
+				},
+				"sound": "ping1"
 			},
 			{
-				"showSuccess": true,
-				"showError": true,
-				"showRequirements": false,
-				"_sound": "ping1"
+				"state": {
+					"showSuccess": true,
+					"showError": true,
+					"showRequirements": false
+				},
+				"sound": "ping1"
 			},
 			{
-				"showSuccess": true,
-				"showError": true,
-				"showRequirements": true,
-				"_sound": "ping1"
+				"state": {
+					"showSuccess": true,
+					"showError": true,
+					"showRequirements": true
+				},
+				"sound": "ping1"
 			}
 		]
 	},

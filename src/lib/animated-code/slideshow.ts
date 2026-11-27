@@ -12,6 +12,7 @@
  */
 
 import { Schema } from "effect"
+import { AnimationSoundName } from "@/lib/animated-code/annotations"
 
 // ============================================================================
 // Wire Format
@@ -144,7 +145,7 @@ export const FrameState = Schema.Struct({
 	status: Schema.optionalKey(StatusIndicators),
 	cursor: Schema.optionalKey(CursorTarget),
 	bursts: Schema.Array(BurstTarget),
-	sound: Schema.optionalKey(Schema.String),
+	sound: Schema.optionalKey(AnimationSoundName),
 	/** Cursor speech bubble */
 	say: Schema.optionalKey(Schema.String),
 })
