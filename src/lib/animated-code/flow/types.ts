@@ -93,8 +93,8 @@ export interface BurstSpec extends PatternMatchOptions {
 // ============================================================================
 
 /** Token-level focus: dims everything but the matching text */
-export interface TokenFocusSpec extends PatternMatchOptions {
-	/** Text pattern to highlight */
+export interface TokenFocusSpec {
+	/** Text to spotlight: every match, or every match on `line` */
 	text: string
 	/** Optional: constrain to specific line */
 	line?: string
