@@ -41,5 +41,5 @@
       "@content/*": ["./content/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "content/**/*.ts", "scripts/generate-og/**/*.ts", "vite.config.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "content/**/*.ts", "scripts/generate-og/**/*.ts", "scripts/check-dist/**/*.ts", "vite.config.ts"]
 }

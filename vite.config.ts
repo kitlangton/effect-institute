@@ -6,6 +6,7 @@ import tailwindcss from "@tailwindcss/vite"
 import { tanstackStart } from "@tanstack/react-start/plugin/vite"
 import viteReact from "@vitejs/plugin-react"
 import { defineConfig, type Plugin } from "vite"
+import { authoringPlugin } from "./src/authoring/server/devPlugin"
 import { parseRange } from "./src/contentAssets"
 
 /**
@@ -196,6 +197,8 @@ const config = defineConfig({
 					contentAssetsPlugin(),
 					tailwindcss(),
 					contentDslPlugin(),
+					// Dev only (apply: "serve"): recording, alignment and generation endpoints under /__authoring/*.
+					authoringPlugin(),
 					cloudflare({ viteEnvironment: { name: "ssr" } }),
 					tanstackStart(),
 				]),

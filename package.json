@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3210",
-    "build": "bun narrate build --published && vite build",
+    "build": "bun narrate build --published && vite build && bun scripts/check-dist/main.ts",
     "serve": "vite preview",
     "cf:dev": "wrangler dev --port 8788",
     "cf:deploy": "bun scripts/deploy/cf-deploy.ts production",

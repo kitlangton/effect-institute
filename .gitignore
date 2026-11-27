@@ -12,3 +12,7 @@ dist-ssr
 .tanstack
 .wrangler
 .output
+
+# Local narration scratch: raw takes and replaced audio (see README, "Add narration")
+recordings
+backups

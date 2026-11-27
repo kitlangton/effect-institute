@@ -2,7 +2,7 @@ import { useAtom, useAtomSet, useAtomValue } from "@effect/atom-react"
 import { LinkIcon } from "@phosphor-icons/react"
 import { useNavigate } from "@tanstack/react-router"
 import { AnimatePresence, motion } from "motion/react"
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { playbackStateAtom } from "@/atoms/audioPlayer"
 import { hoverSessionAtom, optionHeldAtom, overrideTooltipAtom } from "@/atoms/cursor"
 import { activeIndexAtom, lastChapterAtom, type SectionData } from "@/atoms/narration"
@@ -22,6 +22,12 @@ import { GroupOutline } from "./GroupOutline"
 import { SectionContextMenu } from "./SectionContextMenu"
 import { SectionIndicator } from "./SectionIndicator"
 import { SectionRow } from "./SectionRow"
+
+// Dev-only recording bar. Keep both the definition and the use below as ternaries on import.meta.env.DEV:
+// that is the form the bundler removes from production builds (an early return without an else is not).
+const AuthoringBar = import.meta.env.DEV
+	? lazy(() => import("@/authoring/client").then((m) => ({ default: m.AuthoringBar })))
+	: null
 
 interface DesktopLayoutProps {
 	chapter: string
@@ -305,6 +311,11 @@ export function DesktopLayout({
 							className="absolute bottom-0 left-0 right-0 flex items-center justify-end border-t border-[var(--border-subtle)] bg-black z-20"
 							style={{ height: NAV_BAR_HEIGHT }}
 						>
+							{import.meta.env.DEV && AuthoringBar ? (
+								<Suspense fallback={null}>
+									<AuthoringBar chapter={chapter} sectionId={activeSection.id} />
+								</Suspense>
+							) : null}
 							<FooterLinks uppercase />
 						</div>
 					</div>
