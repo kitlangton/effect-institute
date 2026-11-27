@@ -21,7 +21,7 @@ import {
 
 const root = path.resolve(import.meta.dir, "../..")
 const redirectPath = path.join(root, ".wrangler/deploy/config.json")
-const wrangler = ["bunx", "wrangler@latest"]
+const wrangler = ["bunx", "wrangler"]
 
 const { values, positionals } = parseArgs({
 	args: Bun.argv.slice(2),
@@ -100,7 +100,7 @@ try {
 		console.log(`Production ${PRODUCTION_WORKER} after:  ${after}`)
 		if (after !== before) {
 			throw new Error(
-				`PRODUCTION CHANGED during a ${targetName} deploy (was ${before}). Roll back now: bunx wrangler@latest rollback <version> --name ${PRODUCTION_WORKER}`,
+				`PRODUCTION CHANGED during a ${targetName} deploy (was ${before}). Roll back now: bunx wrangler rollback <version> --name ${PRODUCTION_WORKER}`,
 			)
 		}
 	}
