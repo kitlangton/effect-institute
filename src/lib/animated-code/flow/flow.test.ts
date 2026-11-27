@@ -160,6 +160,16 @@ describe("flow", () => {
 			const step = on("run").status("code", "running")._build()
 			expect(step.annotations.status).toEqual([{ text: "code", status: "running" }])
 		})
+
+		it(".at() applies each annotation to the shared target, mark included", () => {
+			const step = on("x")
+				.at("Err", (t) => t.bright().cursor({ type: "pointer" }).mark({ color: "red" }).status("error"), { nth: 2 })
+				._build()
+			expect(step.annotations.bright).toEqual([{ text: "Err", nth: 2 }])
+			expect(step.annotations.cursor).toEqual({ text: "Err", nth: 2, type: "pointer" })
+			expect(step.annotations.mark).toEqual([{ text: "Err", nth: 2, color: "red" }])
+			expect(step.annotations.status).toEqual([{ text: "Err", status: "error", nth: 2 }])
+		})
 	})
 
 	describe("extractSlotDefaults()", () => {

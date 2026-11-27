@@ -339,6 +339,7 @@ export interface AnnotationBuilder {
 	bright(opts?: { color?: string; persist?: boolean }): AnnotationBuilder
 	glow(opts?: { color?: string }): AnnotationBuilder
 	squiggle(opts?: { color?: string; persist?: boolean }): AnnotationBuilder
+	mark(opts?: { color?: string; persist?: boolean }): AnnotationBuilder
 	burst(emoji: string | string[], opts?: { count?: number; persist?: boolean }): AnnotationBuilder
 	status(status: StatusKind, opts?: { persist?: boolean }): AnnotationBuilder
 }
