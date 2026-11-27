@@ -490,6 +490,12 @@
 						"p0",
 						"type:shown/0",
 						"p1"
+					],
+					"brightBoundaries": [
+						{
+							"start": 33,
+							"end": 38
+						}
 					]
 				},
 				"def2": {

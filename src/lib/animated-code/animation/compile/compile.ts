@@ -72,7 +72,7 @@ export function compile(def: AnimationDef, highlight: Highlight = plainText): Co
 	)
 
 	// Phase 5: Store each part's renderings once, then each frame's choice among them
-	const template = buildTemplate(frames)
+	const template = buildTemplate(frames, everyRange.bright)
 	return {
 		template: { lines: template.lines },
 		frames: frames.map((frame) => frameState(frame, template)),
@@ -103,26 +103,29 @@ function compileLineParts(lines: readonly ManifestLine[], snapshots: readonly Sn
 }
 
 // ============================================================================
-// Phase 3: Every Spotlight and Status Range (for stable DOM)
+// Phase 3: Every Spotlight, Status and Bright Range (for stable DOM)
 // ============================================================================
 
-/** Ranges ever spotlit or given a status indicator, by line ID, so token spans never split mid-animation */
+/** Ranges ever spotlit, given a status indicator or lit by bright, by line ID, so token spans never split mid-animation */
 interface EveryRange {
 	readonly spotlight: ReadonlyMap<string, readonly CharRange[]>
 	readonly status: ReadonlyMap<string, readonly CharRange[]>
+	readonly bright: ReadonlyMap<string, readonly CharRange[]>
 }
 
 function collectEveryRange(resolved: readonly ResolvedSnapshot[]): EveryRange {
 	const spotlight = new Map<string, CharRange[]>()
 	const status = new Map<string, CharRange[]>()
+	const bright = new Map<string, CharRange[]>()
 	const add = (into: Map<string, CharRange[]>, lineId: string, ranges: readonly CharRange[]) =>
 		into.set(lineId, [...(into.get(lineId) ?? []), ...ranges])
 
 	for (const snapshot of resolved) {
 		for (const [lineId, ranges] of Object.entries(snapshot.spotlight?.ranges ?? {})) add(spotlight, lineId, ranges)
 		for (const { lineId, start, end } of snapshot.status) add(status, lineId, [{ start, end }])
+		for (const { lineId, start, end } of snapshot.brights) add(bright, lineId, [{ start, end }])
 	}
-	return { spotlight, status }
+	return { spotlight, status, bright }
 }
 
 // ============================================================================
@@ -297,6 +300,11 @@ const tokensIdentity = (tokens: readonly Token[]): string =>
 
 const tokensText = (tokens: readonly Token[]): string => tokens.map((t) => t.text).join("")
 
+/** Ranges without repeats, in first-seen order */
+const uniqueRanges = (ranges: readonly CharRange[]): CharRange[] => [
+	...new Map(ranges.map((r) => [`${r.start}-${r.end}`, { start: r.start, end: r.end }])).values(),
+]
+
 interface TemplateBuild {
 	readonly lines: Record<string, TemplateLine>
 	/** Version key of a visible rendering, for parts with more than one (undefined = the only one) */
@@ -310,8 +318,11 @@ interface TemplateBuild {
  * the same text with different colors (Shiki colors depend on the rest of the line). Version keys
  * are the part's text; a later rendering of the same text with other colors gets `text\u0000n`.
  */
-function buildTemplate(frames: readonly FrameRendering[]): TemplateBuild {
-	const lines: Record<string, { parts: Record<string, TemplatePart>; partOrder: string[] }> = {}
+function buildTemplate(
+	frames: readonly FrameRendering[],
+	brightRanges: ReadonlyMap<string, readonly CharRange[]>,
+): TemplateBuild {
+	const lines: Record<string, TemplateLine & { parts: Record<string, TemplatePart>; partOrder: string[] }> = {}
 	/** line -> part -> rendering identity -> version key */
 	const keys = new Map<string, Map<string, Map<string, string>>>()
 	/** line -> part -> version key -> tokens */
@@ -322,7 +333,12 @@ function buildTemplate(frames: readonly FrameRendering[]): TemplateBuild {
 			let templateLine = lines[line.lineId]
 			if (!templateLine) {
 				// A line renders the same parts in every frame, so its first frame fixes the order
-				templateLine = lines[line.lineId] = { parts: {}, partOrder: [] }
+				const bright = brightRanges.get(line.lineId)
+				templateLine = lines[line.lineId] = {
+					parts: {},
+					partOrder: [],
+					...(bright && { brightBoundaries: uniqueRanges(bright) }),
+				}
 				keys.set(line.lineId, new Map())
 				renderings.set(line.lineId, new Map())
 				for (const part of line.parts) {

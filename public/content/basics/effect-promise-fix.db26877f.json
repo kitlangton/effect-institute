@@ -732,6 +732,12 @@
 						"thunkType:shown/0",
 						"mainType:*/0",
 						"p1"
+					],
+					"brightBoundaries": [
+						{
+							"start": 18,
+							"end": 23
+						}
 					]
 				},
 				"def2": {
@@ -877,6 +883,12 @@
 						"thunkImpl:*/0",
 						"p1",
 						"effectWrapClose:shown/0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 2,
+							"end": 16
+						}
 					]
 				},
 				"blank1": {

@@ -1590,6 +1590,12 @@
 						"p2",
 						"arrowOrNot:*/0",
 						"p3"
+					],
+					"brightBoundaries": [
+						{
+							"start": 35,
+							"end": 36
+						}
 					]
 				},
 				"closeLine": {
@@ -1830,6 +1836,12 @@
 						"yieldOrAwait:*/0",
 						"p2",
 						"askNameCall:*/0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 23,
+							"end": 29
+						}
 					]
 				},
 				"ageLine": {

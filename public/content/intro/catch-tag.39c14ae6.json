@@ -433,6 +433,12 @@
 						"errorType:shown/veryBadError:shown/0",
 						"errorType:shown/tooHighError:shown/0",
 						"p1"
+					],
+					"brightBoundaries": [
+						{
+							"start": 38,
+							"end": 45
+						}
 					]
 				},
 				"slowDieRef": {

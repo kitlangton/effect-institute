@@ -664,6 +664,12 @@
 						"varPrefix:*/0",
 						"p1",
 						"delay:shown/0"
+					],
+					"brightBoundaries": [
+						{
+							"start": 56,
+							"end": 61
+						}
 					]
 				},
 				"blank": {
@@ -881,6 +887,16 @@
 						"p3",
 						"refPrefix:*/0",
 						"p4"
+					],
+					"brightBoundaries": [
+						{
+							"start": 21,
+							"end": 28
+						},
+						{
+							"start": 38,
+							"end": 48
+						}
 					]
 				}
 			}
