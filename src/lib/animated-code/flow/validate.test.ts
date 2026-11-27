@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest"
-import { on, validateFlowPatterns, validateFlowWords } from "."
+import { type Animation, line, slot, stack } from "@/lib/animated-code/animation/animation"
+import { compileFlow, on, type StepBuilder, validateFlowPatterns, validateFlowWords } from "."
 
 describe("validateFlowWords", () => {
 	it("accepts prefix refs for generic-looking transcript words", () => {
@@ -14,37 +15,61 @@ describe("validateFlowWords", () => {
 	})
 })
 
+const validate = (animation: Animation, flow: StepBuilder[]) =>
+	validateFlowPatterns(animation, flow, compileFlow(undefined, flow, animation).snapshots)
+
+const misses = (animation: Animation, flow: StepBuilder[]) =>
+	validate(animation, flow).map((w) =>
+		w.type === "pattern-not-found" ? [w.stepName, w.annotation, w.pattern] : w.type,
+	)
+
 describe("validateFlowPatterns", () => {
 	it("accepts punctuation-leading patterns without substring mode", () => {
-		const flow = [on("With").cursor(".pipe")]
-		const warnings = validateFlowPatterns(flow, "slowDie.pipe(", [])
-		expect(warnings).toHaveLength(0)
+		expect(validate(line("a", "slowDie.pipe("), [on("With").cursor(".pipe")])).toHaveLength(0)
+		expect(validate(line("a", "const x: any = 1"), [on("type").cursor(": any")])).toHaveLength(0)
 	})
 
-	it("accepts punctuation patterns like ': any' without substring mode", () => {
-		const flow = [on("type").cursor(": any")]
-		const warnings = validateFlowPatterns(flow, "const x: any = 1", [])
-		expect(warnings).toHaveLength(0)
-	})
-
-	it("validates each step against its own rendered code when given per-step code", () => {
-		const flow = [on("first").cursor("alpha"), on("second").cursor("beta")]
-		expect(validateFlowPatterns(flow, ["const alpha = 1", "const beta = 2"], [])).toHaveLength(0)
-
-		// "beta" only exists in step 1's code, so step 0's cursor must not resolve against it
-		const swapped = validateFlowPatterns(flow, ["const beta = 2", "const alpha = 1"], [])
-		expect(swapped.map((w) => (w.type === "pattern-not-found" ? [w.stepName, w.pattern] : w.type))).toEqual([
-			["first", "alpha"],
-			["second", "beta"],
+	it("checks each step against the code that step shows", () => {
+		const anim = line("l", slot("v", { a: "const alpha = 1", b: "const beta = 2" }))
+		expect(validate(anim, [on("first").cursor("alpha"), on("second").slots({ v: "b" }).cursor("beta")])).toHaveLength(0)
+		expect(
+			misses(anim, [on("first").slots({ v: "b" }).cursor("alpha"), on("second").slots({ v: "a" }).cursor("beta")]),
+		).toEqual([
+			["first", "cursor", "alpha"],
+			["second", "cursor", "beta"],
 		])
 	})
 
 	it("does not match patterns across line boundaries", () => {
-		const flow = [on("x").cursor("a\nb")]
-		expect(validateFlowPatterns(flow, "a\nb", [])).toHaveLength(1)
+		expect(validate(stack(line("a", "a"), line("b", "b")), [on("x").cursor("a\nb")])).toHaveLength(1)
 	})
 
-	it("rejects per-step code that is not aligned with the flow", () => {
-		expect(() => validateFlowPatterns([on("x")], [], [])).toThrow("expected 1 rendered steps")
+	it("checks marks and status indicators", () => {
+		expect(misses(line("a", "const x = 1"), [on("x").mark("y"), on("z").status("nope", "success")])).toEqual([
+			["x", "mark", "y"],
+			["z", "status", "nope"],
+		])
+	})
+
+	it("checks line-scoped token focus on its line only", () => {
+		const anim = stack(line("a", "foo()"), line("b", "bar()"))
+		expect(validate(anim, [on("x").focus({ line: "b", text: "bar" })])).toHaveLength(0)
+		expect(misses(anim, [on("x").focus({ line: "b", text: "foo" })])).toEqual([["x", "focus (token)", "foo (line b)"]])
+	})
+
+	it("reports a persisting annotation once, where it first misses", () => {
+		const anim = line("l", slot("v", { a: "alpha", b: "beta" }))
+		const flow = [on("one").bright("alpha", { persist: true }), on("two").slots({ v: "b" }), on("three")]
+		expect(misses(anim, flow)).toEqual([["two", "bright", "alpha"]])
+	})
+
+	it("reports line IDs a line focus names that do not exist", () => {
+		expect(validate(line("a", "x"), [on("x").focus("a"), on("y").focus.range("a", "zz")])).toEqual([
+			{ type: "line-id-not-found", lineId: "zz", stepName: "y" },
+		])
+	})
+
+	it("rejects snapshots that are not aligned with the flow", () => {
+		expect(() => validateFlowPatterns(line("a", "x"), [on("x")], [])).toThrow("expected 2 snapshots")
 	})
 })

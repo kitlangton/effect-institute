@@ -18,7 +18,6 @@ import {
 	type CompiledComponentFlow,
 	compileComponentFlow,
 	compileFlow,
-	extractLineIds,
 	type FlowWarning,
 	validateFlowPatterns,
 	validateFlowWords,
@@ -255,12 +254,7 @@ export function compileSection(
 		// Validate step words exist in transcript
 		const wordWarnings = validateFlowWords([...def.code.flow], transcriptWords)
 
-		// Validate each step's annotation patterns against the code that step renders.
-		// snapshots[0] is the base state; snapshots[i + 1] is produced by flow[i].
-		const anim = def.code.animation
-		const stepCode = snapshots.slice(1).map((snap) => evaluateCode(anim, snap.slots))
-		const lineIds = extractLineIds(anim)
-		const patternWarnings = validateFlowPatterns([...def.code.flow], stepCode, lineIds)
+		const patternWarnings = validateFlowPatterns(def.code.animation, def.code.flow, snapshots)
 
 		warnings = [...flowWarnings, ...wordWarnings, ...patternWarnings]
 		if (warnings.length > 0) {
