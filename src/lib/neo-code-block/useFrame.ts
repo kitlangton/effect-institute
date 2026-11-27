@@ -7,15 +7,14 @@
  */
 
 import { useMemo } from "react"
-import { expandFrame } from "./compress"
-import type { Frame, TemplateSlideshowData } from "./types"
+import { type CodeSlideshow, expandFrame, type Frame } from "@/lib/animated-code/slideshow"
 
 /**
  * Hook to get a reconstructed frame from template slideshow data.
  *
  * Memoizes reconstruction - only recomputes when snapshot changes.
  */
-export function useFrame(data: TemplateSlideshowData, snapshot: number): Frame | null {
+export function useFrame(data: CodeSlideshow, snapshot: number): Frame | null {
 	return useMemo(() => {
 		const frameCount = data.frames.length
 		if (frameCount === 0) return null

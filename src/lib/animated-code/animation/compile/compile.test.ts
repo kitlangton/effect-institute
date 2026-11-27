@@ -1,7 +1,14 @@
 import { describe, expect, it } from "@effect/vitest"
 import { Background, Burst, Cursor, Focus, Glow, Mark, Sound, Spotlight, Squiggle, Status } from "../../annotations"
-import { concat, empty, line, slot, stack, text } from "../animation"
+import { expandFrame } from "../../slideshow"
+import { type AnimationDef, concat, empty, line, slot, stack, text } from "../animation"
 import { compile } from "./compile"
+
+/** Compile and expand every frame, as the renderer sees them */
+const compileFrames = (def: AnimationDef) => {
+	const { template, frames } = compile(def)
+	return { frames: frames.map((frame) => expandFrame(frame, template)) }
+}
 
 describe("compile", () => {
 	describe("basic compilation", () => {
@@ -11,7 +18,7 @@ describe("compile", () => {
 				snapshots: [{}],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames).toHaveLength(1)
 			expect(data.frames[0].lines).toHaveLength(1)
@@ -25,7 +32,7 @@ describe("compile", () => {
 				snapshots: [{}],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines).toHaveLength(3)
 			expect(data.frames[0].lines.map((l) => l.lineId)).toEqual(["line1", "line2", "line3"])
@@ -37,7 +44,7 @@ describe("compile", () => {
 				snapshots: [{}, {}, {}],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames).toHaveLength(3)
 		})
@@ -52,7 +59,7 @@ describe("compile", () => {
 				snapshots: [{ type: "num" }, { type: "str" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines[0].text).toBe("const x: number")
 			expect(data.frames[1].lines[0].text).toBe("const x: string")
@@ -66,7 +73,7 @@ describe("compile", () => {
 				snapshots: [{ type: "hidden" }, { type: "shown" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines[0].text).toBe("const x")
 			expect(data.frames[1].lines[0].text).toBe("const x: number")
@@ -80,7 +87,7 @@ describe("compile", () => {
 				snapshots: [{}, { extra: "shown" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines.map((line) => line.lineId)).toEqual(["line1"])
 			expect(data.frames[1].lines.map((line) => line.lineId)).toEqual(["line1", "line2"])
@@ -98,7 +105,7 @@ describe("compile", () => {
 				snapshots: [{ extra: "hidden" }, { extra: "shown" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines).toHaveLength(1)
 			expect(data.frames[0].lines[0].lineId).toBe("line1")
@@ -120,7 +127,7 @@ describe("compile", () => {
 				snapshots: [{ extra: "hidden" }, { extra: "shown" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[1].lines[0].entering).toBe(false)
 		})
@@ -137,7 +144,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].marks).toHaveLength(1)
 			expect(data.frames[0].marks[0].lineIndex).toBe(0)
@@ -155,7 +162,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].glows).toHaveLength(1)
 			expect(data.frames[0].glows[0].color).toBe("blue")
@@ -171,7 +178,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].squiggles).toHaveLength(1)
 			expect(data.frames[0].squiggles[0].color).toBe("red")
@@ -187,7 +194,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].cursor).toBeDefined()
 			expect(data.frames[0].cursor!.type).toBe("pointer")
@@ -203,7 +210,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].bursts).toHaveLength(1)
 			expect(data.frames[0].bursts[0].emoji).toEqual(["🎉"])
@@ -220,7 +227,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines[0].dimmed).toBe(false)
 			expect(data.frames[0].lines[1].dimmed).toBe(true)
@@ -236,7 +243,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].status).toBeDefined()
 			expect(data.frames[0].status!.ranges[0]).toBeDefined()
@@ -252,7 +259,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].spotlight).toBeDefined()
 			expect(data.frames[0].spotlight!.dim).toBe(0.5)
@@ -268,7 +275,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines[0].background).toBe("success")
 		})
@@ -283,7 +290,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].sound).toBe("ding")
 		})
@@ -300,7 +307,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].marks[0].start).toBe(6)
 			expect(data.frames[0].marks[0].end).toBe(9)
@@ -316,7 +323,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].marks).toHaveLength(1)
 			expect(data.frames[0].marks[0].start).toBe(7)
@@ -333,7 +340,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].marks).toHaveLength(1)
 			expect(data.frames[0].marks[0].start).toBe(7)
@@ -350,7 +357,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].marks[0].start).toBe(10)
 		})
@@ -365,7 +372,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].marks[0].start).toBe(10)
 		})
@@ -380,7 +387,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].marks).toHaveLength(0)
 		})
@@ -397,7 +404,7 @@ describe("compile", () => {
 				snapshots: [{ type: "hidden" }, { type: "shown" }, { type: "hidden" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			// Frame 0: hidden - no ": number"
 			expect(data.frames[0].lines[0].text).toBe("const x")
@@ -421,7 +428,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			expect(data.frames[0].lines[0].text).toBe("fn")
 			expect(data.frames[1].lines[0].text).toBe("fn()")
@@ -448,7 +455,7 @@ describe("compile", () => {
 				],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			// Frame 0: thunk hidden
 			expect(data.frames[0].lines[0].text).toBe("const x")
@@ -473,7 +480,7 @@ describe("compile", () => {
 				snapshots: [{ type: "hidden" }, { type: "shown" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			// In frame 1, the ": number" part should have animateEntry true
 			const frame1Parts = data.frames[1].lines[0].parts
@@ -489,7 +496,7 @@ describe("compile", () => {
 				snapshots: [{ type: "num" }, { type: "str" }],
 			}
 
-			const data = compile(def)
+			const data = compileFrames(def)
 
 			const typePart = data.frames[0].lines[0].parts.find((p) => p.tokens.some((t) => t.text === "number"))
 			expect(typePart?.crossfade).toBe(true)

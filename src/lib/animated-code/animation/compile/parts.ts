@@ -69,15 +69,11 @@ interface CompileContext {
 // Main Entry Point
 // ============================================================================
 
-/**
- * Compile Animation content to Parts.
- * The allocatePartId parameter is ignored - IDs are path-based for stability.
- */
+/** Compile Animation content to Parts (IDs are path-based for stability). */
 export function compileLineContentFromAST(
 	anim: Animation,
 	snapshots: readonly Snapshot[],
 	snapshotIndices: readonly number[],
-	_allocatePartId: () => string, // kept for API compatibility
 ): Part[] {
 	const ctx: CompileContext = {
 		snapshots,

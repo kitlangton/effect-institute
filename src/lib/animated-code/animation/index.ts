@@ -14,7 +14,7 @@ export {
 	stack,
 	text,
 } from "./animation"
-export { compile } from "./compile/compile"
+export { compile, compileSlideshow } from "./compile/compile"
 export { previewSteps, type StepPreview } from "./preview"
 export {
 	getLineIds,

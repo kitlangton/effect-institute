@@ -1,13 +1,13 @@
 "use client"
 
-import type { FrameLine, SpotlightConfig, StatusConfig } from "../types"
+import type { FrameLine, Spotlight, StatusIndicators } from "@/lib/animated-code/slideshow"
 import { LineParts } from "./LineParts"
 
 interface MeasurementLineProps {
 	line: FrameLine
 	lineIndex: number
-	spotlight?: SpotlightConfig
-	status?: StatusConfig
+	spotlight?: Spotlight
+	status?: StatusIndicators
 }
 
 /**

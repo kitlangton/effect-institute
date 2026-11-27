@@ -1,11 +1,9 @@
 import { createHash } from "node:crypto"
 import basics from "@content/basics/index.ts"
 import intro from "@content/intro/index.ts"
-import { Effect } from "effect"
 import { describe, expect, it } from "vitest"
-import { slideshowFor } from "@/backend/services/course/builder"
-import { expandFrame } from "@/lib/neo-code-block/compress"
-import type { Frame, TemplateSlideshowData } from "@/lib/neo-code-block/types"
+import { compileSlideshow } from "@/lib/animated-code/animation"
+import { expandFrame, type Frame } from "@/lib/animated-code/slideshow"
 import { compileSectionsWithGroups } from "./compile"
 
 /**
@@ -83,9 +81,8 @@ const render = async () => {
 	const hashes: Record<string, string> = {}
 	for (const chapter of [intro, basics]) {
 		for (const section of compileSectionsWithGroups(chapter, { includeDrafts: true })) {
-			const built: Effect.Effect<{ slideshowData: TemplateSlideshowData | undefined; steps: unknown }> =
-				slideshowFor(section)
-			const { slideshowData, steps } = await Effect.runPromise(built)
+			const slideshowData = section.animation && (await compileSlideshow(section.animation))
+			const steps = section.animation?.steps
 			const frames = slideshowData?.frames.map((state) => normalize(expandFrame(state, slideshowData.template)))
 			const digest = createHash("sha256").update(canonical({ frames, steps })).digest("hex")
 			hashes[`${chapter.id}/${section.id}`] = digest.slice(0, 16)

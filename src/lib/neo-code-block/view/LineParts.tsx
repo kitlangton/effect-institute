@@ -3,17 +3,17 @@
 import { ArrowRight } from "@phosphor-icons/react"
 import { motion } from "motion/react"
 import React from "react"
-import { SPOTLIGHT_DIMMED_OPACITY, SPOTLIGHT_FULL_OPACITY, SPOTLIGHT_TRANSITION_DURATION } from "../constants"
-import type { Token } from "../highlighter"
 import type {
-	AnnotationOverlay,
 	CharRange,
 	FrameLine,
 	FramePart,
 	FramePartVersion,
-	SpotlightConfig,
-	StatusConfig,
-} from "../types"
+	Overlay,
+	Spotlight,
+	StatusIndicators,
+	Token,
+} from "@/lib/animated-code/slideshow"
+import { SPOTLIGHT_DIMMED_OPACITY, SPOTLIGHT_FULL_OPACITY, SPOTLIGHT_TRANSITION_DURATION } from "../constants"
 import { AnimatedPart } from "./AnimatedPart"
 import { StatusIndicator } from "./StatusIndicator"
 import { splitTokensAtSpotlightBoundaries } from "./spotlight"
@@ -25,7 +25,7 @@ import { splitTokensAtSpotlightBoundaries } from "./spotlight"
 /**
  * Check if a segment is within any of the given spotlight ranges.
  */
-function isInSpotlightRange(segStart: number, segEnd: number, ranges: CharRange[]): boolean {
+function isInSpotlightRange(segStart: number, segEnd: number, ranges: readonly CharRange[]): boolean {
 	return ranges.some((r) => segStart >= r.start && segEnd <= r.end)
 }
 
@@ -36,13 +36,13 @@ function isInSpotlightRange(segStart: number, segEnd: number, ranges: CharRange[
  * then animated based on current ranges.
  */
 function renderTokensWithAnnotations(
-	tokens: Token[],
+	tokens: readonly Token[],
 	partOffset: number,
 	lineId: string,
 	lineIndex: number,
-	spotlight?: SpotlightConfig,
-	status?: StatusConfig,
-	brightRanges: readonly AnnotationOverlay[] = [],
+	spotlight?: Spotlight,
+	status?: StatusIndicators,
+	brightRanges: readonly Overlay[] = [],
 	renderMode: "animated" | "static" = "animated",
 ): React.ReactNode[] {
 	// allRanges keyed by line ID (stable across line collapses)
@@ -179,9 +179,9 @@ function partVersions(part: FramePart): { versions: readonly FramePartVersion[];
 interface LinePartsProps {
 	line: FrameLine
 	lineIndex: number
-	spotlight?: SpotlightConfig
-	status?: StatusConfig
-	brightRanges?: readonly AnnotationOverlay[]
+	spotlight?: Spotlight
+	status?: StatusIndicators
+	brightRanges?: readonly Overlay[]
 	renderMode?: "animated" | "static"
 }
 
@@ -221,7 +221,7 @@ export const LineParts = React.memo(function LineParts({
 				}
 
 				// Render inline components (e.g., "output") with special styling
-				const renderContent = (tokens: Token[]) => {
+				const renderContent = (tokens: readonly Token[]) => {
 					const rendered =
 						tokens.length > 0
 							? renderTokensWithAnnotations(
