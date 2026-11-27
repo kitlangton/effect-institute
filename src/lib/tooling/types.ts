@@ -2,6 +2,7 @@
  * Canonical types for narration data, shared between tooling and app.
  */
 import { Schema } from "effect"
+import { CodeSlideshow } from "@/lib/animated-code/slideshow"
 
 // --- Branded IDs ---
 
@@ -73,8 +74,8 @@ export class SectionData extends Schema.Class<SectionData>("SectionData")({
 	wordTimings: Schema.Array(WordTiming),
 	/** Step-driven component flow (receives state per step) */
 	componentFlow: Schema.optional(ComponentFlowData),
-	/** Pre-compiled slideshow data (with tokens) */
-	slideshowData: Schema.optional(Schema.Unknown),
+	/** Compiled code animation (static code is a one-step slideshow) */
+	slideshowData: Schema.optional(CodeSlideshow),
 	/** Step references for timing resolution */
 	steps: Schema.optional(Schema.Array(StepRef)),
 	/** Precomputed step timestamps (seconds) for code animation. Only present when timings matched. */

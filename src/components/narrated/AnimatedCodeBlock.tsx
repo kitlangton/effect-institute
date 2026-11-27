@@ -2,8 +2,7 @@ import { useAtomValue } from "@effect/atom-react"
 import { useMemo } from "react"
 import type { SectionData } from "@/atoms/narration"
 import { createStepAtom } from "@/atoms/narration"
-import { useAnimationSound } from "@/lib/animated-code/animation/useAnimationSound"
-import type { CodeSlideshow } from "@/lib/animated-code/slideshow"
+import { useAnimationSound } from "@/hooks/useAnimationSound"
 import { NeoCodeBlock } from "@/lib/neo-code-block/view/NeoCodeBlock"
 
 interface AnimatedCodeBlockProps {
@@ -16,7 +15,7 @@ interface AnimatedCodeBlockProps {
  * Step times are precomputed at build time when timings are available.
  */
 export function AnimatedCodeBlock({ section, sectionIndex }: AnimatedCodeBlockProps) {
-	const slideshowData = section.slideshowData as CodeSlideshow | undefined
+	const slideshowData = section.slideshowData
 
 	// Use precomputed step times from build, or empty array (step 0 always)
 	const stepTimes = section.stepTimes ?? []

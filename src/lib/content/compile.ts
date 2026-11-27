@@ -23,7 +23,6 @@ import {
 	validateFlowPatterns,
 	validateFlowWords,
 } from "@/lib/animated-code/flow"
-import type { CodeSlideshow } from "@/lib/animated-code/slideshow"
 import { normalizeWord } from "@/lib/text"
 import type { ChapterManifest, ManifestGroupEntry } from "@/lib/tooling/types"
 import type { AnimatedCodeFlow, ChapterDef, GroupDef, SectionDef } from "./dsl"
@@ -47,10 +46,6 @@ export interface CompiledSection {
 	readonly componentFlow?: CompiledComponentFlow
 	/** Code animation (static code is a one-step animation), compiled to slideshowData by the build */
 	readonly animation?: CompiledAnimation
-	/** Compiled code slideshow - output by the build */
-	readonly slideshowData?: CodeSlideshow
-	/** Step references for timing resolution (kept separate from slideshowData) - output by build.ts */
-	readonly steps?: readonly StepRef[]
 	/** Hash of DSL content for change detection */
 	readonly contentHash: string
 	/** Group ID if section belongs to a group */

@@ -5,7 +5,7 @@ import type { SectionData } from "@/atoms/narration"
 import { createStepAtom } from "@/atoms/narration"
 import { AnimatedCodeBlock } from "@/components/narrated/AnimatedCodeBlock"
 import { StepDrivenComponent } from "@/components/narrated/StepDrivenComponent"
-import { useAnimationSound } from "@/lib/animated-code/animation/useAnimationSound"
+import { useAnimationSound } from "@/hooks/useAnimationSound"
 import type { ComponentFlowData } from "@/lib/tooling/types"
 
 interface CodePanelContentProps {
