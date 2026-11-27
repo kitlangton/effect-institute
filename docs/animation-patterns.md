@@ -26,7 +26,7 @@ on("catchAll").slots({ catchAllShow: "shown" }).cursor("catchAll"),  // catchAll
 Only focus on what's relevant to the narration:
 ```typescript
 // Bad: focusing on slowDie when talking about safeDie
-on("create").slots({ name: "safeDie" }).focus.lines("slowDieRef")  // ❌
+on("create").slots({ name: "safeDie" }).focus("slowDieRef")  // ❌
 
 // Good: cursor on safeDie, no focus needed
 on("create").slots({ name: "safeDie" }).cursor("safeDie")  // ✅
@@ -193,17 +193,17 @@ Guide attention through the code:
 ```typescript
 flow: [
   // Intro: spotlight the function name
-  on("slowDie").spotlight("slowDie").cursor("slowDie"),
+  on("slowDie").focus({ text: "slowDie" }).cursor("slowDie"),
 
   // Focus specific lines as narrative progresses
-  on("rolls").focus.lines("random").cursor("Math.random"),
-  on("second").focus.lines("sleep").cursor("sleep"),
+  on("rolls").focus("random").cursor("Math.random"),
+  on("second").focus("sleep").cursor("sleep"),
 
   // Let it breathe: clear focus
   on("decree"),
 
   // Focus new content as it appears
-  on("check").slots({ throwLine: "shown" }).focus.lines("throw"),
+  on("check").slots({ throwLine: "shown" }).focus("throw"),
 ]
 ```
 
