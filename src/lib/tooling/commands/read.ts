@@ -69,13 +69,11 @@ export const readCmd = Command.make(
 				if (typeof section.code === "string") return section.code
 
 				// Animated code - render with base snapshot
-				const { render } = await import("@/lib/animated-code/animation/render")
+				const { evaluateCode } = await import("@/lib/animated-code/animation/compile/evaluate")
 				const { compileFlow } = await import("@/lib/animated-code/flow")
 
 				const { snapshots } = compileFlow(section.code.base, [...section.code.flow], section.code.animation)
-
-				const rendered = render(section.code.animation, snapshots[0].slots)
-				return rendered.lines.map((line) => line.parts.map((p) => p.content).join("")).join("\n")
+				return evaluateCode(section.code.animation, snapshots[0].slots)
 			}
 
 			// Build output structure

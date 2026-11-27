@@ -4,6 +4,7 @@
  * @module
  */
 
+import type { EvaluatedLine } from "@/lib/animated-code/animation/compile/evaluate"
 import {
 	type AnnotationLocation,
 	describeTarget,
@@ -85,33 +86,23 @@ export function slotSummary(preview: StepPreview, prevSlots: Readonly<Record<str
 	return changes.length > 0 ? `Slots: ${changes.join(", ")}` : undefined
 }
 
-/** The rendered line with text from slots that changed this step marked `«…»`, if any. */
-function stabilityLine(preview: StepPreview, lineIndex: number, changedSlots: ReadonlySet<string>): string | undefined {
-	const renderedLine = preview.renderedLines[lineIndex]
-	if (!renderedLine || changedSlots.size === 0) return undefined
+/** The line with text from slots that changed this step marked `«…»`, if any. */
+function stabilityLine(line: EvaluatedLine, changedSlots: ReadonlySet<string>): string | undefined {
+	if (changedSlots.size === 0) return undefined
 
-	let line = ""
+	let marked = ""
 	let hasChangedParts = false
-	for (const part of renderedLine.parts) {
-		const source = part.source
-		const fromChangedSlot =
-			typeof source === "object" &&
-			source !== null &&
-			"_tag" in source &&
-			source._tag === "SlotSource" &&
-			"name" in source &&
-			typeof source.name === "string" &&
-			changedSlots.has(source.name)
-		if (fromChangedSlot) {
-			if (part.content) {
-				line += `«${part.content}»`
+	for (const run of line.runs) {
+		if (run.slot !== undefined && changedSlots.has(run.slot)) {
+			if (run.text) {
+				marked += `«${run.text}»`
 				hasChangedParts = true
 			}
 		} else {
-			line += part.content
+			marked += run.text
 		}
 	}
-	return hasChangedParts ? line : undefined
+	return hasChangedParts ? marked : undefined
 }
 
 function summaryLine(preview: StepPreview, located: ReturnType<typeof locateAnnotations>): string | undefined {
@@ -163,15 +154,15 @@ export function formatCodeStepBody(preview: StepPreview, prevSlots: Readonly<Rec
 		preview.index > 0 ? Object.keys(preview.slots).filter((name) => prevSlots[name] !== preview.slots[name]) : [],
 	)
 
-	preview.codeLines.forEach((codeLine, i) => {
+	preview.lines.forEach((line, i) => {
 		const lineNum = i + 1
 		const focusMarker = located.focusedLines.has(lineNum) ? "▸" : " "
 		const ranges = located.locations
 			.filter((loc) => loc.line === lineNum)
 			.map((loc) => ({ start: loc.start, end: loc.end, tag: loc.kind }))
-		out.push(`${focusMarker}${String(lineNum).padStart(LINE_NUM_WIDTH)}${GUTTER}${annotateLine(codeLine, ranges)}`)
+		out.push(`${focusMarker}${String(lineNum).padStart(LINE_NUM_WIDTH)}${GUTTER}${annotateLine(line.text, ranges)}`)
 
-		const stability = stabilityLine(preview, i, changedSlots)
+		const stability = stabilityLine(line, changedSlots)
 		if (stability !== undefined) out.push(`${" ".repeat(1 + LINE_NUM_WIDTH)}Δ ${stability}`)
 	})
 

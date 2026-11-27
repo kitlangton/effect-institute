@@ -22,6 +22,8 @@ export interface ManifestLine {
 	readonly id: string
 	/** The AST node containing this line's content (for Phase 2 compilation) */
 	readonly content: Animation
+	/** The innermost slot the line sits in, if any */
+	readonly slot?: string
 	/** Snapshot indices where this line is visible */
 	readonly visibleIn: readonly number[]
 }
@@ -43,8 +45,8 @@ interface ManifestContext {
 	readonly snapshots: readonly Snapshot[]
 	/** Current section path (for namespacing line IDs) */
 	readonly sectionPath: readonly string[]
-	/** Current slot path (for disambiguating auto-lines) */
-	readonly slotPath: readonly string[]
+	/** Innermost enclosing slot */
+	readonly slot?: string
 	/** Which snapshot indices are currently active (based on slot conditions) */
 	readonly activeSnapshots: readonly number[]
 }
@@ -70,7 +72,6 @@ export function buildManifest(animation: Animation, snapshots: readonly Snapshot
 	const ctx: ManifestContext = {
 		snapshots,
 		sectionPath: [],
-		slotPath: [],
 		activeSnapshots: Arr.range(0, snapshots.length - 1),
 	}
 
@@ -104,6 +105,7 @@ function walkStructure(
 				id,
 				content: node.content,
 				visibleIn: ctx.activeSnapshots,
+				...(ctx.slot !== undefined && { slot: ctx.slot }),
 			})
 
 			// Add to line order for each active snapshot
@@ -139,7 +141,7 @@ function walkStructure(
 						{
 							...ctx,
 							activeSnapshots: indices,
-							slotPath: [...ctx.slotPath, `${node.name}:${valueName}`],
+							slot: node.name,
 						},
 						lines,
 						lineOrder,

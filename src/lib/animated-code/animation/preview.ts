@@ -1,15 +1,15 @@
 /**
  * Animation preview utilities for debugging.
  *
- * Renders animation snapshots to plain text for CLI inspection, and resolves
- * annotations to the character ranges the runtime compiler would highlight.
+ * Shows each step's lines exactly as the compiled frame shows them, and where the compiler
+ * places each annotation.
  */
 
 import type { Annotation, SpotlightPattern } from "@/lib/animated-code/annotations"
 import { compileFlow, type StepBuilder } from "@/lib/animated-code/flow"
 import type { Animation, SlotValues } from "./animation"
+import { type EvaluatedLine, evaluateLines } from "./compile/evaluate"
 import { type AnnotationMiss, resolveAnnotations, type TargetKind } from "./compile/resolve"
-import { type RenderedLine, render } from "./render"
 
 /** A single step preview showing what renders at that point */
 export interface StepPreview {
@@ -23,12 +23,8 @@ export interface StepPreview {
 	nth?: number
 	/** Only match after this word appears */
 	after?: string
-	/** Rendered code as plain text lines */
-	codeLines: string[]
-	/** IDs of the lines that have one (not index-aligned with codeLines; use renderedLines[i].id for that) */
-	lineIds?: string[]
-	/** Rendered lines with parts and sources for stability analysis */
-	renderedLines: readonly RenderedLine[]
+	/** The lines this step shows, with the slot each run of text came from */
+	lines: readonly EvaluatedLine[]
 	/** Current slot values */
 	slots: SlotValues
 	/** The step's annotations */
@@ -53,20 +49,13 @@ export function previewSteps(
 		const snapshot = snapshots[i]
 		const step = steps[i]
 
-		// Render animation with snapshot
-		const rendered = render(animation, snapshot.slots)
-		const codeLines = rendered.lines.map((line) => line.parts.map((p) => p.content).join(""))
-		const lineIds = rendered.lines.map((line) => line.id).filter((id): id is string => id !== null)
-
 		previews.push({
 			index: i,
 			name: step.name,
 			triggerWord: step.at,
 			...(step.nth && { nth: step.nth }),
 			...(step.after && { after: step.after }),
-			codeLines,
-			lineIds,
-			renderedLines: rendered.lines,
+			lines: evaluateLines(animation, snapshot.slots),
 			slots: snapshot.slots,
 			annotations: snapshot.annotations,
 		})
@@ -82,7 +71,7 @@ export function previewSteps(
 /** Where an annotation lands in the rendered code */
 export interface AnnotationLocation {
 	readonly kind: TargetKind
-	/** 1-based line number into codeLines */
+	/** 1-based line number into the step's lines */
 	readonly line: number
 	readonly start: number
 	readonly end: number
@@ -95,25 +84,13 @@ export interface LocatedAnnotations {
 	readonly focusedLines: ReadonlySet<number>
 }
 
-/** Stand-in ID for rendered lines without one, so line lookups stay index-aligned */
-const lineKey = (line: RenderedLine, index: number) => line.id ?? `__line_${index + 1}__`
-
 /** Display order for locations and misses */
 const KINDS: readonly TargetKind[] = ["cursor", "bright", "burst", "glow", "squiggle", "mark", "status", "spotlight"]
 
 /** Resolve a step's annotations to line numbers and character ranges, the way the compiler resolves them. */
-export function locateAnnotations(
-	preview: Pick<StepPreview, "codeLines" | "renderedLines" | "annotations">,
-): LocatedAnnotations {
-	const keys = preview.codeLines.map((_, i) => {
-		const line = preview.renderedLines[i]
-		return line ? lineKey(line, i) : `__line_${i + 1}__`
-	})
-	const lineNumber = new Map(keys.map((key, i) => [key, i + 1]))
-	const resolved = resolveAnnotations(
-		preview.codeLines.map((text, i) => ({ id: keys[i], text })),
-		preview.annotations,
-	)
+export function locateAnnotations(preview: Pick<StepPreview, "lines" | "annotations">): LocatedAnnotations {
+	const lineNumber = new Map(preview.lines.map((line, i) => [line.id, i + 1]))
+	const resolved = resolveAnnotations(preview.lines, preview.annotations)
 
 	const located: AnnotationLocation[] = []
 	const add = (kind: TargetKind, lineId: string, start: number, end: number) => {

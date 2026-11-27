@@ -99,7 +99,7 @@ const textTarget = (ann: {
  * Say and Sound annotations replace earlier ones; the rest accumulate.
  */
 export function resolveAnnotations(
-	lines: readonly EvaluatedLine[],
+	lines: ReadonlyArray<Pick<EvaluatedLine, "id" | "text">>,
 	annotations: readonly Annotation[],
 ): ResolvedSnapshot {
 	const indexed = indexLines(lines)

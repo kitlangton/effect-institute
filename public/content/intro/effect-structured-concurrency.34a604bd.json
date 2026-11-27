@@ -1,8 +1,8 @@
 {
 	"id": "effect-structured-concurrency",
 	"text": "How will Effect save us this time? First let's revert the Promise solution. Then we can switch ask over to Effect's AI library. We'll migrate getStockAdvice over to Effect, swapping out Promise.all for Effect.all. And... that's it. Our text generation requests will run in parallel, and if one fails, the others are automatically interrupted. This property of structured concurrency is built into Effect.",
-	"code": "function ask(role: string, ticker: string, signal: AbortSignal) {\n  return generateText({\n    model: anthropic('claude-opus-4-5'),\n    system: `You are a ${role}. Give stock advice.`,\n    prompt: ticker,\n    abortSignal: signal\n  })\n}\n\nasync function getStockAdvice(ticker: string) {\n  const controller = new AbortController()\n  try {\n    const [tree, star, beetle] = await Promise.all([\n      ask(\"tree\", ticker, controller.signal),\n      ask(\"Zubenelgenubi\", ticker, controller.signal),\n      ask(\"dung beetle\", ticker, controller.signal)\n    ])\n    return { tree, star, beetle }\n  } catch (e) {\n    controller.abort()\n    throw e\n  }\n}",
-	"contentHash": "8f9f29d12a584319",
+	"code": "function ask(role: string, ticker: string, signal: AbortSignal) {\n  return generateText({\n    model: anthropic('claude-opus-4-5'),\n    system: `You are a ${role}. Give stock advice.`,\n    prompt: ticker,\n    abortSignal: signal\n  })\n}\n\nasync function getStockAdvice(ticker: string) {\n  const controller = new AbortController()\n\n  try {\n    const [tree, star, beetle] = await Promise.all([\n      ask(\"tree\", ticker, controller.signal),\n      ask(\"Zubenelgenubi\", ticker, controller.signal),\n      ask(\"dung beetle\", ticker, controller.signal)\n    ])\n    return { tree, star, beetle }\n  } catch (e) {\n    controller.abort()\n    throw e\n  }\n}",
+	"contentHash": "96d2d927fb22c896",
 	"wordTimings": [
 		{
 			"word": "How",

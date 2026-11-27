@@ -40,7 +40,7 @@ interface PatternMatchOptions {
 // ============================================================================
 
 /** Convert evaluated lines to pattern-matching format */
-export function indexLines(lines: readonly EvaluatedLine[]): LineWithContent[] {
+export function indexLines(lines: ReadonlyArray<Pick<EvaluatedLine, "id" | "text">>): LineWithContent[] {
 	return lines.map((l) => ({
 		lineId: l.id,
 		content: l.text,

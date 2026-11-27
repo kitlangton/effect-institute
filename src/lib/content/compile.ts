@@ -12,7 +12,7 @@
 
 import { createHash } from "node:crypto"
 import { type Animation, type Snapshot, stack } from "@/lib/animated-code/animation/animation"
-import { render, toPlainText } from "@/lib/animated-code/animation/render"
+import { evaluateCode } from "@/lib/animated-code/animation/compile/evaluate"
 import type { StepRef } from "@/lib/animated-code/flow"
 import {
 	type CompiledComponentFlow,
@@ -119,16 +119,14 @@ function logFlowWarnings(sectionId: string, warnings: FlowWarning[], prefix = ""
 
 /**
  * Extract code string from CodeDef.
- * For animated code, renders the base state.
+ * For animated code, the lines the base state shows.
  */
 export function extractCode(code: string | AnimatedCodeFlow): string {
 	if (typeof code === "string") {
 		return code.trim()
 	}
 
-	// Flow-based animated code: render with base state (defaults if not specified)
-	const rendered = render(code.animation, code.base ?? {})
-	return toPlainText(rendered)
+	return evaluateCode(code.animation, code.base ?? {})
 }
 
 // ============================================================================
@@ -260,7 +258,7 @@ export function compileSection(
 		// Validate each step's annotation patterns against the code that step renders.
 		// snapshots[0] is the base state; snapshots[i + 1] is produced by flow[i].
 		const anim = def.code.animation
-		const stepCode = snapshots.slice(1).map((snap) => toPlainText(render(anim, snap.slots)))
+		const stepCode = snapshots.slice(1).map((snap) => evaluateCode(anim, snap.slots))
 		const lineIds = extractLineIds(anim)
 		const patternWarnings = validateFlowPatterns([...def.code.flow], stepCode, lineIds)
 
