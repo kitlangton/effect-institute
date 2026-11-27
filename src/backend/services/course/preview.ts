@@ -24,7 +24,7 @@ export const makePreview = (loader: Loader) => {
 					lineIds: [],
 					renderedLines: [],
 					slots: {},
-					annotations: {},
+					annotations: [],
 				},
 			] satisfies StepPreview[]
 		}

@@ -3,12 +3,14 @@
  *
  * @module
  */
+
 import {
 	type AnnotationLocation,
 	describeTarget,
 	locateAnnotations,
 	type StepPreview,
 } from "@/lib/animated-code/animation/preview"
+import type { Burst, Cursor } from "@/lib/animated-code/annotations"
 
 export const STEPS_LEGEND =
 	"▸ focused | <cursor> <burst> <bright> <glow> <squiggle> <mark> <status> <spotlight> | Δ «slot» changed content"
@@ -113,20 +115,31 @@ function stabilityLine(preview: StepPreview, lineIndex: number, changedSlots: Re
 }
 
 function summaryLine(preview: StepPreview, located: ReturnType<typeof locateAnnotations>): string | undefined {
-	const ann = preview.annotations
+	// The last of each is the one that shows
+	let cursor: Cursor | undefined
+	let burst: Burst | undefined
+	let say: string | undefined
+	let sound: string | undefined
+	for (const ann of preview.annotations) {
+		if (ann._tag === "Cursor") cursor = ann
+		else if (ann._tag === "Burst") burst = ann
+		else if (ann._tag === "Say") say = ann.text
+		else if (ann._tag === "Sound") sound = ann.name
+	}
 	const isMissing = (kind: AnnotationLocation["kind"]) => located.missing.some((m) => m.kind === kind)
 	const parts: string[] = []
 
-	if (ann.cursor) {
+	if (cursor) {
 		const loc = located.locations.find((l) => l.kind === "cursor")
 		const posInfo = loc ? `L${loc.line}:${loc.start}-${loc.end}` : "(not found!)"
-		parts.push(`cursor: ${describeTarget(ann.cursor)} ${posInfo}`)
+		parts.push(`cursor: ${describeTarget(cursor)} ${posInfo}`)
 	}
-	if (ann.burst) {
-		parts.push(`burst: ${describeTarget(ann.burst)} ${ann.burst.emoji}${isMissing("burst") ? " (not found!)" : ""}`)
+	if (burst) {
+		const emoji = typeof burst.emoji === "string" ? burst.emoji : burst.emoji[0]
+		parts.push(`burst: ${describeTarget(burst)} ${emoji}${isMissing("burst") ? " (not found!)" : ""}`)
 	}
-	if (ann.say !== undefined) parts.push(`say: "${ann.say}"`)
-	if (ann.sound) parts.push(`sound: ${ann.sound}`)
+	if (say !== undefined) parts.push(`say: "${say}"`)
+	if (sound) parts.push(`sound: ${sound}`)
 	for (const miss of located.missing) {
 		if (miss.kind === "cursor" || miss.kind === "burst") continue
 		parts.push(`${miss.kind}: ${describeTarget(miss.target)} (not found!)`)

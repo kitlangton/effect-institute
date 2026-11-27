@@ -8,31 +8,12 @@
  * @module
  */
 
-import {
-	type AnimationSoundName,
-	type Background,
-	type Bright,
-	type Burst,
-	type Cursor,
-	type Focus,
-	type Glow,
-	type Mark,
-	type Say,
-	type Sound,
-	Spotlight,
-	type Squiggle,
-	Status,
-} from "@/lib/animated-code/annotations"
 import type {
-	BurstTarget,
 	CharRange,
 	CodeSlideshow,
-	CursorTarget,
 	FrameState,
 	LineState,
 	Overlay,
-	Spotlight as SpotlightState,
-	StatusIndicators,
 	StatusRange,
 	TemplateLine,
 	TemplatePart,
@@ -43,7 +24,7 @@ import { evaluateLinesForSnapshot } from "./evaluate"
 import { type Highlight, plainText, typescriptHighlighter } from "./highlight"
 import { buildManifest, type ManifestLine } from "./manifest"
 import { compileLineContentFromAST, getPartVersion, hasMultipleVersions, isPartVisible, type Part } from "./parts"
-import { collectSimpleRanges, findPatternGlobally, indexLines, resolveFocusedLines } from "./pattern-matching"
+import { type ResolvedRange, type ResolvedSnapshot, resolveAnnotations } from "./resolve"
 
 // ============================================================================
 // Types
@@ -76,12 +57,17 @@ export function compile(def: AnimationDef, highlight: Highlight = plainText): Co
 	// Phase 2: Compile parts for each line (proper part-level granularity)
 	const lineParts = compileLineParts(manifest.lines, snapshots)
 
-	// Phase 3: Collect all spotlight/status ranges across all snapshots (for stable DOM)
-	const { spotlight: allSpotlightRanges, status: allStatusRanges } = collectAllRanges(manifest, snapshots)
+	// Phase 3: Resolve each snapshot's annotations against the lines it shows
+	const contents = manifest.lines.map((l) => ({ id: l.id, content: l.content }))
+	const lineIdsAt = (idx: number) => manifest.lineOrder.get(idx) ?? []
+	const resolved = snapshots.map((snapshot, idx) =>
+		resolveAnnotations(evaluateLinesForSnapshot(contents, lineIdsAt(idx), snapshot.slots), snapshot.annotations),
+	)
+	const everyRange = collectEveryRange(resolved)
 
-	// Phase 4: Render each frame's lines and resolve its annotations
-	const frames = snapshots.map((snapshot, idx) =>
-		renderFrame(idx, manifest, snapshot, lineParts, allSpotlightRanges, allStatusRanges, highlight),
+	// Phase 4: Render each frame's lines and place its annotations
+	const frames = resolved.map((annotations, idx) =>
+		renderFrame(idx, lineIdsAt(idx), idx > 0 ? lineIdsAt(idx - 1) : [], annotations, lineParts, everyRange, highlight),
 	)
 
 	// Phase 5: Store each part's renderings once, then each frame's choice among them
@@ -116,53 +102,25 @@ function compileLineParts(lines: readonly ManifestLine[], snapshots: readonly Sn
 }
 
 // ============================================================================
-// Phase 3: Collect All Ranges (for stable DOM)
+// Phase 3: Every Spotlight and Status Range (for stable DOM)
 // ============================================================================
 
-/**
- * Single pass through all snapshots to collect both spotlight and status ranges.
- * Avoids duplicate evaluation of lines for each annotation type.
- */
-function collectAllRanges(
-	manifest: ReturnType<typeof buildManifest>,
-	snapshots: readonly Snapshot[],
-): { spotlight: Map<string, CharRange[]>; status: Map<string, CharRange[]> } {
+/** Ranges ever spotlit or given a status indicator, by line ID, so token spans never split mid-animation */
+interface EveryRange {
+	readonly spotlight: ReadonlyMap<string, readonly CharRange[]>
+	readonly status: ReadonlyMap<string, readonly CharRange[]>
+}
+
+function collectEveryRange(resolved: readonly ResolvedSnapshot[]): EveryRange {
 	const spotlight = new Map<string, CharRange[]>()
 	const status = new Map<string, CharRange[]>()
+	const add = (into: Map<string, CharRange[]>, lineId: string, ranges: readonly CharRange[]) =>
+		into.set(lineId, [...(into.get(lineId) ?? []), ...ranges])
 
-	for (let idx = 0; idx < snapshots.length; idx++) {
-		const snapshot = snapshots[idx]
-		const lineIds = manifest.lineOrder.get(idx) ?? []
-		const evaluatedLines = evaluateLinesForSnapshot(
-			manifest.lines.map((l) => ({ id: l.id, content: l.content })),
-			lineIds,
-			snapshot.slots,
-		)
-		const indexedLines = indexLines(evaluatedLines)
-
-		for (const ann of snapshot.annotations) {
-			if (ann instanceof Spotlight) {
-				const ranges = collectSimpleRanges(indexedLines, [...ann.patterns])
-				for (const [lineId, lineRanges] of Object.entries(ranges)) {
-					const existing = spotlight.get(lineId) ?? []
-					existing.push(...lineRanges)
-					spotlight.set(lineId, existing)
-				}
-			} else if (ann instanceof Status) {
-				const match = findPatternGlobally(indexedLines, ann.text, {
-					nth: ann.nth,
-					after: ann.after,
-					substring: ann.substring,
-				})
-				if (match) {
-					const existing = status.get(match.lineId) ?? []
-					existing.push({ start: match.start, end: match.end })
-					status.set(match.lineId, existing)
-				}
-			}
-		}
+	for (const snapshot of resolved) {
+		for (const [lineId, ranges] of Object.entries(snapshot.spotlight?.ranges ?? {})) add(spotlight, lineId, ranges)
+		for (const { lineId, start, end } of snapshot.status) add(status, lineId, [{ start, end }])
 	}
-
 	return { spotlight, status }
 }
 
@@ -194,49 +152,74 @@ interface FrameRendering extends Omit<FrameState, "lineOrder" | "state"> {
 
 function renderFrame(
 	snapshotIdx: number,
-	manifest: ReturnType<typeof buildManifest>,
-	snapshot: Snapshot,
+	lineIds: readonly string[],
+	prevLineIds: readonly string[],
+	annotations: ResolvedSnapshot,
 	lineParts: Map<string, LinePartsInfo>,
-	allSpotlightRanges: Map<string, CharRange[]>,
-	allStatusRanges: Map<string, CharRange[]>,
+	everyRange: EveryRange,
 	highlight: Highlight,
 ): FrameRendering {
-	const lineIds = manifest.lineOrder.get(snapshotIdx) ?? []
-	const prevLineIds = new Set(snapshotIdx > 0 ? (manifest.lineOrder.get(snapshotIdx - 1) ?? []) : [])
-
-	// Evaluate lines for this snapshot
-	const evaluatedLines = evaluateLinesForSnapshot(
-		manifest.lines.map((l) => ({ id: l.id, content: l.content })),
-		lineIds,
-		snapshot.slots,
-	)
-	const indexedLines = indexLines(evaluatedLines)
-	const lineIdToIndex = new Map(lineIds.map((id, i) => [id, i]))
-
-	const annotations = processAnnotations(snapshot, indexedLines, lineIdToIndex, allSpotlightRanges, allStatusRanges)
+	const entered = new Set(prevLineIds)
+	// Resolved annotations only name lines of this frame
+	const lineIndex = new Map(lineIds.map((id, i) => [id, i]))
+	const at = (lineId: string) => lineIndex.get(lineId) ?? -1
+	const overlay = (r: ResolvedRange): Overlay => ({
+		lineIndex: at(r.lineId),
+		start: r.start,
+		end: r.end,
+		...(r.color && { color: r.color }),
+	})
+	const { focusedLineIds, spotlight, cursor } = annotations
 
 	const lines = lineIds.map((lineId): LineRendering => {
 		const background = annotations.backgrounds.get(lineId)
 		return {
 			lineId,
 			parts: renderLineParts(lineId, snapshotIdx, lineParts.get(lineId), highlight),
-			entering: !prevLineIds.has(lineId),
-			dimmed: annotations.hasFocus && !annotations.focusedLineIds.has(lineId),
+			entering: !entered.has(lineId),
+			dimmed: focusedLineIds !== undefined && !focusedLineIds.has(lineId),
 			...(background && { background }),
 		}
 	})
 
+	const statusRanges: Record<number, StatusRange[]> = {}
+	for (const { lineId, start, end, status } of annotations.status)
+		(statusRanges[at(lineId)] ??= []).push({ start, end, status })
+
 	return {
 		id: snapshotIdx,
 		lines,
-		marks: annotations.marks,
-		glows: annotations.glows,
-		squiggles: annotations.squiggles,
-		brightRanges: annotations.brightRanges,
-		...(annotations.spotlight && { spotlight: annotations.spotlight }),
-		...(annotations.status && { status: annotations.status }),
-		...(annotations.cursor && { cursor: annotations.cursor }),
-		bursts: annotations.bursts,
+		marks: annotations.marks.map(overlay),
+		glows: annotations.glows.map(overlay),
+		squiggles: annotations.squiggles.map(overlay),
+		brightRanges: annotations.brights.map(overlay),
+		// Every frame carries the config once any frame uses it, so token spans stay stable
+		...(everyRange.spotlight.size > 0 && {
+			spotlight: {
+				ranges: Object.fromEntries(Object.entries(spotlight?.ranges ?? {}).map(([id, ranges]) => [at(id), ranges])),
+				allRanges: Object.fromEntries(everyRange.spotlight),
+				dim: spotlight?.dim ?? 0.4,
+				glow: spotlight?.glow ?? false,
+			},
+		}),
+		...(everyRange.status.size > 0 && {
+			status: { ranges: statusRanges, allRanges: Object.fromEntries(everyRange.status) },
+		}),
+		...(cursor && {
+			cursor: {
+				lineIndex: at(cursor.lineId),
+				charOffset: cursor.charOffset,
+				textLength: cursor.textLength,
+				...(cursor.type && { type: cursor.type }),
+			},
+		}),
+		bursts: annotations.bursts.map(({ lineId, charOffset, textLength, emoji, count }) => ({
+			lineIndex: at(lineId),
+			charOffset,
+			textLength,
+			emoji,
+			count,
+		})),
 		...(annotations.sound && { sound: annotations.sound }),
 		...(annotations.say && { say: annotations.say }),
 	}
@@ -408,233 +391,4 @@ function frameState(frame: FrameRendering, template: TemplateBuild): FrameState 
 
 	const { id, lines, ...annotations } = frame
 	return { id, lineOrder: lines.map((l) => l.lineId), state, ...annotations }
-}
-
-// ============================================================================
-// Annotation Processing
-// ============================================================================
-
-interface AnnotationResult {
-	marks: Overlay[]
-	glows: Overlay[]
-	squiggles: Overlay[]
-	brightRanges: Overlay[]
-	spotlight?: SpotlightState
-	status?: StatusIndicators
-	cursor?: CursorTarget
-	bursts: BurstTarget[]
-	sound?: AnimationSoundName
-	say?: string
-	hasFocus: boolean
-	focusedLineIds: Set<string>
-	backgrounds: Map<string, LineBgStyle>
-}
-
-/** Find pattern and transform match to result, or undefined if not found */
-function processPatternAnnotation<
-	A extends {
-		text: string
-		nth?: number | undefined
-		after?: string | undefined
-		substring?: boolean | undefined
-	},
-	T,
->(
-	ann: A,
-	lines: ReturnType<typeof indexLines>,
-	lineIdToIndex: Map<string, number>,
-	transform: (match: { lineId: string; start: number; end: number }, lineIndex: number) => T,
-): T | undefined {
-	const match = findPatternGlobally(lines, ann.text, {
-		nth: ann.nth ?? 1,
-		after: ann.after,
-		substring: ann.substring,
-	})
-	if (!match) return undefined
-	const lineIndex = lineIdToIndex.get(match.lineId)
-	if (lineIndex === undefined) return undefined
-	return transform(match, lineIndex)
-}
-
-/** Process overlay annotation (Mark, Glow, Squiggle, Bright) */
-function processOverlay<
-	A extends {
-		text: string
-		nth?: number | undefined
-		after?: string | undefined
-		substring?: boolean | undefined
-		color?: string | undefined
-	},
->(ann: A, lines: ReturnType<typeof indexLines>, lineIdToIndex: Map<string, number>, target: Overlay[]): void {
-	const overlay = processPatternAnnotation(ann, lines, lineIdToIndex, (m, idx) => ({
-		lineIndex: idx,
-		start: m.start,
-		end: m.end,
-		...(ann.color && { color: ann.color }),
-	}))
-	if (overlay) target.push(overlay)
-}
-
-/** Context for annotation handlers */
-interface AnnotationContext {
-	lines: ReturnType<typeof indexLines>
-	lineIdToIndex: Map<string, number>
-	result: AnnotationResult
-	spotlightRanges: Record<string, CharRange[]>
-	spotlightDim: number
-	spotlightGlow: boolean
-	statusRanges: Record<string, StatusRange[]>
-}
-
-/** Annotation handler type */
-type AnnotationHandler = (ann: unknown, ctx: AnnotationContext) => void
-
-/** Dispatch map for annotation processing */
-const annotationHandlers: Record<string, AnnotationHandler> = {
-	Focus: (ann, ctx) => {
-		const a = ann as Focus
-		const focusedLines = resolveFocusedLines(ctx.lines, [...a.lines])
-		ctx.result.focusedLineIds = new Set(focusedLines)
-		ctx.result.hasFocus = focusedLines.length > 0
-	},
-	Spotlight: (ann, ctx) => {
-		const a = ann as Spotlight
-		ctx.spotlightRanges = collectSimpleRanges(ctx.lines, [...a.patterns])
-		ctx.spotlightDim = a.dim ?? 0.4
-		ctx.spotlightGlow = a.glow ?? false
-	},
-	Background: (ann, ctx) => {
-		const a = ann as Background
-		ctx.result.backgrounds.set(a.lineId, a.style)
-	},
-	Sound: (ann, ctx) => {
-		ctx.result.sound = (ann as Sound).name
-	},
-	Say: (ann, ctx) => {
-		ctx.result.say = (ann as Say).text
-	},
-	Mark: (ann, ctx) => {
-		processOverlay(ann as Mark, ctx.lines, ctx.lineIdToIndex, ctx.result.marks)
-	},
-	Glow: (ann, ctx) => {
-		processOverlay(ann as Glow, ctx.lines, ctx.lineIdToIndex, ctx.result.glows)
-	},
-	Squiggle: (ann, ctx) => {
-		processOverlay(ann as Squiggle, ctx.lines, ctx.lineIdToIndex, ctx.result.squiggles)
-	},
-	Bright: (ann, ctx) => {
-		processOverlay(ann as Bright, ctx.lines, ctx.lineIdToIndex, ctx.result.brightRanges)
-	},
-	Status: (ann, ctx) => {
-		const a = ann as Status
-		const match = findPatternGlobally(ctx.lines, a.text, {
-			nth: a.nth,
-			after: a.after,
-			substring: a.substring,
-		})
-		if (match && ctx.lineIdToIndex.has(match.lineId)) {
-			const ranges = (ctx.statusRanges[match.lineId] ??= [])
-			ranges.push({ start: match.start, end: match.end, status: a.status })
-		}
-	},
-	Cursor: (ann, ctx) => {
-		const a = ann as Cursor
-		const cursor = processPatternAnnotation(a, ctx.lines, ctx.lineIdToIndex, (m, idx) => ({
-			lineIndex: idx,
-			charOffset: m.start,
-			textLength: a.text.length,
-			...(a.type !== undefined ? { type: a.type } : {}),
-		}))
-		if (cursor) ctx.result.cursor = cursor
-	},
-	Burst: (ann, ctx) => {
-		const a = ann as Burst
-		const burst = processPatternAnnotation(a, ctx.lines, ctx.lineIdToIndex, (m, idx) => ({
-			lineIndex: idx,
-			charOffset: m.start,
-			textLength: a.text.length,
-			emoji: Array.isArray(a.emoji) ? a.emoji : [a.emoji],
-			count: a.count ?? 5,
-		}))
-		if (burst) ctx.result.bursts.push(burst)
-	},
-}
-
-function processAnnotations(
-	snapshot: Snapshot,
-	lines: ReturnType<typeof indexLines>,
-	lineIdToIndex: Map<string, number>,
-	allSpotlightRanges: Map<string, CharRange[]>,
-	allStatusRanges: Map<string, CharRange[]>,
-): AnnotationResult {
-	const ctx: AnnotationContext = {
-		lines,
-		lineIdToIndex,
-		result: {
-			marks: [],
-			glows: [],
-			squiggles: [],
-			brightRanges: [],
-			bursts: [],
-			hasFocus: false,
-			focusedLineIds: new Set(),
-			backgrounds: new Map(),
-		},
-		spotlightRanges: {},
-		spotlightDim: 0.4,
-		spotlightGlow: false,
-		statusRanges: {},
-	}
-
-	for (const ann of snapshot.annotations) {
-		const handler = annotationHandlers[ann._tag]
-		handler?.(ann, ctx)
-	}
-
-	// Build spotlight config if ANY frame has spotlight (for stable DOM)
-	if (allSpotlightRanges.size > 0) {
-		const ranges: Record<number, CharRange[]> = {}
-		const allRanges: Record<string, CharRange[]> = {}
-
-		for (const [lineId, lineRanges] of Object.entries(ctx.spotlightRanges)) {
-			const lineIndex = ctx.lineIdToIndex.get(lineId)
-			if (lineIndex !== undefined) {
-				ranges[lineIndex] = lineRanges
-			}
-		}
-
-		// allRanges keyed by line ID (not index) for stable DOM across line collapses
-		for (const [lineId, lineRanges] of allSpotlightRanges) {
-			allRanges[lineId] = lineRanges
-		}
-
-		ctx.result.spotlight = {
-			ranges,
-			allRanges,
-			dim: ctx.spotlightDim,
-			glow: ctx.spotlightGlow,
-		}
-	}
-
-	// Build status config if ANY frame has status (for stable DOM)
-	if (allStatusRanges.size > 0) {
-		const ranges: Record<number, StatusRange[]> = {}
-		const allRanges: Record<string, CharRange[]> = {}
-
-		for (const [lineId, lineRanges] of Object.entries(ctx.statusRanges)) {
-			const lineIndex = ctx.lineIdToIndex.get(lineId)
-			if (lineIndex !== undefined) {
-				ranges[lineIndex] = lineRanges
-			}
-		}
-
-		// allRanges keyed by line ID (not index) for stable DOM across line collapses
-		for (const [lineId, lineRanges] of allStatusRanges) {
-			allRanges[lineId] = lineRanges
-		}
-
-		ctx.result.status = { ranges, allRanges }
-	}
-
-	return ctx.result
 }
