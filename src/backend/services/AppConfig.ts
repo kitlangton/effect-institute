@@ -24,6 +24,8 @@ const findProjectRoot = (startDir: string) =>
 	})
 
 export interface AppConfigShape {
+	/** Repository root (the directory holding package.json) */
+	readonly projectRoot: string
 	/** Filesystem path to authored chapter DSL directory (content/) */
 	readonly coursesDir: string
 	/** Filesystem path to source narration audio directory (assets/audio/) */
@@ -41,6 +43,7 @@ export class AppConfig extends Context.Service<AppConfig, AppConfigShape>()("@ef
 			const path = yield* Path.Path
 			const projectRoot = yield* findProjectRoot(import.meta.dirname)
 			return AppConfig.of({
+				projectRoot,
 				coursesDir: path.join(projectRoot, CONTENT_DIR_NAME),
 				audioSourceDir: path.join(projectRoot, "assets", "audio"),
 				contentDir: path.join(projectRoot, ".authoring", CONTENT_DIR_NAME),

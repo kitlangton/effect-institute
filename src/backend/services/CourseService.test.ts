@@ -27,6 +27,7 @@ const withCourse = <A, E>(
 		const fs = yield* FileSystem.FileSystem
 		const root = yield* fs.makeTempDirectoryScoped()
 		const config = AppConfig.of({
+			projectRoot: root,
 			coursesDir: `${root}/content`,
 			audioSourceDir: `${root}/assets/audio`,
 			contentDir: `${root}/.authoring/content`,

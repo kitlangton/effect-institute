@@ -18,6 +18,7 @@ export const Options = {
 	withAlias: Flag.withAlias,
 	withDescription: Flag.withDescription,
 	withDefault: Flag.withDefault,
+	optional: Flag.optional,
 }
 
 /** Global chapter option used by most commands */
